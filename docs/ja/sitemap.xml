@@ -831,6 +831,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://clickhouse.yandex/docs/ja/operations/performance/sampling_query_profiler/</loc>
+     <lastmod>2020-02-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://clickhouse.yandex/docs/ja/operations/performance_test/</loc>
      <lastmod>2020-02-03</lastmod>
      <changefreq>daily</changefreq>
