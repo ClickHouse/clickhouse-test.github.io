@@ -631,6 +631,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://clickhouse.yandex/docs/ja/query_language/dicts/external_dicts_dict_hierarchical/</loc>
+     <lastmod>2020-02-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://clickhouse.yandex/docs/ja/query_language/dicts/internal_dicts/</loc>
      <lastmod>2020-02-13</lastmod>
      <changefreq>daily</changefreq>
