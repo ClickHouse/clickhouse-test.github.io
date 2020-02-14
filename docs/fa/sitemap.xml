@@ -26,6 +26,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://clickhouse.yandex/docs/fa/introduction/adopters/</loc>
+     <lastmod>2020-02-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://clickhouse.yandex/docs/fa/getting_started/</loc>
      <lastmod>2020-02-14</lastmod>
      <changefreq>daily</changefreq>
