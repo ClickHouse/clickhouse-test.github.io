@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581702207">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581711248">
     
     
   </head>
@@ -4000,8 +4000,8 @@
                   <h1 id="clickhouse-adopters">ClickHouse Adopters<a class="headerlink" href="#clickhouse-adopters" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Disclaimer</p>
-</div>
 <p>The following list of companies using ClickHouse and their success stories is assembled from public sources, thus might differ from current reality. We'd really appreciate if you share the story of adopting ClickHouse in your company and <a href="https://github.com/ClickHouse/ClickHouse/edit/master/docs/en/introduction/adopters.md" rel="external nofollow">add it to the list</a>, but please make sure you won't have any NDA issues by doing so. Providing updates with publications by other companies is also useful.</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -4009,11 +4009,27 @@
 <th>Industry</th>
 <th>Usecase</th>
 <th>Cluster Size</th>
-<th>Compressed/Uncompressed Data Size<abbr title="without replication"><sup>*</sup></abbr></th>
+<th>(Un)Compressed Data Size<abbr title="of single replica"><sup>*</sup></abbr></th>
 <th>Reference</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="https://2gis.ru" rel="external nofollow">2gis</a></td>
+<td>Maps</td>
+<td>Monitoring</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://youtu.be/58sPkXfq6nw" rel="external nofollow">Talk in Russian, July 2019</a></td>
+</tr>
+<tr>
+<td><a href="https://www.appsflyer.com" rel="external nofollow">Appsflyer</a></td>
+<td>Mobile analytics</td>
+<td>Main product</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://www.youtube.com/watch?v=M3wbRlcpBbY" rel="external nofollow">Talk in Russian, July 2019</a></td>
+</tr>
 <tr>
 <td><a href="https://badoo.com" rel="external nofollow">Badoo</a></td>
 <td>Dating</td>
@@ -4023,12 +4039,100 @@
 <td><a href="https://presentations.clickhouse.tech/meetup38/ml.pdf" rel="external nofollow">Slides in Russian, December 2019</a></td>
 </tr>
 <tr>
+<td><a href="http://public.web.cern.ch/public/" rel="external nofollow">CERN</a></td>
+<td>Research</td>
+<td>Experiment</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://www.yandex.com/company/press_center/press_releases/2012/2012-04-10/" rel="external nofollow">Press release, April 2012</a></td>
+</tr>
+<tr>
+<td><a href="http://public.web.cern.ch/public/" rel="external nofollow">Cisco</a></td>
+<td>Networking</td>
+<td>Traffic analysis</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://youtu.be/-hI1vDR2oPY?t=5057" rel="external nofollow">Lightning talk, October 2019</a></td>
+</tr>
+<tr>
+<td><a href="https://contentsquare.com" rel="external nofollow">ContentSquare</a></td>
+<td>Web analytics</td>
+<td>Main product</td>
+<td>—</td>
+<td>—</td>
+<td><a href="http://souslecapot.net/2018/11/21/patrick-chatain-vp-engineering-chez-contentsquare-penser-davantage-amelioration-continue-que-revolution-constante/" rel="external nofollow">Blog post in French, November 2018</a></td>
+</tr>
+<tr>
+<td><a href="https://cloudflare.com" rel="external nofollow">Cloudflare</a></td>
+<td>CDN</td>
+<td>Traffic analysis</td>
+<td>36 servers</td>
+<td>—</td>
+<td><a href="https://blog.cloudflare.com/how-cloudflare-analyzes-1m-dns-queries-per-second/" rel="external nofollow">Blog post, May 2017</a>, <a href="https://blog.cloudflare.com/http-analytics-for-6m-requests-per-second-using-clickhouse/" rel="external nofollow">Blog post, March 2018</a></td>
+</tr>
+<tr>
+<td><a href="https://www.exness.com" rel="external nofollow">Exness</a></td>
+<td>Trading</td>
+<td>Metrics, Logging</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://youtu.be/_rpU-TvSfZ8?t=3215" rel="external nofollow">Talk in Russian, May 2019</a></td>
+</tr>
+<tr>
+<td><a href="https://geniee.co.jp" rel="external nofollow">Geniee</a></td>
+<td>Ad network</td>
+<td>Main product</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://tech.geniee.co.jp/entry/2017/07/20/160100" rel="external nofollow">Blog post in Japanese, July 2017</a></td>
+</tr>
+<tr>
+<td><a href="https://cloudflare.com" rel="external nofollow">LifeStreet</a></td>
+<td>Ad network</td>
+<td>Main product</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://habr.com/en/post/322620/" rel="external nofollow">Blog post in Russian, February 2017</a></td>
+</tr>
+<tr>
+<td><a href="https://qrator.net" rel="external nofollow">Qrator</a></td>
+<td>DDoS protection</td>
+<td>Main product</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://blog.qrator.net/en/clickhouse-ddos-mitigation_37/" rel="external nofollow">Blog Post, March 2019</a></td>
+</tr>
+<tr>
+<td><a href="https://www.tencent.com" rel="external nofollow">Tencent</a></td>
+<td>Messaging</td>
+<td>Logging</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://youtu.be/T-iVQRuw-QY?t=5050" rel="external nofollow">Talk in Chinese, November 2019</a></td>
+</tr>
+<tr>
+<td><a href="https://www.s7.ru" rel="external nofollow">S7 Airlines</a></td>
+<td>Airlines</td>
+<td>Metrics, Logging</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://www.youtube.com/watch?v=nwG68klRpPg&amp;t=15s" rel="external nofollow">Talk in Russian, March 2019</a></td>
+</tr>
+<tr>
 <td><a href="https://www.uber.com" rel="external nofollow">Uber</a></td>
 <td>Taxi</td>
 <td>Logging</td>
 <td>—</td>
 <td>—</td>
-<td><a href="https://presentations.clickhouse.tech/meetup40/ml.pdf" rel="external nofollow">Slides in English, February 2020</a></td>
+<td><a href="https://presentations.clickhouse.tech/meetup40/ml.pdf" rel="external nofollow">Slides, February 2020</a></td>
+</tr>
+<tr>
+<td><a href="https://cloud.yandex.ru/services/managed-clickhouse" rel="external nofollow">Yandex Cloud</a></td>
+<td>Public Cloud</td>
+<td>Main product</td>
+<td>—</td>
+<td>—</td>
+<td><a href="https://www.youtube.com/watch?v=pgnak9e_E0o" rel="external nofollow">Talk in Russian, December 2019</a></td>
 </tr>
 <tr>
 <td><a href="https://cloud.yandex.ru/services/datalens" rel="external nofollow">Yandex DataLens</a></td>
@@ -4044,7 +4148,7 @@
 <td>Main product</td>
 <td>360 servers in one cluster, 1862 servers in one department</td>
 <td>66.41 PiB / 5.68 PiB</td>
-<td><a href="https://presentations.clickhouse.tech/meetup40/introduction/#13" rel="external nofollow">Slides in English, February 2020</a></td>
+<td><a href="https://presentations.clickhouse.tech/meetup40/introduction/#13" rel="external nofollow">Slides, February 2020</a></td>
 </tr>
 </tbody>
 </table>
