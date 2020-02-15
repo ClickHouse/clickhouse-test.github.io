@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581726397">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581729601">
     
     
   </head>
@@ -4081,7 +4081,7 @@
 <p>Метрики находятся в таблицах <a href="../system_tables/#system_tables-metrics">system.metrics</a>, <a href="../system_tables/#system_tables-events">system.events</a> и <a href="../system_tables/#system_tables-asynchronous_metrics">system.asynchronous_metrics</a>.</p>
 <p>Можно настроить экспорт метрик из ClickHouse в <a href="https://github.com/graphite-project" rel="external nofollow">Graphite</a>. Смотрите секцию <a href="../server_settings/settings/#server_settings-graphite">graphite</a> конфигурационного файла ClickHouse. Перед настройкой экспорта метрик необходимо настроить Graphite, как указано в <a href="https://graphite.readthedocs.io/en/latest/install.html" rel="external nofollow">официальном руководстве</a>.</p>
 <p>Также, можно отслеживать доступность сервера через HTTP API. Отправьте <code>HTTP GET</code> к ресурсу <code>/</code>. Если сервер доступен, он отвечает <code>200 OK</code>.</p>
-<p>Для мониторинга серверов в кластерной конфигурации необходимо установить параметр <a href="../settings/settings/#settings-max_replica_delay_for_distributed_queries">max_replica_delay_for_distributed_queries</a> и использовать HTTP ресурс <code>/replicas_status</code>. Если реплика доступна и не отстаёт от других реплик, то запрос к <code>/replicas_status</code> возвращает <code>200 OK</code>. Если реплика отстаёт, то она возвращает информацию о размере отставания.</p>
+<p>Для мониторинга серверов в кластерной конфигурации необходимо установить параметр <a href="../settings/settings/#settings-max_replica_delay_for_distributed_queries">max_replica_delay_for_distributed_queries</a> и использовать HTTP ресурс <code>/replicas_status</code>. Если реплика доступна и не отстаёт от других реплик, то запрос к <code>/replicas_status</code> возвращает <code>200 OK</code>. Если реплика отстаёт, то запрос возвращает <code>503 HTTP_SERVICE_UNAVAILABLE</code>, включая информацию о размере отставания.</p>
                 
                 </div>
                 

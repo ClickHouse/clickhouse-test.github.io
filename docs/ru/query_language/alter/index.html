@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581726397">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581729601">
     
     
   </head>
@@ -1688,6 +1688,13 @@
           <li class="md-nav__item">
   <a href="#alter_replace-partition" title="REPLACE PARTITION" class="md-nav__link">
     REPLACE PARTITION
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alter_move_to_table-partition" title="MOVE PARTITION TO TABLE" class="md-nav__link">
+    MOVE PARTITION TO TABLE
   </a>
   
 </li>
@@ -4333,6 +4340,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#alter_move_to_table-partition" title="MOVE PARTITION TO TABLE" class="md-nav__link">
+    MOVE PARTITION TO TABLE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#alter_clear-column-partition" title="CLEAR COLUMN IN PARTITION" class="md-nav__link">
     CLEAR COLUMN IN PARTITION
   </a>
@@ -4563,6 +4577,7 @@
 <li><a href="#alter_attach-partition">ATTACH PARTITION|PART</a> – добавить партицию/кусок в таблицу из директории <code>detached</code>;</li>
 <li><a href="#alter_attach-partition-from">ATTACH PARTITION FROM</a> – скопировать партицию из другой таблицы;</li>
 <li><a href="#alter_replace-partition">REPLACE PARTITION</a> – скопировать партицию из другой таблицы с заменой;</li>
+<li>[MOVE PARTITION TO TABLE] (#alter_move_to_table-partition) - переместить партицию в другую таблицу;</li>
 <li><a href="#alter_clear-column-partition">CLEAR COLUMN IN PARTITION</a> – удалить все значения в столбце для заданной партиции;</li>
 <li><a href="#alter_clear-index-partition">CLEAR INDEX IN PARTITION</a> - очистить построенные вторичные индексы для заданной партиции;</li>
 <li><a href="#alter_freeze-partition">FREEZE PARTITION</a> – создать резервную копию партиции;</li>
@@ -4636,6 +4651,17 @@
 <li>Для таблиц должен быть задан одинаковый ключ партиционирования.</li>
 </ul>
 <p>Подробнее о том, как корректно задать имя партиции, см. в разделе <a href="#alter-how-to-specify-part-expr">Как задавать имя партиции в запросах ALTER</a>.</p>
+<h4 id="alter_move_to_table-partition">MOVE PARTITION TO TABLE<a class="headerlink" href="#alter_move_to_table-partition" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">table_source</span> <span class="k">MOVE</span> <span class="n">PARTITION</span> <span class="n">partition_expr</span> <span class="k">TO</span> <span class="k">TABLE</span> <span class="n">table_dest</span>
+</pre></div>
+
+
+<p>Перемещает партицию из таблицы <code>table_source</code> в таблицу <code>table_dest</code> (добавляет к существующим данным в <code>table_dest</code>), с удалением данных из таблицы <code>table_source</code>.</p>
+<p>Следует иметь в виду:</p>
+<ul>
+<li>Таблицы должны иметь одинаковую структуру.</li>
+<li>Для таблиц должен быть задан одинаковый ключ партиционирования.</li>
+</ul>
 <h4 id="alter_clear-column-partition">CLEAR COLUMN IN PARTITION<a class="headerlink" href="#alter_clear-column-partition" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="k">table_name</span> <span class="n">CLEAR</span> <span class="k">COLUMN</span> <span class="k">column_name</span> <span class="k">IN</span> <span class="n">PARTITION</span> <span class="n">partition_expr</span>
 </pre></div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581726397">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581729601">
     
     
   </head>
@@ -3973,7 +3973,7 @@
 <p>You can find metrics in the <a href="../system_tables/#system_tables-metrics">system.metrics</a>, <a href="../system_tables/#system_tables-events">system.events</a>, and <a href="../system_tables/#system_tables-asynchronous_metrics">system.asynchronous_metrics</a> tables.</p>
 <p>You can configure ClickHouse to export metrics to <a href="https://github.com/graphite-project" rel="external nofollow">Graphite</a>. See the <a href="../server_settings/settings/#server_settings-graphite">Graphite section</a> in the ClickHouse server configuration file. Before configuring export of metrics, you should set up Graphite by following their official <a href="https://graphite.readthedocs.io/en/latest/install.html" rel="external nofollow">guide</a>.</p>
 <p>Additionally, you can monitor server availability through the HTTP API. Send the <code>HTTP GET</code> request to <code>/</code>. If the server is available, it responds with <code>200 OK</code>.</p>
-<p>To monitor servers in a cluster configuration, you should set the <a href="../settings/settings/#settings-max_replica_delay_for_distributed_queries">max_replica_delay_for_distributed_queries</a> parameter and use the HTTP resource <code>/replicas_status</code>. A request to <code>/replicas_status</code> returns <code>200 OK</code> if the replica is available and is not delayed behind the other replicas. If a replica is delayed, it returns information about the gap.</p>
+<p>To monitor servers in a cluster configuration, you should set the <a href="../settings/settings/#settings-max_replica_delay_for_distributed_queries">max_replica_delay_for_distributed_queries</a> parameter and use the HTTP resource <code>/replicas_status</code>. A request to <code>/replicas_status</code> returns <code>200 OK</code> if the replica is available and is not delayed behind the other replicas. If a replica is delayed, it returns <code>503 HTTP_SERVICE_UNAVAILABLE</code> with information about the gap.</p>
                 
                 </div>
                 
