@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581836238">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581850598">
     
     
   </head>
@@ -3645,8 +3645,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-git-and-pbuilder" title="Install Git and Pbuilder" class="md-nav__link">
-    Install Git and Pbuilder
+  <a href="#install-git-cmake-python-and-ninja" title="Install Git, CMake, Python and Ninja" class="md-nav__link">
+    Install Git, CMake, Python and Ninja
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-gcc-9" title="Install GCC 9" class="md-nav__link">
+    Install GCC 9
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-from-a-ppa-package" title="Install from a PPA Package" class="md-nav__link">
+    Install from a PPA Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-from-sources" title="Install from Sources" class="md-nav__link">
+    Install from Sources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-gcc-9-for-builds" title="Use GCC 9 for Builds" class="md-nav__link">
+    Use GCC 9 for Builds
   </a>
   
 </li>
@@ -3659,8 +3693,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-release-script" title="Run Release Script" class="md-nav__link">
-    Run Release Script
+  <a href="#build-clickhouse" title="Build ClickHouse" class="md-nav__link">
+    Build ClickHouse
   </a>
   
 </li>
@@ -4064,8 +4098,42 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-git-and-pbuilder" title="Install Git and Pbuilder" class="md-nav__link">
-    Install Git and Pbuilder
+  <a href="#install-git-cmake-python-and-ninja" title="Install Git, CMake, Python and Ninja" class="md-nav__link">
+    Install Git, CMake, Python and Ninja
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-gcc-9" title="Install GCC 9" class="md-nav__link">
+    Install GCC 9
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-from-a-ppa-package" title="Install from a PPA Package" class="md-nav__link">
+    Install from a PPA Package
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-from-sources" title="Install from Sources" class="md-nav__link">
+    Install from Sources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-gcc-9-for-builds" title="Use GCC 9 for Builds" class="md-nav__link">
+    Use GCC 9 for Builds
   </a>
   
 </li>
@@ -4078,8 +4146,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-release-script" title="Run Release Script" class="md-nav__link">
-    Run Release Script
+  <a href="#build-clickhouse" title="Build ClickHouse" class="md-nav__link">
+    Build ClickHouse
   </a>
   
 </li>
@@ -4106,30 +4174,12 @@
                 
                 <div id="content">
                 
-                  <h1 id="how-to-build-clickhouse-release-package">How to Build ClickHouse Release Package<a class="headerlink" href="#how-to-build-clickhouse-release-package" title="Permanent link">&para;</a></h1>
-<h2 id="install-git-and-pbuilder">Install Git and Pbuilder<a class="headerlink" href="#install-git-and-pbuilder" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>$ sudo apt-get update
-$ sudo apt-get install git pbuilder debhelper lsb-release fakeroot sudo debian-archive-keyring debian-keyring
-</pre></div>
-
-
-<h2 id="checkout-clickhouse-sources">Checkout ClickHouse Sources<a class="headerlink" href="#checkout-clickhouse-sources" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>$ git clone --recursive --branch master https://github.com/ClickHouse/ClickHouse.git
-$ <span class="nb">cd</span> ClickHouse
-</pre></div>
-
-
-<h2 id="run-release-script">Run Release Script<a class="headerlink" href="#run-release-script" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>$ ./release
-</pre></div>
-
-
-<h1 id="how-to-build-clickhouse-for-development">How to Build ClickHouse for Development<a class="headerlink" href="#how-to-build-clickhouse-for-development" title="Permanent link">&para;</a></h1>
+                  <h1 id="how-to-build-clickhouse-for-development">How to Build ClickHouse for Development<a class="headerlink" href="#how-to-build-clickhouse-for-development" title="Permanent link">&para;</a></h1>
 <p>The following tutorial is based on the Ubuntu Linux system.
 With appropriate changes, it should also work on any other Linux distribution.
 Supported platforms: x86_64 and AArch64. Support for Power9 is experimental.</p>
-<h2 id="install-git-cmake-and-ninja">Install Git, CMake and Ninja<a class="headerlink" href="#install-git-cmake-and-ninja" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>$ sudo apt-get install git cmake ninja-build
+<h2 id="install-git-cmake-python-and-ninja">Install Git, CMake, Python and Ninja<a class="headerlink" href="#install-git-cmake-python-and-ninja" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>$ sudo apt-get install git cmake python ninja-build
 </pre></div>
 
 
@@ -4152,19 +4202,19 @@ $ <span class="nb">export</span> <span class="nv">CXX</span><span class="o">=</s
 </pre></div>
 
 
-<h2 id="checkout-clickhouse-sources_1">Checkout ClickHouse Sources<a class="headerlink" href="#checkout-clickhouse-sources_1" title="Permanent link">&para;</a></h2>
+<h2 id="checkout-clickhouse-sources">Checkout ClickHouse Sources<a class="headerlink" href="#checkout-clickhouse-sources" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span>$ git clone --recursive git@github.com:ClickHouse/ClickHouse.git
 </pre></div>
 
 
 <p>or</p>
 <div class="codehilite"><pre><span></span>$ git clone --recursive https://github.com/ClickHouse/ClickHouse.git
-$ <span class="nb">cd</span> ClickHouse
 </pre></div>
 
 
 <h2 id="build-clickhouse">Build ClickHouse<a class="headerlink" href="#build-clickhouse" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>$ mkdir build
+<div class="codehilite"><pre><span></span>$ <span class="nb">cd</span> ClickHouse
+$ mkdir build
 $ <span class="nb">cd</span> build
 $ cmake ..
 $ ninja
@@ -4174,6 +4224,65 @@ $ <span class="nb">cd</span> ..
 
 <p>To create an executable, run <code>ninja clickhouse</code>.
 This will create the <code>dbms/programs/clickhouse</code> executable, which can be used with <code>client</code> or <code>server</code> arguments.</p>
+<h1 id="how-to-build-clickhouse-on-any-linux">How to Build ClickHouse on Any Linux<a class="headerlink" href="#how-to-build-clickhouse-on-any-linux" title="Permanent link">&para;</a></h1>
+<p>The build requires the following componenets:</p>
+<ul>
+<li>Git (is used only to checkout the sources, it's not needed for build)</li>
+<li>CMake 3.10 or newer</li>
+<li>Ninja (recommended) or Make</li>
+<li>C++ compiler: gcc 9 or clang 8 or newer</li>
+<li>Linker: lld or gold (the classic GNU ld won't work)</li>
+<li>Python (is only used inside LLVM build and it is optional)</li>
+</ul>
+<p>If all the components are installed, you may build in the same way as the steps above.</p>
+<p>Example for Ubuntu Eoan:</p>
+<div class="codehilite"><pre><span></span>sudo apt update
+sudo apt install git cmake ninja-build g++ python
+git clone --recursive https://github.com/ClickHouse/ClickHouse.git
+mkdir build &amp;&amp; cd build
+cmake ../ClickHouse
+ninja
+</pre></div>
+
+
+<p>Example for OpenSUSE Tumbleweed:</p>
+<div class="codehilite"><pre><span></span>sudo zypper install git cmake ninja gcc-c++ python lld
+git clone --recursive https://github.com/ClickHouse/ClickHouse.git
+mkdir build &amp;&amp; cd build
+cmake ../ClickHouse
+ninja
+</pre></div>
+
+
+<p>Example for CentOS 8:</p>
+<div class="codehilite"><pre><span></span>sudo yum update
+yum install git cmake make gcc-c++ python2
+git clone --recursive https://github.com/ClickHouse/ClickHouse.git
+cmake ../ClickHouse
+make
+</pre></div>
+
+
+<h1 id="you-don-t-have-to-build-clickhouse">You Don't Have to Build ClickHouse<a class="headerlink" href="#you-don-t-have-to-build-clickhouse" title="Permanent link">&para;</a></h1>
+<p>ClickHouse is available in pre-built binaries and packages. Binaries are portable and can be run on any Linux flavour.</p>
+<p>They are build for stable, prestable and testing releases as long as for every commit to master and for every pull request.</p>
+<p>To find the most fresh build from <code>master</code>, go to <a href="https://github.com/ClickHouse/ClickHouse/commits/master" rel="external nofollow">commits page</a>, click on the first green check mark or red cross near commit, and click to the "Details" link right after "ClickHouse Build Check".</p>
+<h1 id="how-to-build-clickhouse-debian-package">How to Build ClickHouse Debian Package<a class="headerlink" href="#how-to-build-clickhouse-debian-package" title="Permanent link">&para;</a></h1>
+<h2 id="install-git-and-pbuilder">Install Git and Pbuilder<a class="headerlink" href="#install-git-and-pbuilder" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get install git python pbuilder debhelper lsb-release fakeroot sudo debian-archive-keyring debian-keyring
+</pre></div>
+
+
+<h2 id="checkout-clickhouse-sources_1">Checkout ClickHouse Sources<a class="headerlink" href="#checkout-clickhouse-sources_1" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>$ git clone --recursive --branch master https://github.com/ClickHouse/ClickHouse.git
+$ <span class="nb">cd</span> ClickHouse
+</pre></div>
+
+
+<h2 id="run-release-script">Run Release Script<a class="headerlink" href="#run-release-script" title="Permanent link">&para;</a></h2>
+<div class="codehilite"><pre><span></span>$ ./release
+</pre></div>
                 
                 </div>
                 
