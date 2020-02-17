@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581916852">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581917583">
     
     
   </head>
@@ -1679,8 +1679,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#alter_move-partition" title="MOVE PARTITION" class="md-nav__link">
-    MOVE PARTITION
+  <a href="#alter_move_to_table-partition" title="MOVE PARTITION TO TABLE" class="md-nav__link">
+    MOVE PARTITION TO TABLE
   </a>
   
 </li>
@@ -4340,8 +4340,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#alter_move-partition" title="MOVE PARTITION" class="md-nav__link">
-    MOVE PARTITION
+  <a href="#alter_move_to_table-partition" title="MOVE PARTITION TO TABLE" class="md-nav__link">
+    MOVE PARTITION TO TABLE
   </a>
   
 </li>
@@ -4582,7 +4582,7 @@ Also, they are replicated (syncing indices metadata through ZooKeeper).</p>
 <li><a href="#alter_replace-partition">REPLACE PARTITION</a> - Copies the data partition from one table to another.</li>
 <li><a href="#alter_attach-partition-from">ATTACH PARTITION FROM</a> – Copies the data partition from one table to another and adds.</li>
 <li><a href="#alter_replace-partition">REPLACE PARTITION</a> - Copies the data partition from one table to another and replaces.</li>
-<li><a href="#alter_move-partition">MOVE PARTITION</a> - Move the data partition from one table to another.</li>
+<li>[MOVE PARTITION TO TABLE] (#alter_move_to_table-partition) - Move the data partition from one table to another.</li>
 <li><a href="#alter_clear-column-partition">CLEAR COLUMN IN PARTITION</a> - Resets the value of a specified column in a partition.</li>
 <li><a href="#alter_clear-index-partition">CLEAR INDEX IN PARTITION</a> - Resets the specified secondary index in a partition.</li>
 <li><a href="#alter_freeze-partition">FREEZE PARTITION</a> – Creates a backup of a partition.</li>
@@ -4654,7 +4654,7 @@ Read more about setting the partition expression in a section <a href="#alter-ho
 <li>Both tables must have the same structure.</li>
 <li>Both tables must have the same partition key.</li>
 </ul>
-<h4 id="alter_move-partition">MOVE PARTITION<a class="headerlink" href="#alter_move-partition" title="Permanent link">&para;</a></h4>
+<h4 id="alter_move_to_table-partition">MOVE PARTITION TO TABLE<a class="headerlink" href="#alter_move_to_table-partition" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span></span><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">table_source</span> <span class="k">MOVE</span> <span class="n">PARTITION</span> <span class="n">partition_expr</span> <span class="k">TO</span> <span class="k">TABLE</span> <span class="n">table_dest</span>
 </pre></div>
 

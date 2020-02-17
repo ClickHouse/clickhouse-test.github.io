@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1581916852">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1581917583">
     
     
   </head>
@@ -5557,19 +5557,19 @@ Code: 395. DB::Exception: Received from localhost:9000. DB::Exception: Too many.
 
 
 <h2 id="identity">identity<a class="headerlink" href="#identity" title="Permanent link">&para;</a></h2>
-<p>Returns the same value that was used as its argument. Used for debugging and testing, allows to cancel using index, and get the query performance of a full scan. When query is analyzed for possible use of index, the analyzer doesn't look inside <code>identity</code> functions.</p>
-<p><strong>Syntax</strong></p>
+<p>Возвращает свой аргумент. Используется для отладки и тестирования, позволяет отменить использование индекса, и получить результат и производительность полного сканирования таблицы. Это работает, потому что оптимизатор запросов не может "заглянуть" внутрь функции <code>identity</code>.</p>
+<p><strong>Синтаксис</strong></p>
 <div class="codehilite"><pre><span></span><span class="k">identity</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 
 
-<p><strong>Example</strong></p>
+<p><strong>Пример</strong></p>
 <p>Query:</p>
 <div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">identity</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 
 
-<p>Result:</p>
+<p>Результат:</p>
 <div class="codehilite"><pre><span></span>┌─identity(42)─┐
 │           42 │
 └──────────────┘
