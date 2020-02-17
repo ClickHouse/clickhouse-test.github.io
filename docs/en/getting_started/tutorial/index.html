@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581923359">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581969078">
     
     
   </head>
@@ -4759,7 +4759,7 @@ clickhouse-client --query <span class="s2">&quot;SELECT COUNT(*) FROM tutorial.v
 <p>ZooKeeper is not a strict requirement: in some simple cases you can duplicate the data by writing it into all the replicas from your application code. This approach is <strong>not</strong> recommended, in this case ClickHouse won't be able to
         guarantee data consistency on all replicas. This remains the responsibility of your application.</p>
 <p>ZooKeeper locations need to be specified in configuration file:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;zookeeper-servers&gt;</span>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;zookeeper&gt;</span>
     <span class="nt">&lt;node&gt;</span>
         <span class="nt">&lt;host&gt;</span>zoo01.yandex.ru<span class="nt">&lt;/host&gt;</span>
         <span class="nt">&lt;port&gt;</span>2181<span class="nt">&lt;/port&gt;</span>
@@ -4772,7 +4772,7 @@ clickhouse-client --query <span class="s2">&quot;SELECT COUNT(*) FROM tutorial.v
         <span class="nt">&lt;host&gt;</span>zoo03.yandex.ru<span class="nt">&lt;/host&gt;</span>
         <span class="nt">&lt;port&gt;</span>2181<span class="nt">&lt;/port&gt;</span>
     <span class="nt">&lt;/node&gt;</span>
-<span class="nt">&lt;/zookeeper-servers&gt;</span>
+<span class="nt">&lt;/zookeeper&gt;</span>
 </pre></div>
 
 
