@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581914814">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1581915207">
     
     
   </head>
@@ -4259,7 +4259,7 @@ ninja
 yum --nogpg install git cmake make gcc-c++ python2
 git clone --recursive https://github.com/ClickHouse/ClickHouse.git
 cmake ../ClickHouse
-make
+make -j $(nproc)
 </pre></div>
 
 
