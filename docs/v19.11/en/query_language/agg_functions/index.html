@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582045350">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582048537">
     
     
   </head>
@@ -3517,42 +3517,42 @@
 <p>During aggregation, all <code>NULL</code>s are skipped.</p>
 <p><strong>Examples:</strong></p>
 <p>Consider this table:</p>
-<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
-│ 1 │    2 │
-│ 2 │ ᴺᵁᴸᴸ │
-│ 3 │    2 │
-│ 3 │    3 │
-│ 3 │ ᴺᵁᴸᴸ │
-└───┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
+<span class="err">│ 1 │    2 │</span>
+<span class="err">│ 2 │ ᴺᵁᴸᴸ │</span>
+<span class="err">│ 3 │    2 │</span>
+<span class="err">│ 3 │    3 │</span>
+<span class="err">│ 3 │ ᴺᵁᴸᴸ │</span>
+<span class="err">└───┴──────┘</span>
 </pre></div>
 
 
 <p>Let's say you need to total the values in the <code>y</code> column:</p>
-<div class="codehilite"><pre><span></span>:) SELECT sum(y) FROM t_null_big
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">t_null_big</span>
 
-SELECT sum(y)
-FROM t_null_big
+<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">t_null_big</span>
 
-┌─sum(y)─┐
-│      7 │
-└────────┘
+<span class="err">┌─</span><span class="k">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>      <span class="mi">7</span> <span class="err">│</span>
+<span class="err">└────────┘</span>
 
-1 rows in set. Elapsed: 0.002 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
 <p>The <code>sum</code> function interprets <code>NULL</code> as <code>0</code>. In particular, this means that if the function receives input of a selection where all the values are <code>NULL</code>, then the result will be <code>0</code>, not <code>NULL</code>.</p>
 <p>Now you can use the <code>groupArray</code> function to create an array from the <code>y</code> column:</p>
-<div class="codehilite"><pre><span></span>:) SELECT groupArray(y) FROM t_null_big
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">groupArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">t_null_big</span>
 
-SELECT groupArray(y)
-FROM t_null_big
+<span class="k">SELECT</span> <span class="n">groupArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">t_null_big</span>
 
-┌─groupArray(y)─┐
-│ [2,2,3]       │
-└───────────────┘
+<span class="err">┌─</span><span class="n">groupArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>       <span class="err">│</span>
+<span class="err">└───────────────┘</span>
 
-1 rows in set. Elapsed: 0.002 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
@@ -3657,7 +3657,9 @@ FROM t_null_big
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

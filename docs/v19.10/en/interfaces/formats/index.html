@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582045432">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582048634">
     
     
   </head>
@@ -4130,18 +4130,18 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>2014-03-17      1406958
-2014-03-18      1383658
-2014-03-19      1405797
-2014-03-20      1353623
-2014-03-21      1245779
-2014-03-22      1031592
-2014-03-23      1046491
+<div class="codehilite"><pre><span></span><span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span>      <span class="mi">1406958</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span>      <span class="mi">1383658</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span>      <span class="mi">1405797</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span>      <span class="mi">1353623</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span>      <span class="mi">1245779</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span>      <span class="mi">1031592</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span>      <span class="mi">1046491</span>
 
-0000-00-00      8873898
+<span class="mi">0000</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span>      <span class="mi">8873898</span>
 
-2014-03-17      1031592
-2014-03-23      1406958
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span>      <span class="mi">1031592</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span>      <span class="mi">1406958</span>
 </pre></div>
 
 
@@ -4156,10 +4156,10 @@ This all occurs in the system time zone at the time the client or server starts 
 During a read operation, incorrect dates and dates with times can be parsed with natural overflow or as null dates and times, without an error message.</p>
 <p>As an exception, parsing dates with times is also supported in Unix timestamp format, if it consists of exactly 10 decimal digits. The result is not time zone-dependent. The formats YYYY-MM-DD hh:mm:ss and NNNNNNNNNN are differentiated automatically.</p>
 <p>Strings are output with backslash-escaped special characters. The following escape sequences are used for output: <code>\b</code>, <code>\f</code>, <code>\r</code>, <code>\n</code>, <code>\t</code>, <code>\0</code>, <code>\'</code>, <code>\\</code>. Parsing also supports the sequences <code>\a</code>, <code>\v</code>, and <code>\xHH</code> (hex escape sequences) and any <code>\c</code> sequences, where <code>c</code> is any character (these sequences are converted to <code>c</code>). Thus, reading data supports formats where a line feed can be written as <code>\n</code> or <code>\</code>, or as a line feed. For example, the string <code>Hello world</code> with a line feed between the words instead of a space can be parsed in any of the following variations:</p>
-<div class="codehilite"><pre><span></span>Hello\nworld
+<div class="codehilite"><pre><span></span><span class="n">Hello</span><span class="err">\</span><span class="n">nworld</span>
 
-Hello\
-world
+<span class="n">Hello</span><span class="err">\</span>
+<span class="n">world</span>
 </pre></div>
 
 
@@ -4183,16 +4183,16 @@ During parsing, the first and second rows are completely ignored.</p>
 <p>This format is also available under the name <code>TSVWithNamesAndTypes</code>.</p>
 <h2 id="tskv">TSKV<a class="headerlink" href="#tskv" title="Permanent link">&para;</a></h2>
 <p>Similar to TabSeparated, but outputs a value in name=value format. Names are escaped the same way as in TabSeparated format, and the = symbol is also escaped.</p>
-<div class="codehilite"><pre><span></span>SearchPhrase=   count()=8267016
-SearchPhrase=bathroom interior design    count()=2166
-SearchPhrase=yandex     count()=1655
-SearchPhrase=2014 spring fashion    count()=1549
-SearchPhrase=freeform photos       count()=1480
-SearchPhrase=angelina jolie    count()=1245
-SearchPhrase=omsk       count()=1112
-SearchPhrase=photos of dog breeds    count()=1091
-SearchPhrase=curtain designs        count()=1064
-SearchPhrase=baku       count()=1000
+<div class="codehilite"><pre><span></span><span class="err">SearchPhrase=   count()=8267016</span>
+<span class="err">SearchPhrase=bathroom interior design    count()=2166</span>
+<span class="err">SearchPhrase=yandex     count()=1655</span>
+<span class="err">SearchPhrase=2014 spring fashion    count()=1549</span>
+<span class="err">SearchPhrase=freeform photos       count()=1480</span>
+<span class="err">SearchPhrase=angelina jolie    count()=1245</span>
+<span class="err">SearchPhrase=omsk       count()=1112</span>
+<span class="err">SearchPhrase=photos of dog breeds    count()=1091</span>
+<span class="err">SearchPhrase=curtain designs        count()=1064</span>
+<span class="err">SearchPhrase=baku       count()=1000</span>
 </pre></div>
 
 
@@ -4201,7 +4201,7 @@ SearchPhrase=baku       count()=1000
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>x=1 y=\N
+<div class="codehilite"><pre><span></span><span class="err">x=1 y=\N</span>
 </pre></div>
 
 
@@ -4211,7 +4211,7 @@ SearchPhrase=baku       count()=1000
 <h2 id="csv">CSV<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h2>
 <p>Comma Separated Values format (<a href="https://tools.ietf.org/html/rfc4180" rel="external nofollow">RFC</a>).</p>
 <p>When formatting, rows are enclosed in double quotes. A double quote inside a string is output as two double quotes in a row. There are no other rules for escaping characters. Date and date-time are enclosed in double quotes. Numbers are output without quotes. Values are separated by a delimiter character, which is <code>,</code> by default. The delimiter character is defined in the setting <a href="../../operations/settings/settings/#settings-format_csv_delimiter">format_csv_delimiter</a>. Rows are separated using the Unix line feed (LF). Arrays are serialized in CSV as follows: first the array is serialized to a string as in TabSeparated format, and then the resulting string is output to CSV in double quotes. Tuples in CSV format are serialized as separate columns (that is, their nesting in the tuple is lost).</p>
-<div class="codehilite"><pre><span></span>clickhouse-client --format_csv_delimiter=&quot;|&quot; --query=&quot;INSERT INTO test.csv FORMAT CSV&quot; &lt; data.csv
+<div class="codehilite"><pre><span></span><span class="err">clickhouse-client --format_csv_delimiter=&quot;|&quot; --query=&quot;INSERT INTO test.csv FORMAT CSV&quot; &lt; data.csv</span>
 </pre></div>
 
 
@@ -4370,11 +4370,11 @@ See also the <code>JSONEachRow</code> format.</p>
 <p>ClickHouse substitutes omitted values with the default values for the corresponding <a href="../../data_types/">data types</a>.</p>
 <p>If <code>DEFAULT expr</code> is specified, ClickHouse uses different substitution rules depending on the <a href="../../operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields">input_format_defaults_for_omitted_fields</a> setting.</p>
 <p>Consider the following table:</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE IF NOT EXISTS example_table
-(
-    x UInt32,
-    a DEFAULT x * 2
-) ENGINE = Memory;
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE IF NOT EXISTS example_table</span>
+<span class="err">(</span>
+<span class="err">    x UInt32,</span>
+<span class="err">    a DEFAULT x * 2</span>
+<span class="err">) ENGINE = Memory;</span>
 </pre></div>
 
 
@@ -4388,10 +4388,10 @@ See also the <code>JSONEachRow</code> format.</p>
 </div>
 <h3 id="selecting-data">Selecting Data<a class="headerlink" href="#selecting-data" title="Permanent link">&para;</a></h3>
 <p>Consider the <code>UserActivity</code> table as an example:</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │   -1 │
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -4422,9 +4422,9 @@ Each result block is output as a separate table. This is necessary so that block
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
-│ 1 │ ᴺᵁᴸᴸ │
-└───┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
+<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
+<span class="err">└───┴──────┘</span>
 </pre></div>
 
 
@@ -4433,9 +4433,9 @@ Each result block is output as a separate table. This is necessary so that block
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─Escaping_test────────────────────────┐
-│ String with &#39;quotes&#39; and   character │
-└──────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─Escaping_test────────────────────────┐</span>
+<span class="err">│ String with &#39;quotes&#39; and   character │</span>
+<span class="err">└──────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4446,26 +4446,26 @@ This format is only appropriate for outputting a query result, but not for parsi
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──EventDate─┬───────c─┐
-│ 2014-03-17 │ 1406958 │
-│ 2014-03-18 │ 1383658 │
-│ 2014-03-19 │ 1405797 │
-│ 2014-03-20 │ 1353623 │
-│ 2014-03-21 │ 1245779 │
-│ 2014-03-22 │ 1031592 │
-│ 2014-03-23 │ 1046491 │
-└────────────┴─────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span> <span class="err">│</span> <span class="mi">1406958</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span> <span class="err">│</span> <span class="mi">1383658</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span> <span class="err">│</span> <span class="mi">1405797</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="err">│</span> <span class="mi">1353623</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span> <span class="err">│</span> <span class="mi">1245779</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span> <span class="err">│</span> <span class="mi">1031592</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="err">│</span> <span class="mi">1046491</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 
-Totals:
-┌──EventDate─┬───────c─┐
-│ 0000-00-00 │ 8873898 │
-└────────────┴─────────┘
+<span class="n">Totals</span><span class="p">:</span>
+<span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">0000</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span> <span class="err">│</span> <span class="mi">8873898</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 
-Extremes:
-┌──EventDate─┬───────c─┐
-│ 2014-03-17 │ 1031592 │
-│ 2014-03-23 │ 1406958 │
-└────────────┴─────────┘
+<span class="n">Extremes</span><span class="p">:</span>
+<span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span> <span class="err">│</span> <span class="mi">1031592</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="err">│</span> <span class="mi">1406958</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 </pre></div>
 
 
@@ -4515,10 +4515,10 @@ FixedString is represented simply as a sequence of bytes.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>Row 1:
-──────
-x: 1
-y: ᴺᵁᴸᴸ
+<div class="codehilite"><pre><span></span><span class="err">Row 1:</span>
+<span class="err">──────</span>
+<span class="c">x: 1</span>
+<span class="c">y: ᴺᵁᴸᴸ</span>
 </pre></div>
 
 
@@ -4527,10 +4527,10 @@ y: ᴺᵁᴸᴸ
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>Row 1:
-──────
-test: string with &#39;quotes&#39; and   with some special
- characters
+<div class="codehilite"><pre><span></span><span class="err">Row 1:</span>
+<span class="err">──────</span>
+<span class="c">test: string with &#39;quotes&#39; and   with some special</span>
+<span class="c"> characters</span>
 </pre></div>
 
 
@@ -4634,14 +4634,14 @@ ClickHouse supports both <code>proto2</code> and <code>proto3</code> syntaxes. R
 
 
 <p>where the file <code>schemafile.proto</code> looks like this:</p>
-<div class="codehilite"><pre><span></span>syntax = &quot;proto3&quot;;
+<div class="codehilite"><pre><span></span><span class="n">syntax</span> <span class="o">=</span> <span class="ss">&quot;proto3&quot;</span><span class="p">;</span>
 
-message MessageType {
-  string name = 1;
-  string surname = 2;
-  uint32 birthDate = 3;
-  repeated string phoneNumbers = 4;
-};
+<span class="n">message</span> <span class="n">MessageType</span> <span class="err">{</span>
+  <span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">string</span> <span class="n">surname</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">uint32</span> <span class="n">birthDate</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="n">repeated</span> <span class="n">string</span> <span class="n">phoneNumbers</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="err">}</span><span class="p">;</span>
 </pre></div>
 
 
@@ -4649,26 +4649,26 @@ message MessageType {
 This comparison is case-insensitive and the characters <code>_</code> (underscore) and <code>.</code> (dot) are considered as equal.
 If types of a column and a field of Protocol Buffers' message are different the necessary conversion is applied.</p>
 <p>Nested messages are supported. For example, for the field <code>z</code> in the following message type</p>
-<div class="codehilite"><pre><span></span>message MessageType {
-  message XType {
-    message YType {
-      int32 z;
-    };
-    repeated YType y;
-  };
-  XType x;
-};
+<div class="codehilite"><pre><span></span><span class="err">message MessageType {</span>
+<span class="err">  message XType {</span>
+<span class="err">    message YType {</span>
+<span class="err">      int32 z;</span>
+<span class="err">    };</span>
+<span class="err">    repeated YType y;</span>
+<span class="err">  };</span>
+<span class="err">  XType x;</span>
+<span class="err">};</span>
 </pre></div>
 
 
 <p>ClickHouse tries to find a column named <code>x.y.z</code> (or <code>x_y_z</code> or <code>X.y_Z</code> and so on).
 Nested messages are suitable to input or output a <a href="../../data_types/nested_data_structures/nested/">nested data structures</a>.</p>
 <p>Default values defined in a protobuf schema like this</p>
-<div class="codehilite"><pre><span></span>syntax = &quot;proto2&quot;;
+<div class="codehilite"><pre><span></span><span class="n">syntax</span> <span class="o">=</span> <span class="ss">&quot;proto2&quot;</span><span class="p">;</span>
 
-message MessageType {
-  optional int32 result_per_page = 3 [default = 10];
-}
+<span class="n">message</span> <span class="n">MessageType</span> <span class="err">{</span>
+  <span class="n">optional</span> <span class="n">int32</span> <span class="n">result_per_page</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="mi">10</span><span class="p">];</span>
+<span class="err">}</span>
 </pre></div>
 
 
@@ -4771,12 +4771,12 @@ See also <a href="https://cwiki.apache.org/confluence/display/GEODE/Delimiting+P
 <p>Data types of a ClickHouse table columns can differ from the corresponding fields of the Parquet data inserted. When inserting data, ClickHouse interprets data types according to the table above and then <a href="../query_language/functions/type_conversion_functions/#type_conversion_function-cast">cast</a> the data to that data type which is set for the ClickHouse table column.</p>
 <h3 id="inserting-and-selecting-data">Inserting and Selecting Data<a class="headerlink" href="#inserting-and-selecting-data" title="Permanent link">&para;</a></h3>
 <p>You can insert Parquet data from a file into ClickHouse table by the following command:</p>
-<div class="codehilite"><pre><span></span>cat {filename} | clickhouse-client --query=&quot;INSERT INTO {some_table} FORMAT Parquet&quot;
+<div class="codehilite"><pre><span></span><span class="err">cat {filename} | clickhouse-client --query=&quot;INSERT INTO {some_table} FORMAT Parquet&quot;</span>
 </pre></div>
 
 
 <p>You can select data from a ClickHouse table and save them into some file in the Parquet format by the following command:</p>
-<div class="codehilite"><pre><span></span>clickhouse-client --query=&quot;SELECT * FROM {some_table} FORMAT Parquet&quot; &gt; {some_file.pq}
+<div class="codehilite"><pre><span></span><span class="err">clickhouse-client --query=&quot;SELECT * FROM {some_table} FORMAT Parquet&quot; &gt; {some_file.pq}</span>
 </pre></div>
 
 
@@ -4894,7 +4894,9 @@ in the server configuration.</p>
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

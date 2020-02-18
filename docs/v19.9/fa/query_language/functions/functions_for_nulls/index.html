@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582045511">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?6de245a?1582048729">
     
     
   </head>
@@ -3565,7 +3565,7 @@
                   <h1 id="functions-for-working-with-nullable-aggregates">Functions for working with Nullable aggregates<a class="headerlink" href="#functions-for-working-with-nullable-aggregates" title="Permanent link">&para;</a></h1>
 <h2 id="isnull">isNull<a class="headerlink" href="#isnull" title="Permanent link">&para;</a></h2>
 <p>Checks whether the argument is <a href="../../syntax/#null">NULL</a>.</p>
-<div class="codehilite"><pre><span></span>isNull(x)
+<div class="codehilite"><pre><span></span><span class="err">isNull(x)</span>
 </pre></div>
 
 
@@ -3580,31 +3580,31 @@
 </ul>
 <p><strong>Example</strong></p>
 <p>Input table</p>
-<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
-│ 1 │ ᴺᵁᴸᴸ │
-│ 2 │    3 │
-└───┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
+<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
+<span class="err">│ 2 │    3 │</span>
+<span class="err">└───┴──────┘</span>
 </pre></div>
 
 
 <p>Query</p>
-<div class="codehilite"><pre><span></span>:) SELECT x FROM t_null WHERE isNull(y)
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">x</span> <span class="k">FROM</span> <span class="n">t_null</span> <span class="k">WHERE</span> <span class="k">isNull</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-SELECT x
-FROM t_null
-WHERE isNull(y)
+<span class="k">SELECT</span> <span class="n">x</span>
+<span class="k">FROM</span> <span class="n">t_null</span>
+<span class="k">WHERE</span> <span class="k">isNull</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-┌─x─┐
-│ 1 │
-└───┘
+<span class="err">┌─</span><span class="n">x</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">1</span> <span class="err">│</span>
+<span class="err">└───┘</span>
 
-1 rows in set. Elapsed: 0.010 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">010</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
 <h2 id="isnotnull">isNotNull<a class="headerlink" href="#isnotnull" title="Permanent link">&para;</a></h2>
 <p>Checks whether the argument is <a href="../../syntax/#null">NULL</a>.</p>
-<div class="codehilite"><pre><span></span>isNotNull(x)
+<div class="codehilite"><pre><span></span><span class="err">isNotNull(x)</span>
 </pre></div>
 
 
@@ -3619,31 +3619,31 @@ WHERE isNull(y)
 </ul>
 <p><strong>Example</strong></p>
 <p>Input table</p>
-<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
-│ 1 │ ᴺᵁᴸᴸ │
-│ 2 │    3 │
-└───┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
+<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
+<span class="err">│ 2 │    3 │</span>
+<span class="err">└───┴──────┘</span>
 </pre></div>
 
 
 <p>Query</p>
-<div class="codehilite"><pre><span></span>:) SELECT x FROM t_null WHERE isNotNull(y)
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">x</span> <span class="k">FROM</span> <span class="n">t_null</span> <span class="k">WHERE</span> <span class="n">isNotNull</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-SELECT x
-FROM t_null
-WHERE isNotNull(y)
+<span class="k">SELECT</span> <span class="n">x</span>
+<span class="k">FROM</span> <span class="n">t_null</span>
+<span class="k">WHERE</span> <span class="n">isNotNull</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-┌─x─┐
-│ 2 │
-└───┘
+<span class="err">┌─</span><span class="n">x</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2</span> <span class="err">│</span>
+<span class="err">└───┘</span>
 
-1 rows in set. Elapsed: 0.010 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">010</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
 <h2 id="coalesce">coalesce<a class="headerlink" href="#coalesce" title="Permanent link">&para;</a></h2>
 <p>Checks from left to right whether <code>NULL</code> arguments were passed and returns the first non-<code>NULL</code> argument.</p>
-<div class="codehilite"><pre><span></span>coalesce(x,...)
+<div class="codehilite"><pre><span></span><span class="err">coalesce(x,...)</span>
 </pre></div>
 
 
@@ -3658,32 +3658,32 @@ WHERE isNotNull(y)
 </ul>
 <p><strong>Example</strong></p>
 <p>Consider a list of contacts that may specify multiple ways to contact a customer.</p>
-<div class="codehilite"><pre><span></span>┌─name─────┬─mail─┬─phone─────┬──icq─┐
-│ client 1 │ ᴺᵁᴸᴸ │ 123-45-67 │  123 │
-│ client 2 │ ᴺᵁᴸᴸ │ ᴺᵁᴸᴸ      │ ᴺᵁᴸᴸ │
-└──────────┴──────┴───────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─name─────┬─mail─┬─phone─────┬──icq─┐</span>
+<span class="err">│ client 1 │ ᴺᵁᴸᴸ │ 123-45-67 │  123 │</span>
+<span class="err">│ client 2 │ ᴺᵁᴸᴸ │ ᴺᵁᴸᴸ      │ ᴺᵁᴸᴸ │</span>
+<span class="err">└──────────┴──────┴───────────┴──────┘</span>
 </pre></div>
 
 
 <p>The <code>mail</code> and <code>phone</code> fields are of type String, but the <code>icq</code> field is <code>UInt32</code>, so it needs to be converted to <code>String</code>.</p>
 <p>Get the first available contact method for the customer from the contact list:</p>
-<div class="codehilite"><pre><span></span>:) SELECT coalesce(mail, phone, CAST(icq,&#39;Nullable(String)&#39;)) FROM aBook
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">coalesce</span><span class="p">(</span><span class="n">mail</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="k">CAST</span><span class="p">(</span><span class="n">icq</span><span class="p">,</span><span class="s1">&#39;Nullable(String)&#39;</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">aBook</span>
 
-SELECT coalesce(mail, phone, CAST(icq, &#39;Nullable(String)&#39;))
-FROM aBook
+<span class="k">SELECT</span> <span class="n">coalesce</span><span class="p">(</span><span class="n">mail</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="k">CAST</span><span class="p">(</span><span class="n">icq</span><span class="p">,</span> <span class="s1">&#39;Nullable(String)&#39;</span><span class="p">))</span>
+<span class="k">FROM</span> <span class="n">aBook</span>
 
-┌─name─────┬─coalesce(mail, phone, CAST(icq, &#39;Nullable(String)&#39;))─┐
-│ client 1 │ 123-45-67                                            │
-│ client 2 │ ᴺᵁᴸᴸ                                                 │
-└──────────┴──────────────────────────────────────────────────────┘
+<span class="err">┌─</span><span class="n">name</span><span class="err">─────┬─</span><span class="n">coalesce</span><span class="p">(</span><span class="n">mail</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="k">CAST</span><span class="p">(</span><span class="n">icq</span><span class="p">,</span> <span class="s1">&#39;Nullable(String)&#39;</span><span class="p">))</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">client</span> <span class="mi">1</span> <span class="err">│</span> <span class="mi">123</span><span class="o">-</span><span class="mi">45</span><span class="o">-</span><span class="mi">67</span>                                            <span class="err">│</span>
+<span class="err">│</span> <span class="n">client</span> <span class="mi">2</span> <span class="err">│</span> <span class="err">ᴺᵁᴸᴸ</span>                                                 <span class="err">│</span>
+<span class="err">└──────────┴──────────────────────────────────────────────────────┘</span>
 
-2 rows in set. Elapsed: 0.006 sec.
+<span class="mi">2</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">006</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
 <h2 id="ifnull">ifNull<a class="headerlink" href="#ifnull" title="Permanent link">&para;</a></h2>
 <p>Returns an alternative value if the main argument is <code>NULL</code>.</p>
-<div class="codehilite"><pre><span></span>ifNull(x,alt)
+<div class="codehilite"><pre><span></span><span class="err">ifNull(x,alt)</span>
 </pre></div>
 
 
@@ -3698,25 +3698,25 @@ FROM aBook
 <li>The value <code>alt</code>, if <code>x</code> is <code>NULL</code>.</li>
 </ul>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span>SELECT ifNull(&#39;a&#39;, &#39;b&#39;)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">ifNull</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
 
-┌─ifNull(&#39;a&#39;, &#39;b&#39;)─┐
-│ a                │
-└──────────────────┘
+<span class="err">┌─</span><span class="n">ifNull</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">a</span>                <span class="err">│</span>
+<span class="err">└──────────────────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT ifNull(NULL, &#39;b&#39;)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">ifNull</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
 
-┌─ifNull(NULL, &#39;b&#39;)─┐
-│ b                 │
-└───────────────────┘
+<span class="err">┌─</span><span class="n">ifNull</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">b</span>                 <span class="err">│</span>
+<span class="err">└───────────────────┘</span>
 </pre></div>
 
 
 <h2 id="nullif">nullIf<a class="headerlink" href="#nullif" title="Permanent link">&para;</a></h2>
 <p>Returns <code>NULL</code> if the arguments are equal.</p>
-<div class="codehilite"><pre><span></span>nullIf(x, y)
+<div class="codehilite"><pre><span></span><span class="err">nullIf(x, y)</span>
 </pre></div>
 
 
@@ -3728,25 +3728,25 @@ FROM aBook
 <li>The <code>x</code> value, if the arguments are not equal.</li>
 </ul>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span>SELECT nullIf(1, 1)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">nullIf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-┌─nullIf(1, 1)─┐
-│         ᴺᵁᴸᴸ │
-└──────────────┘
+<span class="err">┌─</span><span class="k">nullIf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>         <span class="err">ᴺᵁᴸᴸ</span> <span class="err">│</span>
+<span class="err">└──────────────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT nullIf(1, 2)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">nullIf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
-┌─nullIf(1, 2)─┐
-│            1 │
-└──────────────┘
+<span class="err">┌─</span><span class="k">nullIf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>            <span class="mi">1</span> <span class="err">│</span>
+<span class="err">└──────────────┘</span>
 </pre></div>
 
 
 <h2 id="assumenotnull">assumeNotNull<a class="headerlink" href="#assumenotnull" title="Permanent link">&para;</a></h2>
 <p>Results in a value of type <a href="../../../data_types/nullable/">Nullable</a> for a non- <code>Nullable</code>, if the value is not <code>NULL</code>.</p>
-<div class="codehilite"><pre><span></span>assumeNotNull(x)
+<div class="codehilite"><pre><span></span><span class="err">assumeNotNull(x)</span>
 </pre></div>
 
 
@@ -3761,43 +3761,43 @@ FROM aBook
 </ul>
 <p><strong>Example</strong></p>
 <p>Consider the <code>t_null</code> table.</p>
-<div class="codehilite"><pre><span></span>SHOW CREATE TABLE t_null
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">t_null</span>
 
-┌─statement─────────────────────────────────────────────────────────────────┐
-│ CREATE TABLE default.t_null ( x Int8,  y Nullable(Int8)) ENGINE = TinyLog │
-└───────────────────────────────────────────────────────────────────────────┘
+<span class="err">┌─</span><span class="k">statement</span><span class="err">─────────────────────────────────────────────────────────────────┐</span>
+<span class="err">│</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">default</span><span class="p">.</span><span class="n">t_null</span> <span class="p">(</span> <span class="n">x</span> <span class="nb">Int8</span><span class="p">,</span>  <span class="n">y</span> <span class="k">Nullable</span><span class="p">(</span><span class="nb">Int8</span><span class="p">))</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">TinyLog</span> <span class="err">│</span>
+<span class="err">└───────────────────────────────────────────────────────────────────────────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
-│ 1 │ ᴺᵁᴸᴸ │
-│ 2 │    3 │
-└───┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
+<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
+<span class="err">│ 2 │    3 │</span>
+<span class="err">└───┴──────┘</span>
 </pre></div>
 
 
 <p>Apply the <code>resumenotnull</code> function to the <code>y</code> column.</p>
-<div class="codehilite"><pre><span></span>SELECT assumeNotNull(y) FROM t_null
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">assumeNotNull</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">t_null</span>
 
-┌─assumeNotNull(y)─┐
-│                0 │
-│                3 │
-└──────────────────┘
+<span class="err">┌─</span><span class="n">assumeNotNull</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>                <span class="mi">0</span> <span class="err">│</span>
+<span class="err">│</span>                <span class="mi">3</span> <span class="err">│</span>
+<span class="err">└──────────────────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT toTypeName(assumeNotNull(y)) FROM t_null
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">assumeNotNull</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">t_null</span>
 
-┌─toTypeName(assumeNotNull(y))─┐
-│ Int8                         │
-│ Int8                         │
-└──────────────────────────────┘
+<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="n">assumeNotNull</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="nb">Int8</span>                         <span class="err">│</span>
+<span class="err">│</span> <span class="nb">Int8</span>                         <span class="err">│</span>
+<span class="err">└──────────────────────────────┘</span>
 </pre></div>
 
 
 <h2 id="tonullable">toNullable<a class="headerlink" href="#tonullable" title="Permanent link">&para;</a></h2>
 <p>Converts the argument type to <code>Nullable</code>.</p>
-<div class="codehilite"><pre><span></span>toNullable(x)
+<div class="codehilite"><pre><span></span><span class="err">toNullable(x)</span>
 </pre></div>
 
 
@@ -3810,17 +3810,17 @@ FROM aBook
 <li>The input value with a <code>Nullable</code> type.</li>
 </ul>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span>SELECT toTypeName(10)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-┌─toTypeName(10)─┐
-│ UInt8          │
-└────────────────┘
+<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">UInt8</span>          <span class="err">│</span>
+<span class="err">└────────────────┘</span>
 
-SELECT toTypeName(toNullable(10))
+<span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">toNullable</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 
-┌─toTypeName(toNullable(10))─┐
-│ Nullable(UInt8)            │
-└────────────────────────────┘
+<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="n">toNullable</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="k">Nullable</span><span class="p">(</span><span class="n">UInt8</span><span class="p">)</span>            <span class="err">│</span>
+<span class="err">└────────────────────────────┘</span>
 </pre></div>
                 
                 </div>
@@ -3922,7 +3922,9 @@ SELECT toTypeName(toNullable(10))
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

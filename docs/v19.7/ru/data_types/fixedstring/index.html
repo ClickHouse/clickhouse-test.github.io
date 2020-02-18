@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582045662">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582048912">
     
     
   </head>
@@ -3286,7 +3286,7 @@
                   <h1 id="fixedstring">FixedString<a class="headerlink" href="#fixedstring" title="Permanent link">&para;</a></h1>
 <p>Строка фиксированной длины <code>N</code>  байт (не символов, не кодовых точек).</p>
 <p>Чтобы объявить столбец типа <code>FixedString</code>, используйте следующий синтаксис:</p>
-<div class="codehilite"><pre><span></span>&lt;column_name&gt; FixedString(N)
+<div class="codehilite"><pre><span></span><span class="err">&lt;column_name&gt; FixedString(N)</span>
 </pre></div>
 
 
@@ -3307,21 +3307,21 @@
 </ul>
 <p>При выборе данных ClickHouse не обрезает нулевые байты в конце строки. Если вы используете секцию <code>WHERE</code>, то необходимо добавлять нулевые байты вручную, чтобы ClickHouse смог сопоставить выражение из фильтра значению <code>FixedString</code>. Следующий пример показывает, как использовать секцию <code>WHERE</code> с <code>FixedString</code>.</p>
 <p>Рассмотрим следующую таблицу с единственным столбцом типа <code>FixedString(2)</code>:</p>
-<div class="codehilite"><pre><span></span>┌─name──┐
-│ b     │
-└───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─name──┐</span>
+<span class="err">│ b     │</span>
+<span class="err">└───────┘</span>
 </pre></div>
 
 
 <p>Запрос <code>SELECT * FROM FixedStringTable WHERE a = 'b'</code> не возвращает необходимых данных. Необходимо дополнить шаблон фильтра нулевыми байтами.</p>
-<div class="codehilite"><pre><span></span>SELECT * FROM FixedStringTable
-WHERE a = &#39;b\0&#39;
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">FixedStringTable</span>
+<span class="k">WHERE</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;b\0&#39;</span>
 
-┌─a─┐
-│ b │
-└───┘
+<span class="err">┌─</span><span class="n">a</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">b</span> <span class="err">│</span>
+<span class="err">└───┘</span>
 
-1 rows in set. Elapsed: 0.002 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
@@ -3427,7 +3427,9 @@ WHERE a = &#39;b\0&#39;
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

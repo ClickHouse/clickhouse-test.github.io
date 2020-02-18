@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582045175">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582048325">
     
     
   </head>
@@ -3659,16 +3659,16 @@
 <p>Для каждого из значений прописывается число в диапазоне <code>-128 .. 127</code> для <code>Enum8</code> или в диапазоне <code>-32768 .. 32767</code> для <code>Enum16</code>. Все строки должны быть разными, числа - тоже. Разрешена пустая строка. При указании такого типа (в определении таблицы), числа могут идти не подряд и в произвольном порядке. При этом, порядок не имеет значения.</p>
 <p>Ни строка, ни цифровое значение в <code>Enum</code> не могут быть <a href="../../query_language/syntax/">NULL</a>.</p>
 <p><code>Enum</code> может быть передан в тип <a href="../nullable/">Nullable</a>. Таким образом, если создать таблицу запросом</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE t_enum_nullable
-(
-    x Nullable( Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2) )
-)
-ENGINE = TinyLog
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE t_enum_nullable</span>
+<span class="err">(</span>
+<span class="err">    x Nullable( Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2) )</span>
+<span class="err">)</span>
+<span class="err">ENGINE = TinyLog</span>
 </pre></div>
 
 
 <p>, то в ней можно будет хранить не только <code>'hello'</code> и <code>'world'</code>, но и <code>NULL</code>.</p>
-<div class="codehilite"><pre><span></span>INSERT INTO t_enum_nullable Values(&#39;hello&#39;),(&#39;world&#39;),(NULL)
+<div class="codehilite"><pre><span></span><span class="err">INSERT INTO t_enum_nullable Values(&#39;hello&#39;),(&#39;world&#39;),(NULL)</span>
 </pre></div>
 
 
@@ -3783,7 +3783,9 @@ ENGINE = TinyLog
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

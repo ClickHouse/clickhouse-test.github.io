@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582045268">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?6de245a?1582048438">
     
     
   </head>
@@ -3725,9 +3725,9 @@
 <p>Все словари перезагружаются в рантайме (раз в количество секунд, заданное в конфигурационном параметре builtin_dictionaries_reload_interval, по умолчанию - раз в час), но перечень доступных словарей определяется один раз, при старте сервера.</p>
 <p>Во все функции по работе с регионами, в конце добавлен один необязательный аргумент - ключ словаря. Далее он обозначен как geobase.
 Пример:</p>
-<div class="codehilite"><pre><span></span><span class="nt">regionToCountry</span><span class="o">(</span><span class="nt">RegionID</span><span class="o">)</span> <span class="nt">-</span> <span class="err">использует</span> <span class="err">словарь</span> <span class="err">по</span> <span class="err">умолчанию</span><span class="o">:</span> <span class="o">/</span><span class="nt">opt</span><span class="o">/</span><span class="nt">geo</span><span class="o">/</span><span class="nt">regions_hierarchy</span><span class="p">.</span><span class="nc">txt</span><span class="o">;</span>
-<span class="nt">regionToCountry</span><span class="o">(</span><span class="nt">RegionID</span><span class="o">,</span> <span class="s1">&#39;&#39;</span><span class="o">)</span> <span class="nt">-</span> <span class="err">использует</span> <span class="err">словарь</span> <span class="err">по</span> <span class="err">умолчанию</span><span class="o">:</span> <span class="o">/</span><span class="nt">opt</span><span class="o">/</span><span class="nt">geo</span><span class="o">/</span><span class="nt">regions_hierarchy</span><span class="p">.</span><span class="nc">txt</span><span class="o">;</span>
-<span class="nt">regionToCountry</span><span class="o">(</span><span class="nt">RegionID</span><span class="o">,</span> <span class="s1">&#39;ua&#39;</span><span class="o">)</span> <span class="nt">-</span> <span class="err">использует</span> <span class="err">словарь</span> <span class="err">для</span> <span class="err">ключа</span> <span class="nt">ua</span><span class="o">:</span> <span class="o">/</span><span class="nt">opt</span><span class="o">/</span><span class="nt">geo</span><span class="o">/</span><span class="nt">regions_hierarchy_ua</span><span class="p">.</span><span class="nc">txt</span><span class="o">;</span>
+<div class="codehilite"><pre><span></span><span class="err">regionToCountry(RegionID) - использует словарь по умолчанию: /opt/geo/regions_hierarchy.txt;</span>
+<span class="err">regionToCountry(RegionID, &#39;&#39;) - использует словарь по умолчанию: /opt/geo/regions_hierarchy.txt;</span>
+<span class="err">regionToCountry(RegionID, &#39;ua&#39;) - использует словарь для ключа ua: /opt/geo/regions_hierarchy_ua.txt;</span>
 </pre></div>
 
 
@@ -3741,23 +3741,23 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─regionToName(regionToArea(toUInt32(number), \&#39;ua\&#39;))─┐
-│                                                      │
-│ Москва и Московская область                          │
-│ Санкт-Петербург и Ленинградская область              │
-│ Белгородская область                                 │
-│ Ивановская область                                   │
-│ Калужская область                                    │
-│ Костромская область                                  │
-│ Курская область                                      │
-│ Липецкая область                                     │
-│ Орловская область                                    │
-│ Рязанская область                                    │
-│ Смоленская область                                   │
-│ Тамбовская область                                   │
-│ Тверская область                                     │
-│ Тульская область                                     │
-└──────────────────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─regionToName(regionToArea(toUInt32(number), \&#39;ua\&#39;))─┐</span>
+<span class="err">│                                                      │</span>
+<span class="err">│ Москва и Московская область                          │</span>
+<span class="err">│ Санкт-Петербург и Ленинградская область              │</span>
+<span class="err">│ Белгородская область                                 │</span>
+<span class="err">│ Ивановская область                                   │</span>
+<span class="err">│ Калужская область                                    │</span>
+<span class="err">│ Костромская область                                  │</span>
+<span class="err">│ Курская область                                      │</span>
+<span class="err">│ Липецкая область                                     │</span>
+<span class="err">│ Орловская область                                    │</span>
+<span class="err">│ Рязанская область                                    │</span>
+<span class="err">│ Смоленская область                                   │</span>
+<span class="err">│ Тамбовская область                                   │</span>
+<span class="err">│ Тверская область                                     │</span>
+<span class="err">│ Тульская область                                     │</span>
+<span class="err">└──────────────────────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -3769,23 +3769,23 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─regionToName(regionToDistrict(toUInt32(number), \&#39;ua\&#39;))─┐
-│                                                          │
-│ Центральный федеральный округ                            │
-│ Северо-Западный федеральный округ                        │
-│ Южный федеральный округ                                  │
-│ Северо-Кавказский федеральный округ                      │
-│ Приволжский федеральный округ                            │
-│ Уральский федеральный округ                              │
-│ Сибирский федеральный округ                              │
-│ Дальневосточный федеральный округ                        │
-│ Шотландия                                                │
-│ Фарерские острова                                        │
-│ Фламандский регион                                       │
-│ Брюссельский столичный регион                            │
-│ Валлония                                                 │
-│ Федерация Боснии и Герцеговины                           │
-└──────────────────────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─regionToName(regionToDistrict(toUInt32(number), \&#39;ua\&#39;))─┐</span>
+<span class="err">│                                                          │</span>
+<span class="err">│ Центральный федеральный округ                            │</span>
+<span class="err">│ Северо-Западный федеральный округ                        │</span>
+<span class="err">│ Южный федеральный округ                                  │</span>
+<span class="err">│ Северо-Кавказский федеральный округ                      │</span>
+<span class="err">│ Приволжский федеральный округ                            │</span>
+<span class="err">│ Уральский федеральный округ                              │</span>
+<span class="err">│ Сибирский федеральный округ                              │</span>
+<span class="err">│ Дальневосточный федеральный округ                        │</span>
+<span class="err">│ Шотландия                                                │</span>
+<span class="err">│ Фарерские острова                                        │</span>
+<span class="err">│ Фламандский регион                                       │</span>
+<span class="err">│ Брюссельский столичный регион                            │</span>
+<span class="err">│ Валлония                                                 │</span>
+<span class="err">│ Федерация Боснии и Герцеговины                           │</span>
+<span class="err">└──────────────────────────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -3909,7 +3909,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

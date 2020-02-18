@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582045268">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582048438">
     
     
   </head>
@@ -3753,9 +3753,9 @@ curl -vsS <span class="s2">&quot;http://localhost:8123/?enable_http_compression=
 <p>Об остальных параметрах смотри раздел "SET".</p>
 <p>Аналогично можно использовать ClickHouse-сессии в HTTP-протоколе. Для этого необходимо добавить к запросу GET параметр <code>session_id</code>. В качестве идентификатора сессии можно использовать произвольную строку. По умолчанию через 60 секунд бездействия сессия будет прервана. Можно изменить этот таймаут, изменяя настройку <code>default_session_timeout</code> в конфигурации сервера, или добавив к запросу GET параметр <code>session_timeout</code>. Статус сессии можно проверить с помощью параметра <code>session_check=1</code>. В рамках одной сессии одновременно может исполняться только один запрос.</p>
 <p>Прогресс выполнения запроса можно отслеживать с помощью заголовков ответа <code>X-ClickHouse-Progress</code>. Для этого включите <a href="../../operations/settings/settings/#settings-send_progress_in_http_headers">send_progress_in_http_headers</a>. Пример последовательности заголовков:</p>
-<div class="codehilite"><pre><span></span>X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;2752512&quot;,&quot;read_bytes&quot;:&quot;240570816&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}
-X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;5439488&quot;,&quot;read_bytes&quot;:&quot;482285394&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}
-X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;8783786&quot;,&quot;read_bytes&quot;:&quot;819092887&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}
+<div class="codehilite"><pre><span></span><span class="c">X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;2752512&quot;,&quot;read_bytes&quot;:&quot;240570816&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}</span>
+<span class="c">X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;5439488&quot;,&quot;read_bytes&quot;:&quot;482285394&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}</span>
+<span class="c">X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;8783786&quot;,&quot;read_bytes&quot;:&quot;819092887&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}</span>
 </pre></div>
 
 
@@ -3881,7 +3881,9 @@ X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;8783786&quot;,&quot;read_byt
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

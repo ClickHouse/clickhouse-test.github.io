@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582044543">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582047617">
     
     
   </head>
@@ -4116,31 +4116,31 @@ This will create the <code>dbms/programs/clickhouse</code> executable, which can
 </ul>
 <p>If all the components are installed, you may build in the same way as the steps above.</p>
 <p>Example for Ubuntu Eoan:</p>
-<div class="codehilite"><pre><span></span>sudo apt update
-sudo apt install git cmake ninja-build g++ python
-git clone --recursive https://github.com/ClickHouse/ClickHouse.git
-mkdir build &amp;&amp; cd build
-cmake ../ClickHouse
-ninja
+<div class="codehilite"><pre><span></span><span class="err">sudo apt update</span>
+<span class="err">sudo apt install git cmake ninja-build g++ python</span>
+<span class="err">git clone --recursive https://github.com/ClickHouse/ClickHouse.git</span>
+<span class="err">mkdir build &amp;&amp; cd build</span>
+<span class="err">cmake ../ClickHouse</span>
+<span class="err">ninja</span>
 </pre></div>
 
 
 <p>Example for OpenSUSE Tumbleweed:</p>
-<div class="codehilite"><pre><span></span>sudo zypper install git cmake ninja gcc-c++ python lld
-git clone --recursive https://github.com/ClickHouse/ClickHouse.git
-mkdir build &amp;&amp; cd build
-cmake ../ClickHouse
-ninja
+<div class="codehilite"><pre><span></span><span class="err">sudo zypper install git cmake ninja gcc-c++ python lld</span>
+<span class="err">git clone --recursive https://github.com/ClickHouse/ClickHouse.git</span>
+<span class="err">mkdir build &amp;&amp; cd build</span>
+<span class="err">cmake ../ClickHouse</span>
+<span class="err">ninja</span>
 </pre></div>
 
 
 <p>Example for Fedora Rawhide:</p>
-<div class="codehilite"><pre><span></span>sudo yum update
-yum --nogpg install git cmake make gcc-c++ python2
-git clone --recursive https://github.com/ClickHouse/ClickHouse.git
-mkdir build &amp;&amp; cd build
-cmake ../ClickHouse
-make -j $(nproc)
+<div class="codehilite"><pre><span></span><span class="err">sudo yum update</span>
+<span class="err">yum --nogpg install git cmake make gcc-c++ python2</span>
+<span class="err">git clone --recursive https://github.com/ClickHouse/ClickHouse.git</span>
+<span class="err">mkdir build &amp;&amp; cd build</span>
+<span class="err">cmake ../ClickHouse</span>
+<span class="err">make -j $(nproc)</span>
 </pre></div>
 
 
@@ -4264,7 +4264,9 @@ $ <span class="nb">cd</span> ClickHouse
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582045268">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?6de245a?1582048438">
     
     
   </head>
@@ -3562,7 +3562,7 @@
                 
                   <h1 id="mysql">mysql<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h1>
 <p>Allows <code>SELECT</code> queries to be performed on data that is stored on a remote MySQL server.</p>
-<div class="codehilite"><pre><span></span><span class="nt">mysql</span><span class="o">(</span><span class="s1">&#39;host:port&#39;</span><span class="o">,</span> <span class="s1">&#39;database&#39;</span><span class="o">,</span> <span class="s1">&#39;table&#39;</span><span class="o">,</span> <span class="s1">&#39;user&#39;</span><span class="o">,</span> <span class="s1">&#39;password&#39;</span><span class="cp">[</span><span class="p">,</span> <span class="nx">replace_query</span><span class="p">,</span> <span class="s1">&#39;on_duplicate_clause&#39;</span><span class="cp">]</span><span class="o">);</span>
+<div class="codehilite"><pre><span></span><span class="err">mysql(&#39;host:port&#39;, &#39;database&#39;, &#39;table&#39;, &#39;user&#39;, &#39;password&#39;[, replace_query, &#39;on_duplicate_clause&#39;]);</span>
 </pre></div>
 
 
@@ -3586,24 +3586,24 @@
 <p>A table object with the same columns as the original MySQL table.</p>
 <h2 id="usage-example">Usage Example<a class="headerlink" href="#usage-example" title="Permanent link">&para;</a></h2>
 <p>Table in MySQL:</p>
-<div class="codehilite"><pre><span></span>mysql&gt; CREATE TABLE `test`.`test` (
-    -&gt;   `int_id` INT NOT NULL AUTO_INCREMENT,
-    -&gt;   `int_nullable` INT NULL DEFAULT NULL,
-    -&gt;   `float` FLOAT NOT NULL,
-    -&gt;   `float_nullable` FLOAT NULL DEFAULT NULL,
-    -&gt;   PRIMARY KEY (`int_id`));
-Query OK, 0 rows affected (0,09 sec)
+<div class="codehilite"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="ss">`test`</span><span class="p">.</span><span class="ss">`test`</span> <span class="p">(</span>
+    <span class="o">-&gt;</span>   <span class="ss">`int_id`</span> <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span> <span class="kp">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="o">-&gt;</span>   <span class="ss">`int_nullable`</span> <span class="kt">INT</span> <span class="no">NULL</span> <span class="k">DEFAULT</span> <span class="no">NULL</span><span class="p">,</span>
+    <span class="o">-&gt;</span>   <span class="ss">`float`</span> <span class="kt">FLOAT</span> <span class="k">NOT</span> <span class="no">NULL</span><span class="p">,</span>
+    <span class="o">-&gt;</span>   <span class="ss">`float_nullable`</span> <span class="kt">FLOAT</span> <span class="no">NULL</span> <span class="k">DEFAULT</span> <span class="no">NULL</span><span class="p">,</span>
+    <span class="o">-&gt;</span>   <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="ss">`int_id`</span><span class="p">));</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="n">rows</span> <span class="nf">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">09</span> <span class="n">sec</span><span class="p">)</span>
 
-mysql&gt; insert into test (`int_id`, `float`) VALUES (1,2);
-Query OK, 1 row affected (0,00 sec)
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="nf">test</span> <span class="p">(</span><span class="ss">`int_id`</span><span class="p">,</span> <span class="ss">`float`</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="n">row</span> <span class="nf">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
 
-mysql&gt; select * from test;
-+--------+--------------+-------+----------------+
-| int_id | int_nullable | float | float_nullable |
-+--------+--------------+-------+----------------+
-|      1 |         NULL |     2 |           NULL |
-+--------+--------------+-------+----------------+
-1 row in set (0,00 sec)
+<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">test</span><span class="p">;</span>
+<span class="o">+--------+--------------+-------+----------------+</span>
+<span class="o">|</span> <span class="n">int_id</span> <span class="o">|</span> <span class="n">int_nullable</span> <span class="o">|</span> <span class="kt">float</span> <span class="o">|</span> <span class="n">float_nullable</span> <span class="o">|</span>
+<span class="o">+--------+--------------+-------+----------------+</span>
+<span class="o">|</span>      <span class="mi">1</span> <span class="o">|</span>         <span class="no">NULL</span> <span class="o">|</span>     <span class="mi">2</span> <span class="o">|</span>           <span class="no">NULL</span> <span class="o">|</span>
+<span class="o">+--------+--------------+-------+----------------+</span>
+<span class="mi">1</span> <span class="n">row</span> <span class="k">in</span> <span class="kt">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
 </pre></div>
 
 
@@ -3723,7 +3723,9 @@ mysql&gt; select * from test;
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582045071">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?6de245a?1582048209">
     
     
   </head>
@@ -5004,8 +5004,8 @@
 
 <h2 id="agg_function-grouparraymovingavg">groupArrayMovingAvg<a class="headerlink" href="#agg_function-grouparraymovingavg" title="Permanent link">&para;</a></h2>
 <p>Вычисляет скользящее среднее для входных значений.</p>
-<div class="codehilite"><pre><span></span>groupArrayMovingAvg(numbers_for_summing)
-groupArrayMovingAvg(window_size)(numbers_for_summing)
+<div class="codehilite"><pre><span></span><span class="err">groupArrayMovingAvg(numbers_for_summing)</span>
+<span class="err">groupArrayMovingAvg(window_size)(numbers_for_summing)</span>
 </pre></div>
 
 
@@ -5091,7 +5091,7 @@ groupArrayMovingAvg(window_size)(numbers_for_summing)
 <p>Не используйте эту функцию для расчёта таймингов. Для этого есть более подходящая функция - <code>quantileTiming</code>.</p>
 <h2 id="agg_function-quantiletiming">quantileTiming<a class="headerlink" href="#agg_function-quantiletiming" title="Permanent link">&para;</a></h2>
 <p>Вычисляет квантиль заданного уровня с детерминированной точностью. Функция предназначена для расчётов квантилей времени загрузки страниц в миллисекундах.</p>
-<div class="codehilite"><pre><span></span>quantileTiming(level)(expr)
+<div class="codehilite"><pre><span></span><span class="err">quantileTiming(level)(expr)</span>
 </pre></div>
 
 
@@ -5250,22 +5250,22 @@ groupArrayMovingAvg(window_size)(numbers_for_summing)
 Для прогнозирования мы используем функцию <a href="../../functions/machine_learning_functions/#machine_learning_methods-evalmlmethod">evalMLMethod</a>, которая принимает в качестве аргументов состояние и свойства для прогнозирования.</p>
 <p><a name="stochasticlinearregression-usage-fitting"></a>
 1. Построение модели</p>
-<div class="codehilite"><pre><span></span>Пример запроса:
+<div class="codehilite"><pre><span></span><span class="err">Пример</span> <span class="err">запроса</span><span class="p">:</span>
 
-```sql
-CREATE TABLE IF NOT EXISTS train_data
-(
-    param1 Float64,
-    param2 Float64,
-    target Float64
-) ENGINE = Memory;
+<span class="ss">```sql</span>
+<span class="ss">CREATE TABLE IF NOT EXISTS train_data</span>
+<span class="ss">(</span>
+<span class="ss">    param1 Float64,</span>
+<span class="ss">    param2 Float64,</span>
+<span class="ss">    target Float64</span>
+<span class="ss">) ENGINE = Memory;</span>
 
-CREATE TABLE your_model ENGINE = Memory AS SELECT
-stochasticLinearRegressionState(0.1, 0.0, 5, &#39;SGD&#39;)(target, param1, param2)
-AS state FROM train_data;
-```
+<span class="ss">CREATE TABLE your_model ENGINE = Memory AS SELECT</span>
+<span class="ss">stochasticLinearRegressionState(0.1, 0.0, 5, &#39;SGD&#39;)(target, param1, param2)</span>
+<span class="ss">AS state FROM train_data;</span>
+<span class="ss">```</span>
 
-Здесь нам также нужно вставить данные в таблицу `train_data`. Количество параметров не фиксировано, оно зависит только от количества аргументов, перешедших в `linearRegressionState`. Все они должны быть числовыми значениями.
+<span class="err">Здесь</span> <span class="err">нам</span> <span class="err">также</span> <span class="err">нужно</span> <span class="err">вставить</span> <span class="err">данные</span> <span class="err">в</span> <span class="err">таблицу</span> <span class="ss">`train_data`</span><span class="p">.</span> <span class="err">Количество</span> <span class="err">параметров</span> <span class="err">не</span> <span class="err">фиксировано</span><span class="p">,</span> <span class="err">оно</span> <span class="err">зависит</span> <span class="err">только</span> <span class="err">от</span> <span class="err">количества</span> <span class="err">аргументов</span><span class="p">,</span> <span class="err">перешедших</span> <span class="err">в</span> <span class="ss">`linearRegressionState`</span><span class="p">.</span> <span class="err">Все</span> <span class="err">они</span> <span class="err">должны</span> <span class="err">быть</span> <span class="err">числовыми</span> <span class="err">значениями</span><span class="p">.</span>
 </pre></div>
 
 
@@ -5438,7 +5438,9 @@ evalMLMethod(model, param1, param2) AS ans FROM test_data)</code></p>
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

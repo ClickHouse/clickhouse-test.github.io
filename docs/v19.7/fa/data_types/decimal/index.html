@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582045662">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582048912">
     
     
   </head>
@@ -3419,50 +3419,50 @@
 <p>Some functions on Decimal return result as Float64 (for example, var or stddev). Intermediate calculations might still be performed in Decimal, which might lead to different results between Float64 and Decimal inputs with same values.</p>
 <h2 id="overflow-checks">Overflow checks<a class="headerlink" href="#overflow-checks" title="Permanent link">&para;</a></h2>
 <p>During calculations on Decimal, integer overflows might happen. Excessive digits in fraction are discarded (not rounded). Excessive digits in integer part will lead to exception.</p>
-<div class="codehilite"><pre><span></span>SELECT toDecimal32(2, 4) AS x, x / 3
+<div class="codehilite"><pre><span></span><span class="err">SELECT toDecimal32(2, 4) AS x, x / 3</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────x─┬─divide(toDecimal32(2, 4), 3)─┐
-│ 2.0000 │                       0.6666 │
-└────────┴──────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────x─┬─divide(toDecimal32(2, 4), 3)─┐</span>
+<span class="err">│ 2.0000 │                       0.6666 │</span>
+<span class="err">└────────┴──────────────────────────────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT toDecimal32(4.2, 8) AS x, x * x
+<div class="codehilite"><pre><span></span><span class="err">SELECT toDecimal32(4.2, 8) AS x, x * x</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>DB::Exception: Scale is out of bounds.
+<div class="codehilite"><pre><span></span><span class="c">DB::Exception: Scale is out of bounds.</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT toDecimal32(4.2, 8) AS x, 6 * x
+<div class="codehilite"><pre><span></span><span class="err">SELECT toDecimal32(4.2, 8) AS x, 6 * x</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>DB::Exception: Decimal math overflow.
+<div class="codehilite"><pre><span></span><span class="c">DB::Exception: Decimal math overflow.</span>
 </pre></div>
 
 
 <p>Overflow checks lead to operations slowdown. If it is known that overflows are not possible, it makes sense to disable checks using <code>decimal_check_overflow</code> setting. When checks are disabled and overflow happens, the result will be incorrect:</p>
-<div class="codehilite"><pre><span></span>SET decimal_check_overflow = 0;
-SELECT toDecimal32(4.2, 8) AS x, 6 * x
+<div class="codehilite"><pre><span></span><span class="err">SET decimal_check_overflow = 0;</span>
+<span class="err">SELECT toDecimal32(4.2, 8) AS x, 6 * x</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────x─┬─multiply(6, toDecimal32(4.2, 8))─┐
-│ 4.20000000 │                     -17.74967296 │
-└────────────┴──────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────x─┬─multiply(6, toDecimal32(4.2, 8))─┐</span>
+<span class="err">│ 4.20000000 │                     -17.74967296 │</span>
+<span class="err">└────────────┴──────────────────────────────────┘</span>
 </pre></div>
 
 
 <p>Overflow checks happen not only on arithmetic operations, but also on value comparison:</p>
-<div class="codehilite"><pre><span></span>SELECT toDecimal32(1, 8) &lt; 100
+<div class="codehilite"><pre><span></span><span class="err">SELECT toDecimal32(1, 8) &lt; 100</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>DB::Exception: Can&#39;t compare.
+<div class="codehilite"><pre><span></span><span class="c">DB::Exception: Can&#39;t compare.</span>
 </pre></div>
                 
                 </div>
@@ -3564,7 +3564,9 @@ SELECT toDecimal32(4.2, 8) AS x, 6 * x
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

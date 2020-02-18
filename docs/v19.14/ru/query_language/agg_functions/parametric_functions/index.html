@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582045175">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?6de245a?1582048325">
     
     
   </head>
@@ -3630,7 +3630,7 @@
 <li>была ли цепочка событий, в которой посещение страницы с адресом, содержащим company было раньше по времени посещения страницы с адресом, содержащим cart.</li>
 </ul>
 <p>Это вырожденный пример. Его можно записать с помощью других агрегатных функций:</p>
-<div class="codehilite"><pre><span></span>minIf(EventTime, URL LIKE &#39;%company%&#39;) &lt; maxIf(EventTime, URL LIKE &#39;%cart%&#39;).
+<div class="codehilite"><pre><span></span><span class="err">minIf(EventTime, URL LIKE &#39;%company%&#39;) &lt; maxIf(EventTime, URL LIKE &#39;%cart%&#39;).</span>
 </pre></div>
 
 
@@ -3648,7 +3648,7 @@
 Цепочки ищутся без перекрытия. То есть, следующая цепочка может начаться только после окончания предыдущей.</p>
 <h2 id="windowfunnel-window-timestamp-cond1-cond2-cond3">windowFunnel(window)(timestamp, cond1, cond2, cond3, ...)<a class="headerlink" href="#windowfunnel-window-timestamp-cond1-cond2-cond3" title="Permanent link">&para;</a></h2>
 <p>Отыскивает цепочки событий в скользящем окне по времени и вычисляет максимальное количество произошедших событий из цепочки.</p>
-<div class="codehilite"><pre><span></span>windowFunnel(window)(timestamp, cond1, cond2, cond3, ...)
+<div class="codehilite"><pre><span></span><span class="err">windowFunnel(window)(timestamp, cond1, cond2, cond3, ...)</span>
 </pre></div>
 
 
@@ -3677,20 +3677,20 @@
 <li>Пользователь сделал заказ (<code>eventID = 1009</code>).</li>
 </ol>
 <p>Чтобы узнать, как далеко пользователь <code>user_id</code> смог пройти по цепочке за час в январе 2017-го года, составим запрос:</p>
-<div class="codehilite"><pre><span></span>SELECT
-    level,
-    count() AS c
-FROM
-(
-    SELECT
-        user_id,
-        windowFunnel(3600)(timestamp, eventID = 1001, eventID = 1003 AND product = &#39;phone&#39;, eventID = 1009) AS level
-    FROM trend_event
-    WHERE (event_date &gt;= &#39;2017-01-01&#39;) AND (event_date &lt;= &#39;2017-01-31&#39;)
-    GROUP BY user_id
-)
-GROUP BY level
-ORDER BY level
+<div class="codehilite"><pre><span></span><span class="err">SELECT</span>
+<span class="err">    level,</span>
+<span class="err">    count() AS c</span>
+<span class="err">FROM</span>
+<span class="err">(</span>
+<span class="err">    SELECT</span>
+<span class="err">        user_id,</span>
+<span class="err">        windowFunnel(3600)(timestamp, eventID = 1001, eventID = 1003 AND product = &#39;phone&#39;, eventID = 1009) AS level</span>
+<span class="err">    FROM trend_event</span>
+<span class="err">    WHERE (event_date &gt;= &#39;2017-01-01&#39;) AND (event_date &lt;= &#39;2017-01-31&#39;)</span>
+<span class="err">    GROUP BY user_id</span>
+<span class="err">)</span>
+<span class="err">GROUP BY level</span>
+<span class="err">ORDER BY level</span>
 </pre></div>
 
 
@@ -3704,8 +3704,8 @@ ORDER BY level
 <p>Функция также работает для нескольких аргументов.</p>
 <p>Работает максимально быстро за исключением патологических случаев, когда используется большое значение N и количество уникальных значений чуть меньше N.</p>
 <p>Пример применения:</p>
-<div class="codehilite"><pre><span></span>Задача: показывать в отчёте только поисковые фразы, по которым было хотя бы 5 уникальных посетителей.
-Решение: пишем в запросе GROUP BY SearchPhrase HAVING uniqUpTo(4)(UserID) &gt;= 5
+<div class="codehilite"><pre><span></span><span class="err">Задача: показывать в отчёте только поисковые фразы, по которым было хотя бы 5 уникальных посетителей.</span>
+<span class="err">Решение: пишем в запросе GROUP BY SearchPhrase HAVING uniqUpTo(4)(UserID) &gt;= 5</span>
 </pre></div>
                 
                 </div>
@@ -3807,7 +3807,9 @@ ORDER BY level
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

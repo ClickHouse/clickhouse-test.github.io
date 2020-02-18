@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582045268">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582048438">
     
     
   </head>
@@ -3639,50 +3639,50 @@
 <p>Decimal上的一些函数返回结果为Float64（例如，var或stddev）。对于其中一些，中间计算发生在Decimal中。对于此类函数，尽管结果类型相同，但Float64和Decimal中相同数据的结果可能不同。</p>
 <h2 id="yi-chu-jian-cha">溢出检查<a class="headerlink" href="#yi-chu-jian-cha" title="Permanent link">&para;</a></h2>
 <p>在对 Decimal 类型执行操作时，数值可能会发生溢出。分数中的过多数字被丢弃（不是舍入的）。整数中的过多数字将导致异常。</p>
-<div class="codehilite"><pre><span></span>SELECT toDecimal32(2, 4) AS x, x / 3
+<div class="codehilite"><pre><span></span><span class="err">SELECT toDecimal32(2, 4) AS x, x / 3</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────x─┬─divide(toDecimal32(2, 4), 3)─┐
-│ 2.0000 │                       0.6666 │
-└────────┴──────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────x─┬─divide(toDecimal32(2, 4), 3)─┐</span>
+<span class="err">│ 2.0000 │                       0.6666 │</span>
+<span class="err">└────────┴──────────────────────────────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT toDecimal32(4.2, 8) AS x, x * x
+<div class="codehilite"><pre><span></span><span class="err">SELECT toDecimal32(4.2, 8) AS x, x * x</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>DB::Exception: Scale is out of bounds.
+<div class="codehilite"><pre><span></span><span class="c">DB::Exception: Scale is out of bounds.</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT toDecimal32(4.2, 8) AS x, 6 * x
+<div class="codehilite"><pre><span></span><span class="err">SELECT toDecimal32(4.2, 8) AS x, 6 * x</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>DB::Exception: Decimal math overflow.
+<div class="codehilite"><pre><span></span><span class="c">DB::Exception: Decimal math overflow.</span>
 </pre></div>
 
 
 <p>检查溢出会导致计算变慢。如果已知溢出不可能，则可以通过设置<code>decimal_check_overflow</code>来禁用溢出检查，在这种情况下，溢出将导致结果不正确：</p>
-<div class="codehilite"><pre><span></span>SET decimal_check_overflow = 0;
-SELECT toDecimal32(4.2, 8) AS x, 6 * x
+<div class="codehilite"><pre><span></span><span class="err">SET decimal_check_overflow = 0;</span>
+<span class="err">SELECT toDecimal32(4.2, 8) AS x, 6 * x</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────x─┬─multiply(6, toDecimal32(4.2, 8))─┐
-│ 4.20000000 │                     -17.74967296 │
-└────────────┴──────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────x─┬─multiply(6, toDecimal32(4.2, 8))─┐</span>
+<span class="err">│ 4.20000000 │                     -17.74967296 │</span>
+<span class="err">└────────────┴──────────────────────────────────┘</span>
 </pre></div>
 
 
 <p>溢出检查不仅发生在算术运算上，还发生在比较运算上：</p>
-<div class="codehilite"><pre><span></span>SELECT toDecimal32(1, 8) &lt; 100
+<div class="codehilite"><pre><span></span><span class="err">SELECT toDecimal32(1, 8) &lt; 100</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>DB::Exception: Can&#39;t compare.
+<div class="codehilite"><pre><span></span><span class="c">DB::Exception: Can&#39;t compare.</span>
 </pre></div>
                 
                 </div>
@@ -3784,7 +3784,9 @@ SELECT toDecimal32(4.2, 8) AS x, 6 * x
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582045175">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?6de245a?1582048325">
     
     
   </head>
@@ -3591,10 +3591,10 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─name─┬─type───┬─default_type─┬─default_expression─┬─comment─┬─codec_expression─┐
-│ url  │ String │              │                    │         │                  │
-│ from │ IPv4   │              │                    │         │                  │
-└──────┴────────┴──────────────┴────────────────────┴─────────┴──────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─name─┬─type───┬─default_type─┬─default_expression─┬─comment─┬─codec_expression─┐</span>
+<span class="err">│ url  │ String │              │                    │         │                  │</span>
+<span class="err">│ from │ IPv4   │              │                    │         │                  │</span>
+<span class="err">└──────┴────────┴──────────────┴────────────────────┴─────────┴──────────────────┘</span>
 </pre></div>
 
 
@@ -3610,11 +3610,11 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─url────────────────────────────────┬───────────from─┐
-│ https://clickhouse.yandex/docs/en/ │ 116.106.34.242 │
-│ https://wikipedia.org              │ 116.253.40.133 │
-│ https://clickhouse.yandex          │ 183.247.232.58 │
-└────────────────────────────────────┴────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─url────────────────────────────────┬───────────from─┐</span>
+<span class="err">│ https://clickhouse.yandex/docs/en/ │ 116.106.34.242 │</span>
+<span class="err">│ https://wikipedia.org              │ 116.253.40.133 │</span>
+<span class="err">│ https://clickhouse.yandex          │ 183.247.232.58 │</span>
+<span class="err">└────────────────────────────────────┴────────────────┘</span>
 </pre></div>
 
 
@@ -3623,9 +3623,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─toTypeName(from)─┬─hex(from)─┐
-│ IPv4             │ B7F7E83A  │
-└──────────────────┴───────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(from)─┬─hex(from)─┐</span>
+<span class="err">│ IPv4             │ B7F7E83A  │</span>
+<span class="err">└──────────────────┴───────────┘</span>
 </pre></div>
 
 
@@ -3635,9 +3635,9 @@ If you want to convert <code>IPv4</code> value to a string, you have to do that 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─toTypeName(IPv4NumToString(from))─┬─s──────────────┐
-│ String                            │ 183.247.232.58 │
-└───────────────────────────────────┴────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(IPv4NumToString(from))─┬─s──────────────┐</span>
+<span class="err">│ String                            │ 183.247.232.58 │</span>
+<span class="err">└───────────────────────────────────┴────────────────┘</span>
 </pre></div>
 
 
@@ -3646,9 +3646,9 @@ If you want to convert <code>IPv4</code> value to a string, you have to do that 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─toTypeName(CAST(from, &#39;UInt32&#39;))─┬──────────i─┐
-│ UInt32                           │ 3086477370 │
-└──────────────────────────────────┴────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(CAST(from, &#39;UInt32&#39;))─┬──────────i─┐</span>
+<span class="err">│ UInt32                           │ 3086477370 │</span>
+<span class="err">└──────────────────────────────────┴────────────┘</span>
 </pre></div>
                 
                 </div>
@@ -3750,7 +3750,9 @@ If you want to convert <code>IPv4</code> value to a string, you have to do that 
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>

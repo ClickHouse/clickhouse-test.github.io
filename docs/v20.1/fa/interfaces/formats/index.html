@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582044704">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?6de245a?1582047800">
     
     
   </head>
@@ -4280,10 +4280,10 @@
 <p>به عنوان یک استثنا، پارس کردن تاریخ به همراه ساعت، اگر مقدار دقیقا شامل 10 عدد decimal باشد، به عنوان فرمت unix timestamp پشتیبانی خواهد کرد. خروجی وابسته به time-zone نمی باشد. فرمت های YYYY-MM-DD hh: mm: ss و NNNNNNNNNN به صورت خودکار تمایز می یابند.</p>
 <p>رشته های دارای کاراکتر های ویژه backslash-escaped چاپ می شوند. escape های در ادامه برای خروجی استفاده می شوند: <code>\b</code>، <code>\f</code>، <code>\r</code>، <code>\n</code>، <code>\t</code>، <code>\0</code>, <code>\'</code>، <code>\\</code>. پارسر همچنین از <code>\a</code>، <code>\v</code>، و <code>\xHH</code> (hex escape) و هر <code>\c</code> پشتیبانی می کند. بدین ترتیب خواندن داده ها از فرمت line feed که می تواند به صورت <code>\n</code> یا <code>\</code> نوشته شود پشتیبانی می کند. برای مثال، رشته ی <code>Hello world</code> به همراه line feed بین کلمات به جای space می تواند به هر یک از حالات زیر پارس شود::</p>
 </div>
-<div class="codehilite"><pre><span></span>Hello\nworld
+<div class="codehilite"><pre><span></span><span class="n">Hello</span><span class="err">\</span><span class="n">nworld</span>
 
-Hello\
-world
+<span class="n">Hello</span><span class="err">\</span>
+<span class="n">world</span>
 </pre></div>
 
 
@@ -4299,18 +4299,18 @@ world
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>2014-03-17      1406958
-2014-03-18      1383658
-2014-03-19      1405797
-2014-03-20      1353623
-2014-03-21      1245779
-2014-03-22      1031592
-2014-03-23      1046491
+<div class="codehilite"><pre><span></span><span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span>      <span class="mi">1406958</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span>      <span class="mi">1383658</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span>      <span class="mi">1405797</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span>      <span class="mi">1353623</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span>      <span class="mi">1245779</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span>      <span class="mi">1031592</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span>      <span class="mi">1046491</span>
 
-0000-00-00      8873898
+<span class="mi">0000</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span>      <span class="mi">8873898</span>
 
-2014-03-17      1031592
-2014-03-23      1406958
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span>      <span class="mi">1031592</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span>      <span class="mi">1406958</span>
 </pre></div>
 
 
@@ -4406,10 +4406,10 @@ world
 
 
 <p><code>Insert</code> example:</p>
-<div class="codehilite"><pre><span></span>Some header
-Page views: 5, User id: 4324182021466249494, Useless field: hello, Duration: 146, Sign: -1
-Page views: 6, User id: 4324182021466249494, Useless field: world, Duration: 185, Sign: 1
-Total rows: 2
+<div class="codehilite"><pre><span></span><span class="err">Some header</span>
+<span class="err">Page views: 5, User id: 4324182021466249494, Useless field: hello, Duration: 146, Sign: -1</span>
+<span class="err">Page views: 6, User id: 4324182021466249494, Useless field: world, Duration: 185, Sign: 1</span>
+<span class="err">Total rows: 2</span>
 </pre></div>
 
 
@@ -4435,16 +4435,16 @@ It's possible to read <code>JSON</code> using this format, if values of columns 
 <h2 id="tskv">TSKV<a class="headerlink" href="#tskv" title="Permanent link">&para;</a></h2>
 <p>مشابه فرمت TabSeparated، اما خروجی به صورت name=value می باشد. نام ها مشابه روش TabSeparated، escape می شوند، و همچنین = symbol هم escape می شود.</p>
 </div>
-<div class="codehilite"><pre><span></span>SearchPhrase=   count()=8267016
-SearchPhrase=bathroom interior design    count()=2166
-SearchPhrase=yandex     count()=1655
-SearchPhrase=spring 2014 fashion    count()=1549
-SearchPhrase=freeform photos       count()=1480
-SearchPhrase=angelina jolia    count()=1245
-SearchPhrase=omsk       count()=1112
-SearchPhrase=photos of dog breeds    count()=1091
-SearchPhrase=curtain design        count()=1064
-SearchPhrase=baku       count()=1000
+<div class="codehilite"><pre><span></span><span class="err">SearchPhrase=   count()=8267016</span>
+<span class="err">SearchPhrase=bathroom interior design    count()=2166</span>
+<span class="err">SearchPhrase=yandex     count()=1655</span>
+<span class="err">SearchPhrase=spring 2014 fashion    count()=1549</span>
+<span class="err">SearchPhrase=freeform photos       count()=1480</span>
+<span class="err">SearchPhrase=angelina jolia    count()=1245</span>
+<span class="err">SearchPhrase=omsk       count()=1112</span>
+<span class="err">SearchPhrase=photos of dog breeds    count()=1091</span>
+<span class="err">SearchPhrase=curtain design        count()=1064</span>
+<span class="err">SearchPhrase=baku       count()=1000</span>
 </pre></div>
 
 
@@ -4456,7 +4456,7 @@ SearchPhrase=baku       count()=1000
 <p>Comma Separated Values format (<a href="https://tools.ietf.org/html/rfc4180" rel="external nofollow">RFC</a>).</p>
 <p>زمانی که از این روش برای فرمت استفاده می شود، سطر ها با دابل کوتیشن enclosed می شوند. دابل کوتیشن داخل یک رشته خروجی آن به صورت دو دابل کوتیشن در یک سطر است. قانون دیگری برای escape کردن کاراکترها وجود ندارد. تاریخ و تاریخ-ساعت در دابل کوتیشن ها enclosed می شوند. اعداد بدون دابل کوتیشن در خروجی می آیند. مقادیر با جدا کننده * مشخص می شوند. سطر ها با استفاده از line feed (LF) جدا می شوند. آرایه ها در csv به این صورت serialize می شوند: ابتدا آرایه به یک رشته با فرمت TabSeparate سریالایز می شوند، و سپس رشته ی حاصل در دابل کوتیشن برای csv ارسال می شود. Tuple ها در فرمت CSV در ستون های جدا سریالایز می شوند (به این ترتیب، nest ها در tuble از دست میروند)</p>
 </div>
-<div class="codehilite"><pre><span></span>clickhouse-client --format_csv_delimiter=&quot;|&quot; --query=&quot;INSERT INTO test.csv FORMAT CSV&quot; &lt; data.csv
+<div class="codehilite"><pre><span></span><span class="err">clickhouse-client --format_csv_delimiter=&quot;|&quot; --query=&quot;INSERT INTO test.csv FORMAT CSV&quot; &lt; data.csv</span>
 </pre></div>
 
 
@@ -4672,26 +4672,26 @@ SearchPhrase=baku       count()=1000
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──EventDate─┬───────c─┐
-│ 2014-03-17 │ 1406958 │
-│ 2014-03-18 │ 1383658 │
-│ 2014-03-19 │ 1405797 │
-│ 2014-03-20 │ 1353623 │
-│ 2014-03-21 │ 1245779 │
-│ 2014-03-22 │ 1031592 │
-│ 2014-03-23 │ 1046491 │
-└────────────┴─────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span> <span class="err">│</span> <span class="mi">1406958</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span> <span class="err">│</span> <span class="mi">1383658</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span> <span class="err">│</span> <span class="mi">1405797</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="err">│</span> <span class="mi">1353623</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span> <span class="err">│</span> <span class="mi">1245779</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span> <span class="err">│</span> <span class="mi">1031592</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="err">│</span> <span class="mi">1046491</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 
-Totals:
-┌──EventDate─┬───────c─┐
-│ 0000-00-00 │ 8873898 │
-└────────────┴─────────┘
+<span class="n">Totals</span><span class="p">:</span>
+<span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">0000</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span> <span class="err">│</span> <span class="mi">8873898</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 
-Extremes:
-┌──EventDate─┬───────c─┐
-│ 2014-03-17 │ 1031592 │
-│ 2014-03-23 │ 1406958 │
-└────────────┴─────────┘
+<span class="n">Extremes</span><span class="p">:</span>
+<span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span> <span class="err">│</span> <span class="mi">1031592</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="err">│</span> <span class="mi">1406958</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 </pre></div>
 
 
@@ -4730,26 +4730,26 @@ Extremes:
 <p>تفاوت آن با <code>Vertical</code> در این است که سطر ها escape نمی شوند. این فرمت فقط مناسب خروجی نتایج query ها می باشد، نه برای پارس کردن (دریافت داده ها و درج آن در جدول).</p>
 <p>مثال:</p>
 </div>
-<div class="codehilite"><pre><span></span>:) SHOW CREATE TABLE geonames FORMAT VerticalRaw;
-Row 1:
-──────
-statement: CREATE TABLE default.geonames ( geonameid UInt32, date Date DEFAULT CAST(&#39;2017-12-08&#39; AS Date)) ENGINE = MergeTree(date, geonameid, 8192)
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SHOW</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">geonames</span> <span class="n">FORMAT</span> <span class="n">VerticalRaw</span><span class="p">;</span>
+<span class="k">Row</span> <span class="mi">1</span><span class="p">:</span>
+<span class="err">──────</span>
+<span class="k">statement</span><span class="p">:</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">default</span><span class="p">.</span><span class="n">geonames</span> <span class="p">(</span> <span class="n">geonameid</span> <span class="n">UInt32</span><span class="p">,</span> <span class="nb">date</span> <span class="nb">Date</span> <span class="k">DEFAULT</span> <span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;2017-12-08&#39;</span> <span class="k">AS</span> <span class="nb">Date</span><span class="p">))</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">MergeTree</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span> <span class="n">geonameid</span><span class="p">,</span> <span class="mi">8192</span><span class="p">)</span>
 
-:) SELECT &#39;string with \&#39;quotes\&#39; and \t with some special \n characters&#39; AS test FORMAT VerticalRaw;
-Row 1:
-──────
-test: string with &#39;quotes&#39; and   with some special
- characters
+<span class="p">:)</span> <span class="k">SELECT</span> <span class="s1">&#39;string with \&#39;</span><span class="n">quotes</span><span class="err">\</span><span class="s1">&#39; and \t with some special \n characters&#39;</span> <span class="k">AS</span> <span class="n">test</span> <span class="n">FORMAT</span> <span class="n">VerticalRaw</span><span class="p">;</span>
+<span class="k">Row</span> <span class="mi">1</span><span class="p">:</span>
+<span class="err">──────</span>
+<span class="n">test</span><span class="p">:</span> <span class="n">string</span> <span class="k">with</span> <span class="s1">&#39;quotes&#39;</span> <span class="k">and</span>   <span class="k">with</span> <span class="k">some</span> <span class="n">special</span>
+ <span class="n">characters</span>
 </pre></div>
 
 
 <div dir="rtl">
 <p>در مقایسه با فرمت Vertical:</p>
 </div>
-<div class="codehilite"><pre><span></span>:) SELECT &#39;string with \&#39;quotes\&#39; and \t with some special \n characters&#39; AS test FORMAT Vertical;
-Row 1:
-──────
-test: string with \&#39;quotes\&#39; and \t with some special \n characters
+<div class="codehilite"><pre><span></span><span class="err">:) SELECT &#39;string with \&#39;quotes\&#39; and \t with some special \n characters&#39; AS test FORMAT Vertical;</span>
+<span class="err">Row 1:</span>
+<span class="err">──────</span>
+<span class="c">test: string with \&#39;quotes\&#39; and \t with some special \n characters</span>
 </pre></div>
 
 
@@ -4946,7 +4946,9 @@ test: string with \&#39;quotes\&#39; and \t with some special \n characters
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/6de245aee28e1ba4f7b63b0b7c3727be5065c6df" rel="external nofollow">6de245a</a></span>
+</div>
       
     </div>
   </div>
