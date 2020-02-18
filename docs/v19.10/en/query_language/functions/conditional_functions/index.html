@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035860">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040392">
     
     
   </head>
@@ -3513,7 +3513,7 @@
 <p><code>then</code> and <code>else</code> can be <code>NULL</code></p>
 <h2 id="multiif">multiIf<a class="headerlink" href="#multiif" title="Permanent link">&para;</a></h2>
 <p>Allows you to write the <a href="../../operators/#operator_case">CASE</a> operator more compactly in the query.</p>
-<div class="codehilite"><pre><span></span>multiIf(cond_1, then_1, cond_2, then_2...else)
+<div class="codehilite"><pre><span></span><span class="err">multiIf(cond_1, then_1, cond_2, then_2...else)</span>
 </pre></div>
 
 
@@ -3528,18 +3528,18 @@
 <p>The function returns one of the values <code>then_N</code> or <code>else</code>, depending on the conditions <code>cond_N</code>.</p>
 <p><strong>Example</strong></p>
 <p>Take the table</p>
-<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
-│ 1 │ ᴺᵁᴸᴸ │
-│ 2 │    3 │
-└───┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
+<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
+<span class="err">│ 2 │    3 │</span>
+<span class="err">└───┴──────┘</span>
 </pre></div>
 
 
 <p>Run the query <code>SELECT multiIf(isNull(y) x, y &lt; 3, y, NULL) FROM t_null</code>. Result:</p>
-<div class="codehilite"><pre><span></span>┌─multiIf(isNull(y), x, less(y, 3), y, NULL)─┐
-│                                          1 │
-│                                       ᴺᵁᴸᴸ │
-└────────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─multiIf(isNull(y), x, less(y, 3), y, NULL)─┐</span>
+<span class="err">│                                          1 │</span>
+<span class="err">│                                       ᴺᵁᴸᴸ │</span>
+<span class="err">└────────────────────────────────────────────┘</span>
 </pre></div>
                 
                 </div>
@@ -3641,7 +3641,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

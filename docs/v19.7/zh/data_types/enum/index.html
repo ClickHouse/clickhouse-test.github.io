@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582036110">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582040675">
     
     
   </head>
@@ -3332,61 +3332,61 @@
 </ul>
 <h2 id="yong-fa-shi-li">用法示例<a class="headerlink" href="#yong-fa-shi-li" title="Permanent link">&para;</a></h2>
 <p>创建一个带有一个枚举 <code>Enum8('hello' = 1, 'world' = 2)</code> 类型的列：</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE t_enum
-(
-    x Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2)
-)
-ENGINE = TinyLog
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE t_enum</span>
+<span class="err">(</span>
+<span class="err">    x Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2)</span>
+<span class="err">)</span>
+<span class="err">ENGINE = TinyLog</span>
 </pre></div>
 
 
 <p>这个 <code>x</code> 列只能存储类型定义中列出的值：<code>'hello'</code>或<code>'world'</code>。如果您尝试保存任何其他值，ClickHouse 抛出异常。</p>
-<div class="codehilite"><pre><span></span>:) INSERT INTO t_enum VALUES (&#39;hello&#39;), (&#39;world&#39;), (&#39;hello&#39;)
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">t_enum</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
 
-INSERT INTO t_enum VALUES
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">t_enum</span> <span class="k">VALUES</span>
 
-Ok.
+<span class="n">Ok</span><span class="p">.</span>
 
-3 rows in set. Elapsed: 0.002 sec.
+<span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
 
-:) insert into t_enum values(&#39;a&#39;)
+<span class="p">:)</span> <span class="k">insert</span> <span class="k">into</span> <span class="n">t_enum</span> <span class="k">values</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 
-INSERT INTO t_enum VALUES
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">t_enum</span> <span class="k">VALUES</span>
 
 
-Exception on client:
-Code: 49. DB::Exception: Unknown element &#39;a&#39; for type Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2)
+<span class="k">Exception</span> <span class="k">on</span> <span class="n">client</span><span class="p">:</span>
+<span class="n">Code</span><span class="p">:</span> <span class="mi">49</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="k">Unknown</span> <span class="n">element</span> <span class="s1">&#39;a&#39;</span> <span class="k">for</span> <span class="k">type</span> <span class="n">Enum8</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
 
 <p>当您从表中查询数据时，ClickHouse 从 <code>Enum</code> 中输出字符串值。</p>
-<div class="codehilite"><pre><span></span>SELECT * FROM t_enum
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">t_enum</span>
 
-┌─x─────┐
-│ hello │
-│ world │
-│ hello │
-└───────┘
+<span class="err">┌─</span><span class="n">x</span><span class="err">─────┐</span>
+<span class="err">│</span> <span class="n">hello</span> <span class="err">│</span>
+<span class="err">│</span> <span class="n">world</span> <span class="err">│</span>
+<span class="err">│</span> <span class="n">hello</span> <span class="err">│</span>
+<span class="err">└───────┘</span>
 </pre></div>
 
 
 <p>如果需要看到对应行的数值，则必须将 <code>Enum</code> 值转换为整数类型。</p>
-<div class="codehilite"><pre><span></span>SELECT CAST(x, &#39;Int8&#39;) FROM t_enum
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">CAST</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Int8&#39;</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">t_enum</span>
 
-┌─CAST(x, &#39;Int8&#39;)─┐
-│               1 │
-│               2 │
-│               1 │
-└─────────────────┘
+<span class="err">┌─</span><span class="k">CAST</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Int8&#39;</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>               <span class="mi">1</span> <span class="err">│</span>
+<span class="err">│</span>               <span class="mi">2</span> <span class="err">│</span>
+<span class="err">│</span>               <span class="mi">1</span> <span class="err">│</span>
+<span class="err">└─────────────────┘</span>
 </pre></div>
 
 
 <p>在查询中创建枚举值，您还需要使用 <code>CAST</code>。</p>
-<div class="codehilite"><pre><span></span>SELECT toTypeName(CAST(&#39;a&#39;, &#39;Enum8(\&#39;a\&#39; = 1, \&#39;b\&#39; = 2)&#39;))
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;Enum8(\&#39;</span><span class="n">a</span><span class="err">\</span><span class="s1">&#39; = 1, \&#39;</span><span class="n">b</span><span class="err">\</span><span class="s1">&#39; = 2)&#39;</span><span class="p">))</span>
 
-┌─toTypeName(CAST(&#39;a&#39;, &#39;Enum8(\&#39;a\&#39; = 1, \&#39;b\&#39; = 2)&#39;))─┐
-│ Enum8(&#39;a&#39; = 1, &#39;b&#39; = 2)                              │
-└──────────────────────────────────────────────────────┘
+<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;Enum8(\&#39;</span><span class="n">a</span><span class="err">\</span><span class="s1">&#39; = 1, \&#39;</span><span class="n">b</span><span class="err">\</span><span class="s1">&#39; = 2)&#39;</span><span class="p">))</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">Enum8</span><span class="p">(</span><span class="s1">&#39;a&#39;</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span>                              <span class="err">│</span>
+<span class="err">└──────────────────────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -3394,16 +3394,16 @@ Code: 49. DB::Exception: Unknown element &#39;a&#39; for type Enum8(&#39;hello&#
 <p><code>Enum8</code> 类型的每个值范围是 <code>-128 ... 127</code>，<code>Enum16</code> 类型的每个值范围是 <code>-32768 ... 32767</code>。所有的字符串或者数字都必须是不一样的。允许存在空字符串。如果某个 Enum 类型被指定了（在表定义的时候），数字可以是任意顺序。然而，顺序并不重要。</p>
 <p><code>Enum</code> 中的字符串和数值都不能是 <a href="../../query_language/syntax/">NULL</a>。</p>
 <p><code>Enum</code> 包含在 <a href="../nullable/">Nullable</a> 类型中。因此，如果您使用此查询创建一个表</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE t_enum_nullable
-(
-    x Nullable( Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2) )
-)
-ENGINE = TinyLog
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE t_enum_nullable</span>
+<span class="err">(</span>
+<span class="err">    x Nullable( Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2) )</span>
+<span class="err">)</span>
+<span class="err">ENGINE = TinyLog</span>
 </pre></div>
 
 
 <p>不仅可以存储 <code>'hello'</code> 和 <code>'world'</code> ，还可以存储 <code>NULL</code>。</p>
-<div class="codehilite"><pre><span></span>INSERT INTO t_enum_null Values(&#39;hello&#39;),(&#39;world&#39;),(NULL)
+<div class="codehilite"><pre><span></span><span class="err">INSERT INTO t_enum_null Values(&#39;hello&#39;),(&#39;world&#39;),(NULL)</span>
 </pre></div>
 
 
@@ -3517,7 +3517,9 @@ ENGINE = TinyLog
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

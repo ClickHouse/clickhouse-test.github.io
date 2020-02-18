@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035581">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040082">
     
     
   </head>
@@ -4419,7 +4419,7 @@
 <p>При наличии в запросе <code>SELECT</code> секции <code>GROUP BY</code> или хотя бы одной агрегатной функции, ClickHouse (в отличие от, например, MySQL) требует, чтобы все выражения в секциях <code>SELECT</code>, <code>HAVING</code>, <code>ORDER BY</code> вычислялись из ключей или из агрегатных функций. То есть, каждый выбираемый из таблицы столбец, должен использоваться либо в ключах, либо внутри агрегатных функций. Чтобы получить поведение, как в MySQL, вы можете поместить остальные столбцы в агрегатную функцию <code>any</code>.</p>
 <h2 id="agg_function-anyHeavy">anyHeavy(x)<a class="headerlink" href="#agg_function-anyHeavy" title="Permanent link">&para;</a></h2>
 <p>Выбирает часто встречающееся значение с помощью алгоритма "<a href="http://www.cs.umd.edu/~samir/498/karp.pdf" rel="external nofollow">heavy hitters</a>". Если существует значение, которое встречается чаще, чем в половине случаев, в каждом потоке выполнения запроса, то возвращается данное значение. В общем случае, результат недетерминирован.</p>
-<div class="codehilite"><pre><span></span>anyHeavy(column)
+<div class="codehilite"><pre><span></span><span class="err">anyHeavy(column)</span>
 </pre></div>
 
 
@@ -4434,9 +4434,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌───res─┐
-│ 19690 │
-└───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌───res─┐</span>
+<span class="err">│ 19690 │</span>
+<span class="err">└───────┘</span>
 </pre></div>
 
 
@@ -4445,7 +4445,7 @@
 Результат так же недетерминирован, как и для функции <code>any</code>.</p>
 <h2 id="groupbitand">groupBitAnd<a class="headerlink" href="#groupbitand" title="Permanent link">&para;</a></h2>
 <p>Применяет побитовое <code>И</code> для последовательности чисел.</p>
-<div class="codehilite"><pre><span></span>groupBitAnd(expr)
+<div class="codehilite"><pre><span></span><span class="err">groupBitAnd(expr)</span>
 </pre></div>
 
 
@@ -4455,29 +4455,29 @@
 <p>Значение типа <code>UInt*</code>.</p>
 <p><strong>Пример</strong></p>
 <p>Тестовые данные:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-00101100 = 44
-00011100 = 28
-00001101 = 13
-01010101 = 85
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">00101100 = 44</span>
+<span class="err">00011100 = 28</span>
+<span class="err">00001101 = 13</span>
+<span class="err">01010101 = 85</span>
 </pre></div>
 
 
 <p>Запрос:</p>
-<div class="codehilite"><pre><span></span>SELECT groupBitAnd(num) FROM t
+<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitAnd(num) FROM t</span>
 </pre></div>
 
 
 <p>Где <code>num</code> — столбец с тестовыми данными.</p>
 <p>Результат:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-00000100 = 4
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">00000100 = 4</span>
 </pre></div>
 
 
 <h2 id="groupbitor">groupBitOr<a class="headerlink" href="#groupbitor" title="Permanent link">&para;</a></h2>
 <p>Применяет побитовое <code>ИЛИ</code> для последовательности чисел.</p>
-<div class="codehilite"><pre><span></span>groupBitOr(expr)
+<div class="codehilite"><pre><span></span><span class="err">groupBitOr(expr)</span>
 </pre></div>
 
 
@@ -4487,29 +4487,29 @@
 <p>Значение типа <code>UInt*</code>.</p>
 <p><strong>Пример</strong></p>
 <p>Тестовые данные:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-00101100 = 44
-00011100 = 28
-00001101 = 13
-01010101 = 85
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">00101100 = 44</span>
+<span class="err">00011100 = 28</span>
+<span class="err">00001101 = 13</span>
+<span class="err">01010101 = 85</span>
 </pre></div>
 
 
 <p>Запрос:</p>
-<div class="codehilite"><pre><span></span>SELECT groupBitOr(num) FROM t
+<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitOr(num) FROM t</span>
 </pre></div>
 
 
 <p>Где <code>num</code> — столбец с тестовыми данными.</p>
 <p>Результат:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-01111101 = 125
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">01111101 = 125</span>
 </pre></div>
 
 
 <h2 id="groupbitxor">groupBitXor<a class="headerlink" href="#groupbitxor" title="Permanent link">&para;</a></h2>
 <p>Применяет побитовое <code>ИСКЛЮЧАЮЩЕЕ ИЛИ</code> для последовательности чисел.</p>
-<div class="codehilite"><pre><span></span>groupBitXor(expr)
+<div class="codehilite"><pre><span></span><span class="err">groupBitXor(expr)</span>
 </pre></div>
 
 
@@ -4519,29 +4519,29 @@
 <p>Значение типа <code>UInt*</code>.</p>
 <p><strong>Пример</strong></p>
 <p>Тестовые данные:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-00101100 = 44
-00011100 = 28
-00001101 = 13
-01010101 = 85
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">00101100 = 44</span>
+<span class="err">00011100 = 28</span>
+<span class="err">00001101 = 13</span>
+<span class="err">01010101 = 85</span>
 </pre></div>
 
 
 <p>Запрос:</p>
-<div class="codehilite"><pre><span></span>SELECT groupBitXor(num) FROM t
+<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitXor(num) FROM t</span>
 </pre></div>
 
 
 <p>Где <code>num</code> — столбец с тестовыми данными.</p>
 <p>Результат:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-01101000 = 104
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">01101000 = 104</span>
 </pre></div>
 
 
 <h2 id="groupbitmap">groupBitmap<a class="headerlink" href="#groupbitmap" title="Permanent link">&para;</a></h2>
 <p>Bitmap или агрегатные вычисления для столбца с типом данных <code>UInt*</code>, возвращают кардинальность в виде значения типа UInt64, если добавить суффикс -State, то возвращают <a href="../../functions/bitmap_functions/">объект bitmap</a>.</p>
-<div class="codehilite"><pre><span></span>groupBitmap(expr)
+<div class="codehilite"><pre><span></span><span class="err">groupBitmap(expr)</span>
 </pre></div>
 
 
@@ -4551,22 +4551,22 @@
 <p>Значение типа <code>UInt64</code>.</p>
 <p><strong>Пример</strong></p>
 <p>Тестовые данные:</p>
-<div class="codehilite"><pre><span></span>UserID
-1
-1
-2
-3
+<div class="codehilite"><pre><span></span><span class="err">UserID</span>
+<span class="err">1</span>
+<span class="err">1</span>
+<span class="err">2</span>
+<span class="err">3</span>
 </pre></div>
 
 
 <p>Запрос:</p>
-<div class="codehilite"><pre><span></span>SELECT groupBitmap(UserID) as num FROM t
+<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitmap(UserID) as num FROM t</span>
 </pre></div>
 
 
 <p>Результат:</p>
-<div class="codehilite"><pre><span></span>num
-3
+<div class="codehilite"><pre><span></span><span class="err">num</span>
+<span class="err">3</span>
 </pre></div>
 
 
@@ -4577,17 +4577,17 @@
 <h2 id="agg_function-argMin">argMin(arg, val)<a class="headerlink" href="#agg_function-argMin" title="Permanent link">&para;</a></h2>
 <p>Вычисляет значение arg при минимальном значении val. Если есть несколько разных значений arg для минимальных значений val, то выдаётся первое попавшееся из таких значений.</p>
 <p><strong>Пример:</strong></p>
-<div class="codehilite"><pre><span></span>┌─user─────┬─salary─┐
-│ director │   5000 │
-│ manager  │   3000 │
-│ worker   │   1000 │
-└──────────┴────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─</span><span class="k">user</span><span class="err">─────┬─</span><span class="n">salary</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">director</span> <span class="err">│</span>   <span class="mi">5000</span> <span class="err">│</span>
+<span class="err">│</span> <span class="n">manager</span>  <span class="err">│</span>   <span class="mi">3000</span> <span class="err">│</span>
+<span class="err">│</span> <span class="n">worker</span>   <span class="err">│</span>   <span class="mi">1000</span> <span class="err">│</span>
+<span class="err">└──────────┴────────┘</span>
 
-SELECT argMin(user, salary) FROM salary
+<span class="k">SELECT</span> <span class="n">argMin</span><span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">salary</span>
 
-┌─argMin(user, salary)─┐
-│ worker               │
-└──────────────────────┘
+<span class="err">┌─</span><span class="n">argMin</span><span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">worker</span>               <span class="err">│</span>
+<span class="err">└──────────────────────┘</span>
 </pre></div>
 
 
@@ -4625,16 +4625,16 @@ SELECT argMin(user, salary) FROM salary
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌────────────timeslot─┬─sumMap(statusMap.status, statusMap.requests)─┐
-│ 2000-01-01 00:00:00 │ ([1,2,3,4,5],[10,10,20,10,10])               │
-│ 2000-01-01 00:01:00 │ ([4,5,6,7,8],[10,10,20,10,10])               │
-└─────────────────────┴──────────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌────────────timeslot─┬─sumMap(statusMap.status, statusMap.requests)─┐</span>
+<span class="err">│ 2000-01-01 00:00:00 │ ([1,2,3,4,5],[10,10,20,10,10])               │</span>
+<span class="err">│ 2000-01-01 00:01:00 │ ([4,5,6,7,8],[10,10,20,10,10])               │</span>
+<span class="err">└─────────────────────┴──────────────────────────────────────────────┘</span>
 </pre></div>
 
 
 <h2 id="skewpop">skewPop<a class="headerlink" href="#skewpop" title="Permanent link">&para;</a></h2>
 <p>Вычисляет <a href="https://ru.wikipedia.org/wiki/Коэффициент_асимметрии" rel="external nofollow">коэффициент асимметрии</a> для последовательности.</p>
-<div class="codehilite"><pre><span></span>skewPop(expr)
+<div class="codehilite"><pre><span></span><span class="err">skewPop(expr)</span>
 </pre></div>
 
 
@@ -4650,7 +4650,7 @@ SELECT argMin(user, salary) FROM salary
 <h2 id="skewsamp">skewSamp<a class="headerlink" href="#skewsamp" title="Permanent link">&para;</a></h2>
 <p>Вычисляет <a href="https://ru.wikipedia.org/wiki/Статистика_(функция_выборки)" rel="external nofollow">выборочный коэффициент асимметрии</a>  для последовательности.</p>
 <p>Он представляет собой несмещенную оценку асимметрии случайной величины, если переданные значения образуют ее выборку.</p>
-<div class="codehilite"><pre><span></span>skewSamp(expr)
+<div class="codehilite"><pre><span></span><span class="err">skewSamp(expr)</span>
 </pre></div>
 
 
@@ -4665,7 +4665,7 @@ SELECT argMin(user, salary) FROM salary
 
 <h2 id="kurtpop">kurtPop<a class="headerlink" href="#kurtpop" title="Permanent link">&para;</a></h2>
 <p>Вычисляет <a href="https://ru.wikipedia.org/wiki/Коэффициент_эксцесса" rel="external nofollow">коэффициент эксцесса</a> последовательности.</p>
-<div class="codehilite"><pre><span></span>kurtPop(expr)
+<div class="codehilite"><pre><span></span><span class="err">kurtPop(expr)</span>
 </pre></div>
 
 
@@ -4681,7 +4681,7 @@ SELECT argMin(user, salary) FROM salary
 <h2 id="kurtsamp">kurtSamp<a class="headerlink" href="#kurtsamp" title="Permanent link">&para;</a></h2>
 <p>Вычисляет <a href="https://ru.wikipedia.org/wiki/Статистика_(функция_выборки)" rel="external nofollow">выборочный коэффициент эксцесса</a> для последовательности.</p>
 <p>Он представляет собой несмещенную оценку эксцесса случайной величины, если переданные значения образуют ее выборку.</p>
-<div class="codehilite"><pre><span></span>kurtSamp(expr)
+<div class="codehilite"><pre><span></span><span class="err">kurtSamp(expr)</span>
 </pre></div>
 
 
@@ -4705,39 +4705,39 @@ SELECT argMin(user, salary) FROM salary
 <p>Функция возвращает массив кортежей с парами <code>(timestamp, aggregated_value)</code>.</p>
 <p>Временные ряды должны быть отсортированы по возрастанию <code>timestamp</code>.</p>
 <p>Пример:</p>
-<div class="codehilite"><pre><span></span>┌─uid─┬─timestamp─┬─value─┐
-│ 1   │     2     │   0.2 │
-│ 1   │     7     │   0.7 │
-│ 1   │    12     │   1.2 │
-│ 1   │    17     │   1.7 │
-│ 1   │    25     │   2.5 │
-│ 2   │     3     │   0.6 │
-│ 2   │     8     │   1.6 │
-│ 2   │    12     │   2.4 │
-│ 2   │    18     │   3.6 │
-│ 2   │    24     │   4.8 │
-└─────┴───────────┴───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─uid─┬─timestamp─┬─value─┐</span>
+<span class="err">│ 1   │     2     │   0.2 │</span>
+<span class="err">│ 1   │     7     │   0.7 │</span>
+<span class="err">│ 1   │    12     │   1.2 │</span>
+<span class="err">│ 1   │    17     │   1.7 │</span>
+<span class="err">│ 1   │    25     │   2.5 │</span>
+<span class="err">│ 2   │     3     │   0.6 │</span>
+<span class="err">│ 2   │     8     │   1.6 │</span>
+<span class="err">│ 2   │    12     │   2.4 │</span>
+<span class="err">│ 2   │    18     │   3.6 │</span>
+<span class="err">│ 2   │    24     │   4.8 │</span>
+<span class="err">└─────┴───────────┴───────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>CREATE TABLE time_series(
-    uid       UInt64,
-    timestamp Int64,
-    value     Float64
-) ENGINE = Memory;
-INSERT INTO time_series VALUES
-    (1,2,0.2),(1,7,0.7),(1,12,1.2),(1,17,1.7),(1,25,2.5),
-    (2,3,0.6),(2,8,1.6),(2,12,2.4),(2,18,3.6),(2,24,4.8);
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">time_series</span><span class="p">(</span>
+    <span class="n">uid</span>       <span class="n">UInt64</span><span class="p">,</span>
+    <span class="k">timestamp</span> <span class="n">Int64</span><span class="p">,</span>
+    <span class="n">value</span>     <span class="n">Float64</span>
+<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">;</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">time_series</span> <span class="k">VALUES</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">7</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">6</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">);</span>
 
-SELECT timeSeriesGroupSum(uid, timestamp, value)
-FROM (
-    SELECT * FROM time_series order by timestamp ASC
-);
+<span class="k">SELECT</span> <span class="n">timeSeriesGroupSum</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="k">timestamp</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">time_series</span> <span class="k">order</span> <span class="k">by</span> <span class="k">timestamp</span> <span class="k">ASC</span>
+<span class="p">);</span>
 </pre></div>
 
 
 <p>И результат будет:</p>
-<div class="codehilite"><pre><span></span>[(2,0.2),(3,0.9),(7,2.1),(8,2.4),(12,3.6),(17,5.1),(18,5.4),(24,7.2),(25,2.5)]
+<div class="codehilite"><pre><span></span><span class="err">[(2,0.2),(3,0.9),(7,2.1),(8,2.4),(12,3.6),(17,5.1),(18,5.4),(24,7.2),(25,2.5)]</span>
 </pre></div>
 
 
@@ -4745,7 +4745,7 @@ FROM (
 <p>Аналогично timeSeriesGroupRateSum, timeSeriesGroupRateSum будет вычислять производные по timestamp для рядов, а затем суммировать полученные производные для всех рядов для одного значения timestamp.
 Также ряды должны быть отсотированы по возрастанию timestamp.</p>
 <p>Для пример из описания timeSeriesGroupRateSum результат будет следующим:</p>
-<div class="codehilite"><pre><span></span>[(2,0),(3,0.1),(7,0.3),(8,0.3),(12,0.3),(17,0.3),(18,0.3),(24,0.3),(25,0.1)]
+<div class="codehilite"><pre><span></span><span class="err">[(2,0),(3,0.1),(7,0.3),(8,0.3),(12,0.3),(17,0.3),(18,0.3),(24,0.3),(25,0.1)]</span>
 </pre></div>
 
 
@@ -4755,7 +4755,7 @@ FROM (
 Результат всегда Float64.</p>
 <h2 id="agg_function-uniq">uniq<a class="headerlink" href="#agg_function-uniq" title="Permanent link">&para;</a></h2>
 <p>Приближённо вычисляет количество различных значений аргумента.</p>
-<div class="codehilite"><pre><span></span>uniq(x[, ...])
+<div class="codehilite"><pre><span></span><span class="err">uniq(x[, ...])</span>
 </pre></div>
 
 
@@ -4788,7 +4788,7 @@ FROM (
 </ul>
 <h2 id="agg_function-uniqcombined">uniqCombined<a class="headerlink" href="#agg_function-uniqcombined" title="Permanent link">&para;</a></h2>
 <p>Приближённо вычисляет количество различных значений аргумента.</p>
-<div class="codehilite"><pre><span></span>uniqCombined(HLL_precision)(x[, ...])
+<div class="codehilite"><pre><span></span><span class="err">uniqCombined(HLL_precision)(x[, ...])</span>
 </pre></div>
 
 
@@ -4828,7 +4828,7 @@ FROM (
 </ul>
 <h2 id="agg_function-uniqhll12">uniqHLL12<a class="headerlink" href="#agg_function-uniqhll12" title="Permanent link">&para;</a></h2>
 <p>Вычисляет приблизительное число различных значений аргументов, используя алгоритм <a href="https://en.wikipedia.org/wiki/HyperLogLog" rel="external nofollow">HyperLogLog</a>.</p>
-<div class="codehilite"><pre><span></span>uniqHLL12(x[, ...])
+<div class="codehilite"><pre><span></span><span class="err">uniqHLL12(x[, ...])</span>
 </pre></div>
 
 
@@ -4861,7 +4861,7 @@ FROM (
 </ul>
 <h2 id="agg_function-uniqexact">uniqExact<a class="headerlink" href="#agg_function-uniqexact" title="Permanent link">&para;</a></h2>
 <p>Вычисляет точное количество различных значений аргументов.</p>
-<div class="codehilite"><pre><span></span>uniqExact(x[, ...])
+<div class="codehilite"><pre><span></span><span class="err">uniqExact(x[, ...])</span>
 </pre></div>
 
 
@@ -4891,8 +4891,8 @@ FROM (
 </ul>
 <h2 id="agg_function-grouparraymovingsum">groupArrayMovingSum<a class="headerlink" href="#agg_function-grouparraymovingsum" title="Permanent link">&para;</a></h2>
 <p>Вычисляет скользящую сумму входных значений.</p>
-<div class="codehilite"><pre><span></span>groupArrayMovingSum(numbers_for_summing)
-groupArrayMovingSum(window_size)(numbers_for_summing)
+<div class="codehilite"><pre><span></span><span class="err">groupArrayMovingSum(numbers_for_summing)</span>
+<span class="err">groupArrayMovingSum(window_size)(numbers_for_summing)</span>
 </pre></div>
 
 
@@ -4958,8 +4958,8 @@ groupArrayMovingSum(window_size)(numbers_for_summing)
 
 <h2 id="agg_function-grouparraymovingavg">groupArrayMovingAvg<a class="headerlink" href="#agg_function-grouparraymovingavg" title="Permanent link">&para;</a></h2>
 <p>Вычисляет скользящее среднее для входных значений.</p>
-<div class="codehilite"><pre><span></span>groupArrayMovingAvg(numbers_for_summing)
-groupArrayMovingAvg(window_size)(numbers_for_summing)
+<div class="codehilite"><pre><span></span><span class="err">groupArrayMovingAvg(numbers_for_summing)</span>
+<span class="err">groupArrayMovingAvg(window_size)(numbers_for_summing)</span>
 </pre></div>
 
 
@@ -5087,7 +5087,7 @@ groupArrayMovingAvg(window_size)(numbers_for_summing)
 <h2 id="topk-n-column">topK(N)(column)<a class="headerlink" href="#topk-n-column" title="Permanent link">&para;</a></h2>
 <p>Возвращает массив наиболее часто встречающихся значений в указанном столбце. Результирующий массив упорядочен по убыванию частоты значения (не по самим значениям).</p>
 <p>Реализует <a href="http://www.l2f.inesc-id.pt/~fmmb/wiki/uploads/Work/misnis.ref0a.pdf" rel="external nofollow">Filtered Space-Saving</a> алгоритм для анализа TopK, на основе reduce-and-combine алгоритма из методики <a href="https://arxiv.org/pdf/1401.0702.pdf" rel="external nofollow">Parallel Space Saving</a>.</p>
-<div class="codehilite"><pre><span></span>topK(N)(column)
+<div class="codehilite"><pre><span></span><span class="err">topK(N)(column)</span>
 </pre></div>
 
 
@@ -5105,9 +5105,9 @@ groupArrayMovingAvg(window_size)(numbers_for_summing)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─────────────────┐
-│ [19393,19790,19805] │
-└─────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─────────────────┐</span>
+<span class="err">│ [19393,19790,19805] │</span>
+<span class="err">└─────────────────────┘</span>
 </pre></div>
 
 
@@ -5120,7 +5120,7 @@ groupArrayMovingAvg(window_size)(numbers_for_summing)
 <p>Вычисляет коэффициент корреляции Пирсона: <code>Σ((x - x̅)(y - y̅)) / sqrt(Σ((x - x̅)^2) * Σ((y - y̅)^2))</code>.</p>
 <h2 id="simplelinearregression">simpleLinearRegression<a class="headerlink" href="#simplelinearregression" title="Permanent link">&para;</a></h2>
 <p>Выполняет простую (одномерную) линейную регрессию.</p>
-<div class="codehilite"><pre><span></span>simpleLinearRegression(x, y)
+<div class="codehilite"><pre><span></span><span class="err">simpleLinearRegression(x, y)</span>
 </pre></div>
 
 
@@ -5171,22 +5171,22 @@ groupArrayMovingAvg(window_size)(numbers_for_summing)
 Для прогнозирования мы используем функцию <a href="../../functions/machine_learning_functions/#machine_learning_methods-evalmlmethod">evalMLMethod</a>, которая принимает в качестве аргументов состояние и свойства для прогнозирования.</p>
 <p><a name="stochasticlinearregression-usage-fitting"></a>
 1. Построение модели</p>
-<div class="codehilite"><pre><span></span>Пример запроса:
+<div class="codehilite"><pre><span></span><span class="err">Пример</span> <span class="err">запроса</span><span class="p">:</span>
 
-```sql
-CREATE TABLE IF NOT EXISTS train_data
-(
-    param1 Float64,
-    param2 Float64,
-    target Float64
-) ENGINE = Memory;
+<span class="ss">```sql</span>
+<span class="ss">CREATE TABLE IF NOT EXISTS train_data</span>
+<span class="ss">(</span>
+<span class="ss">    param1 Float64,</span>
+<span class="ss">    param2 Float64,</span>
+<span class="ss">    target Float64</span>
+<span class="ss">) ENGINE = Memory;</span>
 
-CREATE TABLE your_model ENGINE = Memory AS SELECT
-stochasticLinearRegressionState(0.1, 0.0, 5, &#39;SGD&#39;)(target, param1, param2)
-AS state FROM train_data;
-```
+<span class="ss">CREATE TABLE your_model ENGINE = Memory AS SELECT</span>
+<span class="ss">stochasticLinearRegressionState(0.1, 0.0, 5, &#39;SGD&#39;)(target, param1, param2)</span>
+<span class="ss">AS state FROM train_data;</span>
+<span class="ss">```</span>
 
-Здесь нам также нужно вставить данные в таблицу `train_data`. Количество параметров не фиксировано, оно зависит только от количества аргументов, перешедших в `linearRegressionState`. Все они должны быть числовыми значениями.
+<span class="err">Здесь</span> <span class="err">нам</span> <span class="err">также</span> <span class="err">нужно</span> <span class="err">вставить</span> <span class="err">данные</span> <span class="err">в</span> <span class="err">таблицу</span> <span class="ss">`train_data`</span><span class="p">.</span> <span class="err">Количество</span> <span class="err">параметров</span> <span class="err">не</span> <span class="err">фиксировано</span><span class="p">,</span> <span class="err">оно</span> <span class="err">зависит</span> <span class="err">только</span> <span class="err">от</span> <span class="err">количества</span> <span class="err">аргументов</span><span class="p">,</span> <span class="err">перешедших</span> <span class="err">в</span> <span class="ss">`linearRegressionState`</span><span class="p">.</span> <span class="err">Все</span> <span class="err">они</span> <span class="err">должны</span> <span class="err">быть</span> <span class="err">числовыми</span> <span class="err">значениями</span><span class="p">.</span>
 </pre></div>
 
 
@@ -5359,7 +5359,9 @@ evalMLMethod(model, param1, param2) AS ans FROM test_data)</code></p>
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

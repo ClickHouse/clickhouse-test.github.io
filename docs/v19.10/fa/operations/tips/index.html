@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582035860">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582040392">
     
     
   </head>
@@ -3617,7 +3617,7 @@ The restriction can also be set externally at the datacenter level. You can use 
 For large amounts of data and when processing interactive (online) queries, you should use a reasonable amount of RAM (128 GB or more) so the hot data subset will fit in the cache of pages.
 Even for data volumes of ~50 TB per server, using 128 GB of RAM significantly improves query performance compared to 64 GB.</p>
 <p>Do not disable overcommit. The value <code>cat /proc/sys/vm/overcommit_memory</code> should be 0 or 1. Run</p>
-<div class="codehilite"><pre><span></span>echo 0 | sudo tee /proc/sys/vm/overcommit_memory
+<div class="codehilite"><pre><span></span><span class="err">echo 0 | sudo tee /proc/sys/vm/overcommit_memory</span>
 </pre></div>
 
 
@@ -3730,8 +3730,8 @@ autopurge.purgeInterval<span class="o">=</span><span class="m">1</span>
 
 
 <p>Java version:</p>
-<div class="codehilite"><pre><span></span>Java(TM) SE Runtime Environment (build 1.8.0_25-b17)
-Java HotSpot(TM) 64-Bit Server VM (build 25.25-b02, mixed mode)
+<div class="codehilite"><pre><span></span><span class="err">Java(TM) SE Runtime Environment (build 1.8.0_25-b17)</span>
+<span class="err">Java HotSpot(TM) 64-Bit Server VM (build 25.25-b02, mixed mode)</span>
 </pre></div>
 
 
@@ -3903,7 +3903,9 @@ end script
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

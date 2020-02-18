@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035770">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040295">
     
     
   </head>
@@ -3554,16 +3554,16 @@
 <p>Движок обрабатывает все столбцы типа <a href="../../../data_types/nested_data_structures/aggregatefunction/">AggregateFunction</a>.</p>
 <p>Использование <code>AggregatingMergeTree</code> оправдано только в том случае, когда это уменьшает количество строк на порядки.</p>
 <h2 id="sozdanie-tablitsy">Создание таблицы<a class="headerlink" href="#sozdanie-tablitsy" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
-(
-    name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1],
-    name2 [type2] [DEFAULT|MATERIALIZED|ALIAS expr2],
-    ...
-) ENGINE = AggregatingMergeTree()
-[PARTITION BY expr]
-[ORDER BY expr]
-[SAMPLE BY expr]
-[SETTINGS name=value, ...]
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="nc">TABLE</span><span class="w"> </span><span class="o">[</span><span class="n">IF NOT EXISTS</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">db.</span><span class="o">]</span><span class="n">table_name</span><span class="w"> </span><span class="o">[</span><span class="n">ON CLUSTER cluster</span><span class="o">]</span><span class="w"></span>
+<span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">name1</span><span class="w"> </span><span class="o">[</span><span class="n">type1</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">DEFAULT|MATERIALIZED|ALIAS expr1</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">name2</span><span class="w"> </span><span class="o">[</span><span class="n">type2</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">DEFAULT|MATERIALIZED|ALIAS expr2</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AggregatingMergeTree</span><span class="p">()</span><span class="w"></span>
+<span class="o">[</span><span class="n">PARTITION BY expr</span><span class="o">]</span><span class="w"></span>
+<span class="o">[</span><span class="n">ORDER BY expr</span><span class="o">]</span><span class="w"></span>
+<span class="o">[</span><span class="n">SAMPLE BY expr</span><span class="o">]</span><span class="w"></span>
+<span class="o">[</span><span class="n">SETTINGS name=value, ...</span><span class="o">]</span><span class="w"></span>
 </pre></div>
 
 
@@ -3719,7 +3719,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

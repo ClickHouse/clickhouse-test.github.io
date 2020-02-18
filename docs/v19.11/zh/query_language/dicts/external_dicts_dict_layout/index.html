@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035770">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040295">
     
     
   </head>
@@ -3679,15 +3679,15 @@
 <p>The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.</p>
 <p>This storage method works the same way as hashed and allows using date/time ranges in addition to the key, if they appear in the dictionary.</p>
 <p>Example: The table contains discounts for each advertiser in the format:</p>
-<div class="codehilite"><pre><span></span>+---------------+---------------------+-------------------+--------+
-| advertiser id | discount start date | discount end date | amount |
-+===============+=====================+===================+========+
-| 123           | 2015-01-01          | 2015-01-15        | 0.15   |
-+---------------+---------------------+-------------------+--------+
-| 123           | 2015-01-16          | 2015-01-31        | 0.25   |
-+---------------+---------------------+-------------------+--------+
-| 456           | 2015-01-01          | 2015-01-15        | 0.05   |
-+---------------+---------------------+-------------------+--------+
+<div class="codehilite"><pre><span></span><span class="err">+---------------+---------------------+-------------------+--------+</span>
+<span class="err">| advertiser id | discount start date | discount end date | amount |</span>
+<span class="err">+===============+=====================+===================+========+</span>
+<span class="err">| 123           | 2015-01-01          | 2015-01-15        | 0.15   |</span>
+<span class="err">+---------------+---------------------+-------------------+--------+</span>
+<span class="err">| 123           | 2015-01-16          | 2015-01-31        | 0.25   |</span>
+<span class="err">+---------------+---------------------+-------------------+--------+</span>
+<span class="err">| 456           | 2015-01-01          | 2015-01-15        | 0.05   |</span>
+<span class="err">+---------------+---------------------+-------------------+--------+</span>
 </pre></div>
 
 
@@ -3708,7 +3708,7 @@
 
 
 <p>To work with these dictionaries, you need to pass an additional date argument to the <code>dictGetT</code> function:</p>
-<div class="codehilite"><pre><span></span>dictGetT(&#39;dict_name&#39;, &#39;attr_name&#39;, id, date)
+<div class="codehilite"><pre><span></span><span class="err">dictGetT(&#39;dict_name&#39;, &#39;attr_name&#39;, id, date)</span>
 </pre></div>
 
 
@@ -3784,17 +3784,17 @@ This is the least effective of all the ways to store dictionaries. The speed of 
 <h3 id="ip-trie">ip_trie<a class="headerlink" href="#ip-trie" title="Permanent link">&para;</a></h3>
 <p>This type of storage is for mapping network prefixes (IP addresses) to metadata such as ASN.</p>
 <p>Example: The table contains network prefixes and their corresponding AS number and country code:</p>
-<div class="codehilite"><pre><span></span>  +-----------------+-------+--------+
-  | prefix          | asn   | cca2   |
-  +=================+=======+========+
-  | 202.79.32.0/20  | 17501 | NP     |
-  +-----------------+-------+--------+
-  | 2620:0:870::/48 | 3856  | US     |
-  +-----------------+-------+--------+
-  | 2a02:6b8:1::/48 | 13238 | RU     |
-  +-----------------+-------+--------+
-  | 2001:db8::/32   | 65536 | ZZ     |
-  +-----------------+-------+--------+
+<div class="codehilite"><pre><span></span><span class="err">  +-----------------+-------+--------+</span>
+<span class="err">  | prefix          | asn   | cca2   |</span>
+<span class="err">  +=================+=======+========+</span>
+<span class="err">  | 202.79.32.0/20  | 17501 | NP     |</span>
+<span class="err">  +-----------------+-------+--------+</span>
+<span class="err">  | 2620:0:870::/48 | 3856  | US     |</span>
+<span class="err">  +-----------------+-------+--------+</span>
+<span class="err">  | 2a02:6b8:1::/48 | 13238 | RU     |</span>
+<span class="err">  +-----------------+-------+--------+</span>
+<span class="err">  | 2001:db8::/32   | 65536 | ZZ     |</span>
+<span class="err">  +-----------------+-------+--------+</span>
 </pre></div>
 
 
@@ -3823,12 +3823,12 @@ This is the least effective of all the ways to store dictionaries. The speed of 
 
 <p>The key must have only one String type attribute that contains an allowed IP prefix. Other types are not supported yet.</p>
 <p>For queries, you must use the same functions (<code>dictGetT</code> with a tuple) as for dictionaries with composite keys:</p>
-<div class="codehilite"><pre><span></span>dictGetT(&#39;dict_name&#39;, &#39;attr_name&#39;, tuple(ip))
+<div class="codehilite"><pre><span></span><span class="err">dictGetT(&#39;dict_name&#39;, &#39;attr_name&#39;, tuple(ip))</span>
 </pre></div>
 
 
 <p>The function takes either <code>UInt32</code> for IPv4, or <code>FixedString(16)</code> for IPv6:</p>
-<div class="codehilite"><pre><span></span>dictGetString(&#39;prefix&#39;, &#39;asn&#39;, tuple(IPv6StringToNum(&#39;2001:db8::1&#39;)))
+<div class="codehilite"><pre><span></span><span class="err">dictGetString(&#39;prefix&#39;, &#39;asn&#39;, tuple(IPv6StringToNum(&#39;2001:db8::1&#39;)))</span>
 </pre></div>
 
 
@@ -3934,7 +3934,9 @@ This is the least effective of all the ways to store dictionaries. The speed of 
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

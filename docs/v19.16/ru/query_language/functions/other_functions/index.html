@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035352">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582039843">
     
     
   </head>
@@ -4646,13 +4646,13 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>set max_block_size=100000 -- по умолчанию 65536!
+<div class="codehilite"><pre><span></span><span class="k">set</span> <span class="n">max_block_size</span><span class="o">=</span><span class="mi">100000</span> <span class="c1">-- по умолчанию 65536!</span>
 
-SELECT
-    number,
-    runningDifference(number + 1) AS diff
-FROM numbers(100000)
-WHERE diff != 1
+<span class="k">SELECT</span>
+    <span class="nb">number</span><span class="p">,</span>
+    <span class="n">runningDifference</span><span class="p">(</span><span class="nb">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AS</span> <span class="n">diff</span>
+<span class="k">FROM</span> <span class="n">numbers</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="n">diff</span> <span class="o">!=</span> <span class="mi">1</span>
 </pre></div>
 
 
@@ -5055,7 +5055,9 @@ Code: 395. DB::Exception: Received from localhost:9000. DB::Exception: Too many.
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582035581">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582040082">
     
     
   </head>
@@ -3636,19 +3636,19 @@
 <p>ClickHouse может оперировать <a href="../../operations/table_engines/distributed/">распределёнными</a> таблицами. Когда пользователь вставляет данные в эти таблицы, ClickHouse сначала формирует очередь из данных, которые должны быть отправлены на узлы кластера, а затем асинхронно отправляет подготовленные данные. Вы пожете управлять очередью с помощью запросов <a href="#query_language-system-stop-distributed-sends">STOP DISTRIBUTED SENDS</a>, <a href="#query_language-system-start-distributed-sends">START DISTRIBUTED SENDS</a> и <a href="#query_language-system-flush-distributed">FLUSH DISTRIBUTED</a>. Также есть возможность синхронно вставлять распределенные данные с помощью настройки <code>insert_distributed_sync</code>.</p>
 <h3 id="query_language-system-stop-distributed-sends">STOP DISTRIBUTED SENDS<a class="headerlink" href="#query_language-system-stop-distributed-sends" title="Permanent link">&para;</a></h3>
 <p>Отключает фоновую отправку при вставке данных в распределённые таблицы.</p>
-<div class="codehilite"><pre><span></span>SYSTEM STOP DISTRIBUTED SENDS [db.]&lt;distributed_table_name&gt;
+<div class="codehilite"><pre><span></span><span class="err">SYSTEM STOP DISTRIBUTED SENDS [db.]&lt;distributed_table_name&gt;</span>
 </pre></div>
 
 
 <h3 id="query_language-system-flush-distributed">FLUSH DISTRIBUTED<a class="headerlink" href="#query_language-system-flush-distributed" title="Permanent link">&para;</a></h3>
 <p>В синхронном режиме отправляет все данные на узлы кластера. Если какие-либо узлы недоступны, ClickHouse генерирует исключение и останавливает выполнение запроса. Такой запрос можно повторять до успешного завершения, что будет означать возвращение связанности с остальными узлами кластера.</p>
-<div class="codehilite"><pre><span></span>SYSTEM FLUSH DISTRIBUTED [db.]&lt;distributed_table_name&gt;
+<div class="codehilite"><pre><span></span><span class="err">SYSTEM FLUSH DISTRIBUTED [db.]&lt;distributed_table_name&gt;</span>
 </pre></div>
 
 
 <h3 id="query_language-system-start-distributed-sends">START DISTRIBUTED SENDS<a class="headerlink" href="#query_language-system-start-distributed-sends" title="Permanent link">&para;</a></h3>
 <p>Включает фоновую отправку при вставке данных в распределенные таблицы.</p>
-<div class="codehilite"><pre><span></span>SYSTEM START DISTRIBUTED SENDS [db.]&lt;distributed_table_name&gt;
+<div class="codehilite"><pre><span></span><span class="err">SYSTEM START DISTRIBUTED SENDS [db.]&lt;distributed_table_name&gt;</span>
 </pre></div>
                 
                 </div>
@@ -3750,7 +3750,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

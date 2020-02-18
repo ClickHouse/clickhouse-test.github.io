@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035770">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040295">
     
     
   </head>
@@ -3511,7 +3511,7 @@
 Reading is automatically parallelized. Writing to a table is not supported. When reading, the indexes of tables that are actually being read are used, if they exist.
 The <code>Merge</code> engine accepts parameters: the database name and a regular expression for tables.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span>Merge(hits, &#39;^WatchLog&#39;)
+<div class="codehilite"><pre><span></span><span class="err">Merge(hits, &#39;^WatchLog&#39;)</span>
 </pre></div>
 
 
@@ -3524,25 +3524,25 @@ It is possible to create two <code>Merge</code> tables that will endlessly try t
 <p>The typical way to use the <code>Merge</code> engine is for working with a large number of <code>TinyLog</code> tables as if with a single table.</p>
 <p>Example 2:</p>
 <p>Let's say you have a old table (WatchLog_old) and decided to change partitioning without moving data to a new table (WatchLog_new) and you need to see data from both tables.</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE WatchLog_old(date Date, UserId Int64, EventType String, Cnt UInt64)
-ENGINE=MergeTree(date, (UserId, EventType), 8192);
-INSERT INTO WatchLog_old VALUES (&#39;2018-01-01&#39;, 1, &#39;hit&#39;, 3);
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">WatchLog_old</span><span class="p">(</span><span class="nb">date</span> <span class="nb">Date</span><span class="p">,</span> <span class="n">UserId</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">EventType</span> <span class="n">String</span><span class="p">,</span> <span class="n">Cnt</span> <span class="n">UInt64</span><span class="p">)</span>
+<span class="n">ENGINE</span><span class="o">=</span><span class="n">MergeTree</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span> <span class="p">(</span><span class="n">UserId</span><span class="p">,</span> <span class="n">EventType</span><span class="p">),</span> <span class="mi">8192</span><span class="p">);</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">WatchLog_old</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;2018-01-01&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;hit&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 
-CREATE TABLE WatchLog_new(date Date, UserId Int64, EventType String, Cnt UInt64)
-ENGINE=MergeTree PARTITION BY date ORDER BY (UserId, EventType) SETTINGS index_granularity=8192;
-INSERT INTO WatchLog_new VALUES (&#39;2018-01-02&#39;, 2, &#39;hit&#39;, 3);
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">WatchLog_new</span><span class="p">(</span><span class="nb">date</span> <span class="nb">Date</span><span class="p">,</span> <span class="n">UserId</span> <span class="n">Int64</span><span class="p">,</span> <span class="n">EventType</span> <span class="n">String</span><span class="p">,</span> <span class="n">Cnt</span> <span class="n">UInt64</span><span class="p">)</span>
+<span class="n">ENGINE</span><span class="o">=</span><span class="n">MergeTree</span> <span class="n">PARTITION</span> <span class="k">BY</span> <span class="nb">date</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="p">(</span><span class="n">UserId</span><span class="p">,</span> <span class="n">EventType</span><span class="p">)</span> <span class="n">SETTINGS</span> <span class="n">index_granularity</span><span class="o">=</span><span class="mi">8192</span><span class="p">;</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">WatchLog_new</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;2018-01-02&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;hit&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 
-CREATE TABLE WatchLog as WatchLog_old ENGINE=Merge(currentDatabase(), &#39;^WatchLog&#39;);
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">WatchLog</span> <span class="k">as</span> <span class="n">WatchLog_old</span> <span class="n">ENGINE</span><span class="o">=</span><span class="n">Merge</span><span class="p">(</span><span class="n">currentDatabase</span><span class="p">(),</span> <span class="s1">&#39;^WatchLog&#39;</span><span class="p">);</span>
 
-SELECT *
-FROM WatchLog
+<span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">WatchLog</span>
 
-┌───────date─┬─UserId─┬─EventType─┬─Cnt─┐
-│ 2018-01-01 │      1 │ hit       │   3 │
-└────────────┴────────┴───────────┴─────┘
-┌───────date─┬─UserId─┬─EventType─┬─Cnt─┐
-│ 2018-01-02 │      2 │ hit       │   3 │
-└────────────┴────────┴───────────┴─────┘
+<span class="err">┌───────</span><span class="nb">date</span><span class="err">─┬─</span><span class="n">UserId</span><span class="err">─┬─</span><span class="n">EventType</span><span class="err">─┬─</span><span class="n">Cnt</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="err">│</span>      <span class="mi">1</span> <span class="err">│</span> <span class="n">hit</span>       <span class="err">│</span>   <span class="mi">3</span> <span class="err">│</span>
+<span class="err">└────────────┴────────┴───────────┴─────┘</span>
+<span class="err">┌───────</span><span class="nb">date</span><span class="err">─┬─</span><span class="n">UserId</span><span class="err">─┬─</span><span class="n">EventType</span><span class="err">─┬─</span><span class="n">Cnt</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2018</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span> <span class="err">│</span>      <span class="mi">2</span> <span class="err">│</span> <span class="n">hit</span>       <span class="err">│</span>   <span class="mi">3</span> <span class="err">│</span>
+<span class="err">└────────────┴────────┴───────────┴─────┘</span>
 </pre></div>
 
 
@@ -3660,7 +3660,9 @@ FROM WatchLog
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035945">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040489">
     
     
   </head>
@@ -3439,7 +3439,7 @@
                 
                   <h1 id="join">Join<a class="headerlink" href="#join" title="Permanent link">&para;</a></h1>
 <p>A prepared data structure for JOIN that is always located in RAM.</p>
-<div class="codehilite"><pre><span></span>Join(ANY|ALL, LEFT|INNER, k1[, k2, ...])
+<div class="codehilite"><pre><span></span><span class="err">Join(ANY|ALL, LEFT|INNER, k1[, k2, ...])</span>
 </pre></div>
 
 
@@ -3452,7 +3452,7 @@ These parameters are set without quotes and must match the JOIN that the table w
 </em> use <code>joinGet</code> function, which allows to extract data from Join table with dictionary-like syntax.</p>
 <p>Storing data on the disk is the same as for the Set engine.</p>
 <p>You can customize several settings when creating JOIN table with the following syntax:</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE join_any_left_null ( ... ) ENGINE = Join(ANY, LEFT, ...) SETTINGS join_use_nulls = 1;
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE join_any_left_null ( ... ) ENGINE = Join(ANY, LEFT, ...) SETTINGS join_use_nulls = 1;</span>
 </pre></div>
 
 
@@ -3564,7 +3564,9 @@ These parameters are set without quotes and must match the JOIN that the table w
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

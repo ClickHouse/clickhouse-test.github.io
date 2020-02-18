@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035228">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582039714">
     
     
   </head>
@@ -3675,10 +3675,10 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─name─┬─type───┬─default_type─┬─default_expression─┬─comment─┬─codec_expression─┐
-│ url  │ String │              │                    │         │                  │
-│ from │ IPv6   │              │                    │         │                  │
-└──────┴────────┴──────────────┴────────────────────┴─────────┴──────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─name─┬─type───┬─default_type─┬─default_expression─┬─comment─┬─codec_expression─┐</span>
+<span class="err">│ url  │ String │              │                    │         │                  │</span>
+<span class="err">│ from │ IPv6   │              │                    │         │                  │</span>
+<span class="err">└──────┴────────┴──────────────┴────────────────────┴─────────┴──────────────────┘</span>
 </pre></div>
 
 
@@ -3694,11 +3694,11 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─url────────────────────────────────┬─from──────────────────────────┐
-│ https://clickhouse.yandex          │ 2001:44c8:129:2632:33:0:252:2 │
-│ https://clickhouse.yandex/docs/en/ │ 2a02:e980:1e::1               │
-│ https://wikipedia.org              │ 2a02:aa08:e000:3100::2        │
-└────────────────────────────────────┴───────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─url────────────────────────────────┬─from──────────────────────────┐</span>
+<span class="err">│ https://clickhouse.yandex          │ 2001:44c8:129:2632:33:0:252:2 │</span>
+<span class="err">│ https://clickhouse.yandex/docs/en/ │ 2a02:e980:1e::1               │</span>
+<span class="err">│ https://wikipedia.org              │ 2a02:aa08:e000:3100::2        │</span>
+<span class="err">└────────────────────────────────────┴───────────────────────────────┘</span>
 </pre></div>
 
 
@@ -3707,9 +3707,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─toTypeName(from)─┬─hex(from)────────────────────────┐
-│ IPv6             │ 200144C8012926320033000002520002 │
-└──────────────────┴──────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(from)─┬─hex(from)────────────────────────┐</span>
+<span class="err">│ IPv6             │ 200144C8012926320033000002520002 │</span>
+<span class="err">└──────────────────┴──────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -3718,9 +3718,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─toTypeName(IPv6NumToString(from))─┬─s─────────────────────────────┐
-│ String                            │ 2001:44c8:129:2632:33:0:252:2 │
-└───────────────────────────────────┴───────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(IPv6NumToString(from))─┬─s─────────────────────────────┐</span>
+<span class="err">│ String                            │ 2001:44c8:129:2632:33:0:252:2 │</span>
+<span class="err">└───────────────────────────────────┴───────────────────────────────┘</span>
 </pre></div>
 
 
@@ -3729,9 +3729,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─toTypeName(CAST(from, &#39;FixedString(16)&#39;))─┬─i───────┐
-│ FixedString(16)                           │  ��� │
-└───────────────────────────────────────────┴─────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(CAST(from, &#39;FixedString(16)&#39;))─┬─i───────┐</span>
+<span class="err">│ FixedString(16)                           │  ��� │</span>
+<span class="err">└───────────────────────────────────────────┴─────────┘</span>
 </pre></div>
                 
                 </div>
@@ -3833,7 +3833,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

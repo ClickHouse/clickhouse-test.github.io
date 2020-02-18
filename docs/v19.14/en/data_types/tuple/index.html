@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582035581">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582040082">
     
     
   </head>
@@ -3578,39 +3578,39 @@
 <p>Tuples can be the result of a query. In this case, for text formats other than JSON, values are comma-separated in brackets. In JSON formats, tuples are output as arrays (in square brackets).</p>
 <h2 id="creating-a-tuple">Creating a tuple<a class="headerlink" href="#creating-a-tuple" title="Permanent link">&para;</a></h2>
 <p>You can use a function to create a tuple:</p>
-<div class="codehilite"><pre><span></span>tuple(T1, T2, ...)
+<div class="codehilite"><pre><span></span><span class="err">tuple(T1, T2, ...)</span>
 </pre></div>
 
 
 <p>Example of creating a tuple:</p>
-<div class="codehilite"><pre><span></span>:) SELECT tuple(1,&#39;a&#39;) AS x, toTypeName(x)
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-SELECT
-    (1, &#39;a&#39;) AS x,
-    toTypeName(x)
+<span class="k">SELECT</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
+    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-┌─x───────┬─toTypeName(tuple(1, &#39;a&#39;))─┐
-│ (1,&#39;a&#39;) │ Tuple(UInt8, String)      │
-└─────────┴───────────────────────────┘
+<span class="err">┌─</span><span class="n">x</span><span class="err">───────┬─</span><span class="n">toTypeName</span><span class="p">(</span><span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">))</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="err">│</span> <span class="n">Tuple</span><span class="p">(</span><span class="n">UInt8</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span>      <span class="err">│</span>
+<span class="err">└─────────┴───────────────────────────┘</span>
 
-1 rows in set. Elapsed: 0.021 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">021</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
 <h2 id="working-with-data-types">Working with data types<a class="headerlink" href="#working-with-data-types" title="Permanent link">&para;</a></h2>
 <p>When creating a tuple on the fly, ClickHouse automatically detects the type of each argument as the minimum of the types which can store the argument value. If the argument is <a href="../../query_language/syntax/#null-literal">NULL</a>, the type of the tuple element is <a href="../nullable/">Nullable</a>.</p>
 <p>Example of automatic data type detection:</p>
-<div class="codehilite"><pre><span></span>SELECT tuple(1, NULL) AS x, toTypeName(x)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-SELECT
-    (1, NULL) AS x,
-    toTypeName(x)
+<span class="k">SELECT</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
+    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-┌─x────────┬─toTypeName(tuple(1, NULL))──────┐
-│ (1,NULL) │ Tuple(UInt8, Nullable(Nothing)) │
-└──────────┴─────────────────────────────────┘
+<span class="err">┌─</span><span class="n">x</span><span class="err">────────┬─</span><span class="n">toTypeName</span><span class="p">(</span><span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">NULL</span><span class="p">))</span><span class="err">──────┐</span>
+<span class="err">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="k">NULL</span><span class="p">)</span> <span class="err">│</span> <span class="n">Tuple</span><span class="p">(</span><span class="n">UInt8</span><span class="p">,</span> <span class="k">Nullable</span><span class="p">(</span><span class="k">Nothing</span><span class="p">))</span> <span class="err">│</span>
+<span class="err">└──────────┴─────────────────────────────────┘</span>
 
-1 rows in set. Elapsed: 0.002 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
                 
                 </div>
@@ -3712,7 +3712,9 @@ SELECT
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

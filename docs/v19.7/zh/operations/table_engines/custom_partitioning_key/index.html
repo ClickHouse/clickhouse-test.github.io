@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582036110">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040675">
     
     
   </head>
@@ -3274,7 +3274,7 @@
                   <h1 id="custom-partitioning-key">Custom Partitioning Key<a class="headerlink" href="#custom-partitioning-key" title="Permanent link">&para;</a></h1>
 <p>Starting with version 1.1.54310, you can create tables in the MergeTree family with any partitioning expression (not only partitioning by month).</p>
 <p>The partition key can be an expression from the table columns, or a tuple of such expressions (similar to the primary key). The partition key can be omitted. When creating a table, specify the partition key in the ENGINE description with the new syntax:</p>
-<div class="codehilite"><pre><span></span>ENGINE [=] Name(...) [PARTITION BY expr] [ORDER BY expr] [SAMPLE BY expr] [SETTINGS name=value, ...]
+<div class="codehilite"><pre><span></span><span class="err">ENGINE [=] Name(...) [PARTITION BY expr] [ORDER BY expr] [SAMPLE BY expr] [SETTINGS name=value, ...]</span>
 </pre></div>
 
 
@@ -3401,7 +3401,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

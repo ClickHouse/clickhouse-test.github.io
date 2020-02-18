@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582036110">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582040675">
     
     
   </head>
@@ -3337,42 +3337,42 @@
 <p>При агрегации все <code>NULL</code> пропускаются.</p>
 <p><strong>Примеры</strong></p>
 <p>Рассмотрим таблицу:</p>
-<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
-│ 1 │    2 │
-│ 2 │ ᴺᵁᴸᴸ │
-│ 3 │    2 │
-│ 3 │    3 │
-│ 3 │ ᴺᵁᴸᴸ │
-└───┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
+<span class="err">│ 1 │    2 │</span>
+<span class="err">│ 2 │ ᴺᵁᴸᴸ │</span>
+<span class="err">│ 3 │    2 │</span>
+<span class="err">│ 3 │    3 │</span>
+<span class="err">│ 3 │ ᴺᵁᴸᴸ │</span>
+<span class="err">└───┴──────┘</span>
 </pre></div>
 
 
 <p>Выполним суммирование значений в столбце <code>y</code>:</p>
-<div class="codehilite"><pre><span></span>:) SELECT sum(y) FROM t_null_big
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">t_null_big</span>
 
-SELECT sum(y)
-FROM t_null_big
+<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">t_null_big</span>
 
-┌─sum(y)─┐
-│      7 │
-└────────┘
+<span class="err">┌─</span><span class="k">sum</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>      <span class="mi">7</span> <span class="err">│</span>
+<span class="err">└────────┘</span>
 
-1 rows in set. Elapsed: 0.002 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
 <p>Функция <code>sum</code> работает с <code>NULL</code> как с <code>0</code>. В частности, это означает, что если на вход в функцию подать выборку, где все значения <code>NULL</code>, то результат будет <code>0</code>, а не <code>NULL</code>.</p>
 <p>Теперь с помощью фукции <code>groupArray</code> сформируем массив из стобца <code>y</code>:</p>
-<div class="codehilite"><pre><span></span>:) SELECT groupArray(y) FROM t_null_big
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">groupArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">t_null_big</span>
 
-SELECT groupArray(y)
-FROM t_null_big
+<span class="k">SELECT</span> <span class="n">groupArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">t_null_big</span>
 
-┌─groupArray(y)─┐
-│ [2,2,3]       │
-└───────────────┘
+<span class="err">┌─</span><span class="n">groupArray</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>       <span class="err">│</span>
+<span class="err">└───────────────┘</span>
 
-1 rows in set. Elapsed: 0.002 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
@@ -3477,7 +3477,9 @@ FROM t_null_big
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

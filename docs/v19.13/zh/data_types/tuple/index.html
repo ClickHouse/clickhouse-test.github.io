@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582035680">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582040193">
     
     
   </head>
@@ -3564,39 +3564,39 @@
 <p>元组可以是查询的结果。在这种情况下，对于JSON以外的文本格式，括号中的值是逗号分隔的。在JSON格式中，元组作为数组输出（在方括号中）。</p>
 <h2 id="chuang-jian-yuan-zu">创建元组<a class="headerlink" href="#chuang-jian-yuan-zu" title="Permanent link">&para;</a></h2>
 <p>可以使用函数来创建元组：</p>
-<div class="codehilite"><pre><span></span>tuple(T1, T2, ...)
+<div class="codehilite"><pre><span></span><span class="err">tuple(T1, T2, ...)</span>
 </pre></div>
 
 
 <p>创建元组的示例：</p>
-<div class="codehilite"><pre><span></span>:) SELECT tuple(1,&#39;a&#39;) AS x, toTypeName(x)
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-SELECT
-    (1, &#39;a&#39;) AS x,
-    toTypeName(x)
+<span class="k">SELECT</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
+    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-┌─x───────┬─toTypeName(tuple(1, &#39;a&#39;))─┐
-│ (1,&#39;a&#39;) │ Tuple(UInt8, String)      │
-└─────────┴───────────────────────────┘
+<span class="err">┌─</span><span class="n">x</span><span class="err">───────┬─</span><span class="n">toTypeName</span><span class="p">(</span><span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">))</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="err">│</span> <span class="n">Tuple</span><span class="p">(</span><span class="n">UInt8</span><span class="p">,</span> <span class="n">String</span><span class="p">)</span>      <span class="err">│</span>
+<span class="err">└─────────┴───────────────────────────┘</span>
 
-1 rows in set. Elapsed: 0.021 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">021</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
 
 
 <h2 id="yuan-zu-zhong-de-shu-ju-lei-xing">元组中的数据类型<a class="headerlink" href="#yuan-zu-zhong-de-shu-ju-lei-xing" title="Permanent link">&para;</a></h2>
 <p>在动态创建元组时，ClickHouse 会自动为元组的每一个参数赋予最小可表达的类型。如果参数为 <a href="../../query_language/syntax/#null-literal">NULL</a>，那这个元组对应元素是 <a href="../nullable/">Nullable</a>。</p>
 <p>自动数据类型检测示例：</p>
-<div class="codehilite"><pre><span></span>SELECT tuple(1, NULL) AS x, toTypeName(x)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-SELECT
-    (1, NULL) AS x,
-    toTypeName(x)
+<span class="k">SELECT</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
+    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
-┌─x────────┬─toTypeName(tuple(1, NULL))──────┐
-│ (1,NULL) │ Tuple(UInt8, Nullable(Nothing)) │
-└──────────┴─────────────────────────────────┘
+<span class="err">┌─</span><span class="n">x</span><span class="err">────────┬─</span><span class="n">toTypeName</span><span class="p">(</span><span class="n">tuple</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">NULL</span><span class="p">))</span><span class="err">──────┐</span>
+<span class="err">│</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="k">NULL</span><span class="p">)</span> <span class="err">│</span> <span class="n">Tuple</span><span class="p">(</span><span class="n">UInt8</span><span class="p">,</span> <span class="k">Nullable</span><span class="p">(</span><span class="k">Nothing</span><span class="p">))</span> <span class="err">│</span>
+<span class="err">└──────────┴─────────────────────────────────┘</span>
 
-1 rows in set. Elapsed: 0.002 sec.
+<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
 </pre></div>
                 
                 </div>
@@ -3698,7 +3698,9 @@ SELECT
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

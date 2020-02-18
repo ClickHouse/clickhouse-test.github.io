@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582035471">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582039967">
     
     
   </head>
@@ -3893,16 +3893,16 @@ It can be used in SELECTs if the alias is expanded during query parsing.</p>
 <p>Defines storage time for values. Can be specified only for MergeTree-family tables. For the detailed description, see <a href="../../operations/table_engines/mergetree/#table_engine-mergetree-ttl">TTL for columns and tables</a>.</p>
 <h2 id="column-compression-codecs">Column Compression Codecs<a class="headerlink" href="#column-compression-codecs" title="Permanent link">&para;</a></h2>
 <p>By default, ClickHouse applies to columns the compression method, defined in <a href="../../operations/server_settings/settings/#compression">server settings</a>. Also, you can define compression method for each individual column in the <code>CREATE TABLE</code> query.</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE codec_example
-(
-    dt Date CODEC(ZSTD),
-    ts DateTime CODEC(LZ4HC),
-    float_value Float32 CODEC(NONE),
-    double_value Float64 CODEC(LZ4HC(9))
-    value Float32 CODEC(Delta, ZSTD)
-)
-ENGINE = &lt;Engine&gt;
-...
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE codec_example</span>
+<span class="err">(</span>
+<span class="err">    dt Date CODEC(ZSTD),</span>
+<span class="err">    ts DateTime CODEC(LZ4HC),</span>
+<span class="err">    float_value Float32 CODEC(NONE),</span>
+<span class="err">    double_value Float64 CODEC(LZ4HC(9))</span>
+<span class="err">    value Float32 CODEC(Delta, ZSTD)</span>
+<span class="err">)</span>
+<span class="err">ENGINE = &lt;Engine&gt;</span>
+<span class="err">...</span>
 </pre></div>
 
 
@@ -4107,7 +4107,9 @@ The local version of the query will eventually be implemented on each host in th
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

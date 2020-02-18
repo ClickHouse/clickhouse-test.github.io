@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582036030">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040585">
     
     
   </head>
@@ -3573,27 +3573,27 @@
 <p>Рассмотрим ситуацию, когда необходимо сохранять постоянно изменяющиеся данные для какого-либо объекта. Кажется логичным иметь одну строку для объекта и обновлять её при любом изменении, однако операция обновления является дорогостоящей и медленной для СУБД, поскольку требует перезаписи данных в хранилище. Если необходимо быстро записать данные, обновление не допустимо, но можно записать изменения объекта последовательно как описано ниже.</p>
 <p>Используйте специальный столбец <code>Sign</code>. Если <code>Sign = 1</code>, то это означает, что строка является состоянием объекта, назовём её строкой состояния. Если <code>Sign = -1</code>, то это означает отмену состояния объекта с теми же атрибутами, назовём её строкой отмены состояния.</p>
 <p>Например, мы хотим рассчитать, сколько страниц проверили пользователи на каком-то сайте и как долго они там находились. В какой-то момент времени мы пишем следующую строку с состоянием действий пользователя:</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
 <p>Через некоторое время мы регистрируем изменение активности пользователя и записываем его следующими двумя строками.</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │   -1 │
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
 <p>Первая строка отменяет предыдущее состояние объекта (пользователя). Она должен повторять все поля отменённого состояния за исключением <code>Sign</code>.</p>
 <p>Вторая строка содержит текущее состояние.</p>
 <p>Поскольку нам нужно только последнее состояние активности пользователя, строки</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │    1 │
-│ 4324182021466249494 │         5 │      146 │   -1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -3631,11 +3631,11 @@
 <p>Если необходимо выбирать данные без агрегации (например, проверить наличие строк, последние значения которых удовлетворяют некоторым условиям), можно использовать модификатор  <code>FINAL</code>  для секции <code>FROM</code>. Это вариант существенно менее эффективен.</p>
 <h2 id="primer-ispolzovaniia">Пример использования<a class="headerlink" href="#primer-ispolzovaniia" title="Permanent link">&para;</a></h2>
 <p>Example data:</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │    1 │
-│ 4324182021466249494 │         5 │      146 │   -1 │
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -3663,17 +3663,17 @@
 
 <p>Мы используем два запроса <code>INSERT</code> для создания двух различных кусков данных. Если вставить данные одним запросом, ClickHouse создаёт один кусок данных и никогда не будет выполнять слияние.</p>
 <p>Получение данных:</p>
-<div class="codehilite"><pre><span></span>SELECT * FROM UAct
+<div class="codehilite"><pre><span></span><span class="err">SELECT * FROM UAct</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │   -1 │
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
-┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -3690,9 +3690,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┐
-│ 4324182021466249494 │         6 │      185 │
-└─────────────────────┴───────────┴──────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┐</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┘</span>
 </pre></div>
 
 
@@ -3701,9 +3701,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -3808,7 +3808,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

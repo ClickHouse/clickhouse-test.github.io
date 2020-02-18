@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582035860">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582040392">
     
     
   </head>
@@ -4279,7 +4279,7 @@ To get a determinate result, you can use the 'min' or 'max' function instead of 
 <p>When a <code>SELECT</code> query has the <code>GROUP BY</code> clause or at least one aggregate function, ClickHouse (in contrast to MySQL) requires that all expressions in the <code>SELECT</code>, <code>HAVING</code>, and <code>ORDER BY</code> clauses be calculated from keys or from aggregate functions. In other words, each column selected from the table must be used either in keys or inside aggregate functions. To get behavior like in MySQL, you can put the other columns in the <code>any</code> aggregate function.</p>
 <h2 id="anyheavy-x">anyHeavy(x)<a class="headerlink" href="#anyheavy-x" title="Permanent link">&para;</a></h2>
 <p>Selects a frequently occurring value using the <a href="http://www.cs.umd.edu/~samir/498/karp.pdf" rel="external nofollow">heavy hitters</a> algorithm. If there is a value that occurs more than in half the cases in each of the query's execution threads, this value is returned. Normally, the result is nondeterministic.</p>
-<div class="codehilite"><pre><span></span>anyHeavy(column)
+<div class="codehilite"><pre><span></span><span class="err">anyHeavy(column)</span>
 </pre></div>
 
 
@@ -4294,9 +4294,9 @@ To get a determinate result, you can use the 'min' or 'max' function instead of 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌───res─┐
-│ 19690 │
-└───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌───res─┐</span>
+<span class="err">│ 19690 │</span>
+<span class="err">└───────┘</span>
 </pre></div>
 
 
@@ -4305,7 +4305,7 @@ To get a determinate result, you can use the 'min' or 'max' function instead of 
 The result is just as indeterminate as for the <code>any</code> function.</p>
 <h2 id="groupbitand">groupBitAnd<a class="headerlink" href="#groupbitand" title="Permanent link">&para;</a></h2>
 <p>Applies bitwise <code>AND</code> for series of numbers.</p>
-<div class="codehilite"><pre><span></span>groupBitAnd(expr)
+<div class="codehilite"><pre><span></span><span class="err">groupBitAnd(expr)</span>
 </pre></div>
 
 
@@ -4315,29 +4315,29 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <p>Value of the <code>UInt*</code> type.</p>
 <p><strong>Example</strong></p>
 <p>Test data:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-00101100 = 44
-00011100 = 28
-00001101 = 13
-01010101 = 85
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">00101100 = 44</span>
+<span class="err">00011100 = 28</span>
+<span class="err">00001101 = 13</span>
+<span class="err">01010101 = 85</span>
 </pre></div>
 
 
 <p>Query:</p>
-<div class="codehilite"><pre><span></span>SELECT groupBitAnd(num) FROM t
+<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitAnd(num) FROM t</span>
 </pre></div>
 
 
 <p>Where <code>num</code> is the column with the test data.</p>
 <p>Result:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-00000100 = 4
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">00000100 = 4</span>
 </pre></div>
 
 
 <h2 id="groupbitor">groupBitOr<a class="headerlink" href="#groupbitor" title="Permanent link">&para;</a></h2>
 <p>Applies bitwise <code>OR</code> for series of numbers.</p>
-<div class="codehilite"><pre><span></span>groupBitOr(expr)
+<div class="codehilite"><pre><span></span><span class="err">groupBitOr(expr)</span>
 </pre></div>
 
 
@@ -4347,29 +4347,29 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <p>Value of the <code>UInt*</code> type.</p>
 <p><strong>Example</strong></p>
 <p>Test data:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-00101100 = 44
-00011100 = 28
-00001101 = 13
-01010101 = 85
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">00101100 = 44</span>
+<span class="err">00011100 = 28</span>
+<span class="err">00001101 = 13</span>
+<span class="err">01010101 = 85</span>
 </pre></div>
 
 
 <p>Query:</p>
-<div class="codehilite"><pre><span></span>SELECT groupBitOr(num) FROM t
+<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitOr(num) FROM t</span>
 </pre></div>
 
 
 <p>Where <code>num</code> is the column with the test data.</p>
 <p>Result:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-01111101 = 125
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">01111101 = 125</span>
 </pre></div>
 
 
 <h2 id="groupbitxor">groupBitXor<a class="headerlink" href="#groupbitxor" title="Permanent link">&para;</a></h2>
 <p>Applies bitwise <code>XOR</code> for series of numbers.</p>
-<div class="codehilite"><pre><span></span>groupBitXor(expr)
+<div class="codehilite"><pre><span></span><span class="err">groupBitXor(expr)</span>
 </pre></div>
 
 
@@ -4379,29 +4379,29 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <p>Value of the <code>UInt*</code> type.</p>
 <p><strong>Example</strong></p>
 <p>Test data:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-00101100 = 44
-00011100 = 28
-00001101 = 13
-01010101 = 85
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">00101100 = 44</span>
+<span class="err">00011100 = 28</span>
+<span class="err">00001101 = 13</span>
+<span class="err">01010101 = 85</span>
 </pre></div>
 
 
 <p>Query:</p>
-<div class="codehilite"><pre><span></span>SELECT groupBitXor(num) FROM t
+<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitXor(num) FROM t</span>
 </pre></div>
 
 
 <p>Where <code>num</code> is the column with the test data.</p>
 <p>Result:</p>
-<div class="codehilite"><pre><span></span>binary     decimal
-01101000 = 104
+<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
+<span class="err">01101000 = 104</span>
 </pre></div>
 
 
 <h2 id="groupbitmap">groupBitmap<a class="headerlink" href="#groupbitmap" title="Permanent link">&para;</a></h2>
 <p>Bitmap or Aggregate calculations from a unsigned integer column, return cardinality of type UInt64, if add suffix -State, then return <a href="../../functions/bitmap_functions/">bitmap object</a>.</p>
-<div class="codehilite"><pre><span></span>groupBitmap(expr)
+<div class="codehilite"><pre><span></span><span class="err">groupBitmap(expr)</span>
 </pre></div>
 
 
@@ -4411,22 +4411,22 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <p>Value of the <code>UInt64</code> type.</p>
 <p><strong>Example</strong></p>
 <p>Test data:</p>
-<div class="codehilite"><pre><span></span>UserID
-1
-1
-2
-3
+<div class="codehilite"><pre><span></span><span class="err">UserID</span>
+<span class="err">1</span>
+<span class="err">1</span>
+<span class="err">2</span>
+<span class="err">3</span>
 </pre></div>
 
 
 <p>Query:</p>
-<div class="codehilite"><pre><span></span>SELECT groupBitmap(UserID) as num FROM t
+<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitmap(UserID) as num FROM t</span>
 </pre></div>
 
 
 <p>Result:</p>
-<div class="codehilite"><pre><span></span>num
-3
+<div class="codehilite"><pre><span></span><span class="err">num</span>
+<span class="err">3</span>
 </pre></div>
 
 
@@ -4437,17 +4437,17 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <h2 id="agg_function-argMin">argMin(arg, val)<a class="headerlink" href="#agg_function-argMin" title="Permanent link">&para;</a></h2>
 <p>Calculates the 'arg' value for a minimal 'val' value. If there are several different values of 'arg' for minimal values of 'val', the first of these values encountered is output.</p>
 <p><strong>Example:</strong></p>
-<div class="codehilite"><pre><span></span>┌─user─────┬─salary─┐
-│ director │   5000 │
-│ manager  │   3000 │
-│ worker   │   1000 │
-└──────────┴────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─</span><span class="k">user</span><span class="err">─────┬─</span><span class="n">salary</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">director</span> <span class="err">│</span>   <span class="mi">5000</span> <span class="err">│</span>
+<span class="err">│</span> <span class="n">manager</span>  <span class="err">│</span>   <span class="mi">3000</span> <span class="err">│</span>
+<span class="err">│</span> <span class="n">worker</span>   <span class="err">│</span>   <span class="mi">1000</span> <span class="err">│</span>
+<span class="err">└──────────┴────────┘</span>
 
-SELECT argMin(user, salary) FROM salary
+<span class="k">SELECT</span> <span class="n">argMin</span><span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">salary</span>
 
-┌─argMin(user, salary)─┐
-│ worker               │
-└──────────────────────┘
+<span class="err">┌─</span><span class="n">argMin</span><span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="n">worker</span>               <span class="err">│</span>
+<span class="err">└──────────────────────┘</span>
 </pre></div>
 
 
@@ -4485,16 +4485,16 @@ Returns a tuple of two arrays: keys in sorted order, and values ​​summed for
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌────────────timeslot─┬─sumMap(statusMap.status, statusMap.requests)─┐
-│ 2000-01-01 00:00:00 │ ([1,2,3,4,5],[10,10,20,10,10])               │
-│ 2000-01-01 00:01:00 │ ([4,5,6,7,8],[10,10,20,10,10])               │
-└─────────────────────┴──────────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌────────────timeslot─┬─sumMap(statusMap.status, statusMap.requests)─┐</span>
+<span class="err">│ 2000-01-01 00:00:00 │ ([1,2,3,4,5],[10,10,20,10,10])               │</span>
+<span class="err">│ 2000-01-01 00:01:00 │ ([4,5,6,7,8],[10,10,20,10,10])               │</span>
+<span class="err">└─────────────────────┴──────────────────────────────────────────────┘</span>
 </pre></div>
 
 
 <h2 id="skewpop">skewPop<a class="headerlink" href="#skewpop" title="Permanent link">&para;</a></h2>
 <p>Computes the <a href="https://en.wikipedia.org/wiki/Skewness" rel="external nofollow">skewness</a> for sequence.</p>
-<div class="codehilite"><pre><span></span>skewPop(expr)
+<div class="codehilite"><pre><span></span><span class="err">skewPop(expr)</span>
 </pre></div>
 
 
@@ -4510,7 +4510,7 @@ Returns a tuple of two arrays: keys in sorted order, and values ​​summed for
 <h2 id="skewsamp">skewSamp<a class="headerlink" href="#skewsamp" title="Permanent link">&para;</a></h2>
 <p>Computes the <a href="https://en.wikipedia.org/wiki/Skewness" rel="external nofollow">sample skewness</a> for sequence.</p>
 <p>It represents an unbiased estimate of the skewness of a random variable, if passed values form it's sample.</p>
-<div class="codehilite"><pre><span></span>skewSamp(expr)
+<div class="codehilite"><pre><span></span><span class="err">skewSamp(expr)</span>
 </pre></div>
 
 
@@ -4525,7 +4525,7 @@ Returns a tuple of two arrays: keys in sorted order, and values ​​summed for
 
 <h2 id="kurtpop">kurtPop<a class="headerlink" href="#kurtpop" title="Permanent link">&para;</a></h2>
 <p>Computes the <a href="https://en.wikipedia.org/wiki/Kurtosis" rel="external nofollow">kurtosis</a> for sequence.</p>
-<div class="codehilite"><pre><span></span>kurtPop(expr)
+<div class="codehilite"><pre><span></span><span class="err">kurtPop(expr)</span>
 </pre></div>
 
 
@@ -4541,7 +4541,7 @@ Returns a tuple of two arrays: keys in sorted order, and values ​​summed for
 <h2 id="kurtsamp">kurtSamp<a class="headerlink" href="#kurtsamp" title="Permanent link">&para;</a></h2>
 <p>Computes the <a href="https://en.wikipedia.org/wiki/Kurtosis" rel="external nofollow">sample kurtosis</a> for sequence.</p>
 <p>It represents an unbiased estimate of the kurtosis of a random variable, if passed values form it's sample.</p>
-<div class="codehilite"><pre><span></span>kurtSamp(expr)
+<div class="codehilite"><pre><span></span><span class="err">kurtSamp(expr)</span>
 </pre></div>
 
 
@@ -4565,39 +4565,39 @@ It will use linear interpolation between two sample timestamp and then sum time-
 <p>The function returns array of tuples with <code>(timestamp, aggregated_value)</code> pairs.</p>
 <p>Before using this function make sure <code>timestamp</code> is in ascending order.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span>┌─uid─┬─timestamp─┬─value─┐
-│ 1   │     2     │   0.2 │
-│ 1   │     7     │   0.7 │
-│ 1   │    12     │   1.2 │
-│ 1   │    17     │   1.7 │
-│ 1   │    25     │   2.5 │
-│ 2   │     3     │   0.6 │
-│ 2   │     8     │   1.6 │
-│ 2   │    12     │   2.4 │
-│ 2   │    18     │   3.6 │
-│ 2   │    24     │   4.8 │
-└─────┴───────────┴───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─uid─┬─timestamp─┬─value─┐</span>
+<span class="err">│ 1   │     2     │   0.2 │</span>
+<span class="err">│ 1   │     7     │   0.7 │</span>
+<span class="err">│ 1   │    12     │   1.2 │</span>
+<span class="err">│ 1   │    17     │   1.7 │</span>
+<span class="err">│ 1   │    25     │   2.5 │</span>
+<span class="err">│ 2   │     3     │   0.6 │</span>
+<span class="err">│ 2   │     8     │   1.6 │</span>
+<span class="err">│ 2   │    12     │   2.4 │</span>
+<span class="err">│ 2   │    18     │   3.6 │</span>
+<span class="err">│ 2   │    24     │   4.8 │</span>
+<span class="err">└─────┴───────────┴───────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>CREATE TABLE time_series(
-    uid       UInt64,
-    timestamp Int64,
-    value     Float64
-) ENGINE = Memory;
-INSERT INTO time_series VALUES
-    (1,2,0.2),(1,7,0.7),(1,12,1.2),(1,17,1.7),(1,25,2.5),
-    (2,3,0.6),(2,8,1.6),(2,12,2.4),(2,18,3.6),(2,24,4.8);
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">time_series</span><span class="p">(</span>
+    <span class="n">uid</span>       <span class="n">UInt64</span><span class="p">,</span>
+    <span class="k">timestamp</span> <span class="n">Int64</span><span class="p">,</span>
+    <span class="n">value</span>     <span class="n">Float64</span>
+<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">Memory</span><span class="p">;</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">time_series</span> <span class="k">VALUES</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">7</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">.</span><span class="mi">6</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">2</span><span class="p">.</span><span class="mi">4</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">.</span><span class="mi">6</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">4</span><span class="p">.</span><span class="mi">8</span><span class="p">);</span>
 
-SELECT timeSeriesGroupSum(uid, timestamp, value)
-FROM (
-    SELECT * FROM time_series order by timestamp ASC
-);
+<span class="k">SELECT</span> <span class="n">timeSeriesGroupSum</span><span class="p">(</span><span class="n">uid</span><span class="p">,</span> <span class="k">timestamp</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="p">(</span>
+    <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">time_series</span> <span class="k">order</span> <span class="k">by</span> <span class="k">timestamp</span> <span class="k">ASC</span>
+<span class="p">);</span>
 </pre></div>
 
 
 <p>And the result will be:</p>
-<div class="codehilite"><pre><span></span>[(2,0.2),(3,0.9),(7,2.1),(8,2.4),(12,3.6),(17,5.1),(18,5.4),(24,7.2),(25,2.5)]
+<div class="codehilite"><pre><span></span><span class="err">[(2,0.2),(3,0.9),(7,2.1),(8,2.4),(12,3.6),(17,5.1),(18,5.4),(24,7.2),(25,2.5)]</span>
 </pre></div>
 
 
@@ -4605,7 +4605,7 @@ FROM (
 <p>Similarly timeSeriesGroupRateSum, timeSeriesGroupRateSum will Calculate the rate of time-series and then sum rates together.
 Also, timestamp should be in ascend order before use this function.</p>
 <p>Use this function, the result above case will be:</p>
-<div class="codehilite"><pre><span></span>[(2,0),(3,0.1),(7,0.3),(8,0.3),(12,0.3),(17,0.3),(18,0.3),(24,0.3),(25,0.1)]
+<div class="codehilite"><pre><span></span><span class="err">[(2,0),(3,0.1),(7,0.3),(8,0.3),(12,0.3),(17,0.3),(18,0.3),(24,0.3),(25,0.1)]</span>
 </pre></div>
 
 
@@ -4615,7 +4615,7 @@ Only works for numbers.
 The result is always Float64.</p>
 <h2 id="agg_function-uniq">uniq<a class="headerlink" href="#agg_function-uniq" title="Permanent link">&para;</a></h2>
 <p>Calculates the approximate number of different values of the argument.</p>
-<div class="codehilite"><pre><span></span>uniq(x[, ...])
+<div class="codehilite"><pre><span></span><span class="err">uniq(x[, ...])</span>
 </pre></div>
 
 
@@ -4646,7 +4646,7 @@ The result is always Float64.</p>
 </ul>
 <h2 id="agg_function-uniqcombined">uniqCombined<a class="headerlink" href="#agg_function-uniqcombined" title="Permanent link">&para;</a></h2>
 <p>Calculates the approximate number of different values of the argument.</p>
-<div class="codehilite"><pre><span></span>uniqCombined(HLL_precision)(x[, ...])
+<div class="codehilite"><pre><span></span><span class="err">uniqCombined(HLL_precision)(x[, ...])</span>
 </pre></div>
 
 
@@ -4684,7 +4684,7 @@ The result is always Float64.</p>
 </ul>
 <h2 id="agg_function-uniqhll12">uniqHLL12<a class="headerlink" href="#agg_function-uniqhll12" title="Permanent link">&para;</a></h2>
 <p>Calculates the approximate number of different values of the argument, using the <a href="https://en.wikipedia.org/wiki/HyperLogLog" rel="external nofollow">HyperLogLog</a> algortithm.</p>
-<div class="codehilite"><pre><span></span>uniqHLL12(x[, ...])
+<div class="codehilite"><pre><span></span><span class="err">uniqHLL12(x[, ...])</span>
 </pre></div>
 
 
@@ -4715,7 +4715,7 @@ The result is always Float64.</p>
 </ul>
 <h2 id="agg_function-uniqexact">uniqExact<a class="headerlink" href="#agg_function-uniqexact" title="Permanent link">&para;</a></h2>
 <p>Calculates the exact number of different values of the argument.</p>
-<div class="codehilite"><pre><span></span>uniqExact(x[, ...])
+<div class="codehilite"><pre><span></span><span class="err">uniqExact(x[, ...])</span>
 </pre></div>
 
 
@@ -4807,7 +4807,7 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
 <h2 id="topk-n-column">topK(N)(column)<a class="headerlink" href="#topk-n-column" title="Permanent link">&para;</a></h2>
 <p>Returns an array of the most frequent values in the specified column. The resulting array is sorted in descending order of frequency of values (not by the values themselves).</p>
 <p>Implements the <a href="http://www.l2f.inesc-id.pt/~fmmb/wiki/uploads/Work/misnis.ref0a.pdf" rel="external nofollow"> Filtered Space-Saving</a> algorithm for analyzing TopK, based on the reduce-and-combine algorithm from <a href="https://arxiv.org/pdf/1401.0702.pdf" rel="external nofollow">Parallel Space Saving</a>.</p>
-<div class="codehilite"><pre><span></span>topK(N)(column)
+<div class="codehilite"><pre><span></span><span class="err">topK(N)(column)</span>
 </pre></div>
 
 
@@ -4825,9 +4825,9 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─────────────────┐
-│ [19393,19790,19805] │
-└─────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─────────────────┐</span>
+<span class="err">│ [19393,19790,19805] │</span>
+<span class="err">└─────────────────────┘</span>
 </pre></div>
 
 
@@ -4840,7 +4840,7 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
 <p>Calculates the Pearson correlation coefficient: <code>Σ((x - x̅)(y - y̅)) / sqrt(Σ((x - x̅)^2) * Σ((y - y̅)^2))</code>.</p>
 <h2 id="simplelinearregression">simpleLinearRegression<a class="headerlink" href="#simplelinearregression" title="Permanent link">&para;</a></h2>
 <p>Performs simple (unidimensional) linear regression.</p>
-<div class="codehilite"><pre><span></span>simpleLinearRegression(x, y)
+<div class="codehilite"><pre><span></span><span class="err">simpleLinearRegression(x, y)</span>
 </pre></div>
 
 
@@ -4891,24 +4891,24 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
 To predict we use function <a href="../../functions/machine_learning_functions/#machine_learning_methods-evalmlmethod">evalMLMethod</a>, which takes a state as an argument as well as features to predict on.</p>
 <p><a name="stochasticlinearregression-usage-fitting"></a>
 1. Fitting</p>
-<div class="codehilite"><pre><span></span>Such query may be used.
+<div class="codehilite"><pre><span></span><span class="n">Such</span> <span class="n">query</span> <span class="n">may</span> <span class="n">be</span> <span class="n">used</span><span class="p">.</span>
 
-```sql
-CREATE TABLE IF NOT EXISTS train_data
-(
-    param1 Float64,
-    param2 Float64,
-    target Float64
-) ENGINE = Memory;
+<span class="ss">```sql</span>
+<span class="ss">CREATE TABLE IF NOT EXISTS train_data</span>
+<span class="ss">(</span>
+<span class="ss">    param1 Float64,</span>
+<span class="ss">    param2 Float64,</span>
+<span class="ss">    target Float64</span>
+<span class="ss">) ENGINE = Memory;</span>
 
-CREATE TABLE your_model ENGINE = Memory AS SELECT
-stochasticLinearRegressionState(0.1, 0.0, 5, &#39;SGD&#39;)(target, param1, param2)
-AS state FROM train_data;
+<span class="ss">CREATE TABLE your_model ENGINE = Memory AS SELECT</span>
+<span class="ss">stochasticLinearRegressionState(0.1, 0.0, 5, &#39;SGD&#39;)(target, param1, param2)</span>
+<span class="ss">AS state FROM train_data;</span>
 
-```
+<span class="ss">```</span>
 
-Here we also need to insert data into `train_data` table. The number of parameters is not fixed, it depends only on number of arguments, passed into `linearRegressionState`. They all must be numeric values.
-Note that the column with target value(which we would like to learn to predict) is inserted as the first argument.
+<span class="n">Here</span> <span class="n">we</span> <span class="n">also</span> <span class="n">need</span> <span class="k">to</span> <span class="k">insert</span> <span class="n">data</span> <span class="k">into</span> <span class="ss">`train_data`</span> <span class="k">table</span><span class="p">.</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">parameters</span> <span class="k">is</span> <span class="k">not</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">it</span> <span class="n">depends</span> <span class="n">only</span> <span class="k">on</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">passed</span> <span class="k">into</span> <span class="ss">`linearRegressionState`</span><span class="p">.</span> <span class="n">They</span> <span class="k">all</span> <span class="n">must</span> <span class="n">be</span> <span class="kt">numeric</span> <span class="k">values</span><span class="p">.</span>
+<span class="n">Note</span> <span class="n">that</span> <span class="n">the</span> <span class="k">column</span> <span class="k">with</span> <span class="n">target</span> <span class="nf">value</span><span class="p">(</span><span class="n">which</span> <span class="n">we</span> <span class="n">would</span> <span class="k">like</span> <span class="k">to</span> <span class="n">learn</span> <span class="k">to</span> <span class="n">predict</span><span class="p">)</span> <span class="k">is</span> <span class="n">inserted</span> <span class="k">as</span> <span class="n">the</span> <span class="n">first</span> <span class="n">argument</span><span class="p">.</span>
 </pre></div>
 
 
@@ -5080,7 +5080,9 @@ evalMLMethod(model, param1, param2) AS ans FROM test_data)</code></p>
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

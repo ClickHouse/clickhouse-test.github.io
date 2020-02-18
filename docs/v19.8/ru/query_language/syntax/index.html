@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582036030">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582040585">
     
     
   </head>
@@ -3752,7 +3752,7 @@
 <p>Типы данных и движки таблиц в запросе <code>CREATE</code> записываются также, как идентификаторы или также как функции. То есть, могут содержать или не содержать список аргументов в круглых скобках. Подробнее смотрите разделы "Типы данных", "Движки таблиц", "CREATE".</p>
 <h2 id="syntax-expression_aliases">Синонимы выражений<a class="headerlink" href="#syntax-expression_aliases" title="Permanent link">&para;</a></h2>
 <p>Синоним — это пользовательское имя выражения в запросе.</p>
-<div class="codehilite"><pre><span></span>expr AS alias
+<div class="codehilite"><pre><span></span><span class="err">expr AS alias</span>
 </pre></div>
 
 
@@ -3776,22 +3776,22 @@
 <p>Синонимы не передаются в подзапросы и между подзапросами. Например, при выполнении запроса <code>SELECT (SELECT sum(b.a) + num FROM b) - a.a AS num FROM a</code>  ClickHouse сгенерирует исключение <code>Unknown identifier: num</code>.</p>
 <p>Если синоним определен для результирующих столбцов в секции <code>SELECT</code>  вложенного запроса, то эти столбцы отображаются во внешнем запросе. Например, <code>SELECT n + m FROM (SELECT 1 AS n, 2 AS m)</code>.</p>
 <p>Будьте осторожны с синонимами, совпадающими с именами столбцов или таблиц. Рассмотрим следующий пример:</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE t
-(
-    a Int,
-    b Int
-)
-ENGINE = TinyLog()
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE t</span>
+<span class="err">(</span>
+<span class="err">    a Int,</span>
+<span class="err">    b Int</span>
+<span class="err">)</span>
+<span class="err">ENGINE = TinyLog()</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT
-    argMax(a, b),
-    sum(b) AS b
-FROM t
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span>
+    <span class="n">argMax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span>
+    <span class="k">sum</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">AS</span> <span class="n">b</span>
+<span class="k">FROM</span> <span class="n">t</span>
 
-Received exception from server (version 18.14.17):
-Code: 184. DB::Exception: Received from localhost:9000, 127.0.0.1. DB::Exception: Aggregate function sum(b) is found inside another aggregate function in query.
+<span class="n">Received</span> <span class="k">exception</span> <span class="k">from</span> <span class="n">server</span> <span class="p">(</span><span class="k">version</span> <span class="mi">18</span><span class="p">.</span><span class="mi">14</span><span class="p">.</span><span class="mi">17</span><span class="p">):</span>
+<span class="n">Code</span><span class="p">:</span> <span class="mi">184</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="n">Received</span> <span class="k">from</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">9000</span><span class="p">,</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="k">Aggregate</span> <span class="k">function</span> <span class="k">sum</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">is</span> <span class="k">found</span> <span class="n">inside</span> <span class="n">another</span> <span class="k">aggregate</span> <span class="k">function</span> <span class="k">in</span> <span class="n">query</span><span class="p">.</span>
 </pre></div>
 
 
@@ -3902,7 +3902,9 @@ Code: 184. DB::Exception: Received from localhost:9000, 127.0.0.1. DB::Exception
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

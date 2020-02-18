@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582034903">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?b078541?1582039377">
     
     
   </head>
@@ -4411,7 +4411,7 @@ If the second argument is an empty bitmap then returns 1.</p>
 
 <h2 id="bitmapmin">bitmapMin<a class="headerlink" href="#bitmapmin" title="Permanent link">&para;</a></h2>
 <p>Retrun the smallest value of type UInt64 in the set, UINT32_MAX if the set is empty.</p>
-<div class="codehilite"><pre><span></span>bitmapMin(bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapMin(bitmap)</span>
 </pre></div>
 
 
@@ -4424,15 +4424,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│   1 │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│   1 │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapmax">bitmapMax<a class="headerlink" href="#bitmapmax" title="Permanent link">&para;</a></h2>
 <p>Retrun the greatest value of type UInt64 in the set, 0 if the set is empty.</p>
-<div class="codehilite"><pre><span></span>bitmapMax(bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapMax(bitmap)</span>
 </pre></div>
 
 
@@ -4445,15 +4445,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│   5 │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│   5 │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmaptransform">bitmapTransform<a class="headerlink" href="#bitmaptransform" title="Permanent link">&para;</a></h2>
 <p>Transform an array of values in a bitmap to another array of values, the result is a new bitmap.</p>
-<div class="codehilite"><pre><span></span>bitmapTransform(bitmap, from_array, to_array)
+<div class="codehilite"><pre><span></span><span class="err">bitmapTransform(bitmap, from_array, to_array)</span>
 </pre></div>
 
 
@@ -4468,9 +4468,9 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───────────────────┐
-│ [1,3,4,6,7,8,9,10,20] │
-└───────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───────────────────┐</span>
+<span class="err">│ [1,3,4,6,7,8,9,10,20] │</span>
+<span class="err">└───────────────────────┘</span>
 </pre></div>
 
 
@@ -4740,7 +4740,9 @@ If the second argument is an empty bitmap then returns 1.</p>
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>

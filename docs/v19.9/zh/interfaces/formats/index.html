@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582035945">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?b078541?1582040489">
     
     
   </head>
@@ -3974,18 +3974,18 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>2014-03-17      1406958
-2014-03-18      1383658
-2014-03-19      1405797
-2014-03-20      1353623
-2014-03-21      1245779
-2014-03-22      1031592
-2014-03-23      1046491
+<div class="codehilite"><pre><span></span><span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span>      <span class="mi">1406958</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span>      <span class="mi">1383658</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span>      <span class="mi">1405797</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span>      <span class="mi">1353623</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span>      <span class="mi">1245779</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span>      <span class="mi">1031592</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span>      <span class="mi">1046491</span>
 
-0000-00-00      8873898
+<span class="mi">0000</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span>      <span class="mi">8873898</span>
 
-2014-03-17      1031592
-2014-03-23      1406958
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span>      <span class="mi">1031592</span>
+<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span>      <span class="mi">1406958</span>
 </pre></div>
 
 
@@ -4000,10 +4000,10 @@
 在读取操作期间，不正确的日期和具有时间的日期可以使用自然溢出或空日期和时间进行分析，而不会出现错误消息。</p>
 <p>有个例外情况，Unix 时间戳格式（10个十进制数字）也支持使用时间解析日期。结果不是时区相关的。格式 YYYY-MM-DD hh:mm:ss和 NNNNNNNNNN 会自动区分。</p>
 <p>字符串以反斜线转义的特殊字符输出。 以下转义序列用于输出：<code>\b</code>，<code>\f</code>，<code>\r</code>，<code>\n</code>，<code>\t</code>，<code>\0</code>，<code>\'</code>，<code>\\</code>。 解析还支持<code>\a</code>，<code>\v</code>和<code>\xHH</code>（十六进制转义字符）和任何<code>\c</code>字符，其中<code>c</code>是任何字符（这些序列被转换为<code>c</code>）。 因此，读取数据支持可以将换行符写为<code>\n</code>或<code>\</code>的格式，或者换行。例如，字符串 <code>Hello world</code> 在单词之间换行而不是空格可以解析为以下任何形式：</p>
-<div class="codehilite"><pre><span></span>Hello\nworld
+<div class="codehilite"><pre><span></span><span class="n">Hello</span><span class="err">\</span><span class="n">nworld</span>
 
-Hello\
-world
+<span class="n">Hello</span><span class="err">\</span>
+<span class="n">world</span>
 </pre></div>
 
 
@@ -4027,16 +4027,16 @@ world
 <p>这种格式也可以使用名称 <code>TSVWithNamesAndTypes</code> 来表示。</p>
 <h2 id="tskv">TSKV<a class="headerlink" href="#tskv" title="Permanent link">&para;</a></h2>
 <p>与 <code>TabSeparated</code> 格式类似，但它输出的是 <code>name=value</code> 的格式。名称会和 <code>TabSeparated</code> 格式一样被转义，<code>=</code> 字符也会被转义。</p>
-<div class="codehilite"><pre><span></span>SearchPhrase=   count()=8267016
-SearchPhrase=bathroom interior design    count()=2166
-SearchPhrase=yandex     count()=1655
-SearchPhrase=2014 spring fashion    count()=1549
-SearchPhrase=freeform photos       count()=1480
-SearchPhrase=angelina jolie    count()=1245
-SearchPhrase=omsk       count()=1112
-SearchPhrase=photos of dog breeds    count()=1091
-SearchPhrase=curtain designs        count()=1064
-SearchPhrase=baku       count()=1000
+<div class="codehilite"><pre><span></span><span class="err">SearchPhrase=   count()=8267016</span>
+<span class="err">SearchPhrase=bathroom interior design    count()=2166</span>
+<span class="err">SearchPhrase=yandex     count()=1655</span>
+<span class="err">SearchPhrase=2014 spring fashion    count()=1549</span>
+<span class="err">SearchPhrase=freeform photos       count()=1480</span>
+<span class="err">SearchPhrase=angelina jolie    count()=1245</span>
+<span class="err">SearchPhrase=omsk       count()=1112</span>
+<span class="err">SearchPhrase=photos of dog breeds    count()=1091</span>
+<span class="err">SearchPhrase=curtain designs        count()=1064</span>
+<span class="err">SearchPhrase=baku       count()=1000</span>
 </pre></div>
 
 
@@ -4045,7 +4045,7 @@ SearchPhrase=baku       count()=1000
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>x=1 y=\N
+<div class="codehilite"><pre><span></span><span class="err">x=1 y=\N</span>
 </pre></div>
 
 
@@ -4055,7 +4055,7 @@ SearchPhrase=baku       count()=1000
 <h2 id="csv">CSV<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h2>
 <p>按逗号分隔的数据格式(<a href="https://tools.ietf.org/html/rfc4180" rel="external nofollow">RFC</a>)。</p>
 <p>格式化的时候，行是用双引号括起来的。字符串中的双引号会以两个双引号输出，除此之外没有其他规则来做字符转义了。日期和时间也会以双引号包括。数字的输出不带引号。值由一个单独的字符隔开，这个字符默认是 <code>,</code>。行使用 Unix 换行符（LF）分隔。 数组序列化成 CSV 规则如下：首先将数组序列化为 TabSeparated 格式的字符串，然后将结果字符串用双引号包括输出到 CSV。CSV 格式的元组被序列化为单独的列（即它们在元组中的嵌套关系会丢失）。</p>
-<div class="codehilite"><pre><span></span>clickhouse-client --format_csv_delimiter=&quot;|&quot; --query=&quot;INSERT INTO test.csv FORMAT CSV&quot; &lt; data.csv
+<div class="codehilite"><pre><span></span><span class="err">clickhouse-client --format_csv_delimiter=&quot;|&quot; --query=&quot;INSERT INTO test.csv FORMAT CSV&quot; &lt; data.csv</span>
 </pre></div>
 
 
@@ -4218,9 +4218,9 @@ SearchPhrase=baku       count()=1000
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
-│ 1 │ ᴺᵁᴸᴸ │
-└───┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
+<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
+<span class="err">└───┴──────┘</span>
 </pre></div>
 
 
@@ -4231,26 +4231,26 @@ SearchPhrase=baku       count()=1000
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──EventDate─┬───────c─┐
-│ 2014-03-17 │ 1406958 │
-│ 2014-03-18 │ 1383658 │
-│ 2014-03-19 │ 1405797 │
-│ 2014-03-20 │ 1353623 │
-│ 2014-03-21 │ 1245779 │
-│ 2014-03-22 │ 1031592 │
-│ 2014-03-23 │ 1046491 │
-└────────────┴─────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span> <span class="err">│</span> <span class="mi">1406958</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span> <span class="err">│</span> <span class="mi">1383658</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span> <span class="err">│</span> <span class="mi">1405797</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="err">│</span> <span class="mi">1353623</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span> <span class="err">│</span> <span class="mi">1245779</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span> <span class="err">│</span> <span class="mi">1031592</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="err">│</span> <span class="mi">1046491</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 
-Totals:
-┌──EventDate─┬───────c─┐
-│ 0000-00-00 │ 8873898 │
-└────────────┴─────────┘
+<span class="n">Totals</span><span class="p">:</span>
+<span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">0000</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span> <span class="err">│</span> <span class="mi">8873898</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 
-Extremes:
-┌──EventDate─┬───────c─┐
-│ 2014-03-17 │ 1031592 │
-│ 2014-03-23 │ 1406958 │
-└────────────┴─────────┘
+<span class="n">Extremes</span><span class="p">:</span>
+<span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span> <span class="err">│</span> <span class="mi">1031592</span> <span class="err">│</span>
+<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="err">│</span> <span class="mi">1406958</span> <span class="err">│</span>
+<span class="err">└────────────┴─────────┘</span>
 </pre></div>
 
 
@@ -4294,10 +4294,10 @@ FixedString 被简单地表示为一个字节序列。</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>Row 1:
-──────
-x: 1
-y: ᴺᵁᴸᴸ
+<div class="codehilite"><pre><span></span><span class="err">Row 1:</span>
+<span class="err">──────</span>
+<span class="c">x: 1</span>
+<span class="c">y: ᴺᵁᴸᴸ</span>
 </pre></div>
 
 
@@ -4306,24 +4306,24 @@ y: ᴺᵁᴸᴸ
 <p>和 <code>Vertical</code> 格式不同点在于，行是不会被转义的。
 这种格式仅仅适用于输出，但不适用于解析输入（将数据插入到表中）。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span>:) SHOW CREATE TABLE geonames FORMAT VerticalRaw;
-Row 1:
-──────
-statement: CREATE TABLE default.geonames ( geonameid UInt32, date Date DEFAULT CAST(&#39;2017-12-08&#39; AS Date)) ENGINE = MergeTree(date, geonameid, 8192)
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SHOW</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">geonames</span> <span class="n">FORMAT</span> <span class="n">VerticalRaw</span><span class="p">;</span>
+<span class="k">Row</span> <span class="mi">1</span><span class="p">:</span>
+<span class="err">──────</span>
+<span class="k">statement</span><span class="p">:</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="k">default</span><span class="p">.</span><span class="n">geonames</span> <span class="p">(</span> <span class="n">geonameid</span> <span class="n">UInt32</span><span class="p">,</span> <span class="nb">date</span> <span class="nb">Date</span> <span class="k">DEFAULT</span> <span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;2017-12-08&#39;</span> <span class="k">AS</span> <span class="nb">Date</span><span class="p">))</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">MergeTree</span><span class="p">(</span><span class="nb">date</span><span class="p">,</span> <span class="n">geonameid</span><span class="p">,</span> <span class="mi">8192</span><span class="p">)</span>
 
-:) SELECT &#39;string with \&#39;quotes\&#39; and \t with some special \n characters&#39; AS test FORMAT VerticalRaw;
-Row 1:
-──────
-test: string with &#39;quotes&#39; and   with some special
- characters
+<span class="p">:)</span> <span class="k">SELECT</span> <span class="s1">&#39;string with \&#39;</span><span class="n">quotes</span><span class="err">\</span><span class="s1">&#39; and \t with some special \n characters&#39;</span> <span class="k">AS</span> <span class="n">test</span> <span class="n">FORMAT</span> <span class="n">VerticalRaw</span><span class="p">;</span>
+<span class="k">Row</span> <span class="mi">1</span><span class="p">:</span>
+<span class="err">──────</span>
+<span class="n">test</span><span class="p">:</span> <span class="n">string</span> <span class="k">with</span> <span class="s1">&#39;quotes&#39;</span> <span class="k">and</span>   <span class="k">with</span> <span class="k">some</span> <span class="n">special</span>
+ <span class="n">characters</span>
 </pre></div>
 
 
 <p>和 Vertical 格式相比：</p>
-<div class="codehilite"><pre><span></span>:) SELECT &#39;string with \&#39;quotes\&#39; and \t with some special \n characters&#39; AS test FORMAT Vertical;
-Row 1:
-──────
-test: string with \&#39;quotes\&#39; and \t with some special \n characters
+<div class="codehilite"><pre><span></span><span class="err">:) SELECT &#39;string with \&#39;quotes\&#39; and \t with some special \n characters&#39; AS test FORMAT Vertical;</span>
+<span class="err">Row 1:</span>
+<span class="err">──────</span>
+<span class="c">test: string with \&#39;quotes\&#39; and \t with some special \n characters</span>
 </pre></div>
 
 
@@ -4513,7 +4513,9 @@ test: string with \&#39;quotes\&#39; and \t with some special \n characters
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/b0785416bb6aaff2d2db937a4e35f3718c93e9a8" rel="external nofollow">b078541</a></span>
+</div>
       
     </div>
   </div>
