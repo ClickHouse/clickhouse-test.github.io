@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041109">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042596">
     
     
   </head>
@@ -3566,8 +3566,8 @@
 <p>For information on connecting and configuring external dictionaries, see <a href="../../dicts/external_dicts/">External dictionaries</a>.</p>
 <h2 id="dictget">dictGet<a class="headerlink" href="#dictget" title="Permanent link">&para;</a></h2>
 <p>Retrieves a value from an external dictionary.</p>
-<div class="codehilite"><pre><span></span><span class="err">dictGet(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr)</span>
-<span class="err">dictGetOrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_value_expr)</span>
+<div class="codehilite"><pre><span></span>dictGet(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr)
+dictGetOrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_value_expr)
 </pre></div>
 
 
@@ -3650,7 +3650,7 @@
 </ul>
 <h2 id="dicthas">dictHas<a class="headerlink" href="#dicthas" title="Permanent link">&para;</a></h2>
 <p>Checks whether the dictionary has the key.</p>
-<div class="codehilite"><pre><span></span><span class="err">dictHas(&#39;dict_name&#39;, id)</span>
+<div class="codehilite"><pre><span></span>dictHas(&#39;dict_name&#39;, id)
 </pre></div>
 
 
@@ -3667,7 +3667,7 @@
 <p>Type: <code>UInt8</code>.</p>
 <h2 id="dictgethierarchy">dictGetHierarchy<a class="headerlink" href="#dictgethierarchy" title="Permanent link">&para;</a></h2>
 <p>For the hierarchical dictionary, returns an array of dictionary keys starting from passed <code>id_expr</code> and continuing along the chain of parent elements.</p>
-<div class="codehilite"><pre><span></span><span class="err">dictGetHierarchy(&#39;dict_name&#39;, id)</span>
+<div class="codehilite"><pre><span></span>dictGetHierarchy(&#39;dict_name&#39;, id)
 </pre></div>
 
 
@@ -3708,8 +3708,8 @@
 </ul>
 <p>All these functions have the <code>OrDefault</code> modification. For example, <code>dictGetDateOrDefault</code>.</p>
 <p>Syntax:</p>
-<div class="codehilite"><pre><span></span><span class="n">dictGet</span><span class="o">[</span><span class="n">Type</span><span class="o">]</span><span class="p">(</span><span class="s1">&#39;dict_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;attr_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">id_expr</span><span class="p">)</span><span class="w"></span>
-<span class="n">dictGet</span><span class="o">[</span><span class="n">Type</span><span class="o">]</span><span class="n">OrDefault</span><span class="p">(</span><span class="s1">&#39;dict_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;attr_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">id_expr</span><span class="p">,</span><span class="w"> </span><span class="n">default_value_expr</span><span class="p">)</span><span class="w"></span>
+<div class="codehilite"><pre><span></span>dictGet[Type](&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr)
+dictGet[Type]OrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_value_expr)
 </pre></div>
 
 

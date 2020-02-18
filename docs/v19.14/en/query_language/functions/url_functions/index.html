@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582040900">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042402">
     
     
   </head>
@@ -3915,7 +3915,7 @@
 <p>Examples of typical returned values: http, https, ftp, mailto, tel, magnet...</p>
 <h3 id="domain">domain<a class="headerlink" href="#domain" title="Permanent link">&para;</a></h3>
 <p>Extracts the hostname from a URL.</p>
-<div class="codehilite"><pre><span></span><span class="err">domain(url)</span>
+<div class="codehilite"><pre><span></span>domain(url)
 </pre></div>
 
 
@@ -3924,16 +3924,16 @@
 <li><code>url</code> — URL. Type: <a href="../../../data_types/string/">String</a>.</li>
 </ul>
 <p>The URL can be specified with or without a scheme. Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">svn+ssh://some.svn-hosting.com:80/repo/trunk</span>
-<span class="err">some.svn-hosting.com:80/repo/trunk</span>
-<span class="c">https://yandex.com/time/</span>
+<div class="codehilite"><pre><span></span>svn+ssh://some.svn-hosting.com:80/repo/trunk
+some.svn-hosting.com:80/repo/trunk
+https://yandex.com/time/
 </pre></div>
 
 
 <p>For these examples, the <code>domain</code> function returns the following results:</p>
-<div class="codehilite"><pre><span></span><span class="err">some.svn-hosting.com</span>
-<span class="err">some.svn-hosting.com</span>
-<span class="err">yandex.com</span>
+<div class="codehilite"><pre><span></span>some.svn-hosting.com
+some.svn-hosting.com
+yandex.com
 </pre></div>
 
 
@@ -3958,7 +3958,7 @@
 <p>Returns the domain and removes no more than one 'www.' from the beginning of it, if present.</p>
 <h3 id="topleveldomain">topLevelDomain<a class="headerlink" href="#topleveldomain" title="Permanent link">&para;</a></h3>
 <p>Extracts the the top-level domain from a URL.</p>
-<div class="codehilite"><pre><span></span><span class="err">topLevelDomain(url)</span>
+<div class="codehilite"><pre><span></span>topLevelDomain(url)
 </pre></div>
 
 
@@ -3967,9 +3967,9 @@
 <li><code>url</code> — URL. Type: <a href="../../../data_types/string/">String</a>.</li>
 </ul>
 <p>The URL can be specified with or without a scheme. Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">svn+ssh://some.svn-hosting.com:80/repo/trunk</span>
-<span class="err">some.svn-hosting.com:80/repo/trunk</span>
-<span class="c">https://yandex.com/time/</span>
+<div class="codehilite"><pre><span></span>svn+ssh://some.svn-hosting.com:80/repo/trunk
+some.svn-hosting.com:80/repo/trunk
+https://yandex.com/time/
 </pre></div>
 
 
@@ -4015,11 +4015,11 @@
 <p>Returns an array containing the URL, truncated at the end by the symbols /,? in the path and query-string. Consecutive separator characters are counted as one. The cut is made in the position after all the consecutive separator characters.</p>
 <h3 id="urlpathhierarchy-url">URLPathHierarchy(URL)<a class="headerlink" href="#urlpathhierarchy-url" title="Permanent link">&para;</a></h3>
 <p>The same as above, but without the protocol and host in the result. The / element (root) is not included. Example: the function is used to implement tree reports the URL in Yandex. Metric.</p>
-<div class="codehilite"><pre><span></span><span class="err">URLPathHierarchy(&#39;https://example.com/browse/CONV-6788&#39;) =</span>
-<span class="err">[</span>
-<span class="err">    &#39;/browse/&#39;,</span>
-<span class="err">    &#39;/browse/CONV-6788&#39;</span>
-<span class="err">]</span>
+<div class="codehilite"><pre><span></span>URLPathHierarchy(&#39;https://example.com/browse/CONV-6788&#39;) =
+[
+    &#39;/browse/&#39;,
+    &#39;/browse/CONV-6788&#39;
+]
 </pre></div>
 
 
@@ -4030,8 +4030,8 @@ Example:</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─DecodedURL─────────────────────────────┐</span>
-<span class="err">│ http://127.0.0.1:8123/?query=SELECT 1; │</span>
+<div class="codehilite"><pre><span></span><span class="err">┌─</span><span class="nt">DecodedURL</span><span class="err">─────────────────────────────┐</span>
+<span class="err">│</span> <span class="nt">http</span><span class="o">://</span><span class="nt">127</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">1</span><span class="p">:</span><span class="nd">8123</span><span class="o">/?</span><span class="nt">query</span><span class="o">=</span><span class="nt">SELECT</span> <span class="nt">1</span><span class="o">;</span> <span class="err">│</span>
 <span class="err">└────────────────────────────────────────┘</span>
 </pre></div>
 

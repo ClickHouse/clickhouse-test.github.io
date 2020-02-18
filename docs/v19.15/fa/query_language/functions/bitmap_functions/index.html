@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582040785">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042291">
     
     
   </head>
@@ -3912,7 +3912,7 @@
 
 <h2 id="bitmap_functions-bitmapsubsetlimit">bitmapSubsetLimit<a class="headerlink" href="#bitmap_functions-bitmapsubsetlimit" title="Permanent link">&para;</a></h2>
 <p>Return subset of the smallest <code>limit</code> values in set which is no less than <code>range_start</code>.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapSubsetLimit(bitmap, range_start, limit)</span>
+<div class="codehilite"><pre><span></span>bitmapSubsetLimit(bitmap, range_start, limit)
 </pre></div>
 
 
@@ -3927,9 +3927,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───────────────────────┐</span>
-<span class="err">│ [30,31,32,33,100,200,500] │</span>
-<span class="err">└───────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───────────────────────┐
+│ [30,31,32,33,100,200,500] │
+└───────────────────────────┘
 </pre></div>
 
 
@@ -4117,7 +4117,7 @@ If the second argument is an empty bitmap then returns 1.</p>
 
 <h2 id="bitmapmin">bitmapMin<a class="headerlink" href="#bitmapmin" title="Permanent link">&para;</a></h2>
 <p>Retrun the smallest value of type UInt64 in the set, UINT32_MAX if the set is empty.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapMin(bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapMin(bitmap)
 </pre></div>
 
 
@@ -4130,15 +4130,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   1 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   1 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapmax">bitmapMax<a class="headerlink" href="#bitmapmax" title="Permanent link">&para;</a></h2>
 <p>Retrun the greatest value of type UInt64 in the set, 0 if the set is empty.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapMax(bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapMax(bitmap)
 </pre></div>
 
 
@@ -4151,9 +4151,9 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   5 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   5 │
+└─────┘
 </pre></div>
 
 

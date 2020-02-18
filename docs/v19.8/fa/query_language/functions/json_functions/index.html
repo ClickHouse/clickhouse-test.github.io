@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041395">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042859">
     
     
   </head>
@@ -3710,18 +3710,18 @@
 <h2 id="visitparamextractraw-params-name">visitParamExtractRaw(params, name)<a class="headerlink" href="#visitparamextractraw-params-name" title="Permanent link">&para;</a></h2>
 <p>Returns the value of a field, including separators.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">visitParamExtractRaw(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;&quot;\\n\\u0000&quot;&#39;</span>
-<span class="err">visitParamExtractRaw(&#39;{&quot;abc&quot;:{&quot;def&quot;:[1,2,3]}}&#39;, &#39;abc&#39;) = &#39;{&quot;def&quot;:[1,2,3]}&#39;</span>
+<div class="codehilite"><pre><span></span>visitParamExtractRaw(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;&quot;\\n\\u0000&quot;&#39;
+visitParamExtractRaw(&#39;{&quot;abc&quot;:{&quot;def&quot;:[1,2,3]}}&#39;, &#39;abc&#39;) = &#39;{&quot;def&quot;:[1,2,3]}&#39;
 </pre></div>
 
 
 <h2 id="visitparamextractstring-params-name">visitParamExtractString(params, name)<a class="headerlink" href="#visitparamextractstring-params-name" title="Permanent link">&para;</a></h2>
 <p>Parses the string in double quotes. The value is unescaped. If unescaping failed, it returns an empty string.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;\n\0&#39;</span>
-<span class="err">visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\u263a&quot;}&#39;, &#39;abc&#39;) = &#39;☺&#39;</span>
-<span class="err">visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\u263&quot;}&#39;, &#39;abc&#39;) = &#39;&#39;</span>
-<span class="err">visitParamExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) = &#39;&#39;</span>
+<div class="codehilite"><pre><span></span>visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;\n\0&#39;
+visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\u263a&quot;}&#39;, &#39;abc&#39;) = &#39;☺&#39;
+visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\u263&quot;}&#39;, &#39;abc&#39;) = &#39;&#39;
+visitParamExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) = &#39;&#39;
 </pre></div>
 
 
@@ -3731,8 +3731,8 @@
 <p>If the value exists in the JSON document, <code>1</code> will be returned.</p>
 <p>If the value does not exist, <code>0</code> will be returned.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = 1</span>
-<span class="err">select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 4) = 0</span>
+<div class="codehilite"><pre><span></span>select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = 1
+select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 4) = 0
 </pre></div>
 
 
@@ -3744,11 +3744,11 @@
 </ul>
 <p>You may use integers to access both JSON arrays and JSON objects.</p>
 <p>So, for example:</p>
-<div class="codehilite"><pre><span></span><span class="err">select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 1) = &#39;a&#39;</span>
-<span class="err">select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 2) = &#39;b&#39;</span>
-<span class="err">select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, -1) = &#39;b&#39;</span>
-<span class="err">select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, -2) = &#39;a&#39;</span>
-<span class="err">select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 1) = &#39;hello&#39;</span>
+<div class="codehilite"><pre><span></span>select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 1) = &#39;a&#39;
+select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 2) = &#39;b&#39;
+select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, -1) = &#39;b&#39;
+select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, -2) = &#39;a&#39;
+select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 1) = &#39;hello&#39;
 </pre></div>
 
 
@@ -3756,8 +3756,8 @@
 <p>Return the length of a JSON array or a JSON object.</p>
 <p>If the value does not exist or has a wrong type, <code>0</code> will be returned.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = 3</span>
-<span class="err">select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;) = 2</span>
+<div class="codehilite"><pre><span></span>select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = 3
+select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;) = 2
 </pre></div>
 
 
@@ -3765,9 +3765,9 @@
 <p>Return the type of a JSON value.</p>
 <p>If the value does not exist, <code>Null</code> will be returned.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;) = &#39;Object&#39;</span>
-<span class="err">select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;a&#39;) = &#39;String&#39;</span>
-<span class="err">select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = &#39;Array&#39;</span>
+<div class="codehilite"><pre><span></span>select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;) = &#39;Object&#39;
+select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;a&#39;) = &#39;String&#39;
+select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = &#39;Array&#39;
 </pre></div>
 
 
@@ -3778,9 +3778,9 @@
 <p>Parses a JSON and extract a value. These functions are similar to <code>visitParam</code> functions.</p>
 <p>If the value does not exist or has a wrong type, <code>0</code> will be returned.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">select JSONExtractInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 1) = -100</span>
-<span class="err">select JSONExtractFloat(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 2) = 200.0</span>
-<span class="err">select JSONExtractUInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, -1) = 300</span>
+<div class="codehilite"><pre><span></span>select JSONExtractInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 1) = -100
+select JSONExtractFloat(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 2) = 200.0
+select JSONExtractUInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, -1) = 300
 </pre></div>
 
 
@@ -3789,11 +3789,11 @@
 <p>If the value does not exist or has a wrong type, an empty string will be returned.</p>
 <p>The value is unescaped. If unescaping failed, it returns an empty string.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;a&#39;) = &#39;hello&#39;</span>
-<span class="err">select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;\n\0&#39;</span>
-<span class="err">select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\u263a&quot;}&#39;, &#39;abc&#39;) = &#39;☺&#39;</span>
-<span class="err">select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\u263&quot;}&#39;, &#39;abc&#39;) = &#39;&#39;</span>
-<span class="err">select JSONExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) = &#39;&#39;</span>
+<div class="codehilite"><pre><span></span>select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;a&#39;) = &#39;hello&#39;
+select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;\n\0&#39;
+select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\u263a&quot;}&#39;, &#39;abc&#39;) = &#39;☺&#39;
+select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\u263&quot;}&#39;, &#39;abc&#39;) = &#39;&#39;
+select JSONExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) = &#39;&#39;
 </pre></div>
 
 
@@ -3804,20 +3804,20 @@ This means
 <code>JSONExtract(..., 'String')</code> returns exactly the same as <code>JSONExtractString()</code>,
 <code>JSONExtract(..., 'Float64')</code> returns exactly the same as <code>JSONExtractFloat()</code>.</p>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;Tuple(String, Array(Float64))&#39;) = (&#39;hello&#39;,[-100,200,300])</span>
-<span class="err">SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;Tuple(b Array(Float64), a String)&#39;) = ([-100,200,300],&#39;hello&#39;)</span>
-<span class="err">SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, &#39;Array(Nullable(Int8))&#39;) = [-100, NULL, NULL]</span>
-<span class="err">SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 4, &#39;Nullable(Int64)&#39;) = NULL</span>
-<span class="err">SELECT JSONExtract(&#39;{&quot;passed&quot;: true}&#39;, &#39;passed&#39;, &#39;UInt8&#39;) = 1</span>
-<span class="err">SELECT JSONExtract(&#39;{&quot;day&quot;: &quot;Thursday&quot;}&#39;, &#39;day&#39;, &#39;Enum8(\&#39;Sunday\&#39; = 0, \&#39;Monday\&#39; = 1, \&#39;Tuesday\&#39; = 2, \&#39;Wednesday\&#39; = 3, \&#39;Thursday\&#39; = 4, \&#39;Friday\&#39; = 5, \&#39;Saturday\&#39; = 6)&#39;) = &#39;Thursday&#39;</span>
-<span class="err">SELECT JSONExtract(&#39;{&quot;day&quot;: 5}&#39;, &#39;day&#39;, &#39;Enum8(\&#39;Sunday\&#39; = 0, \&#39;Monday\&#39; = 1, \&#39;Tuesday\&#39; = 2, \&#39;Wednesday\&#39; = 3, \&#39;Thursday\&#39; = 4, \&#39;Friday\&#39; = 5, \&#39;Saturday\&#39; = 6)&#39;) = &#39;Friday&#39;</span>
+<div class="codehilite"><pre><span></span>SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;Tuple(String, Array(Float64))&#39;) = (&#39;hello&#39;,[-100,200,300])
+SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;Tuple(b Array(Float64), a String)&#39;) = ([-100,200,300],&#39;hello&#39;)
+SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, &#39;Array(Nullable(Int8))&#39;) = [-100, NULL, NULL]
+SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 4, &#39;Nullable(Int64)&#39;) = NULL
+SELECT JSONExtract(&#39;{&quot;passed&quot;: true}&#39;, &#39;passed&#39;, &#39;UInt8&#39;) = 1
+SELECT JSONExtract(&#39;{&quot;day&quot;: &quot;Thursday&quot;}&#39;, &#39;day&#39;, &#39;Enum8(\&#39;Sunday\&#39; = 0, \&#39;Monday\&#39; = 1, \&#39;Tuesday\&#39; = 2, \&#39;Wednesday\&#39; = 3, \&#39;Thursday\&#39; = 4, \&#39;Friday\&#39; = 5, \&#39;Saturday\&#39; = 6)&#39;) = &#39;Thursday&#39;
+SELECT JSONExtract(&#39;{&quot;day&quot;: 5}&#39;, &#39;day&#39;, &#39;Enum8(\&#39;Sunday\&#39; = 0, \&#39;Monday\&#39; = 1, \&#39;Tuesday\&#39; = 2, \&#39;Wednesday\&#39; = 3, \&#39;Thursday\&#39; = 4, \&#39;Friday\&#39; = 5, \&#39;Saturday\&#39; = 6)&#39;) = &#39;Friday&#39;
 </pre></div>
 
 
 <h2 id="jsonextractkeysandvalues-json-indices-or-keys-value-type">JSONExtractKeysAndValues(json[, indices_or_keys...], value_type)<a class="headerlink" href="#jsonextractkeysandvalues-json-indices-or-keys-value-type" title="Permanent link">&para;</a></h2>
 <p>Parse key-value pairs from a JSON where the values are of the given ClickHouse data type.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT JSONExtractKeysAndValues(&#39;{&quot;x&quot;: {&quot;a&quot;: 5, &quot;b&quot;: 7, &quot;c&quot;: 11}}&#39;, &#39;x&#39;, &#39;Int8&#39;) = [(&#39;a&#39;,5),(&#39;b&#39;,7),(&#39;c&#39;,11)];</span>
+<div class="codehilite"><pre><span></span>SELECT JSONExtractKeysAndValues(&#39;{&quot;x&quot;: {&quot;a&quot;: 5, &quot;b&quot;: 7, &quot;c&quot;: 11}}&#39;, &#39;x&#39;, &#39;Int8&#39;) = [(&#39;a&#39;,5),(&#39;b&#39;,7),(&#39;c&#39;,11)];
 </pre></div>
 
 
@@ -3825,7 +3825,7 @@ This means
 <p>Returns a part of JSON.</p>
 <p>If the part does not exist or has a wrong type, an empty string will be returned.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><span class="err">select JSONExtractRaw(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = &#39;[-100, 200.0, 300]&#39;</span>
+<div class="codehilite"><pre><span></span>select JSONExtractRaw(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = &#39;[-100, 200.0, 300]&#39;
 </pre></div>
                 
                 </div>

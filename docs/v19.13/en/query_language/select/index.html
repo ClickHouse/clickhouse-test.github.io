@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582041010">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582042503">
     
     
   </head>
@@ -4154,59 +4154,59 @@ Otherwise, the query might consume a lot of RAM if the appropriate restrictions 
 3. Expression's results are not available in subqueries
 Results of WITH clause expressions can be used inside SELECT clause.</p>
 <p>Example 1: Using constant expression as "variable"</p>
-<div class="codehilite"><pre><span></span><span class="err">WITH &#39;2019-08-01 15:23:00&#39; as ts_upper_bound</span>
-<span class="err">SELECT *</span>
-<span class="err">FROM hits</span>
-<span class="err">WHERE</span>
-<span class="err">    EventDate = toDate(ts_upper_bound) AND</span>
-<span class="err">    EventTime &lt;= ts_upper_bound</span>
+<div class="codehilite"><pre><span></span>WITH &#39;2019-08-01 15:23:00&#39; as ts_upper_bound
+SELECT *
+FROM hits
+WHERE
+    EventDate = toDate(ts_upper_bound) AND
+    EventTime &lt;= ts_upper_bound
 </pre></div>
 
 
 <p>Example 2: Evicting sum(bytes) expression result from SELECT clause column list</p>
-<div class="codehilite"><pre><span></span><span class="err">WITH sum(bytes) as s</span>
-<span class="err">SELECT</span>
-<span class="err">    formatReadableSize(s),</span>
-<span class="err">    table</span>
-<span class="err">FROM system.parts</span>
-<span class="err">GROUP BY table</span>
-<span class="err">ORDER BY s</span>
+<div class="codehilite"><pre><span></span>WITH sum(bytes) as s
+SELECT
+    formatReadableSize(s),
+    table
+FROM system.parts
+GROUP BY table
+ORDER BY s
 </pre></div>
 
 
 <p>Example 3: Using results of scalar subquery</p>
-<div class="codehilite"><pre><span></span><span class="err">/* this example would return TOP 10 of most huge tables */</span>
-<span class="err">WITH</span>
-<span class="err">    (</span>
-<span class="err">        SELECT sum(bytes)</span>
-<span class="err">        FROM system.parts</span>
-<span class="err">        WHERE active</span>
-<span class="err">    ) AS total_disk_usage</span>
-<span class="err">SELECT</span>
-<span class="err">    (sum(bytes) / total_disk_usage) * 100 AS table_disk_usage,</span>
-<span class="err">    table</span>
-<span class="err">FROM system.parts</span>
-<span class="err">GROUP BY table</span>
-<span class="err">ORDER BY table_disk_usage DESC</span>
-<span class="err">LIMIT 10</span>
+<div class="codehilite"><pre><span></span><span class="cm">/* this example would return TOP 10 of most huge tables */</span><span class="w"></span>
+WITH<span class="w"></span>
+<span class="w">    </span><span class="o">(</span><span class="w"></span>
+<span class="w">        </span><span class="kr">SELECT</span><span class="w"> </span>sum<span class="o">(</span>bytes<span class="o">)</span><span class="w"></span>
+<span class="w">        </span>FROM<span class="w"> </span>system<span class="o">.</span>parts<span class="w"></span>
+<span class="w">        </span>WHERE<span class="w"> </span>active<span class="w"></span>
+<span class="w">    </span><span class="o">)</span><span class="w"> </span>AS<span class="w"> </span>total_disk_usage<span class="w"></span>
+<span class="kr">SELECT</span><span class="w"></span>
+<span class="w">    </span><span class="o">(</span>sum<span class="o">(</span>bytes<span class="o">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span>total_disk_usage<span class="o">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">100</span><span class="w"> </span>AS<span class="w"> </span>table_disk_usage<span class="o">,</span><span class="w"></span>
+<span class="w">    </span>table<span class="w"></span>
+FROM<span class="w"> </span>system<span class="o">.</span>parts<span class="w"></span>
+GROUP<span class="w"> </span><span class="kr">BY</span><span class="w"> </span>table<span class="w"></span>
+ORDER<span class="w"> </span><span class="kr">BY</span><span class="w"> </span>table_disk_usage<span class="w"> </span>DESC<span class="w"></span>
+LIMIT<span class="w"> </span><span class="m">10</span><span class="w"></span>
 </pre></div>
 
 
 <p>Example 4: Re-using expression in subquery
 As a workaround for current limitation for expression usage in subqueries, you may duplicate it.</p>
-<div class="codehilite"><pre><span></span><span class="k">WITH</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span> <span class="k">AS</span> <span class="n">hello</span>
-<span class="k">SELECT</span>
-    <span class="n">hello</span><span class="p">,</span>
-    <span class="o">*</span>
-<span class="k">FROM</span>
-<span class="p">(</span>
-    <span class="k">WITH</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span> <span class="k">AS</span> <span class="n">hello</span>
-    <span class="k">SELECT</span> <span class="n">hello</span>
-<span class="p">)</span>
+<div class="codehilite"><pre><span></span>WITH [&#39;hello&#39;] AS hello
+SELECT
+    hello,
+    *
+FROM
+(
+    WITH [&#39;hello&#39;] AS hello
+    SELECT hello
+)
 
-<span class="err">┌─</span><span class="n">hello</span><span class="err">─────┬─</span><span class="n">hello</span><span class="err">─────┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span> <span class="err">│</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">└───────────┴───────────┘</span>
+┌─hello─────┬─hello─────┐
+│ [&#39;hello&#39;] │ [&#39;hello&#39;] │
+└───────────┴───────────┘
 </pre></div>
 
 
@@ -4351,11 +4351,11 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s───────────┬─arr─────┐</span>
-<span class="err">│ Hello       │ [1,2]   │</span>
-<span class="err">│ World       │ [3,4,5] │</span>
-<span class="err">│ Goodbye     │ []      │</span>
-<span class="err">└─────────────┴─────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s───────────┬─arr─────┐
+│ Hello       │ [1,2]   │
+│ World       │ [3,4,5] │
+│ Goodbye     │ []      │
+└─────────────┴─────────┘
 </pre></div>
 
 
@@ -4366,13 +4366,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─arr─┐</span>
-<span class="err">│ Hello │   1 │</span>
-<span class="err">│ Hello │   2 │</span>
-<span class="err">│ World │   3 │</span>
-<span class="err">│ World │   4 │</span>
-<span class="err">│ World │   5 │</span>
-<span class="err">└───────┴─────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─arr─┐
+│ Hello │   1 │
+│ Hello │   2 │
+│ World │   3 │
+│ World │   4 │
+│ World │   5 │
+└───────┴─────┘
 </pre></div>
 
 
@@ -4383,14 +4383,14 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s───────────┬─arr─┐</span>
-<span class="err">│ Hello       │   1 │</span>
-<span class="err">│ Hello       │   2 │</span>
-<span class="err">│ World       │   3 │</span>
-<span class="err">│ World       │   4 │</span>
-<span class="err">│ World       │   5 │</span>
-<span class="err">│ Goodbye     │   0 │</span>
-<span class="err">└─────────────┴─────┘</span>
+<div class="codehilite"><pre><span></span>┌─s───────────┬─arr─┐
+│ Hello       │   1 │
+│ Hello       │   2 │
+│ World       │   3 │
+│ World       │   4 │
+│ World       │   5 │
+│ Goodbye     │   0 │
+└─────────────┴─────┘
 </pre></div>
 
 
@@ -4402,13 +4402,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─arr─────┬─a─┐</span>
-<span class="err">│ Hello │ [1,2]   │ 1 │</span>
-<span class="err">│ Hello │ [1,2]   │ 2 │</span>
-<span class="err">│ World │ [3,4,5] │ 3 │</span>
-<span class="err">│ World │ [3,4,5] │ 4 │</span>
-<span class="err">│ World │ [3,4,5] │ 5 │</span>
-<span class="err">└───────┴─────────┴───┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─arr─────┬─a─┐
+│ Hello │ [1,2]   │ 1 │
+│ Hello │ [1,2]   │ 2 │
+│ World │ [3,4,5] │ 3 │
+│ World │ [3,4,5] │ 4 │
+│ World │ [3,4,5] │ 5 │
+└───────┴─────────┴───┘
 </pre></div>
 
 
@@ -4419,17 +4419,17 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s───────────┬─arr_external─┐</span>
-<span class="err">│ Hello       │            1 │</span>
-<span class="err">│ Hello       │            2 │</span>
-<span class="err">│ Hello       │            3 │</span>
-<span class="err">│ World       │            1 │</span>
-<span class="err">│ World       │            2 │</span>
-<span class="err">│ World       │            3 │</span>
-<span class="err">│ Goodbye     │            1 │</span>
-<span class="err">│ Goodbye     │            2 │</span>
-<span class="err">│ Goodbye     │            3 │</span>
-<span class="err">└─────────────┴──────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s───────────┬─arr_external─┐
+│ Hello       │            1 │
+│ Hello       │            2 │
+│ Hello       │            3 │
+│ World       │            1 │
+│ World       │            2 │
+│ World       │            3 │
+│ Goodbye     │            1 │
+│ Goodbye     │            2 │
+│ Goodbye     │            3 │
+└─────────────┴──────────────┘
 </pre></div>
 
 
@@ -4440,13 +4440,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─arr─────┬─a─┬─num─┬─mapped─┐</span>
-<span class="err">│ Hello │ [1,2]   │ 1 │   1 │      2 │</span>
-<span class="err">│ Hello │ [1,2]   │ 2 │   2 │      3 │</span>
-<span class="err">│ World │ [3,4,5] │ 3 │   1 │      4 │</span>
-<span class="err">│ World │ [3,4,5] │ 4 │   2 │      5 │</span>
-<span class="err">│ World │ [3,4,5] │ 5 │   3 │      6 │</span>
-<span class="err">└───────┴─────────┴───┴─────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─arr─────┬─a─┬─num─┬─mapped─┐
+│ Hello │ [1,2]   │ 1 │   1 │      2 │
+│ Hello │ [1,2]   │ 2 │   2 │      3 │
+│ World │ [3,4,5] │ 3 │   1 │      4 │
+│ World │ [3,4,5] │ 4 │   2 │      5 │
+│ World │ [3,4,5] │ 5 │   3 │      6 │
+└───────┴─────────┴───┴─────┴────────┘
 </pre></div>
 
 
@@ -4457,13 +4457,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─arr─────┬─a─┬─num─┬─arrayEnumerate(arr)─┐</span>
-<span class="err">│ Hello │ [1,2]   │ 1 │   1 │ [1,2]               │</span>
-<span class="err">│ Hello │ [1,2]   │ 2 │   2 │ [1,2]               │</span>
-<span class="err">│ World │ [3,4,5] │ 3 │   1 │ [1,2,3]             │</span>
-<span class="err">│ World │ [3,4,5] │ 4 │   2 │ [1,2,3]             │</span>
-<span class="err">│ World │ [3,4,5] │ 5 │   3 │ [1,2,3]             │</span>
-<span class="err">└───────┴─────────┴───┴─────┴─────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─arr─────┬─a─┬─num─┬─arrayEnumerate(arr)─┐
+│ Hello │ [1,2]   │ 1 │   1 │ [1,2]               │
+│ Hello │ [1,2]   │ 2 │   2 │ [1,2]               │
+│ World │ [3,4,5] │ 3 │   1 │ [1,2,3]             │
+│ World │ [3,4,5] │ 4 │   2 │ [1,2,3]             │
+│ World │ [3,4,5] │ 5 │   3 │ [1,2,3]             │
+└───────┴─────────┴───┴─────┴─────────────────────┘
 </pre></div>
 
 
@@ -4482,11 +4482,11 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s───────┬─nest.x──┬─nest.y─────┐</span>
-<span class="err">│ Hello   │ [1,2]   │ [10,20]    │</span>
-<span class="err">│ World   │ [3,4,5] │ [30,40,50] │</span>
-<span class="err">│ Goodbye │ []      │ []         │</span>
-<span class="err">└─────────┴─────────┴────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s───────┬─nest.x──┬─nest.y─────┐
+│ Hello   │ [1,2]   │ [10,20]    │
+│ World   │ [3,4,5] │ [30,40,50] │
+│ Goodbye │ []      │ []         │
+└─────────┴─────────┴────────────┘
 </pre></div>
 
 
@@ -4496,13 +4496,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─nest.x─┬─nest.y─┐</span>
-<span class="err">│ Hello │      1 │     10 │</span>
-<span class="err">│ Hello │      2 │     20 │</span>
-<span class="err">│ World │      3 │     30 │</span>
-<span class="err">│ World │      4 │     40 │</span>
-<span class="err">│ World │      5 │     50 │</span>
-<span class="err">└───────┴────────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─nest.x─┬─nest.y─┐
+│ Hello │      1 │     10 │
+│ Hello │      2 │     20 │
+│ World │      3 │     30 │
+│ World │      4 │     40 │
+│ World │      5 │     50 │
+└───────┴────────┴────────┘
 </pre></div>
 
 
@@ -4513,13 +4513,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─nest.x─┬─nest.y─┐</span>
-<span class="err">│ Hello │      1 │     10 │</span>
-<span class="err">│ Hello │      2 │     20 │</span>
-<span class="err">│ World │      3 │     30 │</span>
-<span class="err">│ World │      4 │     40 │</span>
-<span class="err">│ World │      5 │     50 │</span>
-<span class="err">└───────┴────────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─nest.x─┬─nest.y─┐
+│ Hello │      1 │     10 │
+│ Hello │      2 │     20 │
+│ World │      3 │     30 │
+│ World │      4 │     40 │
+│ World │      5 │     50 │
+└───────┴────────┴────────┘
 </pre></div>
 
 
@@ -4530,13 +4530,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─nest.x─┬─nest.y─────┐</span>
-<span class="err">│ Hello │      1 │ [10,20]    │</span>
-<span class="err">│ Hello │      2 │ [10,20]    │</span>
-<span class="err">│ World │      3 │ [30,40,50] │</span>
-<span class="err">│ World │      4 │ [30,40,50] │</span>
-<span class="err">│ World │      5 │ [30,40,50] │</span>
-<span class="err">└───────┴────────┴────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─nest.x─┬─nest.y─────┐
+│ Hello │      1 │ [10,20]    │
+│ Hello │      2 │ [10,20]    │
+│ World │      3 │ [30,40,50] │
+│ World │      4 │ [30,40,50] │
+│ World │      5 │ [30,40,50] │
+└───────┴────────┴────────────┘
 </pre></div>
 
 
@@ -4547,13 +4547,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─n.x─┬─n.y─┬─nest.x──┬─nest.y─────┐</span>
-<span class="err">│ Hello │   1 │  10 │ [1,2]   │ [10,20]    │</span>
-<span class="err">│ Hello │   2 │  20 │ [1,2]   │ [10,20]    │</span>
-<span class="err">│ World │   3 │  30 │ [3,4,5] │ [30,40,50] │</span>
-<span class="err">│ World │   4 │  40 │ [3,4,5] │ [30,40,50] │</span>
-<span class="err">│ World │   5 │  50 │ [3,4,5] │ [30,40,50] │</span>
-<span class="err">└───────┴─────┴─────┴─────────┴────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─n.x─┬─n.y─┬─nest.x──┬─nest.y─────┐
+│ Hello │   1 │  10 │ [1,2]   │ [10,20]    │
+│ Hello │   2 │  20 │ [1,2]   │ [10,20]    │
+│ World │   3 │  30 │ [3,4,5] │ [30,40,50] │
+│ World │   4 │  40 │ [3,4,5] │ [30,40,50] │
+│ World │   5 │  50 │ [3,4,5] │ [30,40,50] │
+└───────┴─────┴─────┴─────────┴────────────┘
 </pre></div>
 
 
@@ -4564,13 +4564,13 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────┬─n.x─┬─n.y─┬─nest.x──┬─nest.y─────┬─num─┐</span>
-<span class="err">│ Hello │   1 │  10 │ [1,2]   │ [10,20]    │   1 │</span>
-<span class="err">│ Hello │   2 │  20 │ [1,2]   │ [10,20]    │   2 │</span>
-<span class="err">│ World │   3 │  30 │ [3,4,5] │ [30,40,50] │   1 │</span>
-<span class="err">│ World │   4 │  40 │ [3,4,5] │ [30,40,50] │   2 │</span>
-<span class="err">│ World │   5 │  50 │ [3,4,5] │ [30,40,50] │   3 │</span>
-<span class="err">└───────┴─────┴─────┴─────────┴────────────┴─────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────┬─n.x─┬─n.y─┬─nest.x──┬─nest.y─────┬─num─┐
+│ Hello │   1 │  10 │ [1,2]   │ [10,20]    │   1 │
+│ Hello │   2 │  20 │ [1,2]   │ [10,20]    │   2 │
+│ World │   3 │  30 │ [3,4,5] │ [30,40,50] │   1 │
+│ World │   4 │  40 │ [3,4,5] │ [30,40,50] │   2 │
+│ World │   5 │  50 │ [3,4,5] │ [30,40,50] │   3 │
+└───────┴─────┴─────┴─────────┴────────────┴─────┘
 </pre></div>
 
 
@@ -4601,12 +4601,12 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 <p>Performing queries, ClickHouse rewrites multi-table joins into the sequence of two-table joins. For example, if there are four tables for join ClickHouse joins the first and the second, then joins the result with the third table, and at the last step, it joins the fourth one.</p>
 <p>If a query contains the <code>WHERE</code> clause, ClickHouse tries to pushdown filters from this clause through the intermediate join. If it cannot apply the filter to each intermediate join, ClickHouse applies the filters after all joins are completed.</p>
 <p>We recommend the <code>JOIN ON</code> or <code>JOIN USING</code> syntax for creating queries. For example:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT * FROM t1 JOIN t2 ON t1.a = t2.a JOIN t3 ON t1.a = t3.a</span>
+<div class="codehilite"><pre><span></span>SELECT * FROM t1 JOIN t2 ON t1.a = t2.a JOIN t3 ON t1.a = t3.a
 </pre></div>
 
 
 <p>You can use comma-separated lists of tables in the <code>FROM</code> clause. This works only with the <a href="../../operations/settings/settings/#settings-allow_experimental_cross_to_join_conversion">allow_experimental_cross_to_join_conversion = 1</a> setting. For example:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT * FROM t1, t2, t3 WHERE t1.a = t2.a AND t1.a = t3.a</span>
+<div class="codehilite"><pre><span></span>SELECT * FROM t1, t2, t3 WHERE t1.a = t2.a AND t1.a = t3.a
 </pre></div>
 
 
@@ -4620,21 +4620,21 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </ul>
 <p><strong>ASOF JOIN Usage</strong></p>
 <p><code>ASOF JOIN</code> is useful when you need to join records that have no exact match. For example, consider the following tables:</p>
-<div class="codehilite"><pre><span></span><span class="err">     table_1               table_2</span>
-<span class="err">  event   | ev_time | user_id       event   | ev_time | user_id</span>
-<span class="err">----------|---------|----------   ----------|---------|----------             </span>
-<span class="err">              ...                               ...</span>
-<span class="err">event_1_1 |  12:00  |  42         event_2_1 |  11:59  |   42</span>
-<span class="err">              ...                 event_2_2 |  12:30  |   42</span>
-<span class="err">event_1_2 |  13:00  |  42         event_2_3 |  13:00  |   42</span>
-<span class="err">              ...                               ...</span>
+<div class="codehilite"><pre><span></span>     table_1               table_2
+  event   | ev_time | user_id       event   | ev_time | user_id
+----------|---------|----------   ----------|---------|----------             
+              ...                               ...
+event_1_1 |  12:00  |  42         event_2_1 |  11:59  |   42
+              ...                 event_2_2 |  12:30  |   42
+event_1_2 |  13:00  |  42         event_2_3 |  13:00  |   42
+              ...                               ...
 </pre></div>
 
 
 <p><code>ASOF JOIN</code> takes the timestamp of a user event from <code>table_1</code> and finds in <code>table_2</code> an event, which timestamp is closest (equal or less) to the timestamp of the event from <code>table_1</code>. In our example, <code>event_1_1</code> can be joined with the <code>event_2_1</code>, <code>event_1_2</code> can be joined with <code>event_2_3</code>, <code>event_2_2</code> cannot be joined.</p>
 <p>Tables for <code>ASOF JOIN</code> must have the ordered sequence column. This column cannot be alone in a table. You can use <code>UInt32</code>, <code>UInt64</code>, <code>Float32</code>, <code>Float64</code>, <code>Date</code> and <code>DateTime</code> data types for this column.</p>
 <p>Use the following syntax for <code>ASOF JOIN</code>:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT expression_list FROM table_1 ASOF JOIN table_2 USING(equi_column1, ... equi_columnN, asof_column)</span>
+<div class="codehilite"><pre><span></span>SELECT expression_list FROM table_1 ASOF JOIN table_2 USING(equi_column1, ... equi_columnN, asof_column)
 </pre></div>
 
 
@@ -4676,18 +4676,18 @@ If a query does not list any columns (for example, SELECT count() FROM t), some 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─CounterID─┬───hits─┬─visits─┐</span>
-<span class="err">│   1143050 │ 523264 │  13665 │</span>
-<span class="err">│    731962 │ 475698 │ 102716 │</span>
-<span class="err">│    722545 │ 337212 │ 108187 │</span>
-<span class="err">│    722889 │ 252197 │  10547 │</span>
-<span class="err">│   2237260 │ 196036 │   9522 │</span>
-<span class="err">│  23057320 │ 147211 │   7689 │</span>
-<span class="err">│    722818 │  90109 │  17847 │</span>
-<span class="err">│     48221 │  85379 │   4652 │</span>
-<span class="err">│  19762435 │  77807 │   7026 │</span>
-<span class="err">│    722884 │  77492 │  11056 │</span>
-<span class="err">└───────────┴────────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌─CounterID─┬───hits─┬─visits─┐
+│   1143050 │ 523264 │  13665 │
+│    731962 │ 475698 │ 102716 │
+│    722545 │ 337212 │ 108187 │
+│    722889 │ 252197 │  10547 │
+│   2237260 │ 196036 │   9522 │
+│  23057320 │ 147211 │   7689 │
+│    722818 │  90109 │  17847 │
+│     48221 │  85379 │   4652 │
+│  19762435 │  77807 │   7026 │
+│    722884 │  77492 │  11056 │
+└───────────┴────────┴────────┘
 </pre></div>
 
 
@@ -4764,22 +4764,22 @@ All the expressions in the SELECT, HAVING, and ORDER BY clauses must be calculat
 <p>For grouping, ClickHouse interprets <a href="../syntax/">NULL</a> as a value, and <code>NULL=NULL</code>.</p>
 <p>Here's an example to show what this means.</p>
 <p>Assume you have this table:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │    2 │</span>
-<span class="err">│ 2 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 3 │    2 │</span>
-<span class="err">│ 3 │    3 │</span>
-<span class="err">│ 3 │ ᴺᵁᴸᴸ │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │    2 │
+│ 2 │ ᴺᵁᴸᴸ │
+│ 3 │    2 │
+│ 3 │    3 │
+│ 3 │ ᴺᵁᴸᴸ │
+└───┴──────┘
 </pre></div>
 
 
 <p>The query <code>SELECT sum(x), y FROM t_null_big GROUP BY y</code> results in:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─sum(x)─┬────y─┐</span>
-<span class="err">│      4 │    2 │</span>
-<span class="err">│      3 │    3 │</span>
-<span class="err">│      5 │ ᴺᵁᴸᴸ │</span>
-<span class="err">└────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─sum(x)─┬────y─┐
+│      4 │    2 │
+│      3 │    3 │
+│      5 │ ᴺᵁᴸᴸ │
+└────────┴──────┘
 </pre></div>
 
 
@@ -4883,34 +4883,34 @@ If the ORDER BY clause is omitted, the order of the rows is also undefined, and 
 </ul>
 <p>Example:</p>
 <p>For the table</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 2 │    2 │</span>
-<span class="err">│ 1 │  nan │</span>
-<span class="err">│ 2 │    2 │</span>
-<span class="err">│ 3 │    4 │</span>
-<span class="err">│ 5 │    6 │</span>
-<span class="err">│ 6 │  nan │</span>
-<span class="err">│ 7 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 6 │    7 │</span>
-<span class="err">│ 8 │    9 │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │ ᴺᵁᴸᴸ │
+│ 2 │    2 │
+│ 1 │  nan │
+│ 2 │    2 │
+│ 3 │    4 │
+│ 5 │    6 │
+│ 6 │  nan │
+│ 7 │ ᴺᵁᴸᴸ │
+│ 6 │    7 │
+│ 8 │    9 │
+└───┴──────┘
 </pre></div>
 
 
 <p>Run the query <code>SELECT * FROM t_null_nan ORDER BY y NULLS FIRST</code> to get:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 7 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 1 │  nan │</span>
-<span class="err">│ 6 │  nan │</span>
-<span class="err">│ 2 │    2 │</span>
-<span class="err">│ 2 │    2 │</span>
-<span class="err">│ 3 │    4 │</span>
-<span class="err">│ 5 │    6 │</span>
-<span class="err">│ 6 │    7 │</span>
-<span class="err">│ 8 │    9 │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │ ᴺᵁᴸᴸ │
+│ 7 │ ᴺᵁᴸᴸ │
+│ 1 │  nan │
+│ 6 │  nan │
+│ 2 │    2 │
+│ 2 │    2 │
+│ 3 │    4 │
+│ 5 │    6 │
+│ 6 │    7 │
+│ 8 │    9 │
+└───┴──────┘
 </pre></div>
 
 
@@ -5037,15 +5037,15 @@ Example:</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌──EventDate─┬────ratio─┐</span>
-<span class="err">│ 2014-03-17 │        1 │</span>
-<span class="err">│ 2014-03-18 │ 0.807696 │</span>
-<span class="err">│ 2014-03-19 │ 0.755406 │</span>
-<span class="err">│ 2014-03-20 │ 0.723218 │</span>
-<span class="err">│ 2014-03-21 │ 0.697021 │</span>
-<span class="err">│ 2014-03-22 │ 0.647851 │</span>
-<span class="err">│ 2014-03-23 │ 0.648416 │</span>
-<span class="err">└────────────┴──────────┘</span>
+<div class="codehilite"><pre><span></span>┌──EventDate─┬────ratio─┐
+│ 2014-03-17 │        1 │
+│ 2014-03-18 │ 0.807696 │
+│ 2014-03-19 │ 0.755406 │
+│ 2014-03-20 │ 0.723218 │
+│ 2014-03-21 │ 0.697021 │
+│ 2014-03-22 │ 0.647851 │
+│ 2014-03-23 │ 0.648416 │
+└────────────┴──────────┘
 </pre></div>
 
 
@@ -5054,28 +5054,28 @@ A subquery in the IN clause is always run just one time on a single server. Ther
 <h4 id="null-processing_1">NULL processing<a class="headerlink" href="#null-processing_1" title="Permanent link">&para;</a></h4>
 <p>During request processing, the IN operator assumes that the result of an operation with <a href="../syntax/">NULL</a> is always equal to <code>0</code>, regardless of whether <code>NULL</code> is on the right or left side of the operator. <code>NULL</code> values are not included in any dataset, do not correspond to each other and cannot be compared.</p>
 <p>Here is an example with the <code>t_null</code> table:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 2 │    3 │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │ ᴺᵁᴸᴸ │
+│ 2 │    3 │
+└───┴──────┘
 </pre></div>
 
 
 <p>Running the query <code>SELECT x FROM t_null WHERE y IN (NULL,3)</code> gives you the following result:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┐</span>
-<span class="err">│ 2 │</span>
-<span class="err">└───┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┐
+│ 2 │
+└───┘
 </pre></div>
 
 
 <p>You can see that the row in which <code>y = NULL</code> is thrown out of the query results. This is because ClickHouse can't decide whether <code>NULL</code> is included in the <code>(NULL,3)</code> set, returns <code>0</code> as the result of the operation, and <code>SELECT</code> excludes this row from the final output.</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">y</span> <span class="k">IN</span> <span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="n">t_null</span>
+<div class="codehilite"><pre><span></span>SELECT y IN (NULL, 3)
+FROM t_null
 
-<span class="err">┌─</span><span class="k">in</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">tuple</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span>                     <span class="mi">0</span> <span class="err">│</span>
-<span class="err">│</span>                     <span class="mi">1</span> <span class="err">│</span>
-<span class="err">└───────────────────────┘</span>
+┌─in(y, tuple(NULL, 3))─┐
+│                     0 │
+│                     1 │
+└───────────────────────┘
 </pre></div>
 
 

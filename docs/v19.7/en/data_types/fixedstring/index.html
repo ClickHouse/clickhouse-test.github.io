@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582041482">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582042939">
     
     
   </head>
@@ -3286,7 +3286,7 @@
                   <h1 id="fixedstring">FixedString<a class="headerlink" href="#fixedstring" title="Permanent link">&para;</a></h1>
 <p>A fixed-length string of <code>N</code> bytes (neither characters nor code points).</p>
 <p>To declare a column of <code>FixedString</code> type, use the following syntax:</p>
-<div class="codehilite"><pre><span></span><span class="err">&lt;column_name&gt; FixedString(N)</span>
+<div class="codehilite"><pre><span></span>&lt;column_name&gt; FixedString(N)
 </pre></div>
 
 
@@ -3307,21 +3307,21 @@
 </ul>
 <p>When selecting the data, ClickHouse does not remove the null bytes at the end of the string. If you use the <code>WHERE</code> clause, you should add null bytes manually to match the <code>FixedString</code> value. The following example illustrates how to use the <code>WHERE</code> clause with <code>FixedString</code>.</p>
 <p>Let's consider the following table with the single <code>FixedString(2)</code> column:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─name──┐</span>
-<span class="err">│ b     │</span>
-<span class="err">└───────┘</span>
+<div class="codehilite"><pre><span></span>┌─name──┐
+│ b     │
+└───────┘
 </pre></div>
 
 
 <p>The query <code>SELECT * FROM FixedStringTable WHERE a = 'b'</code> does not return any data as a result. We should complement the filter pattern with null bytes.</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">FixedStringTable</span>
-<span class="k">WHERE</span> <span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;b\0&#39;</span>
+<div class="codehilite"><pre><span></span>SELECT * FROM FixedStringTable
+WHERE a = &#39;b\0&#39;
 
-<span class="err">┌─</span><span class="n">a</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">b</span> <span class="err">│</span>
-<span class="err">└───┘</span>
+┌─a─┐
+│ b │
+└───┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 </pre></div>
 
 

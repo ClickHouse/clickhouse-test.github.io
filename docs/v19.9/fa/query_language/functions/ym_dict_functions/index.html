@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041301">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042773">
     
     
   </head>
@@ -3628,9 +3628,9 @@ For example, it will also find the file <code>/opt/geo/regions_hierarchy_ua.txt<
 <p>All the dictionaries are re-loaded in runtime (once every certain number of seconds, as defined in the builtin_dictionaries_reload_interval config parameter, or once an hour by default). However, the list of available dictionaries is defined one time, when the server starts.</p>
 <p>All functions for working with regions have an optional argument at the end – the dictionary key. It is referred to as the geobase.
 Example:</p>
-<div class="codehilite"><pre><span></span><span class="err">regionToCountry(RegionID) – Uses the default dictionary: /opt/geo/regions_hierarchy.txt</span>
-<span class="err">regionToCountry(RegionID, &#39;&#39;) – Uses the default dictionary: /opt/geo/regions_hierarchy.txt</span>
-<span class="err">regionToCountry(RegionID, &#39;ua&#39;) – Uses the dictionary for the &#39;ua&#39; key: /opt/geo/regions_hierarchy_ua.txt</span>
+<div class="codehilite"><pre><span></span>regionToCountry(RegionID) – Uses the default dictionary: /opt/geo/regions_hierarchy.txt
+regionToCountry(RegionID, &#39;&#39;) – Uses the default dictionary: /opt/geo/regions_hierarchy.txt
+regionToCountry(RegionID, &#39;ua&#39;) – Uses the dictionary for the &#39;ua&#39; key: /opt/geo/regions_hierarchy_ua.txt
 </pre></div>
 
 
@@ -3644,23 +3644,23 @@ Example:</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─regionToName(regionToArea(toUInt32(number), \&#39;ua\&#39;))─┐</span>
-<span class="err">│                                                      │</span>
-<span class="err">│ Moscow and Moscow region                             │</span>
-<span class="err">│ St. Petersburg and Leningrad region                  │</span>
-<span class="err">│ Belgorod region                                      │</span>
-<span class="err">│ Ivanovsk region                                      │</span>
-<span class="err">│ Kaluga region                                        │</span>
-<span class="err">│ Kostroma region                                      │</span>
-<span class="err">│ Kursk region                                         │</span>
-<span class="err">│ Lipetsk region                                       │</span>
-<span class="err">│ Orlov region                                         │</span>
-<span class="err">│ Ryazan region                                        │</span>
-<span class="err">│ Smolensk region                                      │</span>
-<span class="err">│ Tambov region                                        │</span>
-<span class="err">│ Tver region                                          │</span>
-<span class="err">│ Tula region                                          │</span>
-<span class="err">└──────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─regionToName(regionToArea(toUInt32(number), \&#39;ua\&#39;))─┐
+│                                                      │
+│ Moscow and Moscow region                             │
+│ St. Petersburg and Leningrad region                  │
+│ Belgorod region                                      │
+│ Ivanovsk region                                      │
+│ Kaluga region                                        │
+│ Kostroma region                                      │
+│ Kursk region                                         │
+│ Lipetsk region                                       │
+│ Orlov region                                         │
+│ Ryazan region                                        │
+│ Smolensk region                                      │
+│ Tambov region                                        │
+│ Tver region                                          │
+│ Tula region                                          │
+└──────────────────────────────────────────────────────┘
 </pre></div>
 
 
@@ -3672,23 +3672,23 @@ Example:</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─regionToName(regionToDistrict(toUInt32(number), \&#39;ua\&#39;))─┐</span>
-<span class="err">│                                                          │</span>
-<span class="err">│ Central federal district                                 │</span>
-<span class="err">│ Northwest federal district                               │</span>
-<span class="err">│ South federal district                                   │</span>
-<span class="err">│ North Caucases federal district                          │</span>
-<span class="err">│ Privolga federal district                                │</span>
-<span class="err">│ Ural federal district                                    │</span>
-<span class="err">│ Siberian federal district                                │</span>
-<span class="err">│ Far East federal district                                │</span>
-<span class="err">│ Scotland                                                 │</span>
-<span class="err">│ Faroe Islands                                            │</span>
-<span class="err">│ Flemish region                                           │</span>
-<span class="err">│ Brussels capital region                                  │</span>
-<span class="err">│ Wallonia                                                 │</span>
-<span class="err">│ Federation of Bosnia and Herzegovina                     │</span>
-<span class="err">└──────────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─regionToName(regionToDistrict(toUInt32(number), \&#39;ua\&#39;))─┐
+│                                                          │
+│ Central federal district                                 │
+│ Northwest federal district                               │
+│ South federal district                                   │
+│ North Caucases federal district                          │
+│ Privolga federal district                                │
+│ Ural federal district                                    │
+│ Siberian federal district                                │
+│ Far East federal district                                │
+│ Scotland                                                 │
+│ Faroe Islands                                            │
+│ Flemish region                                           │
+│ Brussels capital region                                  │
+│ Wallonia                                                 │
+│ Federation of Bosnia and Herzegovina                     │
+└──────────────────────────────────────────────────────────┘
 </pre></div>
 
 

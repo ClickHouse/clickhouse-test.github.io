@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582040381">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041895">
     
     
   </head>
@@ -4252,7 +4252,7 @@
 返回'Array（T）'类型的结果，其中'T'是传递的参数中最小的公共类型。</p>
 <h2 id="arrayconcat">arrayConcat<a class="headerlink" href="#arrayconcat" title="Permanent link">&para;</a></h2>
 <p>合并参数中传递的所有数组。</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayConcat(arrays)</span>
+<div class="codehilite"><pre><span></span>arrayConcat(arrays)
 </pre></div>
 
 
@@ -4265,9 +4265,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───────────┐</span>
-<span class="err">│ [1,2,3,4,5,6] │</span>
-<span class="err">└───────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───────────┐
+│ [1,2,3,4,5,6] │
+└───────────────┘
 </pre></div>
 
 
@@ -4280,17 +4280,17 @@
 <p>检查'arr'数组是否具有'elem'元素。
 如果元素不在数组中，则返回0;如果在，则返回1。</p>
 <p><code>NULL</code> 值的处理。</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">has</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT has([1, 2, NULL], NULL)
 
-<span class="err">┌─</span><span class="n">has</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span>                       <span class="mi">1</span> <span class="err">│</span>
-<span class="err">└─────────────────────────┘</span>
+┌─has([1, 2, NULL], NULL)─┐
+│                       1 │
+└─────────────────────────┘
 </pre></div>
 
 
 <h2 id="hasall">hasAll<a class="headerlink" href="#hasall" title="Permanent link">&para;</a></h2>
 <p>检查一个数组是否是另一个数组的子集。</p>
-<div class="codehilite"><pre><span></span><span class="err">hasAll(set, subset)</span>
+<div class="codehilite"><pre><span></span>hasAll(set, subset)
 </pre></div>
 
 
@@ -4319,7 +4319,7 @@
 <p><code>SELECT hasAll([[1, 2], [3, 4]], [[1, 2], [3, 5]])</code> returns 0.</p>
 <h2 id="hasany">hasAny<a class="headerlink" href="#hasany" title="Permanent link">&para;</a></h2>
 <p>检查两个数组是否存在交集。</p>
-<div class="codehilite"><pre><span></span><span class="err">hasAny(array1, array2)</span>
+<div class="codehilite"><pre><span></span>hasAny(array1, array2)
 </pre></div>
 
 
@@ -4347,13 +4347,13 @@
 <h2 id="indexof-arr-x">indexOf(arr, x)<a class="headerlink" href="#indexof-arr-x" title="Permanent link">&para;</a></h2>
 <p>返回数组中第一个‘x’元素的索引（从1开始），如果‘x’元素不存在在数组中，则返回0。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">],</span><span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT indexOf([1,3,NULL,NULL],NULL)
 
-<span class="k">SELECT</span> <span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
+SELECT indexOf([1, 3, NULL, NULL], NULL)
 
-<span class="err">┌─</span><span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span>                                 <span class="mi">3</span> <span class="err">│</span>
-<span class="err">└───────────────────────────────────┘</span>
+┌─indexOf([1, 3, NULL, NULL], NULL)─┐
+│                                 3 │
+└───────────────────────────────────┘
 </pre></div>
 
 
@@ -4362,11 +4362,11 @@
 <p>返回数组中等于x的元素的个数。相当于arrayCount（elem  - &gt; elem = x，arr）。</p>
 <p><code>NULL</code>值将作为单独的元素值处理。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">countEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT countEqual([1, 2, NULL, NULL], NULL)
 
-<span class="err">┌─</span><span class="n">countEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span>                                    <span class="mi">2</span> <span class="err">│</span>
-<span class="err">└──────────────────────────────────────┘</span>
+┌─countEqual([1, 2, NULL, NULL], NULL)─┐
+│                                    2 │
+└──────────────────────────────────────┘
 </pre></div>
 
 
@@ -4385,9 +4385,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─Reaches─┬──Hits─┐</span>
-<span class="err">│   95606 │ 31406 │</span>
-<span class="err">└─────────┴───────┘</span>
+<div class="codehilite"><pre><span></span>┌─Reaches─┬──Hits─┐
+│   95606 │ 31406 │
+└─────────┴───────┘
 </pre></div>
 
 
@@ -4400,9 +4400,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─Reaches─┬──Hits─┐</span>
-<span class="err">│   95606 │ 31406 │</span>
-<span class="err">└─────────┴───────┘</span>
+<div class="codehilite"><pre><span></span>┌─Reaches─┬──Hits─┐
+│   95606 │ 31406 │
+└─────────┴───────┘
 </pre></div>
 
 
@@ -4427,18 +4427,18 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌──GoalID─┬─Reaches─┬─Visits─┐</span>
-<span class="err">│   53225 │    3214 │   1097 │</span>
-<span class="err">│ 2825062 │    3188 │   1097 │</span>
-<span class="err">│   56600 │    2803 │    488 │</span>
-<span class="err">│ 1989037 │    2401 │    365 │</span>
-<span class="err">│ 2830064 │    2396 │    910 │</span>
-<span class="err">│ 1113562 │    2372 │    373 │</span>
-<span class="err">│ 3270895 │    2262 │    812 │</span>
-<span class="err">│ 1084657 │    2262 │    345 │</span>
-<span class="err">│   56599 │    2260 │    799 │</span>
-<span class="err">│ 3271094 │    2256 │    812 │</span>
-<span class="err">└─────────┴─────────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌──GoalID─┬─Reaches─┬─Visits─┐
+│   53225 │    3214 │   1097 │
+│ 2825062 │    3188 │   1097 │
+│   56600 │    2803 │    488 │
+│ 1989037 │    2401 │    365 │
+│ 2830064 │    2396 │    910 │
+│ 1113562 │    2372 │    373 │
+│ 3270895 │    2262 │    812 │
+│ 1084657 │    2262 │    345 │
+│   56599 │    2260 │    799 │
+│ 3271094 │    2256 │    812 │
+└─────────┴─────────┴────────┘
 </pre></div>
 
 
@@ -4448,16 +4448,16 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───────────┐</span>
-<span class="err">│ [1,2,1,1,2,1] │</span>
-<span class="err">└───────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───────────┐
+│ [1,2,1,1,2,1] │
+└───────────────┘
 </pre></div>
 
 
 <p>当使用带有嵌套数据结构的ARRAY JOIN并在此结构中跨多个元素进一步聚合时，这是必需的。</p>
 <h2 id="arraypopback">arrayPopBack<a class="headerlink" href="#arraypopback" title="Permanent link">&para;</a></h2>
 <p>从数组中删除最后一项。</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayPopBack(array)</span>
+<div class="codehilite"><pre><span></span>arrayPopBack(array)
 </pre></div>
 
 
@@ -4470,15 +4470,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───┐</span>
-<span class="err">│ [1,2] │</span>
-<span class="err">└───────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───┐
+│ [1,2] │
+└───────┘
 </pre></div>
 
 
 <h2 id="arraypopfront">arrayPopFront<a class="headerlink" href="#arraypopfront" title="Permanent link">&para;</a></h2>
 <p>从数组中删除第一项。</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayPopFront(array)</span>
+<div class="codehilite"><pre><span></span>arrayPopFront(array)
 </pre></div>
 
 
@@ -4491,15 +4491,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───┐</span>
-<span class="err">│ [2,3] │</span>
-<span class="err">└───────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───┐
+│ [2,3] │
+└───────┘
 </pre></div>
 
 
 <h2 id="arraypushback">arrayPushBack<a class="headerlink" href="#arraypushback" title="Permanent link">&para;</a></h2>
 <p>添加一个元素到数组的末尾。</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayPushBack(array, single_value)</span>
+<div class="codehilite"><pre><span></span>arrayPushBack(array, single_value)
 </pre></div>
 
 
@@ -4513,15 +4513,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───────┐</span>
-<span class="err">│ [&#39;a&#39;,&#39;b&#39;] │</span>
-<span class="err">└───────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───────┐
+│ [&#39;a&#39;,&#39;b&#39;] │
+└───────────┘
 </pre></div>
 
 
 <h2 id="arraypushfront">arrayPushFront<a class="headerlink" href="#arraypushfront" title="Permanent link">&para;</a></h2>
 <p>将一个元素添加到数组的开头。</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayPushFront(array, single_value)</span>
+<div class="codehilite"><pre><span></span>arrayPushFront(array, single_value)
 </pre></div>
 
 
@@ -4535,15 +4535,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───────┐</span>
-<span class="err">│ [&#39;a&#39;,&#39;b&#39;] │</span>
-<span class="err">└───────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───────┐
+│ [&#39;a&#39;,&#39;b&#39;] │
+└───────────┘
 </pre></div>
 
 
 <h2 id="arrayresize">arrayResize<a class="headerlink" href="#arrayresize" title="Permanent link">&para;</a></h2>
 <p>更改数组的长度。</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayResize(array, size[, extender])</span>
+<div class="codehilite"><pre><span></span>arrayResize(array, size[, extender])
 </pre></div>
 
 
@@ -4560,25 +4560,25 @@
 <p><strong>返回值:</strong></p>
 <p>一个<code>size</code>长度的数组。</p>
 <p><strong>调用示例</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT arrayResize([1], 3)
 
-<span class="err">┌─</span><span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>             <span class="err">│</span>
-<span class="err">└─────────────────────┘</span>
+┌─arrayResize([1], 3)─┐
+│ [1,0,0]             │
+└─────────────────────┘
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT arrayResize([1], 3, NULL)
 
-<span class="err">┌─</span><span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">]</span>             <span class="err">│</span>
-<span class="err">└───────────────────────────┘</span>
+┌─arrayResize([1], 3, NULL)─┐
+│ [1,NULL,NULL]             │
+└───────────────────────────┘
 </pre></div>
 
 
 <h2 id="arrayslice">arraySlice<a class="headerlink" href="#arrayslice" title="Permanent link">&para;</a></h2>
 <p>返回一个子数组，包含从指定位置的指定长度的元素。</p>
-<div class="codehilite"><pre><span></span><span class="err">arraySlice(array, offset[, length])</span>
+<div class="codehilite"><pre><span></span>arraySlice(array, offset[, length])
 </pre></div>
 
 
@@ -4593,9 +4593,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res────────┐</span>
-<span class="err">│ [2,NULL,4] │</span>
-<span class="err">└────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res────────┐
+│ [2,NULL,4] │
+└────────────┘
 </pre></div>
 
 
@@ -4607,9 +4607,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arraySort([1, 3, 3, 0])─┐</span>
-<span class="err">│ [0,1,3,3]               │</span>
-<span class="err">└─────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arraySort([1, 3, 3, 0])─┐
+│ [0,1,3,3]               │
+└─────────────────────────┘
 </pre></div>
 
 
@@ -4618,9 +4618,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arraySort([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])─┐</span>
-<span class="err">│ [&#39;!&#39;,&#39;hello&#39;,&#39;world&#39;]              │</span>
-<span class="err">└────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arraySort([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])─┐
+│ [&#39;!&#39;,&#39;hello&#39;,&#39;world&#39;]              │
+└────────────────────────────────────┘
 </pre></div>
 
 
@@ -4629,9 +4629,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arraySort([1, nan, 2, NULL, 3, nan, -4, NULL, inf, -inf])─┐</span>
-<span class="err">│ [-inf,-4,1,2,3,inf,nan,nan,NULL,NULL]                     │</span>
-<span class="err">└───────────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arraySort([1, nan, 2, NULL, 3, nan, -4, NULL, inf, -inf])─┐
+│ [-inf,-4,1,2,3,inf,nan,nan,NULL,NULL]                     │
+└───────────────────────────────────────────────────────────┘
 </pre></div>
 
 
@@ -4647,9 +4647,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────┐</span>
-<span class="err">│ [3,2,1] │</span>
-<span class="err">└─────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────┐
+│ [3,2,1] │
+└─────────┘
 </pre></div>
 
 
@@ -4659,9 +4659,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res────────────────┐</span>
-<span class="err">│ [&#39;world&#39;, &#39;hello&#39;] │</span>
-<span class="err">└────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res────────────────┐
+│ [&#39;world&#39;, &#39;hello&#39;] │
+└────────────────────┘
 </pre></div>
 
 
@@ -4696,9 +4696,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arrayReverseSort([1, 3, 3, 0])─┐</span>
-<span class="err">│ [3,3,1,0]                      │</span>
-<span class="err">└────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arrayReverseSort([1, 3, 3, 0])─┐
+│ [3,3,1,0]                      │
+└────────────────────────────────┘
 </pre></div>
 
 
@@ -4707,9 +4707,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arrayReverseSort([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])─┐</span>
-<span class="err">│ [&#39;world&#39;,&#39;hello&#39;,&#39;!&#39;]                     │</span>
-<span class="err">└───────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arrayReverseSort([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])─┐
+│ [&#39;world&#39;,&#39;hello&#39;,&#39;!&#39;]                     │
+└───────────────────────────────────────────┘
 </pre></div>
 
 
@@ -4735,9 +4735,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────┐</span>
-<span class="err">│ [1,2,3] │</span>
-<span class="err">└─────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────┐
+│ [1,2,3] │
+└─────────┘
 </pre></div>
 
 
@@ -4796,9 +4796,9 @@ The array is sorted in the following way:</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arrayDifference([1, 2, 3, 4])─┐</span>
-<span class="err">│ [0,1,1,1]                     │</span>
-<span class="err">└───────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arrayDifference([1, 2, 3, 4])─┐
+│ [0,1,1,1]                     │
+└───────────────────────────────┘
 </pre></div>
 
 
@@ -4808,9 +4808,9 @@ The array is sorted in the following way:</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arrayDistinct([1, 2, 2, 3, 1])─┐</span>
-<span class="err">│ [1,2,3]                        │</span>
-<span class="err">└────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arrayDistinct([1, 2, 2, 3, 1])─┐
+│ [1,2,3]                        │
+└────────────────────────────────┘
 </pre></div>
 
 
@@ -4824,9 +4824,9 @@ The array is sorted in the following way:</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─no_intersect─┬─intersect─┐</span>
-<span class="err">│ []           │ [1]       │</span>
-<span class="err">└──────────────┴───────────┘</span>
+<div class="codehilite"><pre><span></span>┌─no_intersect─┬─intersect─┐
+│ []           │ [1]       │
+└──────────────┴───────────┘
 </pre></div>
 
 

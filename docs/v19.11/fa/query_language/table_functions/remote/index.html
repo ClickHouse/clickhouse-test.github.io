@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041109">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042597">
     
     
   </head>
@@ -3479,35 +3479,35 @@
 <p>The port is required for an IPv6 address.</p>
 </div>
 <p>Examples:</p>
-<div class="codehilite"><pre><span></span><span class="err">example01-01-1</span>
-<span class="c">example01-01-1:9000</span>
-<span class="err">localhost</span>
-<span class="err">127.0.0.1</span>
-<span class="err">[::]:9000</span>
-<span class="err">[2a02:6b8:0:1111::11]:9000</span>
+<div class="codehilite"><pre><span></span>example01-01-1
+example01-01-1:9000
+localhost
+127.0.0.1
+[::]:9000
+[2a02:6b8:0:1111::11]:9000
 </pre></div>
 
 
 <p>Multiple addresses can be comma-separated. In this case, ClickHouse will use distributed processing, so it will send the query to all specified addresses (like to shards with different data).</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><span class="err">example01-01-1,example01-02-1</span>
+<div class="codehilite"><pre><span></span>example01-01-1,example01-02-1
 </pre></div>
 
 
 <p>Part of the expression can be specified in curly brackets. The previous example can be written as follows:</p>
-<div class="codehilite"><pre><span></span><span class="err">example01-0{1,2}-1</span>
+<div class="codehilite"><pre><span></span>example01-0{1,2}-1
 </pre></div>
 
 
 <p>Curly brackets can contain a range of numbers separated by two dots (non-negative integers). In this case, the range is expanded to a set of values that generate shard addresses. If the first number starts with zero, the values are formed with the same zero alignment. The previous example can be written as follows:</p>
-<div class="codehilite"><pre><span></span><span class="err">example01-{01..02}-1</span>
+<div class="codehilite"><pre><span></span>example01-{01..02}-1
 </pre></div>
 
 
 <p>If you have multiple pairs of curly brackets, it generates the direct product of the corresponding sets.</p>
 <p>Addresses and parts of addresses in curly brackets can be separated by the pipe symbol (|). In this case, the corresponding sets of addresses are interpreted as replicas, and the query will be sent to the first healthy replica. However, the replicas are iterated in the order currently set in the <a href="../../../operations/settings/settings/">load_balancing</a> setting.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><span class="err">example01-{01..02}-{1|2}</span>
+<div class="codehilite"><pre><span></span>example01-{01..02}-{1|2}
 </pre></div>
 
 

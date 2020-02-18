@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582040900">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042402">
     
     
   </head>
@@ -3598,51 +3598,51 @@ Example for MySQL: <code>jdbc:mysql://localhost:3306/?user=root&amp;password=roo
 </ul>
 <h2 id="usage-example">Usage Example<a class="headerlink" href="#usage-example" title="Permanent link">&para;</a></h2>
 <p>Creating a table in MySQL server by connecting directly with it's console client:</p>
-<div class="codehilite"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="ss">`test`</span><span class="p">.</span><span class="ss">`test`</span> <span class="p">(</span>
-    <span class="o">-&gt;</span>   <span class="ss">`int_id`</span> <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span> <span class="kp">AUTO_INCREMENT</span><span class="p">,</span>
-    <span class="o">-&gt;</span>   <span class="ss">`int_nullable`</span> <span class="kt">INT</span> <span class="no">NULL</span> <span class="k">DEFAULT</span> <span class="no">NULL</span><span class="p">,</span>
-    <span class="o">-&gt;</span>   <span class="ss">`float`</span> <span class="kt">FLOAT</span> <span class="k">NOT</span> <span class="no">NULL</span><span class="p">,</span>
-    <span class="o">-&gt;</span>   <span class="ss">`float_nullable`</span> <span class="kt">FLOAT</span> <span class="no">NULL</span> <span class="k">DEFAULT</span> <span class="no">NULL</span><span class="p">,</span>
-    <span class="o">-&gt;</span>   <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="ss">`int_id`</span><span class="p">));</span>
-<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="n">rows</span> <span class="nf">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">09</span> <span class="n">sec</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>mysql&gt; CREATE TABLE `test`.`test` (
+    -&gt;   `int_id` INT NOT NULL AUTO_INCREMENT,
+    -&gt;   `int_nullable` INT NULL DEFAULT NULL,
+    -&gt;   `float` FLOAT NOT NULL,
+    -&gt;   `float_nullable` FLOAT NULL DEFAULT NULL,
+    -&gt;   PRIMARY KEY (`int_id`));
+Query OK, 0 rows affected (0,09 sec)
 
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="nf">test</span> <span class="p">(</span><span class="ss">`int_id`</span><span class="p">,</span> <span class="ss">`float`</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="n">row</span> <span class="nf">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+mysql&gt; insert into test (`int_id`, `float`) VALUES (1,2);
+Query OK, 1 row affected (0,00 sec)
 
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">test</span><span class="p">;</span>
-<span class="o">+--------+--------------+-------+----------------+</span>
-<span class="o">|</span> <span class="n">int_id</span> <span class="o">|</span> <span class="n">int_nullable</span> <span class="o">|</span> <span class="kt">float</span> <span class="o">|</span> <span class="n">float_nullable</span> <span class="o">|</span>
-<span class="o">+--------+--------------+-------+----------------+</span>
-<span class="o">|</span>      <span class="mi">1</span> <span class="o">|</span>         <span class="no">NULL</span> <span class="o">|</span>     <span class="mi">2</span> <span class="o">|</span>           <span class="no">NULL</span> <span class="o">|</span>
-<span class="o">+--------+--------------+-------+----------------+</span>
-<span class="mi">1</span> <span class="n">row</span> <span class="k">in</span> <span class="kt">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+mysql&gt; select * from test;
++--------+--------------+-------+----------------+
+| int_id | int_nullable | float | float_nullable |
++--------+--------------+-------+----------------+
+|      1 |         NULL |     2 |           NULL |
++--------+--------------+-------+----------------+
+1 row in set (0,00 sec)
 </pre></div>
 
 
 <p>Creating a table in ClickHouse server and selecting data from it:</p>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">jdbc_table</span> <span class="n">ENGINE</span> <span class="n">JDBC</span><span class="p">(</span><span class="s1">&#39;jdbc:mysql://localhost:3306/?user=root&amp;password=root&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>CREATE TABLE jdbc_table ENGINE JDBC(&#39;jdbc:mysql://localhost:3306/?user=root&amp;password=root&#39;, &#39;test&#39;, &#39;test&#39;)
 
-<span class="n">Ok</span><span class="p">.</span>
+Ok.
 
-<span class="k">DESCRIBE</span> <span class="k">TABLE</span> <span class="n">jdbc_table</span>
+DESCRIBE TABLE jdbc_table
 
-<span class="err">┌─</span><span class="n">name</span><span class="err">───────────────┬─</span><span class="k">type</span><span class="err">───────────────┬─</span><span class="n">default_type</span><span class="err">─┬─</span><span class="n">default_expression</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">int_id</span>             <span class="err">│</span> <span class="n">Int32</span>              <span class="err">│</span>              <span class="err">│</span>                    <span class="err">│</span>
-<span class="err">│</span> <span class="n">int_nullable</span>       <span class="err">│</span> <span class="k">Nullable</span><span class="p">(</span><span class="n">Int32</span><span class="p">)</span>    <span class="err">│</span>              <span class="err">│</span>                    <span class="err">│</span>
-<span class="err">│</span> <span class="nb">float</span>              <span class="err">│</span> <span class="n">Float32</span>            <span class="err">│</span>              <span class="err">│</span>                    <span class="err">│</span>
-<span class="err">│</span> <span class="n">float_nullable</span>     <span class="err">│</span> <span class="k">Nullable</span><span class="p">(</span><span class="n">Float32</span><span class="p">)</span>  <span class="err">│</span>              <span class="err">│</span>                    <span class="err">│</span>
-<span class="err">└────────────────────┴────────────────────┴──────────────┴────────────────────┘</span>
+┌─name───────────────┬─type───────────────┬─default_type─┬─default_expression─┐
+│ int_id             │ Int32              │              │                    │
+│ int_nullable       │ Nullable(Int32)    │              │                    │
+│ float              │ Float32            │              │                    │
+│ float_nullable     │ Nullable(Float32)  │              │                    │
+└────────────────────┴────────────────────┴──────────────┴────────────────────┘
 
-<span class="mi">10</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">031</span> <span class="n">sec</span><span class="p">.</span>
+10 rows in set. Elapsed: 0.031 sec.
 
-<span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span> <span class="n">jdbc_table</span>
+SELECT *
+FROM jdbc_table
 
-<span class="err">┌─</span><span class="n">int_id</span><span class="err">─┬─</span><span class="n">int_nullable</span><span class="err">─┬─</span><span class="nb">float</span><span class="err">─┬─</span><span class="n">float_nullable</span><span class="err">─┐</span>
-<span class="err">│</span>      <span class="mi">1</span> <span class="err">│</span>         <span class="err">ᴺᵁᴸᴸ</span> <span class="err">│</span>     <span class="mi">2</span> <span class="err">│</span>           <span class="err">ᴺᵁᴸᴸ</span> <span class="err">│</span>
-<span class="err">└────────┴──────────────┴───────┴────────────────┘</span>
+┌─int_id─┬─int_nullable─┬─float─┬─float_nullable─┐
+│      1 │         ᴺᵁᴸᴸ │     2 │           ᴺᵁᴸᴸ │
+└────────┴──────────────┴───────┴────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">055</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.055 sec.
 </pre></div>
 
 

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582040900">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042402">
     
     
   </head>
@@ -3521,149 +3521,149 @@
                 
                   <h1 id="star-schema-benchmark">Star Schema Benchmark<a class="headerlink" href="#star-schema-benchmark" title="Permanent link">&para;</a></h1>
 <p>Compiling dbgen:</p>
-<div class="codehilite"><pre><span></span><span class="err">git clone git@github.com:vadimtk/ssb-dbgen.git</span>
-<span class="err">cd ssb-dbgen</span>
-<span class="err">make</span>
+<div class="codehilite"><pre><span></span>git clone git@github.com:vadimtk/ssb-dbgen.git
+cd ssb-dbgen
+make
 </pre></div>
 
 
 <p>Generating data:</p>
-<div class="codehilite"><pre><span></span><span class="err">./dbgen -s 1000 -T c</span>
-<span class="err">./dbgen -s 1000 -T l</span>
-<span class="err">./dbgen -s 1000 -T p</span>
-<span class="err">./dbgen -s 1000 -T s</span>
-<span class="err">./dbgen -s 1000 -T d</span>
+<div class="codehilite"><pre><span></span>./dbgen -s 1000 -T c
+./dbgen -s 1000 -T l
+./dbgen -s 1000 -T p
+./dbgen -s 1000 -T s
+./dbgen -s 1000 -T d
 </pre></div>
 
 
 <p>Creating tables in ClickHouse:</p>
-<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">customer</span>
-<span class="p">(</span>
-        <span class="n">C_CUSTKEY</span>       <span class="n">UInt32</span><span class="p">,</span>
-        <span class="n">C_NAME</span>          <span class="n">String</span><span class="p">,</span>
-        <span class="n">C_ADDRESS</span>       <span class="n">String</span><span class="p">,</span>
-        <span class="n">C_CITY</span>          <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">C_NATION</span>        <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">C_REGION</span>        <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">C_PHONE</span>         <span class="n">String</span><span class="p">,</span>
-        <span class="n">C_MKTSEGMENT</span>    <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">ENGINE</span> <span class="o">=</span> <span class="n">MergeTree</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="p">(</span><span class="n">C_CUSTKEY</span><span class="p">);</span>
+<div class="codehilite"><pre><span></span>CREATE TABLE customer
+(
+        C_CUSTKEY       UInt32,
+        C_NAME          String,
+        C_ADDRESS       String,
+        C_CITY          LowCardinality(String),
+        C_NATION        LowCardinality(String),
+        C_REGION        LowCardinality(String),
+        C_PHONE         String,
+        C_MKTSEGMENT    LowCardinality(String)
+)
+ENGINE = MergeTree ORDER BY (C_CUSTKEY);
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">lineorder</span>
-<span class="p">(</span>
-    <span class="n">LO_ORDERKEY</span>             <span class="n">UInt32</span><span class="p">,</span>
-    <span class="n">LO_LINENUMBER</span>           <span class="n">UInt8</span><span class="p">,</span>
-    <span class="n">LO_CUSTKEY</span>              <span class="n">UInt32</span><span class="p">,</span>
-    <span class="n">LO_PARTKEY</span>              <span class="n">UInt32</span><span class="p">,</span>
-    <span class="n">LO_SUPPKEY</span>              <span class="n">UInt32</span><span class="p">,</span>
-    <span class="n">LO_ORDERDATE</span>            <span class="nb">Date</span><span class="p">,</span>
-    <span class="n">LO_ORDERPRIORITY</span>        <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-    <span class="n">LO_SHIPPRIORITY</span>         <span class="n">UInt8</span><span class="p">,</span>
-    <span class="n">LO_QUANTITY</span>             <span class="n">UInt8</span><span class="p">,</span>
-    <span class="n">LO_EXTENDEDPRICE</span>        <span class="n">UInt32</span><span class="p">,</span>
-    <span class="n">LO_ORDTOTALPRICE</span>        <span class="n">UInt32</span><span class="p">,</span>
-    <span class="n">LO_DISCOUNT</span>             <span class="n">UInt8</span><span class="p">,</span>
-    <span class="n">LO_REVENUE</span>              <span class="n">UInt32</span><span class="p">,</span>
-    <span class="n">LO_SUPPLYCOST</span>           <span class="n">UInt32</span><span class="p">,</span>
-    <span class="n">LO_TAX</span>                  <span class="n">UInt8</span><span class="p">,</span>
-    <span class="n">LO_COMMITDATE</span>           <span class="nb">Date</span><span class="p">,</span>
-    <span class="n">LO_SHIPMODE</span>             <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">ENGINE</span> <span class="o">=</span> <span class="n">MergeTree</span> <span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">,</span> <span class="n">LO_ORDERKEY</span><span class="p">);</span>
+CREATE TABLE lineorder
+(
+    LO_ORDERKEY             UInt32,
+    LO_LINENUMBER           UInt8,
+    LO_CUSTKEY              UInt32,
+    LO_PARTKEY              UInt32,
+    LO_SUPPKEY              UInt32,
+    LO_ORDERDATE            Date,
+    LO_ORDERPRIORITY        LowCardinality(String),
+    LO_SHIPPRIORITY         UInt8,
+    LO_QUANTITY             UInt8,
+    LO_EXTENDEDPRICE        UInt32,
+    LO_ORDTOTALPRICE        UInt32,
+    LO_DISCOUNT             UInt8,
+    LO_REVENUE              UInt32,
+    LO_SUPPLYCOST           UInt32,
+    LO_TAX                  UInt8,
+    LO_COMMITDATE           Date,
+    LO_SHIPMODE             LowCardinality(String)
+)
+ENGINE = MergeTree PARTITION BY toYear(LO_ORDERDATE) ORDER BY (LO_ORDERDATE, LO_ORDERKEY);
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">part</span>
-<span class="p">(</span>
-        <span class="n">P_PARTKEY</span>       <span class="n">UInt32</span><span class="p">,</span>
-        <span class="n">P_NAME</span>          <span class="n">String</span><span class="p">,</span>
-        <span class="n">P_MFGR</span>          <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">P_CATEGORY</span>      <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">P_BRAND</span>         <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">P_COLOR</span>         <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">P_TYPE</span>          <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">P_SIZE</span>          <span class="n">UInt8</span><span class="p">,</span>
-        <span class="n">P_CONTAINER</span>     <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">ENGINE</span> <span class="o">=</span> <span class="n">MergeTree</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">P_PARTKEY</span><span class="p">;</span>
+CREATE TABLE part
+(
+        P_PARTKEY       UInt32,
+        P_NAME          String,
+        P_MFGR          LowCardinality(String),
+        P_CATEGORY      LowCardinality(String),
+        P_BRAND         LowCardinality(String),
+        P_COLOR         LowCardinality(String),
+        P_TYPE          LowCardinality(String),
+        P_SIZE          UInt8,
+        P_CONTAINER     LowCardinality(String)
+)
+ENGINE = MergeTree ORDER BY P_PARTKEY;
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">supplier</span>
-<span class="p">(</span>
-        <span class="n">S_SUPPKEY</span>       <span class="n">UInt32</span><span class="p">,</span>
-        <span class="n">S_NAME</span>          <span class="n">String</span><span class="p">,</span>
-        <span class="n">S_ADDRESS</span>       <span class="n">String</span><span class="p">,</span>
-        <span class="n">S_CITY</span>          <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">S_NATION</span>        <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">S_REGION</span>        <span class="n">LowCardinality</span><span class="p">(</span><span class="n">String</span><span class="p">),</span>
-        <span class="n">S_PHONE</span>         <span class="n">String</span>
-<span class="p">)</span>
-<span class="n">ENGINE</span> <span class="o">=</span> <span class="n">MergeTree</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">S_SUPPKEY</span><span class="p">;</span>
+CREATE TABLE supplier
+(
+        S_SUPPKEY       UInt32,
+        S_NAME          String,
+        S_ADDRESS       String,
+        S_CITY          LowCardinality(String),
+        S_NATION        LowCardinality(String),
+        S_REGION        LowCardinality(String),
+        S_PHONE         String
+)
+ENGINE = MergeTree ORDER BY S_SUPPKEY;
 </pre></div>
 
 
 <p>Inserting data:</p>
-<div class="codehilite"><pre><span></span><span class="err">clickhouse-client --query &quot;INSERT INTO customer FORMAT CSV&quot; &lt; customer.tbl</span>
-<span class="err">clickhouse-client --query &quot;INSERT INTO part FORMAT CSV&quot; &lt; part.tbl</span>
-<span class="err">clickhouse-client --query &quot;INSERT INTO supplier FORMAT CSV&quot; &lt; supplier.tbl</span>
-<span class="err">clickhouse-client --query &quot;INSERT INTO lineorder FORMAT CSV&quot; &lt; lineorder.tbl</span>
+<div class="codehilite"><pre><span></span>clickhouse-client --query &quot;INSERT INTO customer FORMAT CSV&quot; &lt; customer.tbl
+clickhouse-client --query &quot;INSERT INTO part FORMAT CSV&quot; &lt; part.tbl
+clickhouse-client --query &quot;INSERT INTO supplier FORMAT CSV&quot; &lt; supplier.tbl
+clickhouse-client --query &quot;INSERT INTO lineorder FORMAT CSV&quot; &lt; lineorder.tbl
 </pre></div>
 
 
 <p>Converting "star schema" to denormalized "flat schema":</p>
-<div class="codehilite"><pre><span></span><span class="k">SET</span> <span class="n">max_memory_usage</span> <span class="o">=</span> <span class="mi">20000000000</span><span class="p">,</span> <span class="n">allow_experimental_multiple_joins_emulation</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span>SET max_memory_usage = 20000000000, allow_experimental_multiple_joins_emulation = 1;
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">lineorder_flat</span>
-<span class="n">ENGINE</span> <span class="o">=</span> <span class="n">MergeTree</span>
-<span class="n">PARTITION</span> <span class="k">BY</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">,</span> <span class="n">LO_ORDERKEY</span><span class="p">)</span> <span class="k">AS</span>
-<span class="k">SELECT</span> <span class="n">l</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="k">c</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">s</span><span class="p">.</span><span class="o">*</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="o">*</span>
-<span class="k">FROM</span> <span class="n">lineorder</span> <span class="n">l</span>
- <span class="k">ANY</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">customer</span> <span class="k">c</span> <span class="k">ON</span> <span class="p">(</span><span class="k">c</span><span class="p">.</span><span class="n">C_CUSTKEY</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">LO_CUSTKEY</span><span class="p">)</span>
- <span class="k">ANY</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">supplier</span> <span class="n">s</span> <span class="k">ON</span> <span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">S_SUPPKEY</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">LO_SUPPKEY</span><span class="p">)</span>
- <span class="k">ANY</span> <span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">part</span> <span class="n">p</span> <span class="k">ON</span>  <span class="p">(</span><span class="n">p</span><span class="p">.</span><span class="n">P_PARTKEY</span> <span class="o">=</span> <span class="n">l</span><span class="p">.</span><span class="n">LO_PARTKEY</span><span class="p">);</span>
+CREATE TABLE lineorder_flat
+ENGINE = MergeTree
+PARTITION BY toYear(LO_ORDERDATE)
+ORDER BY (LO_ORDERDATE, LO_ORDERKEY) AS
+SELECT l.*, c.*, s.*, p.*
+FROM lineorder l
+ ANY INNER JOIN customer c ON (c.C_CUSTKEY = l.LO_CUSTKEY)
+ ANY INNER JOIN supplier s ON (s.S_SUPPKEY = l.LO_SUPPKEY)
+ ANY INNER JOIN part p ON  (p.P_PARTKEY = l.LO_PARTKEY);
 
-<span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">lineorder_flat</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">C_CUSTKEY</span><span class="p">,</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">S_SUPPKEY</span><span class="p">,</span> <span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">P_PARTKEY</span><span class="p">;</span>
+ALTER TABLE lineorder_flat DROP COLUMN C_CUSTKEY, DROP COLUMN S_SUPPKEY, DROP COLUMN P_PARTKEY;
 </pre></div>
 
 
 <p>Running the queries:</p>
-<div class="codehilite"><pre><span></span><span class="n">Q1</span><span class="p">.</span><span class="mi">1</span>
-<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_EXTENDEDPRICE</span> <span class="o">*</span> <span class="n">LO_DISCOUNT</span><span class="p">)</span> <span class="k">AS</span> <span class="n">revenue</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1993</span> <span class="k">AND</span> <span class="n">LO_DISCOUNT</span> <span class="k">BETWEEN</span> <span class="mi">1</span> <span class="k">AND</span> <span class="mi">3</span> <span class="k">AND</span> <span class="n">LO_QUANTITY</span> <span class="o">&lt;</span> <span class="mi">25</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span>Q1.1
+SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue FROM lineorder_flat WHERE toYear(LO_ORDERDATE) = 1993 AND LO_DISCOUNT BETWEEN 1 AND 3 AND LO_QUANTITY &lt; 25;
 
-<span class="n">Q1</span><span class="p">.</span><span class="mi">2</span>
-<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_EXTENDEDPRICE</span> <span class="o">*</span> <span class="n">LO_DISCOUNT</span><span class="p">)</span> <span class="k">AS</span> <span class="n">revenue</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">toYYYYMM</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="o">=</span> <span class="mi">199401</span> <span class="k">AND</span> <span class="n">LO_DISCOUNT</span> <span class="k">BETWEEN</span> <span class="mi">4</span> <span class="k">AND</span> <span class="mi">6</span> <span class="k">AND</span> <span class="n">LO_QUANTITY</span> <span class="k">BETWEEN</span> <span class="mi">26</span> <span class="k">AND</span> <span class="mi">35</span><span class="p">;</span>
+Q1.2
+SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue FROM lineorder_flat WHERE toYYYYMM(LO_ORDERDATE) = 199401 AND LO_DISCOUNT BETWEEN 4 AND 6 AND LO_QUANTITY BETWEEN 26 AND 35;
 
-<span class="n">Q1</span><span class="p">.</span><span class="mi">3</span>
-<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_EXTENDEDPRICE</span> <span class="o">*</span> <span class="n">LO_DISCOUNT</span><span class="p">)</span> <span class="k">AS</span> <span class="n">revenue</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">toISOWeek</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="o">=</span> <span class="mi">6</span> <span class="k">AND</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1994</span> <span class="k">AND</span> <span class="n">LO_DISCOUNT</span> <span class="k">BETWEEN</span> <span class="mi">5</span> <span class="k">AND</span> <span class="mi">7</span> <span class="k">AND</span> <span class="n">LO_QUANTITY</span> <span class="k">BETWEEN</span> <span class="mi">26</span> <span class="k">AND</span> <span class="mi">35</span><span class="p">;</span>
+Q1.3
+SELECT sum(LO_EXTENDEDPRICE * LO_DISCOUNT) AS revenue FROM lineorder_flat WHERE toISOWeek(LO_ORDERDATE) = 6 AND toYear(LO_ORDERDATE) = 1994 AND LO_DISCOUNT BETWEEN 5 AND 7 AND LO_QUANTITY BETWEEN 26 AND 35;
 
-<span class="n">Q2</span><span class="p">.</span><span class="mi">1</span>
-<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span><span class="p">),</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">P_CATEGORY</span> <span class="o">=</span> <span class="s1">&#39;MFGR#12&#39;</span> <span class="k">AND</span> <span class="n">S_REGION</span> <span class="o">=</span> <span class="s1">&#39;AMERICA&#39;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span><span class="p">;</span>
+Q2.1
+SELECT sum(LO_REVENUE), toYear(LO_ORDERDATE) AS year, P_BRAND FROM lineorder_flat WHERE P_CATEGORY = &#39;MFGR#12&#39; AND S_REGION = &#39;AMERICA&#39; GROUP BY year, P_BRAND ORDER BY year, P_BRAND;
 
-<span class="n">Q2</span><span class="p">.</span><span class="mi">2</span>
-<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span><span class="p">),</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">P_BRAND</span> <span class="k">BETWEEN</span> <span class="s1">&#39;MFGR#2221&#39;</span> <span class="k">AND</span> <span class="s1">&#39;MFGR#2228&#39;</span> <span class="k">AND</span> <span class="n">S_REGION</span> <span class="o">=</span> <span class="s1">&#39;ASIA&#39;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span><span class="p">;</span>
+Q2.2
+SELECT sum(LO_REVENUE), toYear(LO_ORDERDATE) AS year, P_BRAND FROM lineorder_flat WHERE P_BRAND BETWEEN &#39;MFGR#2221&#39; AND &#39;MFGR#2228&#39; AND S_REGION = &#39;ASIA&#39; GROUP BY year, P_BRAND ORDER BY year, P_BRAND;
 
-<span class="n">Q2</span><span class="p">.</span><span class="mi">3</span>
-<span class="k">SELECT</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span><span class="p">),</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">P_BRAND</span> <span class="o">=</span> <span class="s1">&#39;MFGR#2239&#39;</span> <span class="k">AND</span> <span class="n">S_REGION</span> <span class="o">=</span> <span class="s1">&#39;EUROPE&#39;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">P_BRAND</span><span class="p">;</span>
+Q2.3
+SELECT sum(LO_REVENUE), toYear(LO_ORDERDATE) AS year, P_BRAND FROM lineorder_flat WHERE P_BRAND = &#39;MFGR#2239&#39; AND S_REGION = &#39;EUROPE&#39; GROUP BY year, P_BRAND ORDER BY year, P_BRAND;
 
-<span class="n">Q3</span><span class="p">.</span><span class="mi">1</span>
-<span class="k">SELECT</span> <span class="n">C_NATION</span><span class="p">,</span> <span class="n">S_NATION</span><span class="p">,</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span><span class="p">)</span> <span class="k">AS</span> <span class="n">revenue</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">C_REGION</span> <span class="o">=</span> <span class="s1">&#39;ASIA&#39;</span> <span class="k">AND</span> <span class="n">S_REGION</span> <span class="o">=</span> <span class="s1">&#39;ASIA&#39;</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">&gt;=</span> <span class="mi">1992</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">&lt;=</span> <span class="mi">1997</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">C_NATION</span><span class="p">,</span> <span class="n">S_NATION</span><span class="p">,</span> <span class="k">year</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span> <span class="k">asc</span><span class="p">,</span> <span class="n">revenue</span> <span class="k">desc</span><span class="p">;</span>
+Q3.1
+SELECT C_NATION, S_NATION, toYear(LO_ORDERDATE) AS year, sum(LO_REVENUE) AS revenue FROM lineorder_flat WHERE C_REGION = &#39;ASIA&#39; AND S_REGION = &#39;ASIA&#39; AND year &gt;= 1992 AND year &lt;= 1997 GROUP BY C_NATION, S_NATION, year ORDER BY year asc, revenue desc;
 
-<span class="n">Q3</span><span class="p">.</span><span class="mi">2</span>
-<span class="k">SELECT</span> <span class="n">C_CITY</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span><span class="p">)</span> <span class="k">AS</span> <span class="n">revenue</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">C_NATION</span> <span class="o">=</span> <span class="s1">&#39;UNITED STATES&#39;</span> <span class="k">AND</span> <span class="n">S_NATION</span> <span class="o">=</span> <span class="s1">&#39;UNITED STATES&#39;</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">&gt;=</span> <span class="mi">1992</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">&lt;=</span> <span class="mi">1997</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">C_CITY</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="k">year</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span> <span class="k">asc</span><span class="p">,</span> <span class="n">revenue</span> <span class="k">desc</span><span class="p">;</span>
+Q3.2
+SELECT C_CITY, S_CITY, toYear(LO_ORDERDATE) AS year, sum(LO_REVENUE) AS revenue FROM lineorder_flat WHERE C_NATION = &#39;UNITED STATES&#39; AND S_NATION = &#39;UNITED STATES&#39; AND year &gt;= 1992 AND year &lt;= 1997 GROUP BY C_CITY, S_CITY, year ORDER BY year asc, revenue desc;
 
-<span class="n">Q3</span><span class="p">.</span><span class="mi">3</span>
-<span class="k">SELECT</span> <span class="n">C_CITY</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span><span class="p">)</span> <span class="k">AS</span> <span class="n">revenue</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">C_CITY</span> <span class="o">=</span> <span class="s1">&#39;UNITED KI1&#39;</span> <span class="k">OR</span> <span class="n">C_CITY</span> <span class="o">=</span> <span class="s1">&#39;UNITED KI5&#39;</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">S_CITY</span> <span class="o">=</span> <span class="s1">&#39;UNITED KI1&#39;</span> <span class="k">OR</span> <span class="n">S_CITY</span> <span class="o">=</span> <span class="s1">&#39;UNITED KI5&#39;</span><span class="p">)</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">&gt;=</span> <span class="mi">1992</span> <span class="k">AND</span> <span class="k">year</span> <span class="o">&lt;=</span> <span class="mi">1997</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">C_CITY</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="k">year</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span> <span class="k">asc</span><span class="p">,</span> <span class="n">revenue</span> <span class="k">desc</span><span class="p">;</span>
+Q3.3
+SELECT C_CITY, S_CITY, toYear(LO_ORDERDATE) AS year, sum(LO_REVENUE) AS revenue FROM lineorder_flat WHERE (C_CITY = &#39;UNITED KI1&#39; OR C_CITY = &#39;UNITED KI5&#39;) AND (S_CITY = &#39;UNITED KI1&#39; OR S_CITY = &#39;UNITED KI5&#39;) AND year &gt;= 1992 AND year &lt;= 1997 GROUP BY C_CITY, S_CITY, year ORDER BY year asc, revenue desc;
 
-<span class="n">Q3</span><span class="p">.</span><span class="mi">4</span>
-<span class="k">SELECT</span> <span class="n">C_CITY</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span><span class="p">)</span> <span class="k">AS</span> <span class="n">revenue</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">C_CITY</span> <span class="o">=</span> <span class="s1">&#39;UNITED KI1&#39;</span> <span class="k">OR</span> <span class="n">C_CITY</span> <span class="o">=</span> <span class="s1">&#39;UNITED KI5&#39;</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">S_CITY</span> <span class="o">=</span> <span class="s1">&#39;UNITED KI1&#39;</span> <span class="k">OR</span> <span class="n">S_CITY</span> <span class="o">=</span> <span class="s1">&#39;UNITED KI5&#39;</span><span class="p">)</span> <span class="k">AND</span> <span class="n">toYYYYMM</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;199712&#39;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">C_CITY</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="k">year</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span> <span class="k">asc</span><span class="p">,</span> <span class="n">revenue</span> <span class="k">desc</span><span class="p">;</span>
+Q3.4
+SELECT C_CITY, S_CITY, toYear(LO_ORDERDATE) AS year, sum(LO_REVENUE) AS revenue FROM lineorder_flat WHERE (C_CITY = &#39;UNITED KI1&#39; OR C_CITY = &#39;UNITED KI5&#39;) AND (S_CITY = &#39;UNITED KI1&#39; OR S_CITY = &#39;UNITED KI5&#39;) AND toYYYYMM(LO_ORDERDATE) = &#39;199712&#39; GROUP BY C_CITY, S_CITY, year ORDER BY year asc, revenue desc;
 
-<span class="n">Q4</span><span class="p">.</span><span class="mi">1</span>
-<span class="k">SELECT</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="n">C_NATION</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span> <span class="o">-</span> <span class="n">LO_SUPPLYCOST</span><span class="p">)</span> <span class="k">AS</span> <span class="n">profit</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">C_REGION</span> <span class="o">=</span> <span class="s1">&#39;AMERICA&#39;</span> <span class="k">AND</span> <span class="n">S_REGION</span> <span class="o">=</span> <span class="s1">&#39;AMERICA&#39;</span> <span class="k">AND</span> <span class="p">(</span><span class="n">P_MFGR</span> <span class="o">=</span> <span class="s1">&#39;MFGR#1&#39;</span> <span class="k">OR</span> <span class="n">P_MFGR</span> <span class="o">=</span> <span class="s1">&#39;MFGR#2&#39;</span><span class="p">)</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">C_NATION</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">C_NATION</span><span class="p">;</span>
+Q4.1
+SELECT toYear(LO_ORDERDATE) AS year, C_NATION, sum(LO_REVENUE - LO_SUPPLYCOST) AS profit FROM lineorder_flat WHERE C_REGION = &#39;AMERICA&#39; AND S_REGION = &#39;AMERICA&#39; AND (P_MFGR = &#39;MFGR#1&#39; OR P_MFGR = &#39;MFGR#2&#39;) GROUP BY year, C_NATION ORDER BY year, C_NATION;
 
-<span class="n">Q4</span><span class="p">.</span><span class="mi">2</span>
-<span class="k">SELECT</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="n">S_NATION</span><span class="p">,</span> <span class="n">P_CATEGORY</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span> <span class="o">-</span> <span class="n">LO_SUPPLYCOST</span><span class="p">)</span> <span class="k">AS</span> <span class="n">profit</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">C_REGION</span> <span class="o">=</span> <span class="s1">&#39;AMERICA&#39;</span> <span class="k">AND</span> <span class="n">S_REGION</span> <span class="o">=</span> <span class="s1">&#39;AMERICA&#39;</span> <span class="k">AND</span> <span class="p">(</span><span class="k">year</span> <span class="o">=</span> <span class="mi">1997</span> <span class="k">OR</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">1998</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">P_MFGR</span> <span class="o">=</span> <span class="s1">&#39;MFGR#1&#39;</span> <span class="k">OR</span> <span class="n">P_MFGR</span> <span class="o">=</span> <span class="s1">&#39;MFGR#2&#39;</span><span class="p">)</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">S_NATION</span><span class="p">,</span> <span class="n">P_CATEGORY</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">S_NATION</span><span class="p">,</span> <span class="n">P_CATEGORY</span><span class="p">;</span>
+Q4.2
+SELECT toYear(LO_ORDERDATE) AS year, S_NATION, P_CATEGORY, sum(LO_REVENUE - LO_SUPPLYCOST) AS profit FROM lineorder_flat WHERE C_REGION = &#39;AMERICA&#39; AND S_REGION = &#39;AMERICA&#39; AND (year = 1997 OR year = 1998) AND (P_MFGR = &#39;MFGR#1&#39; OR P_MFGR = &#39;MFGR#2&#39;) GROUP BY year, S_NATION, P_CATEGORY ORDER BY year, S_NATION, P_CATEGORY;
 
-<span class="n">Q4</span><span class="p">.</span><span class="mi">3</span>
-<span class="k">SELECT</span> <span class="n">toYear</span><span class="p">(</span><span class="n">LO_ORDERDATE</span><span class="p">)</span> <span class="k">AS</span> <span class="k">year</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="n">P_BRAND</span><span class="p">,</span> <span class="k">sum</span><span class="p">(</span><span class="n">LO_REVENUE</span> <span class="o">-</span> <span class="n">LO_SUPPLYCOST</span><span class="p">)</span> <span class="k">AS</span> <span class="n">profit</span> <span class="k">FROM</span> <span class="n">lineorder_flat</span> <span class="k">WHERE</span> <span class="n">S_NATION</span> <span class="o">=</span> <span class="s1">&#39;UNITED STATES&#39;</span> <span class="k">AND</span> <span class="p">(</span><span class="k">year</span> <span class="o">=</span> <span class="mi">1997</span> <span class="k">OR</span> <span class="k">year</span> <span class="o">=</span> <span class="mi">1998</span><span class="p">)</span> <span class="k">AND</span> <span class="n">P_CATEGORY</span> <span class="o">=</span> <span class="s1">&#39;MFGR#14&#39;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="n">P_BRAND</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">year</span><span class="p">,</span> <span class="n">S_CITY</span><span class="p">,</span> <span class="n">P_BRAND</span><span class="p">;</span>
+Q4.3
+SELECT toYear(LO_ORDERDATE) AS year, S_CITY, P_BRAND, sum(LO_REVENUE - LO_SUPPLYCOST) AS profit FROM lineorder_flat WHERE S_NATION = &#39;UNITED STATES&#39; AND (year = 1997 OR year = 1998) AND P_CATEGORY = &#39;MFGR#14&#39; GROUP BY year, S_CITY, P_BRAND ORDER BY year, S_CITY, P_BRAND;
 </pre></div>
                 
                 </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041010">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042503">
     
     
   </head>
@@ -3721,7 +3721,7 @@
 <p>有关RoaringBitmap的更多信息，请参阅：<a href="https://github.com/RoaringBitmap/CRoaring" rel="external nofollow">CRoaring</a>。</p>
 <h2 id="bitmapbuild">bitmapBuild<a class="headerlink" href="#bitmapbuild" title="Permanent link">&para;</a></h2>
 <p>从无符号整数数组构建位图对象。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapBuild(array)</span>
+<div class="codehilite"><pre><span></span>bitmapBuild(array)
 </pre></div>
 
 
@@ -3736,7 +3736,7 @@
 
 <h2 id="bitmaptoarray">bitmapToArray<a class="headerlink" href="#bitmaptoarray" title="Permanent link">&para;</a></h2>
 <p>将位图转换为整数数组。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapToArray(bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapToArray(bitmap)
 </pre></div>
 
 
@@ -3749,16 +3749,16 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────────┐</span>
-<span class="err">│ [1,2,3,4,5] │</span>
-<span class="err">└─────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────────┐
+│ [1,2,3,4,5] │
+└─────────────┘
 </pre></div>
 
 
 <h2 id="bitmaphasany">bitmapHasAny<a class="headerlink" href="#bitmaphasany" title="Permanent link">&para;</a></h2>
 <p>与<code>hasAny(array，array)</code>类似，如果位图有任何公共元素则返回1，否则返回0。
 对于空位图，返回0。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapHasAny(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapHasAny(bitmap,bitmap)
 </pre></div>
 
 
@@ -3771,16 +3771,16 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│  1  │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│  1  │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmaphasall">bitmapHasAll<a class="headerlink" href="#bitmaphasall" title="Permanent link">&para;</a></h2>
 <p>与<code>hasAll(array，array)</code>类似，如果第一个位图包含第二个位图的所有元素，则返回1，否则返回0。
 如果第二个参数是空位图，则返回1。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapHasAll(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapHasAll(bitmap,bitmap)
 </pre></div>
 
 
@@ -3793,15 +3793,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│  0  │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│  0  │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapand">bitmapAnd<a class="headerlink" href="#bitmapand" title="Permanent link">&para;</a></h2>
 <p>为两个位图对象进行与操作，返回一个新的位图对象。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapAnd(bitmap1,bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapAnd(bitmap1,bitmap2)
 </pre></div>
 
 
@@ -3815,15 +3815,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│ [3] │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│ [3] │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapor">bitmapOr<a class="headerlink" href="#bitmapor" title="Permanent link">&para;</a></h2>
 <p>为两个位图对象进行或操作，返回一个新的位图对象。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapOr(bitmap1,bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapOr(bitmap1,bitmap2)
 </pre></div>
 
 
@@ -3837,15 +3837,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────────┐</span>
-<span class="err">│ [1,2,3,4,5] │</span>
-<span class="err">└─────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────────┐
+│ [1,2,3,4,5] │
+└─────────────┘
 </pre></div>
 
 
 <h2 id="bitmapxor">bitmapXor<a class="headerlink" href="#bitmapxor" title="Permanent link">&para;</a></h2>
 <p>为两个位图对象进行异或操作，返回一个新的位图对象。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapXor(bitmap1,bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapXor(bitmap1,bitmap2)
 </pre></div>
 
 
@@ -3859,15 +3859,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───────┐</span>
-<span class="err">│ [1,2,4,5] │</span>
-<span class="err">└───────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───────┐
+│ [1,2,4,5] │
+└───────────┘
 </pre></div>
 
 
 <h2 id="bitmapandnot">bitmapAndnot<a class="headerlink" href="#bitmapandnot" title="Permanent link">&para;</a></h2>
 <p>计算两个位图的差异，返回一个新的位图对象。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapAndnot(bitmap1,bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapAndnot(bitmap1,bitmap2)
 </pre></div>
 
 
@@ -3881,15 +3881,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───┐</span>
-<span class="err">│ [1,2] │</span>
-<span class="err">└───────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───┐
+│ [1,2] │
+└───────┘
 </pre></div>
 
 
 <h2 id="bitmapcardinality">bitmapCardinality<a class="headerlink" href="#bitmapcardinality" title="Permanent link">&para;</a></h2>
 <p>返回一个UInt64类型的数值，表示位图对象的基数。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapCardinality(bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapCardinality(bitmap)
 </pre></div>
 
 
@@ -3902,15 +3902,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   5 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   5 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapandcardinality">bitmapAndCardinality<a class="headerlink" href="#bitmapandcardinality" title="Permanent link">&para;</a></h2>
 <p>为两个位图对象进行与操作，返回结果位图的基数。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapAndCardinality(bitmap1,bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapAndCardinality(bitmap1,bitmap2)
 </pre></div>
 
 
@@ -3924,15 +3924,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   1 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   1 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmaporcardinality">bitmapOrCardinality<a class="headerlink" href="#bitmaporcardinality" title="Permanent link">&para;</a></h2>
 <p>为两个位图进行或运算，返回结果位图的基数。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapOrCardinality(bitmap1,bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapOrCardinality(bitmap1,bitmap2)
 </pre></div>
 
 
@@ -3946,15 +3946,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   5 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   5 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapxorcardinality">bitmapXorCardinality<a class="headerlink" href="#bitmapxorcardinality" title="Permanent link">&para;</a></h2>
 <p>为两个位图进行异或运算，返回结果位图的基数。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapXorCardinality(bitmap1,bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapXorCardinality(bitmap1,bitmap2)
 </pre></div>
 
 
@@ -3968,15 +3968,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   4 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   4 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapandnotcardinality">bitmapAndnotCardinality<a class="headerlink" href="#bitmapandnotcardinality" title="Permanent link">&para;</a></h2>
 <p>计算两个位图的差异，返回结果位图的基数。</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapAndnotCardinality(bitmap1,bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapAndnotCardinality(bitmap1,bitmap2)
 </pre></div>
 
 
@@ -3990,9 +3990,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   2 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   2 │
+└─────┘
 </pre></div>
                 
                 </div>

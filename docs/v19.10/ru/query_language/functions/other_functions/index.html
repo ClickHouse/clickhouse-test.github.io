@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041207">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042687">
     
     
   </head>
@@ -3945,7 +3945,7 @@
 <p>Возвращает строку - имя хоста, на котором эта функция была выполнена. При распределённой обработке запроса, это будет имя хоста удалённого сервера, если функция выполняется на удалённом сервере.</p>
 <h2 id="basename">basename<a class="headerlink" href="#basename" title="Permanent link">&para;</a></h2>
 <p>Извлекает конечную часть строки после последнего слэша или бэкслэша. Функция часто используется для извлечения имени файла из пути.</p>
-<div class="codehilite"><pre><span></span><span class="err">basename( expr )</span>
+<div class="codehilite"><pre><span></span>basename( expr )
 </pre></div>
 
 
@@ -3999,11 +3999,11 @@
 <p>Вычисляет приблизительную ширину при выводе значения в текстовом (tab-separated) виде на консоль.
 Функция используется системой для реализации Pretty форматов.</p>
 <p><code>NULL</code> представляется как строка, соответствующая отображению <code>NULL</code> в форматах <code>Pretty</code>.</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">visibleWidth</span><span class="p">(</span><span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT visibleWidth(NULL)
 
-<span class="err">┌─</span><span class="n">visibleWidth</span><span class="p">(</span><span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span>                  <span class="mi">4</span> <span class="err">│</span>
-<span class="err">└────────────────────┘</span>
+┌─visibleWidth(NULL)─┐
+│                  4 │
+└────────────────────┘
 </pre></div>
 
 
@@ -4056,32 +4056,32 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌──h─┬──────c─┬─bar────────────────┐</span>
-<span class="err">│  0 │ 292907 │ █████████▋         │</span>
-<span class="err">│  1 │ 180563 │ ██████             │</span>
-<span class="err">│  2 │ 114861 │ ███▋               │</span>
-<span class="err">│  3 │  85069 │ ██▋                │</span>
-<span class="err">│  4 │  68543 │ ██▎                │</span>
-<span class="err">│  5 │  78116 │ ██▌                │</span>
-<span class="err">│  6 │ 113474 │ ███▋               │</span>
-<span class="err">│  7 │ 170678 │ █████▋             │</span>
-<span class="err">│  8 │ 278380 │ █████████▎         │</span>
-<span class="err">│  9 │ 391053 │ █████████████      │</span>
-<span class="err">│ 10 │ 457681 │ ███████████████▎   │</span>
-<span class="err">│ 11 │ 493667 │ ████████████████▍  │</span>
-<span class="err">│ 12 │ 509641 │ ████████████████▊  │</span>
-<span class="err">│ 13 │ 522947 │ █████████████████▍ │</span>
-<span class="err">│ 14 │ 539954 │ █████████████████▊ │</span>
-<span class="err">│ 15 │ 528460 │ █████████████████▌ │</span>
-<span class="err">│ 16 │ 539201 │ █████████████████▊ │</span>
-<span class="err">│ 17 │ 523539 │ █████████████████▍ │</span>
-<span class="err">│ 18 │ 506467 │ ████████████████▊  │</span>
-<span class="err">│ 19 │ 520915 │ █████████████████▎ │</span>
-<span class="err">│ 20 │ 521665 │ █████████████████▍ │</span>
-<span class="err">│ 21 │ 542078 │ ██████████████████ │</span>
-<span class="err">│ 22 │ 493642 │ ████████████████▍  │</span>
-<span class="err">│ 23 │ 400397 │ █████████████▎     │</span>
-<span class="err">└────┴────────┴────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌──h─┬──────c─┬─bar────────────────┐
+│  0 │ 292907 │ █████████▋         │
+│  1 │ 180563 │ ██████             │
+│  2 │ 114861 │ ███▋               │
+│  3 │  85069 │ ██▋                │
+│  4 │  68543 │ ██▎                │
+│  5 │  78116 │ ██▌                │
+│  6 │ 113474 │ ███▋               │
+│  7 │ 170678 │ █████▋             │
+│  8 │ 278380 │ █████████▎         │
+│  9 │ 391053 │ █████████████      │
+│ 10 │ 457681 │ ███████████████▎   │
+│ 11 │ 493667 │ ████████████████▍  │
+│ 12 │ 509641 │ ████████████████▊  │
+│ 13 │ 522947 │ █████████████████▍ │
+│ 14 │ 539954 │ █████████████████▊ │
+│ 15 │ 528460 │ █████████████████▌ │
+│ 16 │ 539201 │ █████████████████▊ │
+│ 17 │ 523539 │ █████████████████▍ │
+│ 18 │ 506467 │ ████████████████▊  │
+│ 19 │ 520915 │ █████████████████▎ │
+│ 20 │ 521665 │ █████████████████▍ │
+│ 21 │ 542078 │ ██████████████████ │
+│ 22 │ 493642 │ ████████████████▍  │
+│ 23 │ 400397 │ █████████████▎     │
+└────┴────────┴────────────────────┘
 </pre></div>
 
 
@@ -4113,11 +4113,11 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─title─────┬──────c─┐</span>
-<span class="err">│ Yandex    │ 498635 │</span>
-<span class="err">│ Google    │ 229872 │</span>
-<span class="err">│ Other     │ 104472 │</span>
-<span class="err">└───────────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌─title─────┬──────c─┐
+│ Yandex    │ 498635 │
+│ Google    │ 229872 │
+│ Other     │ 104472 │
+└───────────┴────────┘
 </pre></div>
 
 
@@ -4139,17 +4139,17 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s──────────────┬───────c─┐</span>
-<span class="err">│                │ 2906259 │</span>
-<span class="err">│ www.yandex     │  867767 │</span>
-<span class="err">│ ███████.ru     │  313599 │</span>
-<span class="err">│ mail.yandex.ru │  107147 │</span>
-<span class="err">│ ██████.ru      │  100355 │</span>
-<span class="err">│ █████████.ru   │   65040 │</span>
-<span class="err">│ news.yandex.ru │   64515 │</span>
-<span class="err">│ ██████.net     │   59141 │</span>
-<span class="err">│ example.com    │   57316 │</span>
-<span class="err">└────────────────┴─────────┘</span>
+<div class="codehilite"><pre><span></span>┌─s──────────────┬───────c─┐
+│                │ 2906259 │
+│ www.yandex     │  867767 │
+│ ███████.ru     │  313599 │
+│ mail.yandex.ru │  107147 │
+│ ██████.ru      │  100355 │
+│ █████████.ru   │   65040 │
+│ news.yandex.ru │   64515 │
+│ ██████.net     │   59141 │
+│ example.com    │   57316 │
+└────────────────┴─────────┘
 </pre></div>
 
 
@@ -4162,12 +4162,12 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─filesize_bytes─┬─filesize───┐</span>
-<span class="err">│              1 │ 1.00 B     │</span>
-<span class="err">│           1024 │ 1.00 KiB   │</span>
-<span class="err">│        1048576 │ 1.00 MiB   │</span>
-<span class="err">│      192851925 │ 183.92 MiB │</span>
-<span class="err">└────────────────┴────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─filesize_bytes─┬─filesize───┐
+│              1 │ 1.00 B     │
+│           1024 │ 1.00 KiB   │
+│        1048576 │ 1.00 MiB   │
+│      192851925 │ 183.92 MiB │
+└────────────────┴────────────┘
 </pre></div>
 
 
@@ -4206,13 +4206,13 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─EventID─┬───────────EventTime─┬─delta─┐</span>
-<span class="err">│    1106 │ 2016-11-24 00:00:04 │     0 │</span>
-<span class="err">│    1107 │ 2016-11-24 00:00:05 │     1 │</span>
-<span class="err">│    1108 │ 2016-11-24 00:00:05 │     0 │</span>
-<span class="err">│    1109 │ 2016-11-24 00:00:09 │     4 │</span>
-<span class="err">│    1110 │ 2016-11-24 00:00:10 │     1 │</span>
-<span class="err">└─────────┴─────────────────────┴───────┘</span>
+<div class="codehilite"><pre><span></span>┌─EventID─┬───────────EventTime─┬─delta─┐
+│    1106 │ 2016-11-24 00:00:04 │     0 │
+│    1107 │ 2016-11-24 00:00:05 │     1 │
+│    1108 │ 2016-11-24 00:00:05 │     0 │
+│    1109 │ 2016-11-24 00:00:09 │     4 │
+│    1110 │ 2016-11-24 00:00:10 │     1 │
+└─────────┴─────────────────────┴───────┘
 </pre></div>
 
 
@@ -4224,7 +4224,7 @@
 <p>Принимает MAC адрес в формате AA:BB:CC:DD:EE:FF (числа в шестнадцатеричной форме через двоеточие). Возвращает первые три октета как число в формате UInt64. Если MAC адрес в неправильном формате, то возвращает 0.</p>
 <h2 id="getsizeofenumtype">getSizeOfEnumType<a class="headerlink" href="#getsizeofenumtype" title="Permanent link">&para;</a></h2>
 <p>Возвращает количество полей в <a href="../../../data_types/enum/">Enum</a>.</p>
-<div class="codehilite"><pre><span></span><span class="err">getSizeOfEnumType(value)</span>
+<div class="codehilite"><pre><span></span>getSizeOfEnumType(value)
 </pre></div>
 
 
@@ -4238,17 +4238,17 @@
 <li>Исключение, если тип не <code>Enum</code>.</li>
 </ul>
 <p><strong>Пример</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">getSizeOfEnumType</span><span class="p">(</span> <span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;a&#39;</span> <span class="k">AS</span> <span class="n">Enum8</span><span class="p">(</span><span class="s1">&#39;a&#39;</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="o">=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="k">AS</span> <span class="n">x</span>
+<div class="codehilite"><pre><span></span>SELECT getSizeOfEnumType( CAST(&#39;a&#39; AS Enum8(&#39;a&#39; = 1, &#39;b&#39; = 2) ) ) AS x
 
-<span class="err">┌─</span><span class="n">x</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="mi">2</span> <span class="err">│</span>
-<span class="err">└───┘</span>
+┌─x─┐
+│ 2 │
+└───┘
 </pre></div>
 
 
 <h2 id="tocolumntypename">toColumnTypeName<a class="headerlink" href="#tocolumntypename" title="Permanent link">&para;</a></h2>
 <p>Возвращает имя класса, которым представлен тип данных столбца в оперативной памяти.</p>
-<div class="codehilite"><pre><span></span><span class="err">toColumnTypeName(value)</span>
+<div class="codehilite"><pre><span></span>toColumnTypeName(value)
 </pre></div>
 
 
@@ -4261,30 +4261,30 @@
 <li>Строка с именем класса, который используется для представления типа данных <code>value</code> в оперативной памяти.</li>
 </ul>
 <p><strong>Пример разницы между <code>toTypeName</code> и <code>toColumnTypeName</code></strong></p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">select</span> <span class="n">toTypeName</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="s1">&#39;2018-01-01 01:02:03&#39;</span> <span class="k">AS</span> <span class="n">DateTime</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span>:) select toTypeName(cast(&#39;2018-01-01 01:02:03&#39; AS DateTime))
 
-<span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;2018-01-01 01:02:03&#39;</span><span class="p">,</span> <span class="s1">&#39;DateTime&#39;</span><span class="p">))</span>
+SELECT toTypeName(CAST(&#39;2018-01-01 01:02:03&#39;, &#39;DateTime&#39;))
 
-<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;2018-01-01 01:02:03&#39;</span><span class="p">,</span> <span class="s1">&#39;DateTime&#39;</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">DateTime</span>                                            <span class="err">│</span>
-<span class="err">└─────────────────────────────────────────────────────┘</span>
+┌─toTypeName(CAST(&#39;2018-01-01 01:02:03&#39;, &#39;DateTime&#39;))─┐
+│ DateTime                                            │
+└─────────────────────────────────────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">008</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.008 sec.
 
-<span class="p">:)</span> <span class="k">select</span> <span class="n">toColumnTypeName</span><span class="p">(</span><span class="k">cast</span><span class="p">(</span><span class="s1">&#39;2018-01-01 01:02:03&#39;</span> <span class="k">AS</span> <span class="n">DateTime</span><span class="p">))</span>
+:) select toColumnTypeName(cast(&#39;2018-01-01 01:02:03&#39; AS DateTime))
 
-<span class="k">SELECT</span> <span class="n">toColumnTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;2018-01-01 01:02:03&#39;</span><span class="p">,</span> <span class="s1">&#39;DateTime&#39;</span><span class="p">))</span>
+SELECT toColumnTypeName(CAST(&#39;2018-01-01 01:02:03&#39;, &#39;DateTime&#39;))
 
-<span class="err">┌─</span><span class="n">toColumnTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;2018-01-01 01:02:03&#39;</span><span class="p">,</span> <span class="s1">&#39;DateTime&#39;</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">Const</span><span class="p">(</span><span class="n">UInt32</span><span class="p">)</span>                                             <span class="err">│</span>
-<span class="err">└───────────────────────────────────────────────────────────┘</span>
+┌─toColumnTypeName(CAST(&#39;2018-01-01 01:02:03&#39;, &#39;DateTime&#39;))─┐
+│ Const(UInt32)                                             │
+└───────────────────────────────────────────────────────────┘
 </pre></div>
 
 
 <p>В примере видно, что тип данных <code>DateTime</code> хранится в памяти как <code>Const(UInt32)</code>.</p>
 <h2 id="dumpcolumnstructure">dumpColumnStructure<a class="headerlink" href="#dumpcolumnstructure" title="Permanent link">&para;</a></h2>
 <p>Выводит развернутое описание структур данных в оперативной памяти</p>
-<div class="codehilite"><pre><span></span><span class="err">dumpColumnStructure(value)</span>
+<div class="codehilite"><pre><span></span>dumpColumnStructure(value)
 </pre></div>
 
 
@@ -4297,18 +4297,18 @@
 <li>Строка с описанием структуры, которая используется для представления типа данных <code>value</code> в оперативной памяти.</li>
 </ul>
 <p><strong>Пример</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">dumpColumnStructure</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;2018-01-01 01:02:03&#39;</span><span class="p">,</span> <span class="s1">&#39;DateTime&#39;</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span>SELECT dumpColumnStructure(CAST(&#39;2018-01-01 01:02:03&#39;, &#39;DateTime&#39;))
 
-<span class="err">┌─</span><span class="n">dumpColumnStructure</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="s1">&#39;2018-01-01 01:02:03&#39;</span><span class="p">,</span> <span class="s1">&#39;DateTime&#39;</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">DateTime</span><span class="p">,</span> <span class="n">Const</span><span class="p">(</span><span class="k">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">UInt32</span><span class="p">(</span><span class="k">size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">))</span>                  <span class="err">│</span>
-<span class="err">└──────────────────────────────────────────────────────────────┘</span>
+┌─dumpColumnStructure(CAST(&#39;2018-01-01 01:02:03&#39;, &#39;DateTime&#39;))─┐
+│ DateTime, Const(size = 1, UInt32(size = 1))                  │
+└──────────────────────────────────────────────────────────────┘
 </pre></div>
 
 
 <h2 id="defaultvalueofargumenttype">defaultValueOfArgumentType<a class="headerlink" href="#defaultvalueofargumenttype" title="Permanent link">&para;</a></h2>
 <p>Выводит значение по умолчанию для типа данных.</p>
 <p>Не учитывает значения по умолчанию для столбцов, заданные пользователем.</p>
-<div class="codehilite"><pre><span></span><span class="err">defaultValueOfArgumentType(expression)</span>
+<div class="codehilite"><pre><span></span>defaultValueOfArgumentType(expression)
 </pre></div>
 
 
@@ -4323,25 +4323,25 @@
 <li><code>ᴺᵁᴸᴸ</code> для <a href="../../../data_types/nullable/">Nullable</a>.</li>
 </ul>
 <p><strong>Пример</strong></p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">defaultValueOfArgumentType</span><span class="p">(</span> <span class="k">CAST</span><span class="p">(</span><span class="mi">1</span> <span class="k">AS</span> <span class="nb">Int8</span><span class="p">)</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT defaultValueOfArgumentType( CAST(1 AS Int8) )
 
-<span class="k">SELECT</span> <span class="n">defaultValueOfArgumentType</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Int8&#39;</span><span class="p">))</span>
+SELECT defaultValueOfArgumentType(CAST(1, &#39;Int8&#39;))
 
-<span class="err">┌─</span><span class="n">defaultValueOfArgumentType</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Int8&#39;</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span>                                           <span class="mi">0</span> <span class="err">│</span>
-<span class="err">└─────────────────────────────────────────────┘</span>
+┌─defaultValueOfArgumentType(CAST(1, &#39;Int8&#39;))─┐
+│                                           0 │
+└─────────────────────────────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="n">defaultValueOfArgumentType</span><span class="p">(</span> <span class="k">CAST</span><span class="p">(</span><span class="mi">1</span> <span class="k">AS</span> <span class="k">Nullable</span><span class="p">(</span><span class="nb">Int8</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+:) SELECT defaultValueOfArgumentType( CAST(1 AS Nullable(Int8) ) )
 
-<span class="k">SELECT</span> <span class="n">defaultValueOfArgumentType</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Nullable(Int8)&#39;</span><span class="p">))</span>
+SELECT defaultValueOfArgumentType(CAST(1, &#39;Nullable(Int8)&#39;))
 
-<span class="err">┌─</span><span class="n">defaultValueOfArgumentType</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Nullable(Int8)&#39;</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span>                                                  <span class="err">ᴺᵁᴸᴸ</span> <span class="err">│</span>
-<span class="err">└───────────────────────────────────────────────────────┘</span>
+┌─defaultValueOfArgumentType(CAST(1, &#39;Nullable(Int8)&#39;))─┐
+│                                                  ᴺᵁᴸᴸ │
+└───────────────────────────────────────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 </pre></div>
 
 
@@ -4354,77 +4354,77 @@
 </ul>
 <p><strong>Пример</strong></p>
 <p>Рассмотрим таблицу с тестовыми данными <a href="../../../getting_started/example_datasets/ontime/">ontime</a>.</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="k">count</span><span class="p">()</span> <span class="k">FROM</span> <span class="n">ontime</span>
+<div class="codehilite"><pre><span></span>SELECT count() FROM ontime
 
-<span class="err">┌─</span><span class="k">count</span><span class="p">()</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="mi">4276457</span> <span class="err">│</span>
-<span class="err">└─────────┘</span>
+┌─count()─┐
+│ 4276457 │
+└─────────┘
 </pre></div>
 
 
 <p>В таблице есть индексы по полям <code>(FlightDate, (Year, FlightDate))</code>.</p>
 <p>Выполним выборку по дате следующим образом:</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">FlightDate</span> <span class="k">AS</span> <span class="n">k</span><span class="p">,</span> <span class="k">count</span><span class="p">()</span> <span class="k">FROM</span> <span class="n">ontime</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">k</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">k</span>
+<div class="codehilite"><pre><span></span>:) SELECT FlightDate AS k, count() FROM ontime GROUP BY k ORDER BY k
 
-<span class="k">SELECT</span>
-    <span class="n">FlightDate</span> <span class="k">AS</span> <span class="n">k</span><span class="p">,</span>
-    <span class="k">count</span><span class="p">()</span>
-<span class="k">FROM</span> <span class="n">ontime</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">k</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">k</span> <span class="k">ASC</span>
+SELECT
+    FlightDate AS k,
+    count()
+FROM ontime
+GROUP BY k
+ORDER BY k ASC
 
-<span class="err">┌──────────</span><span class="n">k</span><span class="err">─┬─</span><span class="k">count</span><span class="p">()</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="err">│</span>   <span class="mi">13970</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">02</span> <span class="err">│</span>   <span class="mi">15882</span> <span class="err">│</span>
-<span class="p">........................</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">28</span> <span class="err">│</span>   <span class="mi">16411</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">29</span> <span class="err">│</span>   <span class="mi">16384</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="err">│</span>   <span class="mi">12520</span> <span class="err">│</span>
-<span class="err">└────────────┴─────────┘</span>
+┌──────────k─┬─count()─┐
+│ 2017-01-01 │   13970 │
+│ 2017-01-02 │   15882 │
+........................
+│ 2017-09-28 │   16411 │
+│ 2017-09-29 │   16384 │
+│ 2017-09-30 │   12520 │
+└────────────┴─────────┘
 
-<span class="mi">273</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">072</span> <span class="n">sec</span><span class="p">.</span> <span class="n">Processed</span> <span class="mi">4</span><span class="p">.</span><span class="mi">28</span> <span class="n">million</span> <span class="k">rows</span><span class="p">,</span> <span class="mi">8</span><span class="p">.</span><span class="mi">55</span> <span class="n">MB</span> <span class="p">(</span><span class="mi">59</span><span class="p">.</span><span class="mi">00</span> <span class="n">million</span> <span class="k">rows</span><span class="o">/</span><span class="n">s</span><span class="p">.,</span> <span class="mi">118</span><span class="p">.</span><span class="mi">01</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span><span class="p">.)</span>
+273 rows in set. Elapsed: 0.072 sec. Processed 4.28 million rows, 8.55 MB (59.00 million rows/s., 118.01 MB/s.)
 </pre></div>
 
 
 <p>В этой выборке индекс не используется и ClickHouse обработал всю таблицу (<code>Processed 4.28 million rows</code>). Для подключения индекса выберем конкретную дату и выполним следующий запрос:</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">FlightDate</span> <span class="k">AS</span> <span class="n">k</span><span class="p">,</span> <span class="k">count</span><span class="p">()</span> <span class="k">FROM</span> <span class="n">ontime</span> <span class="k">WHERE</span> <span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;2017-09-15&#39;</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">k</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">k</span>
+<div class="codehilite"><pre><span></span>:) SELECT FlightDate AS k, count() FROM ontime WHERE k = &#39;2017-09-15&#39; GROUP BY k ORDER BY k
 
-<span class="k">SELECT</span>
-    <span class="n">FlightDate</span> <span class="k">AS</span> <span class="n">k</span><span class="p">,</span>
-    <span class="k">count</span><span class="p">()</span>
-<span class="k">FROM</span> <span class="n">ontime</span>
-<span class="k">WHERE</span> <span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;2017-09-15&#39;</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">k</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">k</span> <span class="k">ASC</span>
+SELECT
+    FlightDate AS k,
+    count()
+FROM ontime
+WHERE k = &#39;2017-09-15&#39;
+GROUP BY k
+ORDER BY k ASC
 
-<span class="err">┌──────────</span><span class="n">k</span><span class="err">─┬─</span><span class="k">count</span><span class="p">()</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">15</span> <span class="err">│</span>   <span class="mi">16428</span> <span class="err">│</span>
-<span class="err">└────────────┴─────────┘</span>
+┌──────────k─┬─count()─┐
+│ 2017-09-15 │   16428 │
+└────────────┴─────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">014</span> <span class="n">sec</span><span class="p">.</span> <span class="n">Processed</span> <span class="mi">32</span><span class="p">.</span><span class="mi">74</span> <span class="n">thousand</span> <span class="k">rows</span><span class="p">,</span> <span class="mi">65</span><span class="p">.</span><span class="mi">49</span> <span class="n">KB</span> <span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="mi">31</span> <span class="n">million</span> <span class="k">rows</span><span class="o">/</span><span class="n">s</span><span class="p">.,</span> <span class="mi">4</span><span class="p">.</span><span class="mi">63</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span><span class="p">.)</span>
+1 rows in set. Elapsed: 0.014 sec. Processed 32.74 thousand rows, 65.49 KB (2.31 million rows/s., 4.63 MB/s.)
 </pre></div>
 
 
 <p>В последней строке выдачи видно, что благодаря использованию индекса, ClickHouse обработал значительно меньшее количество строк (<code>Processed 32.74 thousand rows</code>).</p>
 <p>Теперь передадим выражение <code>k = '2017-09-15'</code> в функцию <code>indexHint</code>:</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">FlightDate</span> <span class="k">AS</span> <span class="n">k</span><span class="p">,</span> <span class="k">count</span><span class="p">()</span> <span class="k">FROM</span> <span class="n">ontime</span> <span class="k">WHERE</span> <span class="n">indexHint</span><span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;2017-09-15&#39;</span><span class="p">)</span> <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">k</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">k</span>
+<div class="codehilite"><pre><span></span>:) SELECT FlightDate AS k, count() FROM ontime WHERE indexHint(k = &#39;2017-09-15&#39;) GROUP BY k ORDER BY k
 
-<span class="k">SELECT</span>
-    <span class="n">FlightDate</span> <span class="k">AS</span> <span class="n">k</span><span class="p">,</span>
-    <span class="k">count</span><span class="p">()</span>
-<span class="k">FROM</span> <span class="n">ontime</span>
-<span class="k">WHERE</span> <span class="n">indexHint</span><span class="p">(</span><span class="n">k</span> <span class="o">=</span> <span class="s1">&#39;2017-09-15&#39;</span><span class="p">)</span>
-<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">k</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">k</span> <span class="k">ASC</span>
+SELECT
+    FlightDate AS k,
+    count()
+FROM ontime
+WHERE indexHint(k = &#39;2017-09-15&#39;)
+GROUP BY k
+ORDER BY k ASC
 
-<span class="err">┌──────────</span><span class="n">k</span><span class="err">─┬─</span><span class="k">count</span><span class="p">()</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">14</span> <span class="err">│</span>    <span class="mi">7071</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">15</span> <span class="err">│</span>   <span class="mi">16428</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">16</span> <span class="err">│</span>    <span class="mi">1077</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">30</span> <span class="err">│</span>    <span class="mi">8167</span> <span class="err">│</span>
-<span class="err">└────────────┴─────────┘</span>
+┌──────────k─┬─count()─┐
+│ 2017-09-14 │    7071 │
+│ 2017-09-15 │   16428 │
+│ 2017-09-16 │    1077 │
+│ 2017-09-30 │    8167 │
+└────────────┴─────────┘
 
-<span class="mi">4</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">004</span> <span class="n">sec</span><span class="p">.</span> <span class="n">Processed</span> <span class="mi">32</span><span class="p">.</span><span class="mi">74</span> <span class="n">thousand</span> <span class="k">rows</span><span class="p">,</span> <span class="mi">65</span><span class="p">.</span><span class="mi">49</span> <span class="n">KB</span> <span class="p">(</span><span class="mi">8</span><span class="p">.</span><span class="mi">97</span> <span class="n">million</span> <span class="k">rows</span><span class="o">/</span><span class="n">s</span><span class="p">.,</span> <span class="mi">17</span><span class="p">.</span><span class="mi">94</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span><span class="p">.)</span>
+4 rows in set. Elapsed: 0.004 sec. Processed 32.74 thousand rows, 65.49 KB (8.97 million rows/s., 17.94 MB/s.)
 </pre></div>
 
 
@@ -4433,7 +4433,7 @@
 <h2 id="replicate">replicate<a class="headerlink" href="#replicate" title="Permanent link">&para;</a></h2>
 <p>Создает массив, заполненный одним значением.</p>
 <p>Используется для внутренней реализации <a href="../array_join/#functions_arrayjoin">arrayJoin</a>.</p>
-<div class="codehilite"><pre><span></span><span class="err">replicate(x, arr)</span>
+<div class="codehilite"><pre><span></span>replicate(x, arr)
 </pre></div>
 
 
@@ -4447,11 +4447,11 @@
 <li>Массив, заполненный значением <code>x</code>.</li>
 </ul>
 <p><strong>Пример</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">replicate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span>SELECT replicate(1, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
 
-<span class="err">┌─</span><span class="n">replicate</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>                       <span class="err">│</span>
-<span class="err">└───────────────────────────────┘</span>
+┌─replicate(1, [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])─┐
+│ [1,1,1]                       │
+└───────────────────────────────┘
 </pre></div>
 
 

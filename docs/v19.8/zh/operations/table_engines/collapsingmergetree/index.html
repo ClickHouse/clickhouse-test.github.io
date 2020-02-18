@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041395">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042859">
     
     
   </head>
@@ -3557,27 +3557,27 @@
 <p>考虑你需要为某个对象保存不断变化的数据的情景。似乎为一个对象保存一行记录并在其发生任何变化时更新记录是合乎逻辑的，但是更新操作对 DBMS 来说是昂贵且缓慢的，因为它需要重写存储中的数据。如果你需要快速的写入数据，则更新操作是不可接受的，但是你可以按下面的描述顺序地更新一个对象的变化。</p>
 <p>在写入行的时候使用特定的列 <code>Sign</code>。如果 <code>Sign = 1</code> 则表示这一行是对象的状态，我们称之为“状态”行。如果 <code>Sign = -1</code> 则表示是对具有相同属性的状态行的取消，我们称之为“取消”行。</p>
 <p>例如，我们想要计算用户在某个站点访问的页面页面数以及他们在那里停留的时间。在某个时候，我们将用户的活动状态写入下面这样的行。</p>
-<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
+│ 4324182021466249494 │         5 │      146 │    1 │
+└─────────────────────┴───────────┴──────────┴──────┘
 </pre></div>
 
 
 <p>一段时间后，我们写入下面的两行来记录用户活动的变化。</p>
-<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
-<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
+│ 4324182021466249494 │         5 │      146 │   -1 │
+│ 4324182021466249494 │         6 │      185 │    1 │
+└─────────────────────┴───────────┴──────────┴──────┘
 </pre></div>
 
 
 <p>第一行取消了这个对象（用户）的状态。它需要复制被取消的状态行的所有除了 <code>Sign</code> 的属性。</p>
 <p>第二行包含了当前的状态。</p>
 <p>因为我们只需要用户活动的最后状态，这些行</p>
-<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
+│ 4324182021466249494 │         5 │      146 │    1 │
+│ 4324182021466249494 │         5 │      146 │   -1 │
+└─────────────────────┴───────────┴──────────┴──────┘
 </pre></div>
 
 
@@ -3609,11 +3609,11 @@
 <p>如果你需要在不进行聚合的情况下获取数据（例如，要检查是否存在最新值与特定条件匹配的行），你可以在 <code>FROM</code> 从句中使用 <code>FINAL</code> 修饰符。这种方法显然是更低效的。</p>
 <h2 id="shi-li">示例<a class="headerlink" href="#shi-li" title="Permanent link">&para;</a></h2>
 <p>示例数据:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
-<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
+│ 4324182021466249494 │         5 │      146 │    1 │
+│ 4324182021466249494 │         5 │      146 │   -1 │
+│ 4324182021466249494 │         6 │      185 │    1 │
+└─────────────────────┴───────────┴──────────┴──────┘
 </pre></div>
 
 
@@ -3641,17 +3641,17 @@
 
 <p>我们使用两次 <code>INSERT</code> 请求来创建两个不同的数据片段。如果我们使用一个请求插入数据，ClickHouse 只会创建一个数据片段且不会执行任何合并操作。</p>
 <p>获取数据：</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT * FROM UAct</span>
+<div class="codehilite"><pre><span></span>SELECT * FROM UAct
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
-<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
-<span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
+│ 4324182021466249494 │         5 │      146 │   -1 │
+│ 4324182021466249494 │         6 │      185 │    1 │
+└─────────────────────┴───────────┴──────────┴──────┘
+┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
+│ 4324182021466249494 │         5 │      146 │    1 │
+└─────────────────────┴───────────┴──────────┴──────┘
 </pre></div>
 
 
@@ -3668,9 +3668,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┐</span>
-<span class="err">│ 4324182021466249494 │         6 │      185 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┘</span>
+<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┐
+│ 4324182021466249494 │         6 │      185 │
+└─────────────────────┴───────────┴──────────┘
 </pre></div>
 
 
@@ -3679,9 +3679,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
-<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
+│ 4324182021466249494 │         6 │      185 │    1 │
+└─────────────────────┴───────────┴──────────┴──────┘
 </pre></div>
 
 

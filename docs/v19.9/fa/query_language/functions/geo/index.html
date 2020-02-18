@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041301">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042773">
     
     
   </head>
@@ -3537,7 +3537,7 @@
                   <h1 id="functions-for-working-with-geographical-coordinates">Functions for working with geographical coordinates<a class="headerlink" href="#functions-for-working-with-geographical-coordinates" title="Permanent link">&para;</a></h1>
 <h2 id="greatcircledistance">greatCircleDistance<a class="headerlink" href="#greatcircledistance" title="Permanent link">&para;</a></h2>
 <p>Calculate the distance between two points on the Earth's surface using <a href="https://en.wikipedia.org/wiki/Great-circle_distance" rel="external nofollow">the great-circle formula</a>.</p>
-<div class="codehilite"><pre><span></span><span class="err">greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)</span>
+<div class="codehilite"><pre><span></span>greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)
 </pre></div>
 
 
@@ -3557,15 +3557,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─greatCircleDistance(55.755831, 37.617673, -55.755831, -37.617673)─┐</span>
-<span class="err">│                                                14132374.194975413 │</span>
-<span class="err">└───────────────────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─greatCircleDistance(55.755831, 37.617673, -55.755831, -37.617673)─┐
+│                                                14132374.194975413 │
+└───────────────────────────────────────────────────────────────────┘
 </pre></div>
 
 
 <h2 id="pointinellipses">pointInEllipses<a class="headerlink" href="#pointinellipses" title="Permanent link">&para;</a></h2>
 <p>Checks whether the point belongs to at least one of the ellipses.</p>
-<div class="codehilite"><pre><span></span><span class="err">pointInEllipses(x, y, x₀, y₀, a₀, b₀,...,xₙ, yₙ, aₙ, bₙ)</span>
+<div class="codehilite"><pre><span></span>pointInEllipses(x, y, x₀, y₀, a₀, b₀,...,xₙ, yₙ, aₙ, bₙ)
 </pre></div>
 
 
@@ -3583,15 +3583,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─pointInEllipses(55.755831, 37.617673, 55.755831, 37.617673, 1., 2.)─┐</span>
-<span class="err">│                                                                   1 │</span>
-<span class="err">└─────────────────────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─pointInEllipses(55.755831, 37.617673, 55.755831, 37.617673, 1., 2.)─┐
+│                                                                   1 │
+└─────────────────────────────────────────────────────────────────────┘
 </pre></div>
 
 
 <h2 id="pointinpolygon">pointInPolygon<a class="headerlink" href="#pointinpolygon" title="Permanent link">&para;</a></h2>
 <p>Checks whether the point belongs to the polygon on the plane.</p>
-<div class="codehilite"><pre><span></span><span class="err">pointInPolygon((x, y), [(a, b), (c, d) ...], ...)</span>
+<div class="codehilite"><pre><span></span>pointInPolygon((x, y), [(a, b), (c, d) ...], ...)
 </pre></div>
 
 
@@ -3609,15 +3609,15 @@ If the point is on the polygon boundary, the function may return either 0 or 1.<
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   1 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   1 │
+└─────┘
 </pre></div>
 
 
 <h2 id="geohashencode">geohashEncode<a class="headerlink" href="#geohashencode" title="Permanent link">&para;</a></h2>
 <p>Encodes latitude and longitude as a geohash-string, please see (http://geohash.org/, https://en.wikipedia.org/wiki/Geohash).</p>
-<div class="codehilite"><pre><span></span><span class="n">geohashEncode</span><span class="p">(</span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">precision</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<div class="codehilite"><pre><span></span>geohashEncode(longitude, latitude, [precision])
 </pre></div>
 
 
@@ -3636,9 +3636,9 @@ If the point is on the polygon boundary, the function may return either 0 or 1.<
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res──────────┐</span>
-<span class="err">│ ezs42d000000 │</span>
-<span class="err">└──────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res──────────┐
+│ ezs42d000000 │
+└──────────────┘
 </pre></div>
 
 
@@ -3657,9 +3657,9 @@ If the point is on the polygon boundary, the function may return either 0 or 1.<
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────────────────────────────┐</span>
-<span class="err">│ (-5.60302734375,42.60498046875) │</span>
-<span class="err">└─────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────────────────────────────┐
+│ (-5.60302734375,42.60498046875) │
+└─────────────────────────────────┘
 </pre></div>
                 
                 </div>

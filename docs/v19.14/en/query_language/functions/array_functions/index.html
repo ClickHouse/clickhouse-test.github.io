@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582040900">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042402">
     
     
   </head>
@@ -4080,7 +4080,7 @@ The arguments must be constants and have types that have the smallest common typ
 Returns an 'Array(T)' type result, where 'T' is the smallest common type out of the passed arguments.</p>
 <h2 id="arrayconcat">arrayConcat<a class="headerlink" href="#arrayconcat" title="Permanent link">&para;</a></h2>
 <p>Combines arrays passed as arguments.</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayConcat(arrays)</span>
+<div class="codehilite"><pre><span></span>arrayConcat(arrays)
 </pre></div>
 
 
@@ -4108,17 +4108,17 @@ Negative indexes are supported. In this case, it selects the corresponding eleme
 <p>Checks whether the 'arr' array has the 'elem' element.
 Returns 0 if the the element is not in the array, or 1 if it is.</p>
 <p><code>NULL</code> is processed as a value.</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">has</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT has([1, 2, NULL], NULL)
 
-<span class="err">┌─</span><span class="n">has</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span>                       <span class="mi">1</span> <span class="err">│</span>
-<span class="err">└─────────────────────────┘</span>
+┌─has([1, 2, NULL], NULL)─┐
+│                       1 │
+└─────────────────────────┘
 </pre></div>
 
 
 <h2 id="hasall">hasAll<a class="headerlink" href="#hasall" title="Permanent link">&para;</a></h2>
 <p>Checks whether one array is a subset of another.</p>
-<div class="codehilite"><pre><span></span><span class="err">hasAll(set, subset)</span>
+<div class="codehilite"><pre><span></span>hasAll(set, subset)
 </pre></div>
 
 
@@ -4147,7 +4147,7 @@ Returns 0 if the the element is not in the array, or 1 if it is.</p>
 <p><code>SELECT hasAll([[1, 2], [3, 4]], [[1, 2], [3, 5]])</code> returns 0.</p>
 <h2 id="hasany">hasAny<a class="headerlink" href="#hasany" title="Permanent link">&para;</a></h2>
 <p>Checks whether two arrays have intersection by some elements.</p>
-<div class="codehilite"><pre><span></span><span class="err">hasAny(array1, array2)</span>
+<div class="codehilite"><pre><span></span>hasAny(array1, array2)
 </pre></div>
 
 
@@ -4175,13 +4175,13 @@ Returns 0 if the the element is not in the array, or 1 if it is.</p>
 <h2 id="indexof-arr-x">indexOf(arr, x)<a class="headerlink" href="#indexof-arr-x" title="Permanent link">&para;</a></h2>
 <p>Returns the index of the first 'x' element (starting from 1) if it is in the array, or 0 if it is not.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">],</span><span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT indexOf([1,3,NULL,NULL],NULL)
 
-<span class="k">SELECT</span> <span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
+SELECT indexOf([1, 3, NULL, NULL], NULL)
 
-<span class="err">┌─</span><span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span>                                 <span class="mi">3</span> <span class="err">│</span>
-<span class="err">└───────────────────────────────────┘</span>
+┌─indexOf([1, 3, NULL, NULL], NULL)─┐
+│                                 3 │
+└───────────────────────────────────┘
 </pre></div>
 
 
@@ -4190,11 +4190,11 @@ Returns 0 if the the element is not in the array, or 1 if it is.</p>
 <p>Returns the number of elements in the array equal to x. Equivalent to arrayCount (elem -&gt; elem = x, arr).</p>
 <p><code>NULL</code> elements are handled as separate values.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">countEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT countEqual([1, 2, NULL, NULL], NULL)
 
-<span class="err">┌─</span><span class="n">countEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span>                                    <span class="mi">2</span> <span class="err">│</span>
-<span class="err">└──────────────────────────────────────┘</span>
+┌─countEqual([1, 2, NULL, NULL], NULL)─┐
+│                                    2 │
+└──────────────────────────────────────┘
 </pre></div>
 
 
@@ -4285,7 +4285,7 @@ Example:</p>
 <p>This is necessary when using ARRAY JOIN with a nested data structure and further aggregation across multiple elements in this structure.</p>
 <h2 id="arraypopback">arrayPopBack<a class="headerlink" href="#arraypopback" title="Permanent link">&para;</a></h2>
 <p>Removes the last item from the array.</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayPopBack(array)</span>
+<div class="codehilite"><pre><span></span>arrayPopBack(array)
 </pre></div>
 
 
@@ -4306,7 +4306,7 @@ Example:</p>
 
 <h2 id="arraypopfront">arrayPopFront<a class="headerlink" href="#arraypopfront" title="Permanent link">&para;</a></h2>
 <p>Removes the first item from the array.</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayPopFront(array)</span>
+<div class="codehilite"><pre><span></span>arrayPopFront(array)
 </pre></div>
 
 
@@ -4327,7 +4327,7 @@ Example:</p>
 
 <h2 id="arraypushback">arrayPushBack<a class="headerlink" href="#arraypushback" title="Permanent link">&para;</a></h2>
 <p>Adds one item to the end of the array.</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayPushBack(array, single_value)</span>
+<div class="codehilite"><pre><span></span>arrayPushBack(array, single_value)
 </pre></div>
 
 
@@ -4349,7 +4349,7 @@ Example:</p>
 
 <h2 id="arraypushfront">arrayPushFront<a class="headerlink" href="#arraypushfront" title="Permanent link">&para;</a></h2>
 <p>Adds one element to the beginning of the array.</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayPushFront(array, single_value)</span>
+<div class="codehilite"><pre><span></span>arrayPushFront(array, single_value)
 </pre></div>
 
 
@@ -4371,7 +4371,7 @@ Example:</p>
 
 <h2 id="arrayresize">arrayResize<a class="headerlink" href="#arrayresize" title="Permanent link">&para;</a></h2>
 <p>Changes the length of the array.</p>
-<div class="codehilite"><pre><span></span><span class="err">arrayResize(array, size[, extender])</span>
+<div class="codehilite"><pre><span></span>arrayResize(array, size[, extender])
 </pre></div>
 
 
@@ -4388,25 +4388,25 @@ Example:</p>
 <p><strong>Returned value:</strong></p>
 <p>An array of length <code>size</code>.</p>
 <p><strong>Examples of calls</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT arrayResize([1], 3)
 
-<span class="err">┌─</span><span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>             <span class="err">│</span>
-<span class="err">└─────────────────────┘</span>
+┌─arrayResize([1], 3)─┐
+│ [1,0,0]             │
+└─────────────────────┘
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT arrayResize([1], 3, NULL)
 
-<span class="err">┌─</span><span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">]</span>             <span class="err">│</span>
-<span class="err">└───────────────────────────┘</span>
+┌─arrayResize([1], 3, NULL)─┐
+│ [1,NULL,NULL]             │
+└───────────────────────────┘
 </pre></div>
 
 
 <h2 id="arrayslice">arraySlice<a class="headerlink" href="#arrayslice" title="Permanent link">&para;</a></h2>
 <p>Returns a slice of the array.</p>
-<div class="codehilite"><pre><span></span><span class="err">arraySlice(array, offset[, length])</span>
+<div class="codehilite"><pre><span></span>arraySlice(array, offset[, length])
 </pre></div>
 
 
@@ -4625,9 +4625,9 @@ If multiple arguments are passed, it counts the number of different tuples of el
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arrayDifference([1, 2, 3, 4])─┐</span>
-<span class="err">│ [0,1,1,1]                     │</span>
-<span class="err">└───────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arrayDifference([1, 2, 3, 4])─┐
+│ [0,1,1,1]                     │
+└───────────────────────────────┘
 </pre></div>
 
 
@@ -4637,9 +4637,9 @@ If multiple arguments are passed, it counts the number of different tuples of el
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─arrayDistinct([1, 2, 2, 3, 1])─┐</span>
-<span class="err">│ [1,2,3]                        │</span>
-<span class="err">└────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─arrayDistinct([1, 2, 2, 3, 1])─┐
+│ [1,2,3]                        │
+└────────────────────────────────┘
 </pre></div>
 
 
@@ -4653,9 +4653,9 @@ If multiple arguments are passed, it counts the number of different tuples of el
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─no_intersect─┬─intersect─┐</span>
-<span class="err">│ []           │ [1]       │</span>
-<span class="err">└──────────────┴───────────┘</span>
+<div class="codehilite"><pre><span></span>┌─no_intersect─┬─intersect─┐
+│ []           │ [1]       │
+└──────────────┴───────────┘
 </pre></div>
 
 

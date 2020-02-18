@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582041482">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582042939">
     
     
   </head>
@@ -3632,26 +3632,26 @@
 <h2 id="system-clusters">system.clusters<a class="headerlink" href="#system-clusters" title="Permanent link">&para;</a></h2>
 <p>Содержит информацию о доступных в конфигурационном файле кластерах и серверах, которые в них входят.
 Столбцы:</p>
-<div class="codehilite"><pre><span></span><span class="err">cluster String      - имя кластера</span>
-<span class="err">shard_num UInt32    - номер шарда в кластере, начиная с 1</span>
-<span class="err">shard_weight UInt32 - относительный вес шарда при записи данных</span>
-<span class="err">replica_num UInt32  - номер реплики в шарде, начиная с 1</span>
-<span class="err">host_name String    - имя хоста, как прописано в конфиге</span>
-<span class="err">host_address String - IP-адрес хоста, полученный из DNS</span>
-<span class="err">port UInt16         - порт, на который обращаться для соединения с сервером</span>
-<span class="err">user String         - имя пользователя, которого использовать для соединения с сервером</span>
+<div class="codehilite"><pre><span></span>cluster String      - имя кластера
+shard_num UInt32    - номер шарда в кластере, начиная с 1
+shard_weight UInt32 - относительный вес шарда при записи данных
+replica_num UInt32  - номер реплики в шарде, начиная с 1
+host_name String    - имя хоста, как прописано в конфиге
+host_address String - IP-адрес хоста, полученный из DNS
+port UInt16         - порт, на который обращаться для соединения с сервером
+user String         - имя пользователя, которого использовать для соединения с сервером
 </pre></div>
 
 
 <h2 id="system-columns">system.columns<a class="headerlink" href="#system-columns" title="Permanent link">&para;</a></h2>
 <p>Содержит информацию о столбцах всех таблиц.
 С помощью этой таблицы можно получить информацию аналогично запросу <code>DESCRIBE TABLE</code>, но для многих таблиц сразу.</p>
-<div class="codehilite"><pre><span></span><span class="err">database String           - имя базы данных, в которой находится таблица</span>
-<span class="err">table String              - имя таблицы</span>
-<span class="err">name String               - имя столбца</span>
-<span class="err">type String               - тип столбца</span>
-<span class="err">default_type String       - тип (DEFAULT, MATERIALIZED, ALIAS) выражения для значения по умолчанию, или пустая строка, если оно не описано</span>
-<span class="err">default_expression String - выражение для значения по умолчанию, или пустая строка, если оно не описано</span>
+<div class="codehilite"><pre><span></span>database String           - имя базы данных, в которой находится таблица
+table String              - имя таблицы
+name String               - имя столбца
+type String               - тип столбца
+default_type String       - тип (DEFAULT, MATERIALIZED, ALIAS) выражения для значения по умолчанию, или пустая строка, если оно не описано
+default_expression String - выражение для значения по умолчанию, или пустая строка, если оно не описано
 </pre></div>
 
 
@@ -3792,23 +3792,23 @@
 <h2 id="system-processes">system.processes<a class="headerlink" href="#system-processes" title="Permanent link">&para;</a></h2>
 <p>Эта системная таблица используется для реализации запроса <code>SHOW PROCESSLIST</code>.
 Столбцы:</p>
-<div class="codehilite"><pre><span></span><span class="k">user</span> <span class="n">String</span>              <span class="o">-</span> <span class="err">имя</span> <span class="err">пользователя</span><span class="p">,</span> <span class="err">который</span> <span class="err">задал</span> <span class="err">запрос</span><span class="p">.</span> <span class="err">При</span> <span class="err">распределённой</span> <span class="err">обработке</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">относится</span> <span class="err">к</span> <span class="err">пользователю</span><span class="p">,</span> <span class="err">с</span> <span class="err">помощью</span> <span class="err">которого</span> <span class="err">сервер</span><span class="o">-</span><span class="err">инициатор</span> <span class="err">запроса</span> <span class="err">отправил</span> <span class="err">запрос</span> <span class="err">на</span> <span class="err">данный</span> <span class="err">сервер</span><span class="p">,</span> <span class="err">а</span> <span class="err">не</span> <span class="err">к</span> <span class="err">имени</span> <span class="err">пользователя</span><span class="p">,</span> <span class="err">который</span> <span class="err">задал</span> <span class="err">распределённый</span> <span class="err">запрос</span> <span class="err">на</span> <span class="err">сервер</span><span class="o">-</span><span class="err">инициатор</span> <span class="err">запроса</span><span class="p">.</span>
+<div class="codehilite"><pre><span></span>user String              - имя пользователя, который задал запрос. При распределённой обработке запроса, относится к пользователю, с помощью которого сервер-инициатор запроса отправил запрос на данный сервер, а не к имени пользователя, который задал распределённый запрос на сервер-инициатор запроса.
 
-<span class="n">address</span> <span class="n">String</span>           <span class="o">-</span> <span class="n">IP</span><span class="o">-</span><span class="err">адрес</span><span class="p">,</span> <span class="err">с</span> <span class="err">которого</span> <span class="err">задан</span> <span class="err">запрос</span><span class="p">.</span> <span class="err">При</span> <span class="err">распределённой</span> <span class="err">обработке</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">аналогично</span><span class="p">.</span>
+address String           - IP-адрес, с которого задан запрос. При распределённой обработке запроса, аналогично.
 
-<span class="n">elapsed</span> <span class="n">Float64</span>          <span class="o">-</span> <span class="err">время</span> <span class="err">в</span> <span class="err">секундах</span><span class="p">,</span> <span class="err">прошедшее</span> <span class="err">от</span> <span class="err">начала</span> <span class="err">выполнения</span> <span class="err">запроса</span><span class="p">.</span>
+elapsed Float64          - время в секундах, прошедшее от начала выполнения запроса.
 
-<span class="n">rows_read</span> <span class="n">UInt64</span>         <span class="o">-</span> <span class="err">количество</span> <span class="err">прочитанных</span> <span class="err">из</span> <span class="err">таблиц</span> <span class="err">строк</span><span class="p">.</span> <span class="err">При</span> <span class="err">распределённой</span> <span class="err">обработке</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">на</span> <span class="err">сервере</span><span class="o">-</span><span class="err">инициаторе</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">представляет</span> <span class="err">собой</span> <span class="err">сумму</span> <span class="err">по</span> <span class="err">всем</span> <span class="err">удалённым</span> <span class="err">серверам</span><span class="p">.</span>
+rows_read UInt64         - количество прочитанных из таблиц строк. При распределённой обработке запроса, на сервере-инициаторе запроса, представляет собой сумму по всем удалённым серверам.
 
-<span class="n">bytes_read</span> <span class="n">UInt64</span>        <span class="o">-</span> <span class="err">количество</span> <span class="err">прочитанных</span> <span class="err">из</span> <span class="err">таблиц</span> <span class="err">байт</span><span class="p">,</span> <span class="err">в</span> <span class="err">несжатом</span> <span class="err">виде</span><span class="p">.</span> <span class="err">При</span> <span class="err">распределённой</span> <span class="err">обработке</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">на</span> <span class="err">сервере</span><span class="o">-</span><span class="err">инициаторе</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">представляет</span> <span class="err">собой</span> <span class="err">сумму</span> <span class="err">по</span> <span class="err">всем</span> <span class="err">удалённым</span> <span class="err">серверам</span><span class="p">.</span>
+bytes_read UInt64        - количество прочитанных из таблиц байт, в несжатом виде. При распределённой обработке запроса, на сервере-инициаторе запроса, представляет собой сумму по всем удалённым серверам.
 
-<span class="n">total_rows_approx</span> <span class="n">UInt64</span> <span class="o">-</span> <span class="err">приблизительная</span> <span class="err">оценка</span> <span class="err">общего</span> <span class="err">количества</span> <span class="err">строк</span><span class="p">,</span> <span class="err">которые</span> <span class="err">должны</span> <span class="err">быть</span> <span class="err">прочитаны</span><span class="p">.</span> <span class="err">При</span> <span class="err">распределённой</span> <span class="err">обработке</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">на</span> <span class="err">сервере</span><span class="o">-</span><span class="err">инициаторе</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">представляет</span> <span class="err">собой</span> <span class="err">сумму</span> <span class="err">по</span> <span class="err">всем</span> <span class="err">удалённым</span> <span class="err">серверам</span><span class="p">.</span> <span class="err">Может</span> <span class="err">обновляться</span> <span class="err">в</span> <span class="err">процессе</span> <span class="err">выполнения</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">когда</span> <span class="err">становятся</span> <span class="err">известны</span> <span class="err">новые</span> <span class="err">источники</span> <span class="err">для</span> <span class="err">обработки</span><span class="p">.</span>
+total_rows_approx UInt64 - приблизительная оценка общего количества строк, которые должны быть прочитаны. При распределённой обработке запроса, на сервере-инициаторе запроса, представляет собой сумму по всем удалённым серверам. Может обновляться в процессе выполнения запроса, когда становятся известны новые источники для обработки.
 
-<span class="n">memory_usage</span> <span class="n">UInt64</span>      <span class="o">-</span> <span class="err">потребление</span> <span class="err">памяти</span> <span class="err">запросом</span><span class="p">.</span> <span class="err">Может</span> <span class="err">не</span> <span class="err">учитывать</span> <span class="err">некоторые</span> <span class="err">виды</span> <span class="err">выделенной</span> <span class="err">памяти</span><span class="p">.</span>
+memory_usage UInt64      - потребление памяти запросом. Может не учитывать некоторые виды выделенной памяти.
 
-<span class="n">query</span> <span class="n">String</span>             <span class="o">-</span> <span class="err">текст</span> <span class="err">запроса</span><span class="p">.</span> <span class="err">В</span> <span class="err">случае</span> <span class="k">INSERT</span> <span class="o">-</span> <span class="err">без</span> <span class="err">данных</span> <span class="err">для</span> <span class="k">INSERT</span><span class="o">-</span><span class="err">а</span><span class="p">.</span>
+query String             - текст запроса. В случае INSERT - без данных для INSERT-а.
 
-<span class="n">query_id</span> <span class="n">String</span>          <span class="o">-</span> <span class="err">идентификатор</span> <span class="err">запроса</span><span class="p">,</span> <span class="err">если</span> <span class="err">был</span> <span class="err">задан</span><span class="p">.</span>
+query_id String          - идентификатор запроса, если был задан.
 </pre></div>
 
 
@@ -3918,27 +3918,27 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">Row 1:</span>
-<span class="err">──────</span>
-<span class="c">database:           merge</span>
-<span class="c">table:              visits</span>
-<span class="c">engine:             ReplicatedCollapsingMergeTree</span>
-<span class="c">is_leader:          1</span>
-<span class="c">is_readonly:        0</span>
-<span class="c">is_session_expired: 0</span>
-<span class="c">future_parts:       1</span>
-<span class="c">parts_to_check:     0</span>
-<span class="c">zookeeper_path:     /clickhouse/tables/01-06/visits</span>
-<span class="c">replica_name:       example01-06-1.yandex.ru</span>
-<span class="c">replica_path:       /clickhouse/tables/01-06/visits/replicas/example01-06-1.yandex.ru</span>
-<span class="c">columns_version:    9</span>
-<span class="c">queue_size:         1</span>
-<span class="c">inserts_in_queue:   0</span>
-<span class="c">merges_in_queue:    1</span>
-<span class="c">log_max_index:      596273</span>
-<span class="c">log_pointer:        596274</span>
-<span class="c">total_replicas:     2</span>
-<span class="c">active_replicas:    2</span>
+<div class="codehilite"><pre><span></span>Row 1:
+──────
+database:           merge
+table:              visits
+engine:             ReplicatedCollapsingMergeTree
+is_leader:          1
+is_readonly:        0
+is_session_expired: 0
+future_parts:       1
+parts_to_check:     0
+zookeeper_path:     /clickhouse/tables/01-06/visits
+replica_name:       example01-06-1.yandex.ru
+replica_path:       /clickhouse/tables/01-06/visits/replicas/example01-06-1.yandex.ru
+columns_version:    9
+queue_size:         1
+inserts_in_queue:   0
+merges_in_queue:    1
+log_max_index:      596273
+log_pointer:        596274
+total_replicas:     2
+active_replicas:    2
 </pre></div>
 
 
@@ -4029,9 +4029,9 @@
 <p>Содержит информацию о настройках, используемых в данный момент.
 То есть, используемых для выполнения запроса, с помощью которого вы читаете из таблицы system.settings.</p>
 <p>Столбцы:</p>
-<div class="codehilite"><pre><span></span><span class="err">name String   - имя настройки</span>
-<span class="err">value String  - значение настройки</span>
-<span class="err">changed UInt8 - была ли настройка явно задана в конфиге или изменена явным образом</span>
+<div class="codehilite"><pre><span></span>name String   - имя настройки
+value String  - значение настройки
+changed UInt8 - была ли настройка явно задана в конфиге или изменена явным образом
 </pre></div>
 
 
@@ -4042,12 +4042,12 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─name───────────────────┬─value───────┬─changed─┐</span>
-<span class="err">│ max_threads            │ 8           │       1 │</span>
-<span class="err">│ use_uncompressed_cache │ 0           │       1 │</span>
-<span class="err">│ load_balancing         │ random      │       1 │</span>
-<span class="err">│ max_memory_usage       │ 10000000000 │       1 │</span>
-<span class="err">└────────────────────────┴─────────────┴─────────┘</span>
+<div class="codehilite"><pre><span></span>┌─name───────────────────┬─value───────┬─changed─┐
+│ max_threads            │ 8           │       1 │
+│ use_uncompressed_cache │ 0           │       1 │
+│ load_balancing         │ random      │       1 │
+│ max_memory_usage       │ 10000000000 │       1 │
+└────────────────────────┴─────────────┴─────────┘
 </pre></div>
 
 
@@ -4087,39 +4087,39 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="k">Row</span> <span class="mi">1</span><span class="p">:</span>
-<span class="err">──────</span>
-<span class="n">name</span><span class="p">:</span>           <span class="n">example01</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="n">yandex</span><span class="p">.</span><span class="n">ru</span>
-<span class="n">value</span><span class="p">:</span>
-<span class="n">czxid</span><span class="p">:</span>          <span class="mi">932998691229</span>
-<span class="n">mzxid</span><span class="p">:</span>          <span class="mi">932998691229</span>
-<span class="n">ctime</span><span class="p">:</span>          <span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">51</span>
-<span class="n">mtime</span><span class="p">:</span>          <span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span><span class="p">:</span><span class="mi">49</span><span class="p">:</span><span class="mi">51</span>
-<span class="k">version</span><span class="p">:</span>        <span class="mi">0</span>
-<span class="n">cversion</span><span class="p">:</span>       <span class="mi">47</span>
-<span class="n">aversion</span><span class="p">:</span>       <span class="mi">0</span>
-<span class="n">ephemeralOwner</span><span class="p">:</span> <span class="mi">0</span>
-<span class="n">dataLength</span><span class="p">:</span>     <span class="mi">0</span>
-<span class="n">numChildren</span><span class="p">:</span>    <span class="mi">7</span>
-<span class="n">pzxid</span><span class="p">:</span>          <span class="mi">987021031383</span>
-<span class="n">path</span><span class="p">:</span>           <span class="o">/</span><span class="n">clickhouse</span><span class="o">/</span><span class="n">tables</span><span class="o">/</span><span class="mi">01</span><span class="o">-</span><span class="mi">08</span><span class="o">/</span><span class="n">visits</span><span class="o">/</span><span class="n">replicas</span>
+<div class="codehilite"><pre><span></span>Row 1:
+──────
+name:           example01-08-1.yandex.ru
+value:
+czxid:          932998691229
+mzxid:          932998691229
+ctime:          2015-03-27 16:49:51
+mtime:          2015-03-27 16:49:51
+version:        0
+cversion:       47
+aversion:       0
+ephemeralOwner: 0
+dataLength:     0
+numChildren:    7
+pzxid:          987021031383
+path:           /clickhouse/tables/01-08/visits/replicas
 
-<span class="k">Row</span> <span class="mi">2</span><span class="p">:</span>
-<span class="err">──────</span>
-<span class="n">name</span><span class="p">:</span>           <span class="n">example01</span><span class="o">-</span><span class="mi">08</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="n">yandex</span><span class="p">.</span><span class="n">ru</span>
-<span class="n">value</span><span class="p">:</span>
-<span class="n">czxid</span><span class="p">:</span>          <span class="mi">933002738135</span>
-<span class="n">mzxid</span><span class="p">:</span>          <span class="mi">933002738135</span>
-<span class="n">ctime</span><span class="p">:</span>          <span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">01</span>
-<span class="n">mtime</span><span class="p">:</span>          <span class="mi">2015</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">27</span> <span class="mi">16</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">01</span>
-<span class="k">version</span><span class="p">:</span>        <span class="mi">0</span>
-<span class="n">cversion</span><span class="p">:</span>       <span class="mi">37</span>
-<span class="n">aversion</span><span class="p">:</span>       <span class="mi">0</span>
-<span class="n">ephemeralOwner</span><span class="p">:</span> <span class="mi">0</span>
-<span class="n">dataLength</span><span class="p">:</span>     <span class="mi">0</span>
-<span class="n">numChildren</span><span class="p">:</span>    <span class="mi">7</span>
-<span class="n">pzxid</span><span class="p">:</span>          <span class="mi">987021252247</span>
-<span class="n">path</span><span class="p">:</span>           <span class="o">/</span><span class="n">clickhouse</span><span class="o">/</span><span class="n">tables</span><span class="o">/</span><span class="mi">01</span><span class="o">-</span><span class="mi">08</span><span class="o">/</span><span class="n">visits</span><span class="o">/</span><span class="n">replicas</span>
+Row 2:
+──────
+name:           example01-08-2.yandex.ru
+value:
+czxid:          933002738135
+mzxid:          933002738135
+ctime:          2015-03-27 16:57:01
+mtime:          2015-03-27 16:57:01
+version:        0
+cversion:       37
+aversion:       0
+ephemeralOwner: 0
+dataLength:     0
+numChildren:    7
+pzxid:          987021252247
+path:           /clickhouse/tables/01-08/visits/replicas
 </pre></div>
 
 

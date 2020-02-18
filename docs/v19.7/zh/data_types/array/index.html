@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582041482">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582042939">
     
     
   </head>
@@ -3329,39 +3329,39 @@
 <p><code>T</code> 可以是任意类型，包含数组类型。 但不推荐使用多维数组，ClickHouse 对多维数组的支持有限。例如，不能存储在 <code>MergeTree</code> 表中存储多维数组。</p>
 <h2 id="chuang-jian-shu-zu">创建数组<a class="headerlink" href="#chuang-jian-shu-zu" title="Permanent link">&para;</a></h2>
 <p>您可以使用array函数来创建数组：</p>
-<div class="codehilite"><pre><span></span><span class="err">array(T)</span>
+<div class="codehilite"><pre><span></span>array(T)
 </pre></div>
 
 
 <p>您也可以使用方括号：</p>
-<div class="codehilite"><pre><span></span><span class="err">[]</span>
+<div class="codehilite"><pre><span></span>[]
 </pre></div>
 
 
 <p>创建数组示例：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT array(1, 2) AS x, toTypeName(x)
 
-<span class="k">SELECT</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
-    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+SELECT
+    [1, 2] AS x,
+    toTypeName(x)
 
-<span class="err">┌─</span><span class="n">x</span><span class="err">─────┬─</span><span class="n">toTypeName</span><span class="p">(</span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="err">│</span> <span class="nb">Array</span><span class="p">(</span><span class="n">UInt8</span><span class="p">)</span>            <span class="err">│</span>
-<span class="err">└───────┴─────────────────────────┘</span>
+┌─x─────┬─toTypeName(array(1, 2))─┐
+│ [1,2] │ Array(UInt8)            │
+└───────┴─────────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+:) SELECT [1, 2] AS x, toTypeName(x)
 
-<span class="k">SELECT</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
-    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+SELECT
+    [1, 2] AS x,
+    toTypeName(x)
 
-<span class="err">┌─</span><span class="n">x</span><span class="err">─────┬─</span><span class="n">toTypeName</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="err">│</span> <span class="nb">Array</span><span class="p">(</span><span class="n">UInt8</span><span class="p">)</span>       <span class="err">│</span>
-<span class="err">└───────┴────────────────────┘</span>
+┌─x─────┬─toTypeName([1, 2])─┐
+│ [1,2] │ Array(UInt8)       │
+└───────┴────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 </pre></div>
 
 
@@ -3369,29 +3369,29 @@
 <p>ClickHouse会自动检测数组元素,并根据元素计算出存储这些元素最小的数据类型。如果在元素中存在 <a href="../../query_language/syntax/#null-literal">NULL</a> 或存在 <a href="../nullable/#data_type-nullable">Nullable</a> 类型元素，那么数组的元素类型将会变成 <a href="../nullable/">Nullable</a>。</p>
 <p>如果 ClickHouse 无法确定数据类型，它将产生异常。当尝试同时创建一个包含字符串和数字的数组时会发生这种情况 (<code>SELECT array(1, 'a')</code>)。</p>
 <p>自动数据类型检测示例：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT array(1, 2, NULL) AS x, toTypeName(x)
 
-<span class="k">SELECT</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">]</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
-    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+SELECT
+    [1, 2, NULL] AS x,
+    toTypeName(x)
 
-<span class="err">┌─</span><span class="n">x</span><span class="err">──────────┬─</span><span class="n">toTypeName</span><span class="p">(</span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="k">NULL</span><span class="p">]</span> <span class="err">│</span> <span class="nb">Array</span><span class="p">(</span><span class="k">Nullable</span><span class="p">(</span><span class="n">UInt8</span><span class="p">))</span>        <span class="err">│</span>
-<span class="err">└────────────┴───────────────────────────────┘</span>
+┌─x──────────┬─toTypeName(array(1, 2, NULL))─┐
+│ [1,2,NULL] │ Array(Nullable(UInt8))        │
+└────────────┴───────────────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 </pre></div>
 
 
 <p>如果您尝试创建不兼容的数据类型数组，ClickHouse 将引发异常：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT array(1, &#39;a&#39;)
 
-<span class="k">SELECT</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+SELECT [1, &#39;a&#39;]
 
-<span class="n">Received</span> <span class="k">exception</span> <span class="k">from</span> <span class="n">server</span> <span class="p">(</span><span class="k">version</span> <span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">54388</span><span class="p">):</span>
-<span class="n">Code</span><span class="p">:</span> <span class="mi">386</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="n">Received</span> <span class="k">from</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">9000</span><span class="p">,</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="n">There</span> <span class="k">is</span> <span class="k">no</span> <span class="n">supertype</span> <span class="k">for</span> <span class="n">types</span> <span class="n">UInt8</span><span class="p">,</span> <span class="n">String</span> <span class="n">because</span> <span class="k">some</span> <span class="k">of</span> <span class="n">them</span> <span class="k">are</span> <span class="n">String</span><span class="o">/</span><span class="n">FixedString</span> <span class="k">and</span> <span class="k">some</span> <span class="k">of</span> <span class="n">them</span> <span class="k">are</span> <span class="k">not</span><span class="p">.</span>
+Received exception from server (version 1.1.54388):
+Code: 386. DB::Exception: Received from localhost:9000, 127.0.0.1. DB::Exception: There is no supertype for types UInt8, String because some of them are String/FixedString and some of them are not.
 
-<span class="mi">0</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">246</span> <span class="n">sec</span><span class="p">.</span>
+0 rows in set. Elapsed: 0.246 sec.
 </pre></div>
                 
                 </div>

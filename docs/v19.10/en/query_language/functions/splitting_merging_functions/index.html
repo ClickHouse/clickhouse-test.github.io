@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041207">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042687">
     
     
   </head>
@@ -3546,11 +3546,11 @@ Returns the string.</p>
 <h2 id="alphatokens-s">alphaTokens(s)<a class="headerlink" href="#alphatokens-s" title="Permanent link">&para;</a></h2>
 <p>Selects substrings of consecutive bytes from the ranges a-z and A-Z.Returns an array of substrings.</p>
 <p><strong>Example:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">alphaTokens</span><span class="p">(</span><span class="s1">&#39;abca1abc&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT alphaTokens(&#39;abca1abc&#39;)
 
-<span class="err">┌─</span><span class="n">alphaTokens</span><span class="p">(</span><span class="s1">&#39;abca1abc&#39;</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="s1">&#39;abca&#39;</span><span class="p">,</span><span class="s1">&#39;abc&#39;</span><span class="p">]</span>          <span class="err">│</span>
-<span class="err">└─────────────────────────┘</span>
+┌─alphaTokens(&#39;abca1abc&#39;)─┐
+│ [&#39;abca&#39;,&#39;abc&#39;]          │
+└─────────────────────────┘
 </pre></div>
                 
                 </div>

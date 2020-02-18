@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041109">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042597">
     
     
   </head>
@@ -3630,7 +3630,7 @@ If rounding causes overflow (for example, floor(-128, -1)), an implementation-sp
 <h2 id="rounding_functions-round">round(x[, N])<a class="headerlink" href="#rounding_functions-round" title="Permanent link">&para;</a></h2>
 <p>Rounds a value to a specified number of decimal places.</p>
 <p>The function returns the nearest number of the specified order. In case when given number has equal distance to surrounding numbers the function returns the number having the nearest even digit (banker's rounding).</p>
-<div class="codehilite"><pre><span></span><span class="err">round(expression [, decimal_places])</span>
+<div class="codehilite"><pre><span></span>round(expression [, decimal_places])
 </pre></div>
 
 
@@ -3652,29 +3652,29 @@ If rounding causes overflow (for example, floor(-128, -1)), an implementation-sp
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌───x─┬─round(divide(number, 2))─┐</span>
-<span class="err">│   0 │                        0 │</span>
-<span class="err">│ 0.5 │                        0 │</span>
-<span class="err">│   1 │                        1 │</span>
-<span class="err">└─────┴──────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌───x─┬─round(divide(number, 2))─┐
+│   0 │                        0 │
+│ 0.5 │                        0 │
+│   1 │                        1 │
+└─────┴──────────────────────────┘
 </pre></div>
 
 
 <p><strong>Examples of rounding</strong></p>
 <p>Rounding to the nearest number.</p>
-<div class="codehilite"><pre><span></span><span class="err">round(3.2, 0) = 3</span>
-<span class="err">round(4.1267, 2) = 4.13</span>
-<span class="err">round(22,-1) = 20</span>
-<span class="err">round(467,-2) = 500</span>
-<span class="err">round(-467,-2) = -500</span>
+<div class="codehilite"><pre><span></span>round(3.2, 0) = 3
+round(4.1267, 2) = 4.13
+round(22,-1) = 20
+round(467,-2) = 500
+round(-467,-2) = -500
 </pre></div>
 
 
 <p>Banker's rounding.</p>
-<div class="codehilite"><pre><span></span><span class="err">round(3.5) = 4</span>
-<span class="err">round(4.5) = 4</span>
-<span class="err">round(3.55, 1) = 3.6</span>
-<span class="err">round(3.65, 1) = 3.6</span>
+<div class="codehilite"><pre><span></span>round(3.5) = 4
+round(4.5) = 4
+round(3.55, 1) = 3.6
+round(3.65, 1) = 3.6
 </pre></div>
 
 

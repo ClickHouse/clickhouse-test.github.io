@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582040785">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042291">
     
     
   </head>
@@ -3609,7 +3609,7 @@
 <p><code>then</code>和<code>else</code>可以是<code>NULL</code></p>
 <h2 id="multiif">multiIf<a class="headerlink" href="#multiif" title="Permanent link">&para;</a></h2>
 <p>允许您在查询中更紧凑地编写<a href="../../operators/#operator_case">CASE</a>运算符。</p>
-<div class="codehilite"><pre><span></span><span class="err">multiIf(cond_1, then_1, cond_2, then_2...else)</span>
+<div class="codehilite"><pre><span></span>multiIf(cond_1, then_1, cond_2, then_2...else)
 </pre></div>
 
 
@@ -3624,18 +3624,18 @@
 <p>该函数返回值“then_N”或“else”之一，具体取决于条件<code>cond_N</code>。</p>
 <p><strong>示例</strong></p>
 <p>存在如下一张表</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 2 │    3 │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │ ᴺᵁᴸᴸ │
+│ 2 │    3 │
+└───┴──────┘
 </pre></div>
 
 
 <p>执行查询 <code>SELECT multiIf(isNull(y) x, y &lt; 3, y, NULL) FROM t_null</code>。结果：</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─multiIf(isNull(y), x, less(y, 3), y, NULL)─┐</span>
-<span class="err">│                                          1 │</span>
-<span class="err">│                                       ᴺᵁᴸᴸ │</span>
-<span class="err">└────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─multiIf(isNull(y), x, less(y, 3), y, NULL)─┐
+│                                          1 │
+│                                       ᴺᵁᴸᴸ │
+└────────────────────────────────────────────┘
 </pre></div>
                 
                 </div>

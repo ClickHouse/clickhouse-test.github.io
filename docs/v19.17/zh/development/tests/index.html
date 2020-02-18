@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582040536">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582042046">
     
     
   </head>
@@ -3974,20 +3974,20 @@
 <p>编译 ClickHouse。在命令行中运行 ClickHouse：进入 <code>dbms/src/programs/clickhouse-server</code> 目录并运行 <code>./clickhouse-server</code>。它会默认使用当前目录的配置文件 (<code>config.xml</code>， <code>users.xml</code> 以及在 <code>config.d</code> 和 <code>users.d</code> 目录的文件)。可以使用 <code>dbms/src/programs/clickhouse-client/clickhouse-client</code> 来连接数据库。</p>
 <p>或者，您可以安装 ClickHouse 软件包：从 Yandex 存储库中获得稳定版本，或者您可以在ClickHouse源根目录中使用 <code>./release</code> 构建自己的软件包。然后使用 <code>sudo service clickhouse-server start</code> 启动服务器（或停止服务器）。在 <code>/etc/clickhouse-server/clickhouse-server.log</code> 中查找日志。</p>
 <p>当您的系统上已经安装了 ClickHouse 时，您可以构建一个新的 <code>clickhouse</code> 二进制文件并替换现有的二进制文件：</p>
-<div class="codehilite"><pre><span></span><span class="err">sudo service clickhouse-server stop</span>
-<span class="err">sudo cp ./clickhouse /usr/bin/</span>
-<span class="err">sudo service clickhouse-server start</span>
+<div class="codehilite"><pre><span></span>sudo service clickhouse-server stop
+sudo cp ./clickhouse /usr/bin/
+sudo service clickhouse-server start
 </pre></div>
 
 
 <p>您也可以停止 clickhouse-server 并使用相同的配置运行您自己的服务器，日志打印到终端：</p>
-<div class="codehilite"><pre><span></span><span class="err">sudo service clickhouse-server stop</span>
-<span class="err">sudo -u clickhouse /usr/bin/clickhouse server --config-file /etc/clickhouse-server/config.xml</span>
+<div class="codehilite"><pre><span></span>sudo service clickhouse-server stop
+sudo -u clickhouse /usr/bin/clickhouse server --config-file /etc/clickhouse-server/config.xml
 </pre></div>
 
 
 <p>使用 gdb 的一个示例:</p>
-<div class="codehilite"><pre><span></span><span class="err">sudo -u clickhouse gdb --args /usr/bin/clickhouse server --config-file /etc/clickhouse-server/config.xml</span>
+<div class="codehilite"><pre><span></span>sudo -u clickhouse gdb --args /usr/bin/clickhouse server --config-file /etc/clickhouse-server/config.xml
 </pre></div>
 
 
@@ -3995,7 +3995,7 @@
 <p><code>clickhouse</code> 二进制文件几乎没有依赖关系，适用于各种 Linux 发行版。要快速地测试服务器上的更改，您可以简单地将新建的 <code>clickhouse</code> 二进制文件 <code>scp</code> 到其他服务器，然后按照上面的示例运行它。</p>
 <h2 id="ce-shi-huan-jing">测试环境<a class="headerlink" href="#ce-shi-huan-jing" title="Permanent link">&para;</a></h2>
 <p>在将版本发布为稳定之前，我们将其部署在测试环境中 测试环境是一个处理[Yandex.Metrica]（https://metrica.yandex.com/）总数据的1/39部分大小的集群。 我们与 Yandex.Metrica 团队公用我们的测试环境。ClickHouse 在现有数据的基础上无需停机即可升级。 我们首先看到数据处理成功而不会实时滞后，复制继续工作，并且 Yandex.Metrica 团队无法看到问题。 首先的检查可以通过以下方式完成：</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT hostName() AS h, any(version()), any(uptime()), max(UTCEventTime), count() FROM remote(&#39;example01-01-{1..3}t&#39;, merge, hits) WHERE EventDate &gt;= today() - 2 GROUP BY h ORDER BY h;</span>
+<div class="codehilite"><pre><span></span>SELECT hostName() AS h, any(version()), any(uptime()), max(UTCEventTime), count() FROM remote(&#39;example01-01-{1..3}t&#39;, merge, hits) WHERE EventDate &gt;= today() - 2 GROUP BY h ORDER BY h;
 </pre></div>
 
 
@@ -4004,13 +4004,13 @@
 <p>部署到测试环境后，我们使用生产群集中的查询运行负载测试。 这是手动完成的。</p>
 <p>确保在生产集群中开启了 <code>query_log</code> 选项。</p>
 <p>收集一天或更多的查询日志：</p>
-<div class="codehilite"><pre><span></span><span class="err">clickhouse-client --query=&quot;SELECT DISTINCT query FROM system.query_log WHERE event_date = today() AND query LIKE &#39;%ym:%&#39; AND query NOT LIKE &#39;%system.query_log%&#39; AND type = 2 AND is_initial_query&quot; &gt; queries.tsv</span>
+<div class="codehilite"><pre><span></span>clickhouse-client --query=&quot;SELECT DISTINCT query FROM system.query_log WHERE event_date = today() AND query LIKE &#39;%ym:%&#39; AND query NOT LIKE &#39;%system.query_log%&#39; AND type = 2 AND is_initial_query&quot; &gt; queries.tsv
 </pre></div>
 
 
 <p>这是一个复杂的例子。<code>type = 2</code> 将过滤成功执行的查询。<code>query LIKE'％ym：％'</code> 用于从 Yandex.Metrica 中选择相关查询。<code>is_initial_query</code> 是仅选择由客户端发起的查询，而不是由 ClickHouse 本身（作为分布式查询处理的一部分）。</p>
 <p><code>scp</code> 这份日志到测试机器，并运行以下操作：</p>
-<div class="codehilite"><pre><span></span><span class="err">clickhouse benchmark --concurrency 16 &lt; queries.tsv</span>
+<div class="codehilite"><pre><span></span>clickhouse benchmark --concurrency 16 &lt; queries.tsv
 </pre></div>
 
 

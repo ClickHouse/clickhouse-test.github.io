@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041010">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042503">
     
     
   </head>
@@ -3631,11 +3631,11 @@ separator - необязательный параметр, константна�
 <p>Выделяет подстроки из подряд идущих байт из диапазонов a-z и A-Z.
 Возвращается массив выделенных подстрок.</p>
 <p><strong>Пример:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">alphaTokens</span><span class="p">(</span><span class="s1">&#39;abca1abc&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>SELECT alphaTokens(&#39;abca1abc&#39;)
 
-<span class="err">┌─</span><span class="n">alphaTokens</span><span class="p">(</span><span class="s1">&#39;abca1abc&#39;</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="s1">&#39;abca&#39;</span><span class="p">,</span><span class="s1">&#39;abc&#39;</span><span class="p">]</span>          <span class="err">│</span>
-<span class="err">└─────────────────────────┘</span>
+┌─alphaTokens(&#39;abca1abc&#39;)─┐
+│ [&#39;abca&#39;,&#39;abc&#39;]          │
+└─────────────────────────┘
 </pre></div>
                 
                 </div>

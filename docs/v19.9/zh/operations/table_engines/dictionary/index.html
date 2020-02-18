@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582041301">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582042773">
     
     
   </head>
@@ -3474,16 +3474,16 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─name─────┬─type─┬─key────┬─attribute.names─┬─attribute.types─┬─bytes_allocated─┬─element_count─┬─source──────────┐</span>
-<span class="err">│ products │ Flat │ UInt64 │ [&#39;title&#39;]       │ [&#39;String&#39;]      │        23065376 │        175032 │ ODBC: .products │</span>
-<span class="err">└──────────┴──────┴────────┴─────────────────┴─────────────────┴─────────────────┴───────────────┴─────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─name─────┬─type─┬─key────┬─attribute.names─┬─attribute.types─┬─bytes_allocated─┬─element_count─┬─source──────────┐
+│ products │ Flat │ UInt64 │ [&#39;title&#39;]       │ [&#39;String&#39;]      │        23065376 │        175032 │ ODBC: .products │
+└──────────┴──────┴────────┴─────────────────┴─────────────────┴─────────────────┴───────────────┴─────────────────┘
 </pre></div>
 
 
 <p>你可以使用 <a href="../../../query_language/functions/ext_dict_functions/">dictGet*</a> 函数来获取这种格式的字典数据。</p>
 <p>当你需要获取原始数据，或者是想要使用 <code>JOIN</code> 操作的时候，这种视图并没有什么帮助。对于这些情况，你可以使用 <code>Dictionary</code> 引擎，它可以将字典数据展示在表中。</p>
 <p>语法：</p>
-<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE %table_name% (%fields%) engine = Dictionary(%dictionary_name%)`</span>
+<div class="codehilite"><pre><span></span>CREATE TABLE %table_name% (%fields%) engine = Dictionary(%dictionary_name%)`
 </pre></div>
 
 
@@ -3499,9 +3499,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">Ok</span><span class="p">.</span>
+<div class="codehilite"><pre><span></span>Ok.
 
-<span class="mi">0</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">004</span> <span class="n">sec</span><span class="p">.</span>
+0 rows in set. Elapsed: 0.004 sec.
 </pre></div>
 
 
@@ -3514,11 +3514,11 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌────</span><span class="n">product_id</span><span class="err">─┬─</span><span class="n">title</span><span class="err">───────────┐</span>
-<span class="err">│</span>        <span class="mi">152689</span> <span class="err">│</span> <span class="k">Some</span> <span class="n">item</span>       <span class="err">│</span>
-<span class="err">└───────────────┴─────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌────product_id─┬─title───────────┐
+│        152689 │ Some item       │
+└───────────────┴─────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">006</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.006 sec.
 </pre></div>
                 
                 </div>
