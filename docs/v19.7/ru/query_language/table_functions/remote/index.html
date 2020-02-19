@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582138079">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582140198">
     
     
   </head>
@@ -3299,35 +3299,35 @@
 <p>С IPv6-адресом обязательно нужно указывать порт.</p>
 </div>
 <p>Примеры:</p>
-<div class="codehilite"><pre><span></span>example01-01-1
-example01-01-1:9000
-localhost
-127.0.0.1
-[::]:9000
-[2a02:6b8:0:1111::11]:9000
+<div class="codehilite"><pre><span></span><span class="err">example01-01-1</span>
+<span class="c">example01-01-1:9000</span>
+<span class="err">localhost</span>
+<span class="err">127.0.0.1</span>
+<span class="err">[::]:9000</span>
+<span class="err">[2a02:6b8:0:1111::11]:9000</span>
 </pre></div>
 
 
 <p>Адреса можно указать через запятую, в этом случае ClickHouse обработает запрос как распределённый, т.е. отправит его по всем указанным адресам как на шарды с разными данными.</p>
 <p>Пример:</p>
-<div class="codehilite"><pre><span></span>example01-01-1,example01-02-1
+<div class="codehilite"><pre><span></span><span class="err">example01-01-1,example01-02-1</span>
 </pre></div>
 
 
 <p>Часть выражения может быть указана в фигурных скобках. Предыдущий пример может быть записан следующим образом:</p>
-<div class="codehilite"><pre><span></span>example01-0{1,2}-1
+<div class="codehilite"><pre><span></span><span class="err">example01-0{1,2}-1</span>
 </pre></div>
 
 
 <p>В фигурных скобках может быть указан диапазон (неотрицательных целых) чисел через две точки. В этом случае, диапазон раскрывается в множество значений, генерирующих адреса шардов. Если запись первого числа начинается с нуля, то значения формируются с таким же выравниванием нулями. Предыдущий пример может быть записан следующим образом:</p>
-<div class="codehilite"><pre><span></span>example01-{01..02}-1
+<div class="codehilite"><pre><span></span><span class="err">example01-{01..02}-1</span>
 </pre></div>
 
 
 <p>При наличии нескольких пар фигурных скобок, генерируется прямое произведение соответствующих множеств.</p>
 <p>Адреса или их фрагменты в фигурных скобках можно указать через символ |. В этом случае, соответствующие множества адресов понимаются как реплики - запрос будет отправлен на первую живую реплику. При этом, реплики перебираются в порядке, согласно текущей настройке <a href="../../../operations/settings/settings/">load_balancing</a>.</p>
 <p>Пример:</p>
-<div class="codehilite"><pre><span></span>example01-{01..02}-{1|2}
+<div class="codehilite"><pre><span></span><span class="err">example01-{01..02}-{1|2}</span>
 </pre></div>
 
 
@@ -3444,7 +3444,9 @@ localhost
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

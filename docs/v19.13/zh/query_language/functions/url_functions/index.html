@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137687">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139767">
     
     
   </head>
@@ -3929,11 +3929,11 @@
 <p>返回一个数组，其中包含以/切割的URL的所有内容。？将被包含在URL路径以及请求参数中。连续的分割符号被记为一个。</p>
 <h3 id="urlpathhierarchy-url">URLPathHierarchy(URL)<a class="headerlink" href="#urlpathhierarchy-url" title="Permanent link">&para;</a></h3>
 <p>与上面相同，但结果不包含协议和host部分。 /element(root)不包括在内。该函数用于在Yandex.Metric中实现导出URL的树形结构。</p>
-<div class="codehilite"><pre><span></span>URLPathHierarchy(&#39;https://example.com/browse/CONV-6788&#39;) =
-[
-    &#39;/browse/&#39;,
-    &#39;/browse/CONV-6788&#39;
-]
+<div class="codehilite"><pre><span></span><span class="err">URLPathHierarchy(&#39;https://example.com/browse/CONV-6788&#39;) =</span>
+<span class="err">[</span>
+<span class="err">    &#39;/browse/&#39;,</span>
+<span class="err">    &#39;/browse/CONV-6788&#39;</span>
+<span class="err">]</span>
 </pre></div>
 
 
@@ -3944,8 +3944,8 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─</span><span class="nt">DecodedURL</span><span class="err">─────────────────────────────┐</span>
-<span class="err">│</span> <span class="nt">http</span><span class="o">://</span><span class="nt">127</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">1</span><span class="p">:</span><span class="nd">8123</span><span class="o">/?</span><span class="nt">query</span><span class="o">=</span><span class="nt">SELECT</span> <span class="nt">1</span><span class="o">;</span> <span class="err">│</span>
+<div class="codehilite"><pre><span></span><span class="err">┌─DecodedURL─────────────────────────────┐</span>
+<span class="err">│ http://127.0.0.1:8123/?query=SELECT 1; │</span>
 <span class="err">└────────────────────────────────────────┘</span>
 </pre></div>
 
@@ -4062,7 +4062,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

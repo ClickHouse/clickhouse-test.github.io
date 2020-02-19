@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582137490">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?28528db?1582139566">
     
     
   </head>
@@ -3782,40 +3782,40 @@ CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
 )
 ENGINE = <Engine>
 ...</p>
-<div class="codehilite"><pre><span></span>If a codec is specified, the default codec doesn&#39;t apply. Codecs can be combined in a pipeline, for example, `CODEC(Delta, ZSTD)`. To select the best codecs combination for you project, pass benchmarks, similar to described in the Altinity [New Encodings to Improve ClickHouse Efficiency](https://www.altinity.com/blog/2019/7/new-encodings-to-improve-clickhouse) article.
+<div class="codehilite"><pre><span></span><span class="k">If</span> <span class="n">a</span> <span class="n">codec</span> <span class="k">is</span> <span class="n">specified</span><span class="p">,</span> <span class="n">the</span> <span class="k">default</span> <span class="n">codec</span> <span class="n">doesn</span><span class="s1">&#39;t apply. Codecs can be combined in a pipeline, for example, `CODEC(Delta, ZSTD)`. To select the best codecs combination for you project, pass benchmarks, similar to described in the Altinity [New Encodings to Improve ClickHouse Efficiency](https://www.altinity.com/blog/2019/7/new-encodings-to-improve-clickhouse) article.</span>
 
-!!!warning
-    You cannot decompress ClickHouse database files with external utilities, for example, `lz4`. Use the special utility, [clickhouse-compressor](https://github.com/ClickHouse/ClickHouse/tree/master/dbms/programs/compressor).
+<span class="s1">!!!warning</span>
+<span class="s1">    You cannot decompress ClickHouse database files with external utilities, for example, `lz4`. Use the special utility, [clickhouse-compressor](https://github.com/ClickHouse/ClickHouse/tree/master/dbms/programs/compressor).</span>
 
-Compression is supported for the table engines:
+<span class="s1">Compression is supported for the table engines:</span>
 
-- [*MergeTree](../operations/table_engines/mergetree.md) family
-- [*Log](../operations/table_engines/log_family.md) family
-- [Set](../operations/table_engines/set.md)
-- [Join](../operations/table_engines/join.md)
+<span class="s1">- [*MergeTree](../operations/table_engines/mergetree.md) family</span>
+<span class="s1">- [*Log](../operations/table_engines/log_family.md) family</span>
+<span class="s1">- [Set](../operations/table_engines/set.md)</span>
+<span class="s1">- [Join](../operations/table_engines/join.md)</span>
 
-ClickHouse supports common purpose codecs and specialized codecs.
+<span class="s1">ClickHouse supports common purpose codecs and specialized codecs.</span>
 
-### Specialized codecs {#create-query-specialized-codecs}
+<span class="s1">### Specialized codecs {#create-query-specialized-codecs}</span>
 
-These codecs are designed to make compression more effective using specifities of the data. Some of this codecs don&#39;t compress data by itself, but they prepare data to be compressed better by common purpose codecs.
+<span class="s1">These codecs are designed to make compression more effective using specifities of the data. Some of this codecs don&#39;</span><span class="n">t</span> <span class="n">compress</span> <span class="n">data</span> <span class="k">by</span> <span class="n">itself</span><span class="p">,</span> <span class="n">but</span> <span class="n">they</span> <span class="n">prepare</span> <span class="n">data</span> <span class="k">to</span> <span class="n">be</span> <span class="n">compressed</span> <span class="n">better</span> <span class="k">by</span> <span class="n">common</span> <span class="n">purpose</span> <span class="n">codecs</span><span class="p">.</span>
 
-Specialized codecs:
+<span class="n">Specialized</span> <span class="n">codecs</span><span class="p">:</span>
 
-- `Delta(delta_bytes)` — Compression approach in which raw values are replaced by the difference of two neighboring values, except for the first value that stays unchanged. Up to `delta_bytes` are used for storing delta values, so `delta_bytes` is the maximum size of raw values. Possible `delta_bytes` values: 1, 2, 4, 8. The default value for `delta_bytes` is `sizeof(type)` if equal to 1, 2, 4, or 8. In all other cases, it&#39;s 1.
-- `DoubleDelta` — Calculates delta of deltas and writes it in compact binary form. Optimal compression rates are achieved for monotonic sequences with a constant stride, such as time series data. Can be used with any fixed-width type. Implements the algorithm used in Gorilla TSDB, extending it to support 64-bit types. Uses 1 extra bit for 32-byte deltas: 5-bit prefixes instead of 4-bit prefixes. For additional information, see Compressing Time Stamps in [Gorilla: A Fast, Scalable, In-Memory Time Series Database](http://www.vldb.org/pvldb/vol8/p1816-teller.pdf).
-- `Gorilla` — Calculates XOR between current and previous value and writes it in compact binary form. Efficient when storing a series of floating point values that change slowly, because the best compression rate is achieved when neighboring values are binary equal. Implements the algorithm used in Gorilla TSDB, extending it to support 64-bit types. For additional information, see Compressing Values in [Gorilla: A Fast, Scalable, In-Memory Time Series Database](http://www.vldb.org/pvldb/vol8/p1816-teller.pdf).
-- `T64` — Compression approach that crops unused high bits of values in integer data types (including `Enum`, `Date` and `DateTime`). At each step of its algorithm, codec takes a block of 64 values, puts them into 64x64 bit matrix, transposes it, crops the unused bits of values and returns the rest as a sequence. Unused bits are the bits, that don&#39;t differ between maximum and minimum values in the whole data part for which the compression is used.
+<span class="o">-</span> <span class="ss">`Delta(delta_bytes)`</span> <span class="err">—</span> <span class="n">Compression</span> <span class="n">approach</span> <span class="k">in</span> <span class="n">which</span> <span class="n">raw</span> <span class="k">values</span> <span class="n">are</span> <span class="n">replaced</span> <span class="k">by</span> <span class="n">the</span> <span class="n">difference</span> <span class="n">of</span> <span class="n">two</span> <span class="n">neighboring</span> <span class="k">values</span><span class="p">,</span> <span class="n">except</span> <span class="k">for</span> <span class="n">the</span> <span class="n">first</span> <span class="n">value</span> <span class="n">that</span> <span class="n">stays</span> <span class="n">unchanged</span><span class="p">.</span> <span class="n">Up</span> <span class="k">to</span> <span class="ss">`delta_bytes`</span> <span class="n">are</span> <span class="n">used</span> <span class="k">for</span> <span class="n">storing</span> <span class="n">delta</span> <span class="k">values</span><span class="p">,</span> <span class="n">so</span> <span class="ss">`delta_bytes`</span> <span class="k">is</span> <span class="n">the</span> <span class="n">maximum</span> <span class="n">size</span> <span class="n">of</span> <span class="n">raw</span> <span class="k">values</span><span class="p">.</span> <span class="n">Possible</span> <span class="ss">`delta_bytes`</span> <span class="k">values</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">.</span> <span class="n">The</span> <span class="k">default</span> <span class="n">value</span> <span class="k">for</span> <span class="ss">`delta_bytes`</span> <span class="k">is</span> <span class="ss">`sizeof(type)`</span> <span class="k">if</span> <span class="n">equal</span> <span class="k">to</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="k">or</span> <span class="mi">8</span><span class="p">.</span> <span class="k">In</span> <span class="k">all</span> <span class="n">other</span> <span class="n">cases</span><span class="p">,</span> <span class="n">it</span><span class="s1">&#39;s 1.</span>
+<span class="s1">- `DoubleDelta` — Calculates delta of deltas and writes it in compact binary form. Optimal compression rates are achieved for monotonic sequences with a constant stride, such as time series data. Can be used with any fixed-width type. Implements the algorithm used in Gorilla TSDB, extending it to support 64-bit types. Uses 1 extra bit for 32-byte deltas: 5-bit prefixes instead of 4-bit prefixes. For additional information, see Compressing Time Stamps in [Gorilla: A Fast, Scalable, In-Memory Time Series Database](http://www.vldb.org/pvldb/vol8/p1816-teller.pdf).</span>
+<span class="s1">- `Gorilla` — Calculates XOR between current and previous value and writes it in compact binary form. Efficient when storing a series of floating point values that change slowly, because the best compression rate is achieved when neighboring values are binary equal. Implements the algorithm used in Gorilla TSDB, extending it to support 64-bit types. For additional information, see Compressing Values in [Gorilla: A Fast, Scalable, In-Memory Time Series Database](http://www.vldb.org/pvldb/vol8/p1816-teller.pdf).</span>
+<span class="s1">- `T64` — Compression approach that crops unused high bits of values in integer data types (including `Enum`, `Date` and `DateTime`). At each step of its algorithm, codec takes a block of 64 values, puts them into 64x64 bit matrix, transposes it, crops the unused bits of values and returns the rest as a sequence. Unused bits are the bits, that don&#39;</span><span class="n">t</span> <span class="n">differ</span> <span class="k">between</span> <span class="n">maximum</span> <span class="k">and</span> <span class="n">minimum</span> <span class="k">values</span> <span class="k">in</span> <span class="n">the</span> <span class="n">whole</span> <span class="n">data</span> <span class="n">part</span> <span class="k">for</span> <span class="n">which</span> <span class="n">the</span> <span class="n">compression</span> <span class="k">is</span> <span class="n">used</span><span class="p">.</span>
 
-`DoubleDelta` and `Gorilla` codecs are used in Gorilla TSDB as the components of its compressing algorithm. Gorilla approach is effective in scenarios when there is a sequence of slowly changing values with their timestamps. Timestamps are effectively compressed by the `DoubleDelta` codec, and values are effectively compressed by the `Gorilla` codec. For example, to get an effectively stored table, you can create it in the following configuration:
+<span class="ss">`DoubleDelta`</span> <span class="k">and</span> <span class="ss">`Gorilla`</span> <span class="n">codecs</span> <span class="n">are</span> <span class="n">used</span> <span class="k">in</span> <span class="n">Gorilla</span> <span class="n">TSDB</span> <span class="k">as</span> <span class="n">the</span> <span class="n">components</span> <span class="n">of</span> <span class="n">its</span> <span class="n">compressing</span> <span class="n">algorithm</span><span class="p">.</span> <span class="n">Gorilla</span> <span class="n">approach</span> <span class="k">is</span> <span class="n">effective</span> <span class="k">in</span> <span class="n">scenarios</span> <span class="k">when</span> <span class="n">there</span> <span class="k">is</span> <span class="n">a</span> <span class="n">sequence</span> <span class="n">of</span> <span class="n">slowly</span> <span class="n">changing</span> <span class="k">values</span> <span class="k">with</span> <span class="n">their</span> <span class="n">timestamps</span><span class="p">.</span> <span class="n">Timestamps</span> <span class="n">are</span> <span class="n">effectively</span> <span class="n">compressed</span> <span class="k">by</span> <span class="n">the</span> <span class="ss">`DoubleDelta`</span> <span class="n">codec</span><span class="p">,</span> <span class="k">and</span> <span class="k">values</span> <span class="n">are</span> <span class="n">effectively</span> <span class="n">compressed</span> <span class="k">by</span> <span class="n">the</span> <span class="ss">`Gorilla`</span> <span class="n">codec</span><span class="p">.</span> <span class="k">For</span> <span class="n">example</span><span class="p">,</span> <span class="k">to</span> <span class="n">get</span> <span class="n">an</span> <span class="n">effectively</span> <span class="n">stored</span> <span class="k">table</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="k">create</span> <span class="n">it</span> <span class="k">in</span> <span class="n">the</span> <span class="n">following</span> <span class="n">configuration</span><span class="p">:</span>
 
-```sql
-CREATE TABLE codec_example
-(
-    timestamp DateTime CODEC(DoubleDelta),
-    slow_values Float32 CODEC(Gorilla)
-)
-ENGINE = MergeTree()
+<span class="ss">``</span><span class="o">`</span><span class="k">sql</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="nf">codec_example</span>
+<span class="p">(</span>
+    <span class="kt">timestamp</span> <span class="kt">DateTime</span> <span class="nf">CODEC</span><span class="p">(</span><span class="n">DoubleDelta</span><span class="p">),</span>
+    <span class="n">slow_values</span> <span class="n">Float32</span> <span class="nf">CODEC</span><span class="p">(</span><span class="n">Gorilla</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="kp">ENGINE</span> <span class="o">=</span> <span class="nf">MergeTree</span><span class="p">()</span>
 </pre></div>
 
 
@@ -3988,7 +3988,9 @@ replicated系列表还没有支持<code>ALTER</code>查询。</p>
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

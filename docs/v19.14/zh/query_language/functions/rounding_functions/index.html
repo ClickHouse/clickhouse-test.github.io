@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3670,7 +3670,7 @@
 <h2 id="rounding_functions-round">round(x[, N])<a class="headerlink" href="#rounding_functions-round" title="Permanent link">&para;</a></h2>
 <p>将值取整到指定的小数位数。</p>
 <p>该函数按顺序返回最近的数字。如果给定数字包含多个最近数字，则函数返回其中最接近偶数的数字（银行的取整方式）。</p>
-<div class="codehilite"><pre><span></span>round(expression [, decimal_places])
+<div class="codehilite"><pre><span></span><span class="err">round(expression [, decimal_places])</span>
 </pre></div>
 
 
@@ -3692,29 +3692,29 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌───x─┬─round(divide(number, 2))─┐
-│   0 │                        0 │
-│ 0.5 │                        0 │
-│   1 │                        1 │
-└─────┴──────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌───x─┬─round(divide(number, 2))─┐</span>
+<span class="err">│   0 │                        0 │</span>
+<span class="err">│ 0.5 │                        0 │</span>
+<span class="err">│   1 │                        1 │</span>
+<span class="err">└─────┴──────────────────────────┘</span>
 </pre></div>
 
 
 <p><strong>取整的示例</strong></p>
 <p>取整到最近的数字。</p>
-<div class="codehilite"><pre><span></span>round(3.2, 0) = 3
-round(4.1267, 2) = 4.13
-round(22,-1) = 20
-round(467,-2) = 500
-round(-467,-2) = -500
+<div class="codehilite"><pre><span></span><span class="err">round(3.2, 0) = 3</span>
+<span class="err">round(4.1267, 2) = 4.13</span>
+<span class="err">round(22,-1) = 20</span>
+<span class="err">round(467,-2) = 500</span>
+<span class="err">round(-467,-2) = -500</span>
 </pre></div>
 
 
 <p>银行的取整。</p>
-<div class="codehilite"><pre><span></span>round(3.5) = 4
-round(4.5) = 4
-round(3.55, 1) = 3.6
-round(3.65, 1) = 3.6
+<div class="codehilite"><pre><span></span><span class="err">round(3.5) = 4</span>
+<span class="err">round(4.5) = 4</span>
+<span class="err">round(3.55, 1) = 3.6</span>
+<span class="err">round(3.65, 1) = 3.6</span>
 </pre></div>
 
 
@@ -3826,7 +3826,9 @@ round(3.65, 1) = 3.6
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

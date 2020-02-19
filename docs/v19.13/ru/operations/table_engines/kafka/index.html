@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137687">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139767">
     
     
   </head>
@@ -3611,21 +3611,21 @@
 <li>Обрабатывать потоки по мере их появления.</li>
 </ul>
 <h2 id="table_engine-kafka-creating-a-table">Создание таблицы<a class="headerlink" href="#table_engine-kafka-creating-a-table" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>CREATE TABLE [IF NOT EXISTS] [db.]table_name [ON CLUSTER cluster]
-(
-    name1 [type1] [DEFAULT|MATERIALIZED|ALIAS expr1],
-    name2 [type2] [DEFAULT|MATERIALIZED|ALIAS expr2],
-    ...
-) ENGINE = Kafka()
-SETTINGS
-    kafka_broker_list = &#39;host:port&#39;,
-    kafka_topic_list = &#39;topic1,topic2,...&#39;,
-    kafka_group_name = &#39;group_name&#39;,
-    kafka_format = &#39;data_format&#39;[,]
-    [kafka_row_delimiter = &#39;delimiter_symbol&#39;,]
-    [kafka_schema = &#39;&#39;,]
-    [kafka_num_consumers = N,]
-    [kafka_skip_broken_messages = N]
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="nc">TABLE</span><span class="w"> </span><span class="o">[</span><span class="n">IF NOT EXISTS</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">db.</span><span class="o">]</span><span class="n">table_name</span><span class="w"> </span><span class="o">[</span><span class="n">ON CLUSTER cluster</span><span class="o">]</span><span class="w"></span>
+<span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">name1</span><span class="w"> </span><span class="o">[</span><span class="n">type1</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">DEFAULT|MATERIALIZED|ALIAS expr1</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">name2</span><span class="w"> </span><span class="o">[</span><span class="n">type2</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">DEFAULT|MATERIALIZED|ALIAS expr2</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">)</span><span class="w"> </span><span class="n">ENGINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Kafka</span><span class="p">()</span><span class="w"></span>
+<span class="n">SETTINGS</span><span class="w"></span>
+<span class="w">    </span><span class="n">kafka_broker_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;host:port&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">kafka_topic_list</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;topic1,topic2,...&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">kafka_group_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;group_name&#39;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">kafka_format</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;data_format&#39;</span><span class="o">[</span><span class="n">,</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="o">[</span><span class="n">kafka_row_delimiter = &#39;delimiter_symbol&#39;,</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="o">[</span><span class="n">kafka_schema = &#39;&#39;,</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="o">[</span><span class="n">kafka_num_consumers = N,</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="o">[</span><span class="n">kafka_skip_broken_messages = N</span><span class="o">]</span><span class="w"></span>
 </pre></div>
 
 
@@ -3677,8 +3677,8 @@ SETTINGS
 <p class="admonition-title">Attention</p>
 <p>Не используйте этот метод в новых проектах. По возможности переключите старые проекты на метод, описанный выше.</p>
 </div>
-<div class="codehilite"><pre><span></span>Kafka(kafka_broker_list, kafka_topic_list, kafka_group_name, kafka_format
-      [, kafka_row_delimiter, kafka_schema, kafka_num_consumers, kafka_skip_broken_messages])
+<div class="codehilite"><pre><span></span><span class="err">Kafka(kafka_broker_list, kafka_topic_list, kafka_group_name, kafka_format</span>
+<span class="err">      [, kafka_row_delimiter, kafka_schema, kafka_num_consumers, kafka_skip_broken_messages])</span>
 </pre></div>
 
 
@@ -3717,8 +3717,8 @@ SETTINGS
 
 <p>Для улучшения производительности полученные сообщения группируются в блоки размера <a href="../../settings/settings/#settings-max_insert_block_size">max_insert_block_size</a>. Если блок не удалось сформировать за <a href="../../settings/settings/">stream_flush_interval_ms</a> миллисекунд, то данные будут сброшены в таблицу независимо от полноты блока.</p>
 <p>Чтобы остановить получение данных топика или изменить логику преобразования, отсоедините материализованное представление:</p>
-<div class="codehilite"><pre><span></span>  DETACH TABLE consumer;
-  ATTACH MATERIALIZED VIEW consumer;
+<div class="codehilite"><pre><span></span><span class="err">  DETACH TABLE consumer;</span>
+<span class="err">  ATTACH MATERIALIZED VIEW consumer;</span>
 </pre></div>
 
 
@@ -3840,7 +3840,9 @@ SETTINGS
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

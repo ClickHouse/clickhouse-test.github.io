@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137851">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139948">
     
     
   </head>
@@ -3724,7 +3724,7 @@
 </li>
 </ul>
 <p><strong>Пример задания секций</strong></p>
-<div class="codehilite"><pre><span></span>ENGINE MergeTree() PARTITION BY toYYYYMM(EventDate) ORDER BY (CounterID, EventDate, intHash32(UserID)) SAMPLE BY intHash32(UserID) SETTINGS index_granularity=8192
+<div class="codehilite"><pre><span></span><span class="err">ENGINE MergeTree() PARTITION BY toYYYYMM(EventDate) ORDER BY (CounterID, EventDate, intHash32(UserID)) SAMPLE BY intHash32(UserID) SETTINGS index_granularity=8192</span>
 </pre></div>
 
 
@@ -3752,7 +3752,7 @@
 <li><code>(primary, key)</code> — первичный ключ. Тип — [Tuple()](../../data_types/tuple.md- <code>index_granularity</code> — гранулярность индекса. Число строк данных между «засечками» индекса. Для большинства задач подходит значение 8192.</li>
 </ul>
 <p><strong>Пример</strong></p>
-<div class="codehilite"><pre><span></span>MergeTree(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID)), 8192)
+<div class="codehilite"><pre><span></span><span class="err">MergeTree(EventDate, intHash32(UserID), (CounterID, EventDate, intHash32(UserID)), 8192)</span>
 </pre></div>
 
 
@@ -3766,12 +3766,12 @@
 <p>Вы можете использовать одну большую таблицу, постоянно добавляя в неё данные пачками, именно для этого предназначен движок <code>MergeTree</code>.</p>
 <h2 id="primary-keys-and-indexes-in-queries">Первичные ключи и индексы в запросах<a class="headerlink" href="#primary-keys-and-indexes-in-queries" title="Permanent link">&para;</a></h2>
 <p>Рассмотрим первичный ключ — <code>(CounterID, Date)</code>. В этом случае сортировку и индекс можно проиллюстрировать следующим образом:</p>
-<div class="codehilite"><pre><span></span>Whole data:     [-------------------------------------------------------------------------]
-CounterID:      [aaaaaaaaaaaaaaaaaabbbbcdeeeeeeeeeeeeefgggggggghhhhhhhhhiiiiiiiiikllllllll]
-Date:           [1111111222222233331233211111222222333211111112122222223111112223311122333]
-Marks:           |      |      |      |      |      |      |      |      |      |      |
-                a,1    a,2    a,3    b,3    e,2    e,3    g,1    h,2    i,1    i,3    l,3
-Marks numbers:   0      1      2      3      4      5      6      7      8      9      10
+<div class="codehilite"><pre><span></span><span class="n">Whole</span><span class="w"> </span><span class="k">data</span><span class="err">:</span><span class="w">     </span><span class="o">[</span><span class="n">-------------------------------------------------------------------------</span><span class="o">]</span><span class="w"></span>
+<span class="nl">CounterID</span><span class="p">:</span><span class="w">      </span><span class="o">[</span><span class="n">aaaaaaaaaaaaaaaaaabbbbcdeeeeeeeeeeeeefgggggggghhhhhhhhhiiiiiiiiikllllllll</span><span class="o">]</span><span class="w"></span>
+<span class="nc">Date</span><span class="err">:</span><span class="w">           </span><span class="o">[</span><span class="n">1111111222222233331233211111222222333211111112122222223111112223311122333</span><span class="o">]</span><span class="w"></span>
+<span class="nl">Marks</span><span class="p">:</span><span class="w">           </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w">      </span><span class="o">|</span><span class="w"></span>
+<span class="w">                </span><span class="n">a</span><span class="p">,</span><span class="mi">1</span><span class="w">    </span><span class="n">a</span><span class="p">,</span><span class="mi">2</span><span class="w">    </span><span class="n">a</span><span class="p">,</span><span class="mi">3</span><span class="w">    </span><span class="n">b</span><span class="p">,</span><span class="mi">3</span><span class="w">    </span><span class="n">e</span><span class="p">,</span><span class="mi">2</span><span class="w">    </span><span class="n">e</span><span class="p">,</span><span class="mi">3</span><span class="w">    </span><span class="n">g</span><span class="p">,</span><span class="mi">1</span><span class="w">    </span><span class="n">h</span><span class="p">,</span><span class="mi">2</span><span class="w">    </span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="w">    </span><span class="n">i</span><span class="p">,</span><span class="mi">3</span><span class="w">    </span><span class="n">l</span><span class="p">,</span><span class="mi">3</span><span class="w"></span>
+<span class="n">Marks</span><span class="w"> </span><span class="nl">numbers</span><span class="p">:</span><span class="w">   </span><span class="mi">0</span><span class="w">      </span><span class="mi">1</span><span class="w">      </span><span class="mi">2</span><span class="w">      </span><span class="mi">3</span><span class="w">      </span><span class="mi">4</span><span class="w">      </span><span class="mi">5</span><span class="w">      </span><span class="mi">6</span><span class="w">      </span><span class="mi">7</span><span class="w">      </span><span class="mi">8</span><span class="w">      </span><span class="mi">9</span><span class="w">      </span><span class="mi">10</span><span class="w"></span>
 </pre></div>
 
 
@@ -3824,7 +3824,7 @@ Marks numbers:   0      1      2      3      4      5      6      7      8      
 <p>Для запросов <code>SELECT</code> ClickHouse анализирует возможность использования индекса. Индекс может использоваться, если в секции <code>WHERE/PREWHERE</code>, в качестве одного из элементов конъюнкции, или целиком, есть выражение, представляющее операции сравнения на равенства, неравенства, а также <code>IN</code> или <code>LIKE</code> с фиксированным префиксом, над столбцами или выражениями, входящими в первичный ключ или ключ партиционирования, либо над некоторыми частично монотонными функциями от этих столбцов, а также логические связки над такими выражениями.</p>
 <p>Таким образом, обеспечивается возможность быстро выполнять запросы по одному или многим диапазонам первичного ключа. Например, в указанном примере будут быстро работать запросы для конкретного счётчика; для конкретного счётчика и диапазона дат; для конкретного счётчика и даты, для нескольких счётчиков и диапазона дат и т. п.</p>
 <p>Рассмотрим движок сконфигурированный следующим образом:</p>
-<div class="codehilite"><pre><span></span>ENGINE MergeTree() PARTITION BY toYYYYMM(EventDate) ORDER BY (CounterID, EventDate) SETTINGS index_granularity=8192
+<div class="codehilite"><pre><span></span><span class="err">ENGINE MergeTree() PARTITION BY toYYYYMM(EventDate) ORDER BY (CounterID, EventDate) SETTINGS index_granularity=8192</span>
 </pre></div>
 
 
@@ -3997,7 +3997,9 @@ Marks numbers:   0      1      2      3      4      5      6      7      8      
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137129">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139198">
     
     
   </head>
@@ -3992,18 +3992,18 @@
 <h2 id="visitparamextractraw-params-name">visitParamExtractRaw(params, name)<a class="headerlink" href="#visitparamextractraw-params-name" title="Permanent link">&para;</a></h2>
 <p>返回字段的值，包含空格符。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span>visitParamExtractRaw(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;&quot;\\n\\u0000&quot;&#39;
-visitParamExtractRaw(&#39;{&quot;abc&quot;:{&quot;def&quot;:[1,2,3]}}&#39;, &#39;abc&#39;) = &#39;{&quot;def&quot;:[1,2,3]}&#39;
+<div class="codehilite"><pre><span></span><span class="err">visitParamExtractRaw(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;&quot;\\n\\u0000&quot;&#39;</span>
+<span class="err">visitParamExtractRaw(&#39;{&quot;abc&quot;:{&quot;def&quot;:[1,2,3]}}&#39;, &#39;abc&#39;) = &#39;{&quot;def&quot;:[1,2,3]}&#39;</span>
 </pre></div>
 
 
 <h2 id="visitparamextractstring-params-name">visitParamExtractString(params, name)<a class="headerlink" href="#visitparamextractstring-params-name" title="Permanent link">&para;</a></h2>
 <p>使用双引号解析字符串。这个值没有进行转义。如果转义失败，它将返回一个空白字符串。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span>visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;\n\0&#39;
-visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\u263a&quot;}&#39;, &#39;abc&#39;) = &#39;☺&#39;
-visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\u263&quot;}&#39;, &#39;abc&#39;) = &#39;&#39;
-visitParamExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) = &#39;&#39;
+<div class="codehilite"><pre><span></span><span class="err">visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;\n\0&#39;</span>
+<span class="err">visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\u263a&quot;}&#39;, &#39;abc&#39;) = &#39;☺&#39;</span>
+<span class="err">visitParamExtractString(&#39;{&quot;abc&quot;:&quot;\\u263&quot;}&#39;, &#39;abc&#39;) = &#39;&#39;</span>
+<span class="err">visitParamExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) = &#39;&#39;</span>
 </pre></div>
 
 
@@ -4013,8 +4013,8 @@ visitParamExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) 
 <p>如果JSON中存在该值，则返回<code>1</code>。</p>
 <p>如果该值不存在，则返回<code>0</code>。</p>
 <p>示例：</p>
-<div class="codehilite"><pre><span></span>select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = 1
-select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 4) = 0
+<div class="codehilite"><pre><span></span><span class="err">select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = 1</span>
+<span class="err">select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 4) = 0</span>
 </pre></div>
 
 
@@ -4026,11 +4026,11 @@ select JSONHas(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200
 </ul>
 <p>您可以使用整数来访问JSON数组和JSON对象。</p>
 <p>例如：</p>
-<div class="codehilite"><pre><span></span>select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 1) = &#39;a&#39;
-select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 2) = &#39;b&#39;
-select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, -1) = &#39;b&#39;
-select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, -2) = &#39;a&#39;
-select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 1) = &#39;hello&#39;
+<div class="codehilite"><pre><span></span><span class="err">select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 1) = &#39;a&#39;</span>
+<span class="err">select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 2) = &#39;b&#39;</span>
+<span class="err">select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, -1) = &#39;b&#39;</span>
+<span class="err">select JSONExtractKey(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, -2) = &#39;a&#39;</span>
+<span class="err">select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, 1) = &#39;hello&#39;</span>
 </pre></div>
 
 
@@ -4038,8 +4038,8 @@ select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: 
 <p>返回JSON数组或JSON对象的长度。</p>
 <p>如果该值不存在或类型错误，将返回<code>0</code>。</p>
 <p>示例：</p>
-<div class="codehilite"><pre><span></span>select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = 3
-select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;) = 2
+<div class="codehilite"><pre><span></span><span class="err">select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = 3</span>
+<span class="err">select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;) = 2</span>
 </pre></div>
 
 
@@ -4047,9 +4047,9 @@ select JSONLength(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 
 <p>返回JSON值的类型。</p>
 <p>如果该值不存在，将返回<code>Null</code>。</p>
 <p>示例：</p>
-<div class="codehilite"><pre><span></span>select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;) = &#39;Object&#39;
-select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;a&#39;) = &#39;String&#39;
-select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = &#39;Array&#39;
+<div class="codehilite"><pre><span></span><span class="err">select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;) = &#39;Object&#39;</span>
+<span class="err">select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;a&#39;) = &#39;String&#39;</span>
+<span class="err">select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = &#39;Array&#39;</span>
 </pre></div>
 
 
@@ -4060,9 +4060,9 @@ select JSONType(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 20
 <p>解析JSON并提取值。这些函数类似于<code>visitParam*</code>函数。</p>
 <p>如果该值不存在或类型错误，将返回<code>0</code>。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span>select JSONExtractInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 1) = -100
-select JSONExtractFloat(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 2) = 200.0
-select JSONExtractUInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, -1) = 300
+<div class="codehilite"><pre><span></span><span class="err">select JSONExtractInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 1) = -100</span>
+<span class="err">select JSONExtractFloat(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 2) = 200.0</span>
+<span class="err">select JSONExtractUInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, -1) = 300</span>
 </pre></div>
 
 
@@ -4071,11 +4071,11 @@ select JSONExtractUInt(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-
 <p>如果该值不存在或类型错误，则返回空字符串。</p>
 <p>该值未转义。如果unescaping失败，则返回一个空字符串。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span>select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;a&#39;) = &#39;hello&#39;
-select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;\n\0&#39;
-select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\u263a&quot;}&#39;, &#39;abc&#39;) = &#39;☺&#39;
-select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\u263&quot;}&#39;, &#39;abc&#39;) = &#39;&#39;
-select JSONExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) = &#39;&#39;
+<div class="codehilite"><pre><span></span><span class="err">select JSONExtractString(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;a&#39;) = &#39;hello&#39;</span>
+<span class="err">select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\n\\u0000&quot;}&#39;, &#39;abc&#39;) = &#39;\n\0&#39;</span>
+<span class="err">select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\u263a&quot;}&#39;, &#39;abc&#39;) = &#39;☺&#39;</span>
+<span class="err">select JSONExtractString(&#39;{&quot;abc&quot;:&quot;\\u263&quot;}&#39;, &#39;abc&#39;) = &#39;&#39;</span>
+<span class="err">select JSONExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;) = &#39;&#39;</span>
 </pre></div>
 
 
@@ -4084,20 +4084,20 @@ select JSONExtractString(&#39;{&quot;abc&quot;:&quot;hello}&#39;, &#39;abc&#39;)
 <p>这是以前的<code>JSONExtract&lt;type&gt;函数的变体。
 这意味着</code>JSONExtract(..., 'String')<code>返回与</code>JSONExtractString()<code>返回完全相同。</code>JSONExtract(..., 'Float64')<code>返回于</code>JSONExtractFloat()`返回完全相同。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span>SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;Tuple(String, Array(Float64))&#39;) = (&#39;hello&#39;,[-100,200,300])
-SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;Tuple(b Array(Float64), a String)&#39;) = ([-100,200,300],&#39;hello&#39;)
-SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, &#39;Array(Nullable(Int8))&#39;) = [-100, NULL, NULL]
-SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 4, &#39;Nullable(Int64)&#39;) = NULL
-SELECT JSONExtract(&#39;{&quot;passed&quot;: true}&#39;, &#39;passed&#39;, &#39;UInt8&#39;) = 1
-SELECT JSONExtract(&#39;{&quot;day&quot;: &quot;Thursday&quot;}&#39;, &#39;day&#39;, &#39;Enum8(\&#39;Sunday\&#39; = 0, \&#39;Monday\&#39; = 1, \&#39;Tuesday\&#39; = 2, \&#39;Wednesday\&#39; = 3, \&#39;Thursday\&#39; = 4, \&#39;Friday\&#39; = 5, \&#39;Saturday\&#39; = 6)&#39;) = &#39;Thursday&#39;
-SELECT JSONExtract(&#39;{&quot;day&quot;: 5}&#39;, &#39;day&#39;, &#39;Enum8(\&#39;Sunday\&#39; = 0, \&#39;Monday\&#39; = 1, \&#39;Tuesday\&#39; = 2, \&#39;Wednesday\&#39; = 3, \&#39;Thursday\&#39; = 4, \&#39;Friday\&#39; = 5, \&#39;Saturday\&#39; = 6)&#39;) = &#39;Friday&#39;
+<div class="codehilite"><pre><span></span><span class="err">SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;Tuple(String, Array(Float64))&#39;) = (&#39;hello&#39;,[-100,200,300])</span>
+<span class="err">SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;Tuple(b Array(Float64), a String)&#39;) = ([-100,200,300],&#39;hello&#39;)</span>
+<span class="err">SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, &#39;Array(Nullable(Int8))&#39;) = [-100, NULL, NULL]</span>
+<span class="err">SELECT JSONExtract(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;, 4, &#39;Nullable(Int64)&#39;) = NULL</span>
+<span class="err">SELECT JSONExtract(&#39;{&quot;passed&quot;: true}&#39;, &#39;passed&#39;, &#39;UInt8&#39;) = 1</span>
+<span class="err">SELECT JSONExtract(&#39;{&quot;day&quot;: &quot;Thursday&quot;}&#39;, &#39;day&#39;, &#39;Enum8(\&#39;Sunday\&#39; = 0, \&#39;Monday\&#39; = 1, \&#39;Tuesday\&#39; = 2, \&#39;Wednesday\&#39; = 3, \&#39;Thursday\&#39; = 4, \&#39;Friday\&#39; = 5, \&#39;Saturday\&#39; = 6)&#39;) = &#39;Thursday&#39;</span>
+<span class="err">SELECT JSONExtract(&#39;{&quot;day&quot;: 5}&#39;, &#39;day&#39;, &#39;Enum8(\&#39;Sunday\&#39; = 0, \&#39;Monday\&#39; = 1, \&#39;Tuesday\&#39; = 2, \&#39;Wednesday\&#39; = 3, \&#39;Thursday\&#39; = 4, \&#39;Friday\&#39; = 5, \&#39;Saturday\&#39; = 6)&#39;) = &#39;Friday&#39;</span>
 </pre></div>
 
 
 <h2 id="jsonextractkeysandvalues-json-indices-or-keys-value-type">JSONExtractKeysAndValues(json[, indices_or_keys...], value_type)<a class="headerlink" href="#jsonextractkeysandvalues-json-indices-or-keys-value-type" title="Permanent link">&para;</a></h2>
 <p>从JSON中解析键值对，其中值是给定的ClickHouse数据类型。</p>
 <p>示例：</p>
-<div class="codehilite"><pre><span></span>SELECT JSONExtractKeysAndValues(&#39;{&quot;x&quot;: {&quot;a&quot;: 5, &quot;b&quot;: 7, &quot;c&quot;: 11}}&#39;, &#39;x&#39;, &#39;Int8&#39;) = [(&#39;a&#39;,5),(&#39;b&#39;,7),(&#39;c&#39;,11)];
+<div class="codehilite"><pre><span></span><span class="err">SELECT JSONExtractKeysAndValues(&#39;{&quot;x&quot;: {&quot;a&quot;: 5, &quot;b&quot;: 7, &quot;c&quot;: 11}}&#39;, &#39;x&#39;, &#39;Int8&#39;) = [(&#39;a&#39;,5),(&#39;b&#39;,7),(&#39;c&#39;,11)];</span>
 </pre></div>
 
 
@@ -4105,7 +4105,7 @@ SELECT JSONExtract(&#39;{&quot;day&quot;: 5}&#39;, &#39;day&#39;, &#39;Enum8(\&#
 <p>返回JSON的部分。</p>
 <p>如果部件不存在或类型错误，将返回空字符串。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span>select JSONExtractRaw(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = &#39;[-100, 200.0, 300]&#39;
+<div class="codehilite"><pre><span></span><span class="err">select JSONExtractRaw(&#39;{&quot;a&quot;: &quot;hello&quot;, &quot;b&quot;: [-100, 200.0, 300]}&#39;, &#39;b&#39;) = &#39;[-100, 200.0, 300]&#39;</span>
 </pre></div>
                 
                 </div>
@@ -4207,7 +4207,9 @@ SELECT JSONExtract(&#39;{&quot;day&quot;: 5}&#39;, &#39;day&#39;, &#39;Enum8(\&#
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

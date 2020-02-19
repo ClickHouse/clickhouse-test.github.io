@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3567,9 +3567,9 @@ There are supported three types of constraints: <code>min</code>, <code>max</cod
 
 
 <p>The following queries all throw exceptions:</p>
-<div class="codehilite"><pre><span></span>SET max_memory_usage=20000000001;
-SET max_memory_usage=4999999999;
-SET force_index_by_date=1;
+<div class="codehilite"><pre><span></span><span class="err">SET max_memory_usage=20000000001;</span>
+<span class="err">SET max_memory_usage=4999999999;</span>
+<span class="err">SET force_index_by_date=1;</span>
 </pre></div>
 
 
@@ -3680,7 +3680,9 @@ SET force_index_by_date=1;
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

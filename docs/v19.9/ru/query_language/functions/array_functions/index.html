@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137930">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582140032">
     
     
   </head>
@@ -3928,7 +3928,7 @@
 Возвращает результат типа Array(T), где T - наименьший общий тип от переданных аргументов.</p>
 <h2 id="arrayconcat">arrayConcat<a class="headerlink" href="#arrayconcat" title="Permanent link">&para;</a></h2>
 <p>Объединяет массивы, переданные в качестве аргументов.</p>
-<div class="codehilite"><pre><span></span>arrayConcat(arrays)
+<div class="codehilite"><pre><span></span><span class="err">arrayConcat(arrays)</span>
 </pre></div>
 
 
@@ -3941,9 +3941,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───────────┐
-│ [1,2,3,4,5,6] │
-└───────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───────────┐</span>
+<span class="err">│ [1,2,3,4,5,6] │</span>
+<span class="err">└───────────────┘</span>
 </pre></div>
 
 
@@ -3956,17 +3956,17 @@
 <p>Проверяет наличие элемента elem в массиве arr.
 Возвращает 0, если элемента в массиве нет, или 1, если есть.</p>
 <p><code>NULL</code> обрабатывается как значение.</p>
-<div class="codehilite"><pre><span></span>SELECT has([1, 2, NULL], NULL)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">has</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
 
-┌─has([1, 2, NULL], NULL)─┐
-│                       1 │
-└─────────────────────────┘
+<span class="err">┌─</span><span class="n">has</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>                       <span class="mi">1</span> <span class="err">│</span>
+<span class="err">└─────────────────────────┘</span>
 </pre></div>
 
 
 <h2 id="hasall">hasAll<a class="headerlink" href="#hasall" title="Permanent link">&para;</a></h2>
 <p>Проверяет, является ли один массив подмножеством другого.</p>
-<div class="codehilite"><pre><span></span>hasAll(set, subset)
+<div class="codehilite"><pre><span></span><span class="err">hasAll(set, subset)</span>
 </pre></div>
 
 
@@ -3995,7 +3995,7 @@
 <p><code>SELECT hasAll([[1, 2], [3, 4]], [[1, 2], [3, 5]])</code> возвращает 0.</p>
 <h2 id="hasany">hasAny<a class="headerlink" href="#hasany" title="Permanent link">&para;</a></h2>
 <p>Проверяет, имеют ли два массива хотя бы один общий элемент.</p>
-<div class="codehilite"><pre><span></span>hasAny(array1, array2)
+<div class="codehilite"><pre><span></span><span class="err">hasAny(array1, array2)</span>
 </pre></div>
 
 
@@ -4023,13 +4023,13 @@
 <h2 id="indexof-arr-x">indexOf(arr, x)<a class="headerlink" href="#indexof-arr-x" title="Permanent link">&para;</a></h2>
 <p>Возвращает индекс первого элемента x (начиная с 1), если он есть в массиве, или 0, если его нет.</p>
 <p>Пример:</p>
-<div class="codehilite"><pre><span></span>:) SELECT indexOf([1,3,NULL,NULL],NULL)
+<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">],</span><span class="k">NULL</span><span class="p">)</span>
 
-SELECT indexOf([1, 3, NULL, NULL], NULL)
+<span class="k">SELECT</span> <span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
 
-┌─indexOf([1, 3, NULL, NULL], NULL)─┐
-│                                 3 │
-└───────────────────────────────────┘
+<span class="err">┌─</span><span class="n">indexOf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>                                 <span class="mi">3</span> <span class="err">│</span>
+<span class="err">└───────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4038,11 +4038,11 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 <p>Возвращает количество элементов массива, равных x. Эквивалентно arrayCount(elem -&gt; elem = x, arr).</p>
 <p><code>NULL</code> обрабатывается как значение.</p>
 <p>Пример:</p>
-<div class="codehilite"><pre><span></span>SELECT countEqual([1, 2, NULL, NULL], NULL)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">countEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span>
 
-┌─countEqual([1, 2, NULL, NULL], NULL)─┐
-│                                    2 │
-└──────────────────────────────────────┘
+<span class="err">┌─</span><span class="n">countEqual</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">],</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span>                                    <span class="mi">2</span> <span class="err">│</span>
+<span class="err">└──────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4061,9 +4061,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─Reaches─┬──Hits─┐
-│   95606 │ 31406 │
-└─────────┴───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─Reaches─┬──Hits─┐</span>
+<span class="err">│   95606 │ 31406 │</span>
+<span class="err">└─────────┴───────┘</span>
 </pre></div>
 
 
@@ -4076,9 +4076,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─Reaches─┬──Hits─┐
-│   95606 │ 31406 │
-└─────────┴───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─Reaches─┬──Hits─┐</span>
+<span class="err">│   95606 │ 31406 │</span>
+<span class="err">└─────────┴───────┘</span>
 </pre></div>
 
 
@@ -4103,18 +4103,18 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──GoalID─┬─Reaches─┬─Visits─┐
-│   53225 │    3214 │   1097 │
-│ 2825062 │    3188 │   1097 │
-│   56600 │    2803 │    488 │
-│ 1989037 │    2401 │    365 │
-│ 2830064 │    2396 │    910 │
-│ 1113562 │    2372 │    373 │
-│ 3270895 │    2262 │    812 │
-│ 1084657 │    2262 │    345 │
-│   56599 │    2260 │    799 │
-│ 3271094 │    2256 │    812 │
-└─────────┴─────────┴────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──GoalID─┬─Reaches─┬─Visits─┐</span>
+<span class="err">│   53225 │    3214 │   1097 │</span>
+<span class="err">│ 2825062 │    3188 │   1097 │</span>
+<span class="err">│   56600 │    2803 │    488 │</span>
+<span class="err">│ 1989037 │    2401 │    365 │</span>
+<span class="err">│ 2830064 │    2396 │    910 │</span>
+<span class="err">│ 1113562 │    2372 │    373 │</span>
+<span class="err">│ 3270895 │    2262 │    812 │</span>
+<span class="err">│ 1084657 │    2262 │    345 │</span>
+<span class="err">│   56599 │    2260 │    799 │</span>
+<span class="err">│ 3271094 │    2256 │    812 │</span>
+<span class="err">└─────────┴─────────┴────────┘</span>
 </pre></div>
 
 
@@ -4124,16 +4124,16 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───────────┐
-│ [1,2,1,1,2,1] │
-└───────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───────────┐</span>
+<span class="err">│ [1,2,1,1,2,1] │</span>
+<span class="err">└───────────────┘</span>
 </pre></div>
 
 
 <p>Это нужно при использовании ARRAY JOIN с вложенной структурой данных и затем агрегации по нескольким элементам этой структуры.</p>
 <h2 id="arraypopback">arrayPopBack<a class="headerlink" href="#arraypopback" title="Permanent link">&para;</a></h2>
 <p>Удаляет последний элемент из массива.</p>
-<div class="codehilite"><pre><span></span>arrayPopBack(array)
+<div class="codehilite"><pre><span></span><span class="err">arrayPopBack(array)</span>
 </pre></div>
 
 
@@ -4146,15 +4146,15 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───┐
-│ [1,2] │
-└───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───┐</span>
+<span class="err">│ [1,2] │</span>
+<span class="err">└───────┘</span>
 </pre></div>
 
 
 <h2 id="arraypopfront">arrayPopFront<a class="headerlink" href="#arraypopfront" title="Permanent link">&para;</a></h2>
 <p>Удаляет первый элемент из массива.</p>
-<div class="codehilite"><pre><span></span>arrayPopFront(array)
+<div class="codehilite"><pre><span></span><span class="err">arrayPopFront(array)</span>
 </pre></div>
 
 
@@ -4167,15 +4167,15 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───┐
-│ [2,3] │
-└───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───┐</span>
+<span class="err">│ [2,3] │</span>
+<span class="err">└───────┘</span>
 </pre></div>
 
 
 <h2 id="arraypushback">arrayPushBack<a class="headerlink" href="#arraypushback" title="Permanent link">&para;</a></h2>
 <p>Добавляет один элемент в конец массива.</p>
-<div class="codehilite"><pre><span></span>arrayPushBack(array, single_value)
+<div class="codehilite"><pre><span></span><span class="err">arrayPushBack(array, single_value)</span>
 </pre></div>
 
 
@@ -4189,15 +4189,15 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───────┐
-│ [&#39;a&#39;,&#39;b&#39;] │
-└───────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───────┐</span>
+<span class="err">│ [&#39;a&#39;,&#39;b&#39;] │</span>
+<span class="err">└───────────┘</span>
 </pre></div>
 
 
 <h2 id="arraypushfront">arrayPushFront<a class="headerlink" href="#arraypushfront" title="Permanent link">&para;</a></h2>
 <p>Добавляет один элемент в начало массива.</p>
-<div class="codehilite"><pre><span></span>arrayPushFront(array, single_value)
+<div class="codehilite"><pre><span></span><span class="err">arrayPushFront(array, single_value)</span>
 </pre></div>
 
 
@@ -4211,15 +4211,15 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───────┐
-│ [&#39;a&#39;,&#39;b&#39;] │
-└───────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───────┐</span>
+<span class="err">│ [&#39;a&#39;,&#39;b&#39;] │</span>
+<span class="err">└───────────┘</span>
 </pre></div>
 
 
 <h2 id="arrayresize">arrayResize<a class="headerlink" href="#arrayresize" title="Permanent link">&para;</a></h2>
 <p>Изменяет длину массива.</p>
-<div class="codehilite"><pre><span></span>arrayResize(array, size[, extender])
+<div class="codehilite"><pre><span></span><span class="err">arrayResize(array, size[, extender])</span>
 </pre></div>
 
 
@@ -4236,25 +4236,25 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 <p><strong>Возвращаемое значение:</strong></p>
 <p>Массив длины <code>size</code>.</p>
 <p><strong>Примеры вызовов</strong></p>
-<div class="codehilite"><pre><span></span>SELECT arrayResize([1], 3)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>
 
-┌─arrayResize([1], 3)─┐
-│ [1,0,0]             │
-└─────────────────────┘
+<span class="err">┌─</span><span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>             <span class="err">│</span>
+<span class="err">└─────────────────────┘</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>SELECT arrayResize([1], 3, NULL)
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span>
 
-┌─arrayResize([1], 3, NULL)─┐
-│ [1,NULL,NULL]             │
-└───────────────────────────┘
+<span class="err">┌─</span><span class="n">arrayResize</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">]</span>             <span class="err">│</span>
+<span class="err">└───────────────────────────┘</span>
 </pre></div>
 
 
 <h2 id="arrayslice">arraySlice<a class="headerlink" href="#arrayslice" title="Permanent link">&para;</a></h2>
 <p>Возвращает срез массива.</p>
-<div class="codehilite"><pre><span></span>arraySlice(array, offset[, length])
+<div class="codehilite"><pre><span></span><span class="err">arraySlice(array, offset[, length])</span>
 </pre></div>
 
 
@@ -4269,9 +4269,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res────────┐
-│ [2,NULL,4] │
-└────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res────────┐</span>
+<span class="err">│ [2,NULL,4] │</span>
+<span class="err">└────────────┘</span>
 </pre></div>
 
 
@@ -4283,9 +4283,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─arraySort([1, 3, 3, 0])─┐
-│ [0,1,3,3]               │
-└─────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─arraySort([1, 3, 3, 0])─┐</span>
+<span class="err">│ [0,1,3,3]               │</span>
+<span class="err">└─────────────────────────┘</span>
 </pre></div>
 
 
@@ -4294,9 +4294,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─arraySort([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])─┐
-│ [&#39;!&#39;,&#39;hello&#39;,&#39;world&#39;]              │
-└────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─arraySort([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])─┐</span>
+<span class="err">│ [&#39;!&#39;,&#39;hello&#39;,&#39;world&#39;]              │</span>
+<span class="err">└────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4305,9 +4305,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─arraySort([1, nan, 2, NULL, 3, nan, -4, NULL, inf, -inf])─┐
-│ [-inf,-4,1,2,3,inf,nan,nan,NULL,NULL]                     │
-└───────────────────────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─arraySort([1, nan, 2, NULL, 3, nan, -4, NULL, inf, -inf])─┐</span>
+<span class="err">│ [-inf,-4,1,2,3,inf,nan,nan,NULL,NULL]                     │</span>
+<span class="err">└───────────────────────────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4323,9 +4323,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─────┐
-│ [3,2,1] │
-└─────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─────┐</span>
+<span class="err">│ [3,2,1] │</span>
+<span class="err">└─────────┘</span>
 </pre></div>
 
 
@@ -4335,9 +4335,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res────────────────┐
-│ [&#39;world&#39;, &#39;hello&#39;] │
-└────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res────────────────┐</span>
+<span class="err">│ [&#39;world&#39;, &#39;hello&#39;] │</span>
+<span class="err">└────────────────────┘</span>
 </pre></div>
 
 
@@ -4374,9 +4374,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─arrayReverseSort([1, 3, 3, 0])─┐
-│ [3,3,1,0]                      │
-└────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─arrayReverseSort([1, 3, 3, 0])─┐</span>
+<span class="err">│ [3,3,1,0]                      │</span>
+<span class="err">└────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4385,9 +4385,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─arrayReverseSort([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])─┐
-│ [&#39;world&#39;,&#39;hello&#39;,&#39;!&#39;]                     │
-└───────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─arrayReverseSort([&#39;hello&#39;, &#39;world&#39;, &#39;!&#39;])─┐</span>
+<span class="err">│ [&#39;world&#39;,&#39;hello&#39;,&#39;!&#39;]                     │</span>
+<span class="err">└───────────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4413,9 +4413,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─────┐
-│ [1,2,3] │
-└─────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─────┐</span>
+<span class="err">│ [1,2,3] │</span>
+<span class="err">└─────────┘</span>
 </pre></div>
 
 
@@ -4567,7 +4567,9 @@ SELECT indexOf([1, 3, NULL, NULL], NULL)
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

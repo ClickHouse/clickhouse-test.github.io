@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137687">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139767">
     
     
   </head>
@@ -3535,7 +3535,7 @@
                 
                   <h1 id="file">file<a class="headerlink" href="#file" title="Permanent link">&para;</a></h1>
 <p>Создаёт таблицу из файла.</p>
-<div class="codehilite"><pre><span></span>file(path, format, structure)
+<div class="codehilite"><pre><span></span><span class="err">file(path, format, structure)</span>
 </pre></div>
 
 
@@ -3566,10 +3566,10 @@ $ cat /var/lib/clickhouse/user_files/test.csv
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─column1─┬─column2─┬─column3─┐
-│       1 │       2 │       3 │
-│       3 │       2 │       1 │
-└─────────┴─────────┴─────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─column1─┬─column2─┬─column3─┐</span>
+<span class="err">│       1 │       2 │       3 │</span>
+<span class="err">│       3 │       2 │       1 │</span>
+<span class="err">└─────────┴─────────┴─────────┘</span>
 </pre></div>
                 
                 </div>
@@ -3671,7 +3671,9 @@ $ cat /var/lib/clickhouse/user_files/test.csv
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

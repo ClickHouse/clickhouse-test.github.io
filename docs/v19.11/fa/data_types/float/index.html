@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582137769">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?28528db?1582139859">
     
     
   </head>
@@ -3536,9 +3536,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌───────minus(1, 0.9)─┐
-│ 0.09999999999999998 │
-└─────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌───────minus(1, 0.9)─┐</span>
+<span class="err">│ 0.09999999999999998 │</span>
+<span class="err">└─────────────────────┘</span>
 </pre></div>
 
 
@@ -3558,9 +3558,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─divide(0.5, 0)─┐
-│            inf │
-└────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─divide(0.5, 0)─┐</span>
+<span class="err">│            inf │</span>
+<span class="err">└────────────────┘</span>
 </pre></div>
 
 
@@ -3573,9 +3573,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─divide(-0.5, 0)─┐
-│            -inf │
-└─────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─divide(-0.5, 0)─┐</span>
+<span class="err">│            -inf │</span>
+<span class="err">└─────────────────┘</span>
 </pre></div>
 
 
@@ -3584,13 +3584,13 @@
 <li><code>NaN</code> – Not a number.</li>
 </ul>
 </div>
-<div class="codehilite"><pre><span></span>SELECT 0 / 0
+<div class="codehilite"><pre><span></span><span class="err">SELECT 0 / 0</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─divide(0, 0)─┐
-│          nan │
-└──────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─divide(0, 0)─┐</span>
+<span class="err">│          nan │</span>
+<span class="err">└──────────────┘</span>
 </pre></div>
 
 
@@ -3697,7 +3697,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

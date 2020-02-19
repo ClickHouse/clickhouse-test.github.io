@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137383">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139457">
     
     
   </head>
@@ -5323,24 +5323,24 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
 To predict we use function <a href="../../functions/machine_learning_functions/#machine_learning_methods-evalmlmethod">evalMLMethod</a>, which takes a state as an argument as well as features to predict on.</p>
 <p><a name="stochasticlinearregression-usage-fitting"></a>
 1. Fitting</p>
-<div class="codehilite"><pre><span></span>Such query may be used.
+<div class="codehilite"><pre><span></span><span class="n">Such</span> <span class="n">query</span> <span class="n">may</span> <span class="n">be</span> <span class="n">used</span><span class="p">.</span>
 
-```sql
-CREATE TABLE IF NOT EXISTS train_data
-(
-    param1 Float64,
-    param2 Float64,
-    target Float64
-) ENGINE = Memory;
+<span class="ss">```sql</span>
+<span class="ss">CREATE TABLE IF NOT EXISTS train_data</span>
+<span class="ss">(</span>
+<span class="ss">    param1 Float64,</span>
+<span class="ss">    param2 Float64,</span>
+<span class="ss">    target Float64</span>
+<span class="ss">) ENGINE = Memory;</span>
 
-CREATE TABLE your_model ENGINE = Memory AS SELECT
-stochasticLinearRegressionState(0.1, 0.0, 5, &#39;SGD&#39;)(target, param1, param2)
-AS state FROM train_data;
+<span class="ss">CREATE TABLE your_model ENGINE = Memory AS SELECT</span>
+<span class="ss">stochasticLinearRegressionState(0.1, 0.0, 5, &#39;SGD&#39;)(target, param1, param2)</span>
+<span class="ss">AS state FROM train_data;</span>
 
-```
+<span class="ss">```</span>
 
-Here we also need to insert data into `train_data` table. The number of parameters is not fixed, it depends only on number of arguments, passed into `linearRegressionState`. They all must be numeric values.
-Note that the column with target value(which we would like to learn to predict) is inserted as the first argument.
+<span class="n">Here</span> <span class="n">we</span> <span class="n">also</span> <span class="n">need</span> <span class="k">to</span> <span class="k">insert</span> <span class="n">data</span> <span class="k">into</span> <span class="ss">`train_data`</span> <span class="k">table</span><span class="p">.</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">parameters</span> <span class="k">is</span> <span class="k">not</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">it</span> <span class="n">depends</span> <span class="n">only</span> <span class="k">on</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span><span class="p">,</span> <span class="n">passed</span> <span class="k">into</span> <span class="ss">`linearRegressionState`</span><span class="p">.</span> <span class="n">They</span> <span class="k">all</span> <span class="n">must</span> <span class="n">be</span> <span class="kt">numeric</span> <span class="k">values</span><span class="p">.</span>
+<span class="n">Note</span> <span class="n">that</span> <span class="n">the</span> <span class="k">column</span> <span class="k">with</span> <span class="n">target</span> <span class="nf">value</span><span class="p">(</span><span class="n">which</span> <span class="n">we</span> <span class="n">would</span> <span class="k">like</span> <span class="k">to</span> <span class="n">learn</span> <span class="k">to</span> <span class="n">predict</span><span class="p">)</span> <span class="k">is</span> <span class="n">inserted</span> <span class="k">as</span> <span class="n">the</span> <span class="n">first</span> <span class="n">argument</span><span class="p">.</span>
 </pre></div>
 
 
@@ -5618,7 +5618,9 @@ evalMLMethod(model, param1, param2) AS ans FROM test_data)</code></p>
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

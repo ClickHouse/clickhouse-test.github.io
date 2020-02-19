@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137383">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139457">
     
     
   </head>
@@ -3675,7 +3675,7 @@
                   <h1 id="geohan-shu">GEO函数<a class="headerlink" href="#geohan-shu" title="Permanent link">&para;</a></h1>
 <h2 id="greatcircledistance">greatCircleDistance<a class="headerlink" href="#greatcircledistance" title="Permanent link">&para;</a></h2>
 <p>使用<a href="https://en.wikipedia.org/wiki/Great-circle_distance" rel="external nofollow">great-circle distance公式</a>计算地球表面两点之间的距离。</p>
-<div class="codehilite"><pre><span></span>greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)
+<div class="codehilite"><pre><span></span><span class="err">greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)</span>
 </pre></div>
 
 
@@ -3695,15 +3695,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─greatCircleDistance(55.755831, 37.617673, -55.755831, -37.617673)─┐
-│                                                14132374.194975413 │
-└───────────────────────────────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─greatCircleDistance(55.755831, 37.617673, -55.755831, -37.617673)─┐</span>
+<span class="err">│                                                14132374.194975413 │</span>
+<span class="err">└───────────────────────────────────────────────────────────────────┘</span>
 </pre></div>
 
 
 <h2 id="pointinellipses">pointInEllipses<a class="headerlink" href="#pointinellipses" title="Permanent link">&para;</a></h2>
 <p>检查指定的点是否至少包含在一个指定的椭圆中。</p>
-<div class="codehilite"><pre><span></span>pointInEllipses(x, y, x₀, y₀, a₀, b₀,...,xₙ, yₙ, aₙ, bₙ)
+<div class="codehilite"><pre><span></span><span class="err">pointInEllipses(x, y, x₀, y₀, a₀, b₀,...,xₙ, yₙ, aₙ, bₙ)</span>
 </pre></div>
 
 
@@ -3721,15 +3721,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─pointInEllipses(55.755831, 37.617673, 55.755831, 37.617673, 1., 2.)─┐
-│                                                                   1 │
-└─────────────────────────────────────────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─pointInEllipses(55.755831, 37.617673, 55.755831, 37.617673, 1., 2.)─┐</span>
+<span class="err">│                                                                   1 │</span>
+<span class="err">└─────────────────────────────────────────────────────────────────────┘</span>
 </pre></div>
 
 
 <h2 id="pointinpolygon">pointInPolygon<a class="headerlink" href="#pointinpolygon" title="Permanent link">&para;</a></h2>
 <p>检查指定的点是否包含在指定的多边形中。</p>
-<div class="codehilite"><pre><span></span>pointInPolygon((x, y), [(a, b), (c, d) ...], ...)
+<div class="codehilite"><pre><span></span><span class="err">pointInPolygon((x, y), [(a, b), (c, d) ...], ...)</span>
 </pre></div>
 
 
@@ -3747,15 +3747,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│   1 │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│   1 │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="geohashencode">geohashEncode<a class="headerlink" href="#geohashencode" title="Permanent link">&para;</a></h2>
 <p>将经度和纬度编码为geohash-string，请参阅（http://geohash.org/,https://en.wikipedia.org/wiki/Geohash）。</p>
-<div class="codehilite"><pre><span></span>geohashEncode(longitude, latitude, [precision])
+<div class="codehilite"><pre><span></span><span class="n">geohashEncode</span><span class="p">(</span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">precision</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 
@@ -3774,9 +3774,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res──────────┐
-│ ezs42d000000 │
-└──────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res──────────┐</span>
+<span class="err">│ ezs42d000000 │</span>
+<span class="err">└──────────────┘</span>
 </pre></div>
 
 
@@ -3795,9 +3795,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─────────────────────────────┐
-│ (-5.60302734375,42.60498046875) │
-└─────────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─────────────────────────────┐</span>
+<span class="err">│ (-5.60302734375,42.60498046875) │</span>
+<span class="err">└─────────────────────────────────┘</span>
 </pre></div>
                 
                 </div>
@@ -3899,7 +3899,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

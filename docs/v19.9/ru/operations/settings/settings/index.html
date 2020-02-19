@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137930">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582140032">
     
     
   </head>
@@ -4584,7 +4584,7 @@
 <p>Установка логгирования запроса.</p>
 <p>Запросы, переданные в ClickHouse с этой установкой, логгируются согласно правилам конфигурационного параметра сервера <a href="../../server_settings/settings/#server_settings-query-log">query_log</a>.</p>
 <p><strong>Пример</strong> :</p>
-<div class="codehilite"><pre><span></span>log_queries=1
+<div class="codehilite"><pre><span></span><span class="err">log_queries=1</span>
 </pre></div>
 
 
@@ -4675,14 +4675,14 @@
 <li><a href="#load_balancing-first_or_random">First or random</a></li>
 </ul>
 <h3 id="load_balancing-random">Random (by default)<a class="headerlink" href="#load_balancing-random" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>load_balancing = random
+<div class="codehilite"><pre><span></span><span class="err">load_balancing = random</span>
 </pre></div>
 
 
 <p>Для каждой реплики считается количество ошибок. Запрос отправляется на реплику с минимальным числом ошибок, а если таких несколько, то на случайную из них.
 Недостатки: не учитывается близость серверов; если на репликах оказались разные данные, то вы будете получать так же разные данные.</p>
 <h3 id="load_balancing-nearest_hostname">Nearest Hostname<a class="headerlink" href="#load_balancing-nearest_hostname" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>load_balancing = nearest_hostname
+<div class="codehilite"><pre><span></span><span class="err">load_balancing = nearest_hostname</span>
 </pre></div>
 
 
@@ -4692,14 +4692,14 @@
 <p>Таким образом, если есть равнозначные реплики, предпочитается ближайшая по имени.
 Также можно сделать предположение, что при отправке запроса на один и тот же сервер, в случае отсутствия сбоев, распределённый запрос будет идти тоже на одни и те же серверы. То есть, даже если на репликах расположены разные данные, запрос будет возвращать в основном одинаковые результаты.</p>
 <h3 id="load_balancing-in_order">In Order<a class="headerlink" href="#load_balancing-in_order" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>load_balancing = in_order
+<div class="codehilite"><pre><span></span><span class="err">load_balancing = in_order</span>
 </pre></div>
 
 
 <p>Реплики с одинаковым количеством ошибок опрашиваются в порядке, определённом конфигурацией.
 Этот способ подходит для тех случаев, когда вы точно знаете, какая реплика предпочтительнее.</p>
 <h3 id="load_balancing-first_or_random">First or Random<a class="headerlink" href="#load_balancing-first_or_random" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span>load_balancing = first_or_random
+<div class="codehilite"><pre><span></span><span class="err">load_balancing = first_or_random</span>
 </pre></div>
 
 
@@ -4888,7 +4888,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

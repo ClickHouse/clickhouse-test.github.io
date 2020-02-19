@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582138008">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?28528db?1582140116">
     
     
   </head>
@@ -3629,31 +3629,31 @@
 Возможные значения: 1, 2, 4, 8. Значение по умолчанию: если <code>sizeof(type)</code> равен 1, 2, 4, 8 - <code>sizeof(type)</code>, иначе - 1.</li>
 </ul>
 <p>Пример использования:</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE codec_example
-(
-    dt Date CODEC(ZSTD), /* используется уровень сжатия по умолчанию */
-    ts DateTime CODEC(LZ4HC),
-    float_value Float32 CODEC(NONE),
-    double_value Float64 CODEC(LZ4HC(9))
-)
-ENGINE = MergeTree
-PARTITION BY tuple()
-ORDER BY dt
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE codec_example</span>
+<span class="err">(</span>
+<span class="err">    dt Date CODEC(ZSTD), /* используется уровень сжатия по умолчанию */</span>
+<span class="err">    ts DateTime CODEC(LZ4HC),</span>
+<span class="err">    float_value Float32 CODEC(NONE),</span>
+<span class="err">    double_value Float64 CODEC(LZ4HC(9))</span>
+<span class="err">)</span>
+<span class="err">ENGINE = MergeTree</span>
+<span class="err">PARTITION BY tuple()</span>
+<span class="err">ORDER BY dt</span>
 </pre></div>
 
 
 <p>Кодеки могут комбинироваться между собой. Если для колонки указана своя последовательность кодеков, то общий табличный кодек не применяется (должен быть указан в последовательности принудительно, если нужен). В примере ниже - оптимизация для хранения timeseries метрик.
 Как правило, значения одной и той же метрики <code>path</code> не сильно различаются между собой, и выгоднее использовать дельта-компрессию вместо записи всего числа:</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE timeseries_example
-(
-    dt Date,
-    ts DateTime,
-    path String,
-    value Float32 CODEC(Delta, ZSTD)
-)
-ENGINE = MergeTree
-PARTITION BY dt
-ORDER BY (path, ts)
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE timeseries_example</span>
+<span class="err">(</span>
+<span class="err">    dt Date,</span>
+<span class="err">    ts DateTime,</span>
+<span class="err">    path String,</span>
+<span class="err">    value Float32 CODEC(Delta, ZSTD)</span>
+<span class="err">)</span>
+<span class="err">ENGINE = MergeTree</span>
+<span class="err">PARTITION BY dt</span>
+<span class="err">ORDER BY (path, ts)</span>
 </pre></div>
 
 
@@ -3816,7 +3816,9 @@ ORDER BY (path, ts)
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

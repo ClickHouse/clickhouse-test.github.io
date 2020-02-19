@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3634,8 +3634,8 @@
 <p>Информацию о подключении и настройке внешних словарей смотрите в разделе <a href="../../dicts/external_dicts/">Внешние словари</a>.</p>
 <h2 id="dictget">dictGet<a class="headerlink" href="#dictget" title="Permanent link">&para;</a></h2>
 <p>Извлекает значение из внешнего словаря.</p>
-<div class="codehilite"><pre><span></span>dictGet(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr)
-dictGetOrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_value_expr)
+<div class="codehilite"><pre><span></span><span class="err">dictGet(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr)</span>
+<span class="err">dictGetOrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_value_expr)</span>
 </pre></div>
 
 
@@ -3720,7 +3720,7 @@ dictGetOrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_valu
 </ul>
 <h2 id="dicthas">dictHas<a class="headerlink" href="#dicthas" title="Permanent link">&para;</a></h2>
 <p>Проверяет, присутствует ли запись с указанным ключом в словаре.</p>
-<div class="codehilite"><pre><span></span>dictHas(&#39;dict_name&#39;, id)
+<div class="codehilite"><pre><span></span><span class="err">dictHas(&#39;dict_name&#39;, id)</span>
 </pre></div>
 
 
@@ -3737,7 +3737,7 @@ dictGetOrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_valu
 <p>Тип — <code>UInt8</code>.</p>
 <h2 id="dictgethierarchy">dictGetHierarchy<a class="headerlink" href="#dictgethierarchy" title="Permanent link">&para;</a></h2>
 <p>Для иерархического словаря возвращает массив ключей словаря, начиная с переданного <code>id_expr</code> и продолжая цепочкой родительских элементов.</p>
-<div class="codehilite"><pre><span></span>dictGetHierarchy(&#39;dict_name&#39;, id)
+<div class="codehilite"><pre><span></span><span class="err">dictGetHierarchy(&#39;dict_name&#39;, id)</span>
 </pre></div>
 
 
@@ -3778,8 +3778,8 @@ dictGetOrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_valu
 </ul>
 <p>Все эти функции можно использовать с модификатором <code>OrDefault</code>. Например, <code>dictGetDateOrDefault</code>.</p>
 <p>Синтаксис:</p>
-<div class="codehilite"><pre><span></span>dictGet[Type](&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr)
-dictGet[Type]OrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, default_value_expr)
+<div class="codehilite"><pre><span></span><span class="n">dictGet</span><span class="o">[</span><span class="n">Type</span><span class="o">]</span><span class="p">(</span><span class="s1">&#39;dict_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;attr_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">id_expr</span><span class="p">)</span><span class="w"></span>
+<span class="n">dictGet</span><span class="o">[</span><span class="n">Type</span><span class="o">]</span><span class="n">OrDefault</span><span class="p">(</span><span class="s1">&#39;dict_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;attr_name&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">id_expr</span><span class="p">,</span><span class="w"> </span><span class="n">default_value_expr</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 
@@ -3904,7 +3904,9 @@ dictGet[Type]OrDefault(&#39;dict_name&#39;, &#39;attr_name&#39;, id_expr, defaul
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

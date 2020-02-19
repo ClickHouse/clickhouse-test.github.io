@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3759,7 +3759,7 @@
                   <h1 id="funktsii-dlia-bitmapov">Функции для битмапов<a class="headerlink" href="#funktsii-dlia-bitmapov" title="Permanent link">&para;</a></h1>
 <h2 id="bitmap_functions-bitmapbuild">bitmapBuild<a class="headerlink" href="#bitmap_functions-bitmapbuild" title="Permanent link">&para;</a></h2>
 <p>Создаёт битовый массив из массива целочисленных значений.</p>
-<div class="codehilite"><pre><span></span>bitmapBuild(array)
+<div class="codehilite"><pre><span></span><span class="err">bitmapBuild(array)</span>
 </pre></div>
 
 
@@ -3780,7 +3780,7 @@
 
 <h2 id="bitmaptoarray">bitmapToArray<a class="headerlink" href="#bitmaptoarray" title="Permanent link">&para;</a></h2>
 <p>Преобразует битовый массив в массив целочисленных значений.</p>
-<div class="codehilite"><pre><span></span>bitmapToArray(bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapToArray(bitmap)</span>
 </pre></div>
 
 
@@ -3793,15 +3793,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─────────┐
-│ [1,2,3,4,5] │
-└─────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─────────┐</span>
+<span class="err">│ [1,2,3,4,5] │</span>
+<span class="err">└─────────────┘</span>
 </pre></div>
 
 
 <h2 id="bitmap_functions-bitmapcontains">bitmapContains<a class="headerlink" href="#bitmap_functions-bitmapcontains" title="Permanent link">&para;</a></h2>
 <p>Проверяет вхождение элемента в битовый массив.</p>
-<div class="codehilite"><pre><span></span>bitmapContains(haystack, needle)
+<div class="codehilite"><pre><span></span><span class="err">bitmapContains(haystack, needle)</span>
 </pre></div>
 
 
@@ -3829,7 +3829,7 @@
 
 <h2 id="bitmaphasany">bitmapHasAny<a class="headerlink" href="#bitmaphasany" title="Permanent link">&para;</a></h2>
 <p>Проверяет, имеют ли два битовых массива хотя бы один общий элемент.</p>
-<div class="codehilite"><pre><span></span>bitmapHasAny(bitmap1, bitmap2)
+<div class="codehilite"><pre><span></span><span class="err">bitmapHasAny(bitmap1, bitmap2)</span>
 </pre></div>
 
 
@@ -3848,16 +3848,16 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│  1  │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│  1  │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmaphasall">bitmapHasAll<a class="headerlink" href="#bitmaphasall" title="Permanent link">&para;</a></h2>
 <p>Аналогично функции <code>hasAll(array, array)</code> возвращает 1 если первый битовый массив содержит все элементы второго, 0 в противном случае.
 Если второй аргумент является пустым битовым массивом, то возвращает 1.</p>
-<div class="codehilite"><pre><span></span>bitmapHasAll(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapHasAll(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -3870,15 +3870,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│  0  │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│  0  │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapand">bitmapAnd<a class="headerlink" href="#bitmapand" title="Permanent link">&para;</a></h2>
 <p>Логическое И для двух битовых массивов. Результат — новый битовый массив.</p>
-<div class="codehilite"><pre><span></span>bitmapAnd(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapAnd(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -3891,15 +3891,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│ [3] │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│ [3] │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapor">bitmapOr<a class="headerlink" href="#bitmapor" title="Permanent link">&para;</a></h2>
 <p>Логическое ИЛИ для двух битовых массивов. Результат — новый битовый массив.</p>
-<div class="codehilite"><pre><span></span>bitmapOr(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapOr(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -3912,15 +3912,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─────────┐
-│ [1,2,3,4,5] │
-└─────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─────────┐</span>
+<span class="err">│ [1,2,3,4,5] │</span>
+<span class="err">└─────────────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapxor">bitmapXor<a class="headerlink" href="#bitmapxor" title="Permanent link">&para;</a></h2>
 <p>Логическое исключающее ИЛИ для двух битовых массивов. Результат — новый битовый массив.</p>
-<div class="codehilite"><pre><span></span>bitmapXor(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapXor(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -3933,15 +3933,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───────┐
-│ [1,2,4,5] │
-└───────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───────┐</span>
+<span class="err">│ [1,2,4,5] │</span>
+<span class="err">└───────────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapandnot">bitmapAndnot<a class="headerlink" href="#bitmapandnot" title="Permanent link">&para;</a></h2>
 <p>Логическое отрицание И для двух битовых массивов. Результат — новый битовый массив.</p>
-<div class="codehilite"><pre><span></span>bitmapAndnot(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapAndnot(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -3954,15 +3954,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res───┐
-│ [1,2] │
-└───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res───┐</span>
+<span class="err">│ [1,2] │</span>
+<span class="err">└───────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapcardinality">bitmapCardinality<a class="headerlink" href="#bitmapcardinality" title="Permanent link">&para;</a></h2>
 <p>Возвращает кардинальность битового массива в виде значения типа <code>UInt64</code>.</p>
-<div class="codehilite"><pre><span></span>bitmapCardinality(bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapCardinality(bitmap)</span>
 </pre></div>
 
 
@@ -3975,15 +3975,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│   5 │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│   5 │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapandcardinality">bitmapAndCardinality<a class="headerlink" href="#bitmapandcardinality" title="Permanent link">&para;</a></h2>
 <p>Выполняет логическое И и возвращает кардинальность (<code>UInt64</code>) результирующего битового массива.</p>
-<div class="codehilite"><pre><span></span>bitmapAndCardinality(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapAndCardinality(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -3996,15 +3996,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│   1 │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│   1 │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmaporcardinality">bitmapOrCardinality<a class="headerlink" href="#bitmaporcardinality" title="Permanent link">&para;</a></h2>
 <p>Выполняет логическое ИЛИ и возвращает кардинальность (<code>UInt64</code>) результирующего битового массива.</p>
-<div class="codehilite"><pre><span></span>bitmapOrCardinality(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapOrCardinality(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -4017,15 +4017,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│   5 │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│   5 │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapxorcardinality">bitmapXorCardinality<a class="headerlink" href="#bitmapxorcardinality" title="Permanent link">&para;</a></h2>
 <p>Выполняет логическое исключающее ИЛИ и возвращает кардинальность (<code>UInt64</code>) результирующего битового массива.</p>
-<div class="codehilite"><pre><span></span>bitmapXorCardinality(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapXorCardinality(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -4038,15 +4038,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│   4 │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│   4 │</span>
+<span class="err">└─────┘</span>
 </pre></div>
 
 
 <h2 id="bitmapandnotcardinality">bitmapAndnotCardinality<a class="headerlink" href="#bitmapandnotcardinality" title="Permanent link">&para;</a></h2>
 <p>Выполняет логическое отрицание И и возвращает кардинальность (<code>UInt64</code>) результирующего битового массива.</p>
-<div class="codehilite"><pre><span></span>bitmapAndnotCardinality(bitmap,bitmap)
+<div class="codehilite"><pre><span></span><span class="err">bitmapAndnotCardinality(bitmap,bitmap)</span>
 </pre></div>
 
 
@@ -4059,9 +4059,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─res─┐
-│   2 │
-└─────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
+<span class="err">│   2 │</span>
+<span class="err">└─────┘</span>
 </pre></div>
                 
                 </div>
@@ -4163,7 +4163,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

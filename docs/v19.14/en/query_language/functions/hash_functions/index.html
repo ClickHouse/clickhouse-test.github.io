@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3830,7 +3830,7 @@
 <p>Hash functions can be used for the deterministic pseudo-random shuffling of elements.</p>
 <h2 id="hash_functions-halfmd5">halfMD5<a class="headerlink" href="#hash_functions-halfmd5" title="Permanent link">&para;</a></h2>
 <p><a href="../type_conversion_functions/#type_conversion_functions-reinterpretAsString">Interprets</a> all the input parameters as strings and calculates the <a href="https://en.wikipedia.org/wiki/MD5" rel="external nofollow">MD5</a> hash value for each of them. Then combines hashes, takes the first 8 bytes of the hash of the resulting string, and interprets them as <code>UInt64</code> in big-endian byte order.</p>
-<div class="codehilite"><pre><span></span>halfMD5(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">halfMD5(par1, ...)</span>
 </pre></div>
 
 
@@ -3857,7 +3857,7 @@ If you don't need MD5 in particular, but you need a decent cryptographic 128-bit
 If you want to get the same result as output by the md5sum utility, use lower(hex(MD5(s))).</p>
 <h2 id="hash_functions-siphash64">sipHash64<a class="headerlink" href="#hash_functions-siphash64" title="Permanent link">&para;</a></h2>
 <p>Produces a 64-bit <a href="https://131002.net/siphash/" rel="external nofollow">SipHash</a> hash value.</p>
-<div class="codehilite"><pre><span></span>sipHash64(par1,...)
+<div class="codehilite"><pre><span></span><span class="err">sipHash64(par1,...)</span>
 </pre></div>
 
 
@@ -3878,9 +3878,9 @@ If you want to get the same result as output by the md5sum utility, use lower(he
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────────SipHash─┬─type───┐
-│ 13726873534472839665 │ UInt64 │
-└──────────────────────┴────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────SipHash─┬─type───┐</span>
+<span class="err">│ 13726873534472839665 │ UInt64 │</span>
+<span class="err">└──────────────────────┴────────┘</span>
 </pre></div>
 
 
@@ -3890,7 +3890,7 @@ Accepts a String-type argument. Returns FixedString(16).
 Differs from sipHash64 in that the final xor-folding state is only done up to 128 bits.</p>
 <h2 id="cityhash64">cityHash64<a class="headerlink" href="#cityhash64" title="Permanent link">&para;</a></h2>
 <p>Produces a 64-bit <a href="https://github.com/google/cityhash" rel="external nofollow">CityHash</a> hash value.</p>
-<div class="codehilite"><pre><span></span>cityHash64(par1,...)
+<div class="codehilite"><pre><span></span><span class="err">cityHash64(par1,...)</span>
 </pre></div>
 
 
@@ -3936,7 +3936,7 @@ Even in these cases, we recommend applying the function offline and pre-calculat
 Levels are the same as in URLHierarchy. This function is specific to Yandex.Metrica.</p>
 <h2 id="farmhash64">farmHash64<a class="headerlink" href="#farmhash64" title="Permanent link">&para;</a></h2>
 <p>Produces a 64-bit <a href="https://github.com/google/farmhash" rel="external nofollow">FarmHash</a> hash value.</p>
-<div class="codehilite"><pre><span></span>farmHash64(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">farmHash64(par1, ...)</span>
 </pre></div>
 
 
@@ -3966,7 +3966,7 @@ Accepts a String-type argument. Returns Int32.
 This is just <a href="#hash_functions-javahash">JavaHash</a> with zeroed out sign bit. This function is used in <a href="https://en.wikipedia.org/wiki/Apache_Hive" rel="external nofollow">Apache Hive</a> for versions before 3.0.</p>
 <h2 id="metrohash64">metroHash64<a class="headerlink" href="#metrohash64" title="Permanent link">&para;</a></h2>
 <p>Produces a 64-bit <a href="http://www.jandrewrogers.com/2015/05/27/metrohash/" rel="external nofollow">MetroHash</a> hash value.</p>
-<div class="codehilite"><pre><span></span>metroHash64(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">metroHash64(par1, ...)</span>
 </pre></div>
 
 
@@ -3991,8 +3991,8 @@ Accepts two arguments: a UInt64-type key and the number of buckets. Returns Int3
 For more information, see the link: <a href="https://arxiv.org/pdf/1406.2294.pdf" rel="external nofollow">JumpConsistentHash</a></p>
 <h2 id="murmurhash2-32-murmurhash2-64">murmurHash2_32, murmurHash2_64<a class="headerlink" href="#murmurhash2-32-murmurhash2-64" title="Permanent link">&para;</a></h2>
 <p>Produces a <a href="https://github.com/aappleby/smhasher" rel="external nofollow">MurmurHash2</a> hash value.</p>
-<div class="codehilite"><pre><span></span>murmurHash2_32(par1, ...)
-murmurHash2_64(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">murmurHash2_32(par1, ...)</span>
+<span class="err">murmurHash2_64(par1, ...)</span>
 </pre></div>
 
 
@@ -4016,8 +4016,8 @@ murmurHash2_64(par1, ...)
 
 <h2 id="murmurhash3-32-murmurhash3-64">murmurHash3_32, murmurHash3_64<a class="headerlink" href="#murmurhash3-32-murmurhash3-64" title="Permanent link">&para;</a></h2>
 <p>Produces a <a href="https://github.com/aappleby/smhasher" rel="external nofollow">MurmurHash3</a> hash value.</p>
-<div class="codehilite"><pre><span></span>murmurHash3_32(par1, ...)
-murmurHash3_64(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">murmurHash3_32(par1, ...)</span>
+<span class="err">murmurHash3_64(par1, ...)</span>
 </pre></div>
 
 
@@ -4041,7 +4041,7 @@ murmurHash3_64(par1, ...)
 
 <h2 id="murmurhash3-128">murmurHash3_128<a class="headerlink" href="#murmurhash3-128" title="Permanent link">&para;</a></h2>
 <p>Produces a 128-bit <a href="https://github.com/aappleby/smhasher" rel="external nofollow">MurmurHash3</a> hash value.</p>
-<div class="codehilite"><pre><span></span>murmurHash3_128( expr )
+<div class="codehilite"><pre><span></span><span class="err">murmurHash3_128( expr )</span>
 </pre></div>
 
 
@@ -4166,7 +4166,9 @@ For more information, see the link: <a href="http://cyan4973.github.io/xxHash/" 
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

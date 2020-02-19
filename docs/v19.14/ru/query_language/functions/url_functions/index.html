@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3928,7 +3928,7 @@
 <p>Возвращает протокол. Примеры: http, ftp, mailto, magnet...</p>
 <h3 id="domain">domain<a class="headerlink" href="#domain" title="Permanent link">&para;</a></h3>
 <p>Извлекает имя хоста из URL.</p>
-<div class="codehilite"><pre><span></span>domain(url)
+<div class="codehilite"><pre><span></span><span class="err">domain(url)</span>
 </pre></div>
 
 
@@ -3937,16 +3937,16 @@
 <li><code>url</code> — URL. Тип — <a href="../../../data_types/string/">String</a>.</li>
 </ul>
 <p>URL может быть указан со схемой или без неё. Примеры:</p>
-<div class="codehilite"><pre><span></span>svn+ssh://some.svn-hosting.com:80/repo/trunk
-some.svn-hosting.com:80/repo/trunk
-https://yandex.com/time/
+<div class="codehilite"><pre><span></span><span class="err">svn+ssh://some.svn-hosting.com:80/repo/trunk</span>
+<span class="err">some.svn-hosting.com:80/repo/trunk</span>
+<span class="c">https://yandex.com/time/</span>
 </pre></div>
 
 
 <p>Для указанных примеров функция <code>domain</code> возвращает следующие результаты:</p>
-<div class="codehilite"><pre><span></span>some.svn-hosting.com
-some.svn-hosting.com
-yandex.com
+<div class="codehilite"><pre><span></span><span class="err">some.svn-hosting.com</span>
+<span class="err">some.svn-hosting.com</span>
+<span class="err">yandex.com</span>
 </pre></div>
 
 
@@ -3971,7 +3971,7 @@ yandex.com
 <p>Возвращает домен, удалив префикс 'www.', если он присутствовал.</p>
 <h3 id="topleveldomain">topLevelDomain<a class="headerlink" href="#topleveldomain" title="Permanent link">&para;</a></h3>
 <p>Извлекает домен верхнего уровня из URL.</p>
-<div class="codehilite"><pre><span></span>topLevelDomain(url)
+<div class="codehilite"><pre><span></span><span class="err">topLevelDomain(url)</span>
 </pre></div>
 
 
@@ -3980,9 +3980,9 @@ yandex.com
 <li><code>url</code> — URL. Тип — <a href="../../../data_types/string/">String</a>.</li>
 </ul>
 <p>URL может быть указан со схемой или без неё. Примеры:</p>
-<div class="codehilite"><pre><span></span>svn+ssh://some.svn-hosting.com:80/repo/trunk
-some.svn-hosting.com:80/repo/trunk
-https://yandex.com/time/
+<div class="codehilite"><pre><span></span><span class="err">svn+ssh://some.svn-hosting.com:80/repo/trunk</span>
+<span class="err">some.svn-hosting.com:80/repo/trunk</span>
+<span class="c">https://yandex.com/time/</span>
 </pre></div>
 
 
@@ -4029,11 +4029,11 @@ https://yandex.com/time/
 <h3 id="urlpathhierarchy-url">URLPathHierarchy(URL)<a class="headerlink" href="#urlpathhierarchy-url" title="Permanent link">&para;</a></h3>
 <p>То же самое, но без протокола и хоста в результате. Элемент / (корень) не включается. Пример:
 Функция используется для реализации древовидных отчётов по URL в Яндекс.Метрике.</p>
-<div class="codehilite"><pre><span></span>URLPathHierarchy(&#39;https://example.com/browse/CONV-6788&#39;) =
-[
-    &#39;/browse/&#39;,
-    &#39;/browse/CONV-6788&#39;
-]
+<div class="codehilite"><pre><span></span><span class="err">URLPathHierarchy(&#39;https://example.com/browse/CONV-6788&#39;) =</span>
+<span class="err">[</span>
+<span class="err">    &#39;/browse/&#39;,</span>
+<span class="err">    &#39;/browse/CONV-6788&#39;</span>
+<span class="err">]</span>
 </pre></div>
 
 
@@ -4044,8 +4044,8 @@ https://yandex.com/time/
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─</span><span class="nt">DecodedURL</span><span class="err">─────────────────────────────┐</span>
-<span class="err">│</span> <span class="nt">http</span><span class="o">://</span><span class="nt">127</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">0</span><span class="p">.</span><span class="nc">1</span><span class="p">:</span><span class="nd">8123</span><span class="o">/?</span><span class="nt">query</span><span class="o">=</span><span class="nt">SELECT</span> <span class="nt">1</span><span class="o">;</span> <span class="err">│</span>
+<div class="codehilite"><pre><span></span><span class="err">┌─DecodedURL─────────────────────────────┐</span>
+<span class="err">│ http://127.0.0.1:8123/?query=SELECT 1; │</span>
 <span class="err">└────────────────────────────────────────┘</span>
 </pre></div>
 
@@ -4162,7 +4162,9 @@ https://yandex.com/time/
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

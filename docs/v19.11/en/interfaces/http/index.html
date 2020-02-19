@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582137769">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?28528db?1582139859">
     
     
   </head>
@@ -3684,9 +3684,9 @@ You can also use the URL parameters to specify any settings for processing a sin
 <p>For information about other parameters, see the section "SET".</p>
 <p>Similarly, you can use ClickHouse sessions in the HTTP protocol. To do this, you need to add the <code>session_id</code> GET parameter to the request. You can use any string as the session ID. By default, the session is terminated after 60 seconds of inactivity. To change this timeout, modify the <code>default_session_timeout</code> setting in the server configuration, or add the <code>session_timeout</code> GET parameter to the request. To check the session status, use the <code>session_check=1</code> parameter. Only one query at a time can be executed within a single session.</p>
 <p>You have the option to receive information about the progress of query execution in <code>X-ClickHouse-Progress</code> response headers. To do this, enable the setting <a href="../../operations/settings/settings/#settings-send_progress_in_http_headers">send_progress_in_http_headers</a>. Example of the header sequence:</p>
-<div class="codehilite"><pre><span></span>X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;2752512&quot;,&quot;read_bytes&quot;:&quot;240570816&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}
-X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;5439488&quot;,&quot;read_bytes&quot;:&quot;482285394&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}
-X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;8783786&quot;,&quot;read_bytes&quot;:&quot;819092887&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}
+<div class="codehilite"><pre><span></span><span class="c">X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;2752512&quot;,&quot;read_bytes&quot;:&quot;240570816&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}</span>
+<span class="c">X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;5439488&quot;,&quot;read_bytes&quot;:&quot;482285394&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}</span>
+<span class="c">X-ClickHouse-Progress: {&quot;read_rows&quot;:&quot;8783786&quot;,&quot;read_bytes&quot;:&quot;819092887&quot;,&quot;total_rows_to_read&quot;:&quot;8880128&quot;}</span>
 </pre></div>
 
 
@@ -3812,7 +3812,9 @@ The optional 'query_id' parameter can be passed as the query ID (any string). Fo
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

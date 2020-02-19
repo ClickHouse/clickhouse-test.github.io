@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582136966">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?28528db?1582139035">
     
     
   </head>
@@ -3922,7 +3922,7 @@
 <p>Keeps tables in RAM only <code>expiration_time_in_seconds</code> seconds after last access. Can be used only with *Log tables.</p>
 <p>It's optimized for storing many small *Log tables, for which there is a long time interval between accesses.</p>
 <h2 id="creating-a-database">Creating a Database<a class="headerlink" href="#creating-a-database" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span>CREATE DATABASE testlazy ENGINE = Lazy(expiration_time_in_seconds);
+<div class="codehilite"><pre><span></span><span class="err">CREATE DATABASE testlazy ENGINE = Lazy(expiration_time_in_seconds);</span>
 </pre></div>
                 
                 </div>
@@ -4024,7 +4024,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

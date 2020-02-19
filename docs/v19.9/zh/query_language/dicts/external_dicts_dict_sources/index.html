@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137930">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582140032">
     
     
   </head>
@@ -3753,7 +3753,7 @@
 
 
 <p>If you then make a query such as</p>
-<div class="codehilite"><pre><span></span>SELECT * FROM odbc(&#39;DSN=gregtest;Servername=some-server.com&#39;, &#39;test_db&#39;);    
+<div class="codehilite"><pre><span></span><span class="err">SELECT * FROM odbc(&#39;DSN=gregtest;Servername=some-server.com&#39;, &#39;test_db&#39;);    </span>
 </pre></div>
 
 
@@ -3761,27 +3761,27 @@
 <h3 id="example-of-connecting-postgresql">Example of Connecting PostgreSQL<a class="headerlink" href="#example-of-connecting-postgresql" title="Permanent link">&para;</a></h3>
 <p>Ubuntu OS.</p>
 <p>Installing unixODBC and the ODBC driver for PostgreSQL:</p>
-<div class="codehilite"><pre><span></span>sudo apt-get install -y unixodbc odbcinst odbc-postgresql
+<div class="codehilite"><pre><span></span><span class="err">sudo apt-get install -y unixodbc odbcinst odbc-postgresql</span>
 </pre></div>
 
 
 <p>Configuring <code>/etc/odbc.ini</code> (or <code>~/.odbc.ini</code>):</p>
-<div class="codehilite"><pre><span></span>    [DEFAULT]
-    Driver = myconnection
+<div class="codehilite"><pre><span></span><span class="w">    </span><span class="o">[</span><span class="n">DEFAULT</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">Driver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myconnection</span><span class="w"></span>
 
-    [myconnection]
-    Description         = PostgreSQL connection to my_db
-    Driver              = PostgreSQL Unicode
-    Database            = my_db
-    Servername          = 127.0.0.1
-    UserName            = username
-    Password            = password
-    Port                = 5432
-    Protocol            = 9.3
-    ReadOnly            = No
-    RowVersioning       = No
-    ShowSystemTables    = No
-    ConnSettings        =
+<span class="w">    </span><span class="o">[</span><span class="n">myconnection</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">Description</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="n">PostgreSQL</span><span class="w"> </span><span class="k">connection</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">my_db</span><span class="w"></span>
+<span class="w">    </span><span class="n">Driver</span><span class="w">              </span><span class="o">=</span><span class="w"> </span><span class="n">PostgreSQL</span><span class="w"> </span><span class="nf">Unicode</span><span class="w"></span>
+<span class="w">    </span><span class="k">Database</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="n">my_db</span><span class="w"></span>
+<span class="w">    </span><span class="n">Servername</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mf">127.0.0.1</span><span class="w"></span>
+<span class="w">    </span><span class="n">UserName</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="n">username</span><span class="w"></span>
+<span class="w">    </span><span class="n">Password</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="n">password</span><span class="w"></span>
+<span class="w">    </span><span class="n">Port</span><span class="w">                </span><span class="o">=</span><span class="w"> </span><span class="mi">5432</span><span class="w"></span>
+<span class="w">    </span><span class="n">Protocol</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="mf">9.3</span><span class="w"></span>
+<span class="w">    </span><span class="n">ReadOnly</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="k">No</span><span class="w"></span>
+<span class="w">    </span><span class="n">RowVersioning</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="k">No</span><span class="w"></span>
+<span class="w">    </span><span class="n">ShowSystemTables</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="k">No</span><span class="w"></span>
+<span class="w">    </span><span class="n">ConnSettings</span><span class="w">        </span><span class="o">=</span><span class="w"></span>
 </pre></div>
 
 
@@ -3823,41 +3823,41 @@
 <h3 id="example-of-connecting-ms-sql-server">Example of Connecting MS SQL Server<a class="headerlink" href="#example-of-connecting-ms-sql-server" title="Permanent link">&para;</a></h3>
 <p>Ubuntu OS.</p>
 <p>Installing the driver: :</p>
-<div class="codehilite"><pre><span></span>    sudo apt-get install tdsodbc freetds-bin sqsh
+<div class="codehilite"><pre><span></span><span class="err">    sudo apt-get install tdsodbc freetds-bin sqsh</span>
 </pre></div>
 
 
 <p>Configuring the driver: :</p>
-<div class="codehilite"><pre><span></span>    $ cat /etc/freetds/freetds.conf
-    ...
+<div class="codehilite"><pre><span></span><span class="w">    </span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">freetds</span><span class="o">/</span><span class="n">freetds</span><span class="p">.</span><span class="n">conf</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
 
-    [MSSQL]
-    host = 192.168.56.101
-    port = 1433
-    tds version = 7.0
-    client charset = UTF-8
+<span class="w">    </span><span class="o">[</span><span class="n">MSSQL</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="k">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">192.168.56.101</span><span class="w"></span>
+<span class="w">    </span><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1433</span><span class="w"></span>
+<span class="w">    </span><span class="n">tds</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">7.0</span><span class="w"></span>
+<span class="w">    </span><span class="n">client</span><span class="w"> </span><span class="n">charset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span><span class="w"></span>
 
-    $ cat /etc/odbcinst.ini
-    ...
+<span class="w">    </span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">odbcinst</span><span class="p">.</span><span class="n">ini</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
 
-    [FreeTDS]
-    Description     = FreeTDS
-    Driver          = /usr/lib/x86_64-linux-gnu/odbc/libtdsodbc.so
-    Setup           = /usr/lib/x86_64-linux-gnu/odbc/libtdsS.so
-    FileUsage       = 1
-    UsageCount      = 5
+<span class="w">    </span><span class="o">[</span><span class="n">FreeTDS</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">Description</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">FreeTDS</span><span class="w"></span>
+<span class="w">    </span><span class="n">Driver</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">odbc</span><span class="o">/</span><span class="n">libtdsodbc</span><span class="p">.</span><span class="n">so</span><span class="w"></span>
+<span class="w">    </span><span class="n">Setup</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">/</span><span class="n">odbc</span><span class="o">/</span><span class="n">libtdsS</span><span class="p">.</span><span class="n">so</span><span class="w"></span>
+<span class="w">    </span><span class="n">FileUsage</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">    </span><span class="n">UsageCount</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
 
-    $ cat ~/.odbc.ini
-    ...
+<span class="w">    </span><span class="err">$</span><span class="w"> </span><span class="n">cat</span><span class="w"> </span><span class="o">~/</span><span class="p">.</span><span class="n">odbc</span><span class="p">.</span><span class="n">ini</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
 
-    [MSSQL]
-    Description     = FreeTDS
-    Driver          = FreeTDS
-    Servername      = MSSQL
-    Database        = test
-    UID             = test
-    PWD             = test
-    Port            = 1433
+<span class="w">    </span><span class="o">[</span><span class="n">MSSQL</span><span class="o">]</span><span class="w"></span>
+<span class="w">    </span><span class="n">Description</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">FreeTDS</span><span class="w"></span>
+<span class="w">    </span><span class="n">Driver</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="n">FreeTDS</span><span class="w"></span>
+<span class="w">    </span><span class="n">Servername</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="n">MSSQL</span><span class="w"></span>
+<span class="w">    </span><span class="k">Database</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">test</span><span class="w"></span>
+<span class="w">    </span><span class="n">UID</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="n">test</span><span class="w"></span>
+<span class="w">    </span><span class="n">PWD</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="n">test</span><span class="w"></span>
+<span class="w">    </span><span class="n">Port</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="mi">1433</span><span class="w"></span>
 </pre></div>
 
 
@@ -4120,7 +4120,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

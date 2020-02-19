@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137930">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582140032">
     
     
   </head>
@@ -3562,7 +3562,7 @@ It returns UInt8: 0 if the pattern isn't matched, or 1 if it matches.</p>
 <li>whether there was a chain of events in which a pageview with 'company' in the address occurred earlier than a pageview with 'cart' in the address.</li>
 </ul>
 <p>This is a singular example. You could write it using other aggregate functions:</p>
-<div class="codehilite"><pre><span></span>minIf(EventTime, URL LIKE &#39;%company%&#39;) &lt; maxIf(EventTime, URL LIKE &#39;%cart%&#39;).
+<div class="codehilite"><pre><span></span><span class="err">minIf(EventTime, URL LIKE &#39;%company%&#39;) &lt; maxIf(EventTime, URL LIKE &#39;%cart%&#39;).</span>
 </pre></div>
 
 
@@ -3580,7 +3580,7 @@ It returns UInt8: 0 if the pattern isn't matched, or 1 if it matches.</p>
 Chains are searched for without overlapping. In other words, the next chain can start only after the end of the previous one.</p>
 <h2 id="windowfunnel-window-timestamp-cond1-cond2-cond3">windowFunnel(window)(timestamp, cond1, cond2, cond3, ...)<a class="headerlink" href="#windowfunnel-window-timestamp-cond1-cond2-cond3" title="Permanent link">&para;</a></h2>
 <p>Searches for event chains in a sliding time window and calculates the maximum number of events that occurred from the chain.</p>
-<div class="codehilite"><pre><span></span>windowFunnel(window)(timestamp, cond1, cond2, cond3, ...)
+<div class="codehilite"><pre><span></span><span class="err">windowFunnel(window)(timestamp, cond1, cond2, cond3, ...)</span>
 </pre></div>
 
 
@@ -3609,20 +3609,20 @@ Chains are searched for without overlapping. In other words, the next chain can 
 <li>The user placed an order (<code>eventID = 1009</code>).</li>
 </ol>
 <p>To find out how far the user <code>user_id</code> could get through the chain in an hour in January of 2017, make the query:</p>
-<div class="codehilite"><pre><span></span>SELECT
-    level,
-    count() AS c
-FROM
-(
-    SELECT
-        user_id,
-        windowFunnel(3600)(timestamp, eventID = 1001, eventID = 1003 AND product = &#39;phone&#39;, eventID = 1009) AS level
-    FROM trend_event
-    WHERE (event_date &gt;= &#39;2017-01-01&#39;) AND (event_date &lt;= &#39;2017-01-31&#39;)
-    GROUP BY user_id
-)
-GROUP BY level
-ORDER BY level
+<div class="codehilite"><pre><span></span><span class="err">SELECT</span>
+<span class="err">    level,</span>
+<span class="err">    count() AS c</span>
+<span class="err">FROM</span>
+<span class="err">(</span>
+<span class="err">    SELECT</span>
+<span class="err">        user_id,</span>
+<span class="err">        windowFunnel(3600)(timestamp, eventID = 1001, eventID = 1003 AND product = &#39;phone&#39;, eventID = 1009) AS level</span>
+<span class="err">    FROM trend_event</span>
+<span class="err">    WHERE (event_date &gt;= &#39;2017-01-01&#39;) AND (event_date &lt;= &#39;2017-01-31&#39;)</span>
+<span class="err">    GROUP BY user_id</span>
+<span class="err">)</span>
+<span class="err">GROUP BY level</span>
+<span class="err">ORDER BY level</span>
 </pre></div>
 
 
@@ -3633,19 +3633,19 @@ ORDER BY level
 <p>Example:</p>
 <p>Consider you are doing a website analytics, intend to calculate the retention of customers</p>
 <p>This could be easily calculate by <code>retention</code></p>
-<div class="codehilite"><pre><span></span>SELECT
-    sum(r[1]) AS r1,
-    sum(r[2]) AS r2,
-    sum(r[3]) AS r3
-FROM
-(
-    SELECT
-        uid,
-        retention(date = &#39;2018-08-10&#39;, date = &#39;2018-08-11&#39;, date = &#39;2018-08-12&#39;) AS r
-    FROM events
-    WHERE date IN (&#39;2018-08-10&#39;, &#39;2018-08-11&#39;, &#39;2018-08-12&#39;)
-    GROUP BY uid
-)
+<div class="codehilite"><pre><span></span><span class="err">SELECT</span>
+<span class="err">    sum(r[1]) AS r1,</span>
+<span class="err">    sum(r[2]) AS r2,</span>
+<span class="err">    sum(r[3]) AS r3</span>
+<span class="err">FROM</span>
+<span class="err">(</span>
+<span class="err">    SELECT</span>
+<span class="err">        uid,</span>
+<span class="err">        retention(date = &#39;2018-08-10&#39;, date = &#39;2018-08-11&#39;, date = &#39;2018-08-12&#39;) AS r</span>
+<span class="err">    FROM events</span>
+<span class="err">    WHERE date IN (&#39;2018-08-10&#39;, &#39;2018-08-11&#39;, &#39;2018-08-12&#39;)</span>
+<span class="err">    GROUP BY uid</span>
+<span class="err">)</span>
 </pre></div>
 
 
@@ -3765,7 +3765,9 @@ For strings, it stores a non-cryptographic hash of 8 bytes. That is, the calcula
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

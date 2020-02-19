@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3711,8 +3711,8 @@
 <h2 id="konfiguratsiia-rollup">Конфигурация rollup<a class="headerlink" href="#konfiguratsiia-rollup" title="Permanent link">&para;</a></h2>
 <p>Настройки прореживания данных задаются параметром <a href="../../server_settings/settings/#server_settings-graphite_rollup">graphite_rollup</a> в конфигурации сервера . Имя параметра может быть любым. Можно создать несколько конфигураций и использовать их для разных таблиц.</p>
 <p>Структура конфигурации rollup:</p>
-<div class="codehilite"><pre><span></span>required-columns
-patterns
+<div class="codehilite"><pre><span></span><span class="err">required-columns</span>
+<span class="err">patterns</span>
 </pre></div>
 
 
@@ -3725,24 +3725,24 @@ patterns
 </ul>
 <h3 id="pravila-patterns">Правила (patterns)<a class="headerlink" href="#pravila-patterns" title="Permanent link">&para;</a></h3>
 <p>Структура раздела <code>patterns</code>:</p>
-<div class="codehilite"><pre><span></span>pattern
-    regexp
-    function
-pattern
-    regexp
-    age + precision
-    ...
-pattern
-    regexp
-    function
-    age + precision
-    ...
-pattern
-    ...
-default
-    function
-    age + precision
-    ...
+<div class="codehilite"><pre><span></span><span class="err">pattern</span>
+<span class="err">    regexp</span>
+<span class="err">    function</span>
+<span class="err">pattern</span>
+<span class="err">    regexp</span>
+<span class="err">    age + precision</span>
+<span class="err">    ...</span>
+<span class="err">pattern</span>
+<span class="err">    regexp</span>
+<span class="err">    function</span>
+<span class="err">    age + precision</span>
+<span class="err">    ...</span>
+<span class="err">pattern</span>
+<span class="err">    ...</span>
+<span class="err">default</span>
+<span class="err">    function</span>
+<span class="err">    age + precision</span>
+<span class="err">    ...</span>
 </pre></div>
 
 
@@ -3895,7 +3895,9 @@ default
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

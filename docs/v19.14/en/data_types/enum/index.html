@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3645,16 +3645,16 @@
 <p>Each of the values is assigned a number in the range <code>-128 ... 127</code> for <code>Enum8</code> or in the range <code>-32768 ... 32767</code> for <code>Enum16</code>. All the strings and numbers must be different. An empty string is allowed. If this type is specified (in a table definition), numbers can be in an arbitrary order. However, the order does not matter.</p>
 <p>Neither the string nor the numeric value in an <code>Enum</code> can be <a href="../../query_language/syntax/">NULL</a>.</p>
 <p>An <code>Enum</code> can be contained in <a href="../nullable/">Nullable</a> type. So if you create a table using the query</p>
-<div class="codehilite"><pre><span></span>CREATE TABLE t_enum_nullable
-(
-    x Nullable( Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2) )
-)
-ENGINE = TinyLog
+<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE t_enum_nullable</span>
+<span class="err">(</span>
+<span class="err">    x Nullable( Enum8(&#39;hello&#39; = 1, &#39;world&#39; = 2) )</span>
+<span class="err">)</span>
+<span class="err">ENGINE = TinyLog</span>
 </pre></div>
 
 
 <p>it can store not only <code>'hello'</code> and <code>'world'</code>, but <code>NULL</code>, as well.</p>
-<div class="codehilite"><pre><span></span>INSERT INTO t_enum_nullable Values(&#39;hello&#39;),(&#39;world&#39;),(NULL)
+<div class="codehilite"><pre><span></span><span class="err">INSERT INTO t_enum_nullable Values(&#39;hello&#39;),(&#39;world&#39;),(NULL)</span>
 </pre></div>
 
 
@@ -3769,7 +3769,9 @@ The Enum type can be changed without cost using ALTER, if only the set of values
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

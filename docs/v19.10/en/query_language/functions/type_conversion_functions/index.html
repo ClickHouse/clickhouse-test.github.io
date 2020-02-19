@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137851">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139948">
     
     
   </head>
@@ -3910,8 +3910,8 @@ All these functions accept one argument.</p>
 <p>When converting dates to numbers or vice versa, the date corresponds to the number of days since the beginning of the Unix epoch.
 When converting dates with times to numbers or vice versa, the date with time corresponds to the number of seconds since the beginning of the Unix epoch.</p>
 <p>The date and date-with-time formats for the toDate/toDateTime functions are defined as follows:</p>
-<div class="codehilite"><pre><span></span>YYYY-MM-DD
-YYYY-MM-DD hh:mm:ss
+<div class="codehilite"><pre><span></span><span class="err">YYYY-MM-DD</span>
+<span class="err">YYYY-MM-DD hh:mm:ss</span>
 </pre></div>
 
 
@@ -3925,9 +3925,9 @@ YYYY-MM-DD hh:mm:ss
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌───────────now_local─┬─now_yekat───────────┐
-│ 2016-06-15 00:11:21 │ 2016-06-15 02:11:21 │
-└─────────────────────┴─────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌───────────now_local─┬─now_yekat───────────┐</span>
+<span class="err">│ 2016-06-15 00:11:21 │ 2016-06-15 02:11:21 │</span>
+<span class="err">└─────────────────────┴─────────────────────┘</span>
 </pre></div>
 
 
@@ -3944,9 +3944,9 @@ If the string has fewer bytes than N, it is passed with null bytes to the right.
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─s─────────────┬─s_cut─┐
-│ foo\0\0\0\0\0 │ foo   │
-└───────────────┴───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─s─────────────┬─s_cut─┐</span>
+<span class="err">│ foo\0\0\0\0\0 │ foo   │</span>
+<span class="err">└───────────────┴───────┘</span>
 </pre></div>
 
 
@@ -3954,9 +3954,9 @@ If the string has fewer bytes than N, it is passed with null bytes to the right.
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─s──────────┬─s_cut─┐
-│ foo\0bar\0 │ foo   │
-└────────────┴───────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─s──────────┬─s_cut─┐</span>
+<span class="err">│ foo\0bar\0 │ foo   │</span>
+<span class="err">└────────────┴───────┘</span>
 </pre></div>
 
 
@@ -3981,27 +3981,27 @@ If the string has fewer bytes than N, it is passed with null bytes to the right.
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─timestamp───────────┬────────────datetime─┬───────date─┬─string──────────────┬─fixed_string──────────────┐
-│ 2016-06-15 23:00:00 │ 2016-06-15 23:00:00 │ 2016-06-15 │ 2016-06-15 23:00:00 │ 2016-06-15 23:00:00\0\0\0 │
-└─────────────────────┴─────────────────────┴────────────┴─────────────────────┴───────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─timestamp───────────┬────────────datetime─┬───────date─┬─string──────────────┬─fixed_string──────────────┐</span>
+<span class="err">│ 2016-06-15 23:00:00 │ 2016-06-15 23:00:00 │ 2016-06-15 │ 2016-06-15 23:00:00 │ 2016-06-15 23:00:00\0\0\0 │</span>
+<span class="err">└─────────────────────┴─────────────────────┴────────────┴─────────────────────┴───────────────────────────┘</span>
 </pre></div>
 
 
 <p>Conversion to FixedString(N) only works for arguments of type String or FixedString(N).</p>
 <p>Type conversion to <a href="../../../data_types/nullable/">Nullable</a> and back is supported. Example:</p>
-<div class="codehilite"><pre><span></span>SELECT toTypeName(x) FROM t_null
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">t_null</span>
 
-┌─toTypeName(x)─┐
-│ Int8          │
-│ Int8          │
-└───────────────┘
+<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="nb">Int8</span>          <span class="err">│</span>
+<span class="err">│</span> <span class="nb">Int8</span>          <span class="err">│</span>
+<span class="err">└───────────────┘</span>
 
-SELECT toTypeName(CAST(x, &#39;Nullable(UInt16)&#39;)) FROM t_null
+<span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Nullable(UInt16)&#39;</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">t_null</span>
 
-┌─toTypeName(CAST(x, &#39;Nullable(UInt16)&#39;))─┐
-│ Nullable(UInt16)                        │
-│ Nullable(UInt16)                        │
-└─────────────────────────────────────────┘
+<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Nullable(UInt16)&#39;</span><span class="p">))</span><span class="err">─┐</span>
+<span class="err">│</span> <span class="k">Nullable</span><span class="p">(</span><span class="n">UInt16</span><span class="p">)</span>                        <span class="err">│</span>
+<span class="err">│</span> <span class="k">Nullable</span><span class="p">(</span><span class="n">UInt16</span><span class="p">)</span>                        <span class="err">│</span>
+<span class="err">└─────────────────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4018,9 +4018,9 @@ The interval type is actually very useful, you can use this type of data to perf
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌─plus(date, interval_week)─┬─plus(date, interval_to_week)─┐
-│                2019-01-08 │                   2019-01-08 │
-└───────────────────────────┴──────────────────────────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌─plus(date, interval_week)─┬─plus(date, interval_to_week)─┐</span>
+<span class="err">│                2019-01-08 │                   2019-01-08 │</span>
+<span class="err">└───────────────────────────┴──────────────────────────────┘</span>
 </pre></div>
 
 
@@ -4132,7 +4132,9 @@ For more information, see the link: <a href="https://xkcd.com/1179/" rel="extern
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

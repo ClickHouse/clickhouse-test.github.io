@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582138079">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582140198">
     
     
   </head>
@@ -3513,15 +3513,15 @@
 <p>Словарь хранится в оперативной памяти в виде хэш-таблицы с упорядоченным массивом диапазонов и соответствующих им значений.</p>
 <p>Этот способ размещения работает также как и hashed и позволяет дополнительно к ключу использовать дипазоны по дате/времени, если они указаны в словаре.</p>
 <p>Пример: таблица содержит скидки для каждого рекламодателя в виде:</p>
-<div class="codehilite"><pre><span></span>+---------------+---------------------+-------------------+--------+
-| advertiser id | discount start date | discount end date | amount |
-+===============+=====================+===================+========+
-| 123           | 2015-01-01          | 2015-01-15        | 0.15   |
-+---------------+---------------------+-------------------+--------+
-| 123           | 2015-01-16          | 2015-01-31        | 0.25   |
-+---------------+---------------------+-------------------+--------+
-| 456           | 2015-01-01          | 2015-01-15        | 0.05   |
-+---------------+---------------------+-------------------+--------+
+<div class="codehilite"><pre><span></span><span class="err">+---------------+---------------------+-------------------+--------+</span>
+<span class="err">| advertiser id | discount start date | discount end date | amount |</span>
+<span class="err">+===============+=====================+===================+========+</span>
+<span class="err">| 123           | 2015-01-01          | 2015-01-15        | 0.15   |</span>
+<span class="err">+---------------+---------------------+-------------------+--------+</span>
+<span class="err">| 123           | 2015-01-16          | 2015-01-31        | 0.25   |</span>
+<span class="err">+---------------+---------------------+-------------------+--------+</span>
+<span class="err">| 456           | 2015-01-01          | 2015-01-15        | 0.05   |</span>
+<span class="err">+---------------+---------------------+-------------------+--------+</span>
 </pre></div>
 
 
@@ -3542,7 +3542,7 @@
 
 
 <p>Для работы с такими словарями в функцию <code>dictGetT</code> необходимо передавать дополнительный аргумент - дату: :</p>
-<div class="codehilite"><pre><span></span>dictGetT(&#39;dict_name&#39;, &#39;attr_name&#39;, id, date)
+<div class="codehilite"><pre><span></span><span class="err">dictGetT(&#39;dict_name&#39;, &#39;attr_name&#39;, id, date)</span>
 </pre></div>
 
 
@@ -3618,17 +3618,17 @@
 <h3 id="ip-trie">ip_trie<a class="headerlink" href="#ip-trie" title="Permanent link">&para;</a></h3>
 <p>Тип размещения предназначен для сопоставления префиксов сети (IP адресов) с метаданными, такими как ASN.</p>
 <p>Пример: таблица содержит префиксы сети и соответствующие им номера AS и коды стран:</p>
-<div class="codehilite"><pre><span></span>  +-----------------+-------+--------+
-  | prefix          | asn   | cca2   |
-  +=================+=======+========+
-  | 202.79.32.0/20  | 17501 | NP     |
-  +-----------------+-------+--------+
-  | 2620:0:870::/48 | 3856  | US     |
-  +-----------------+-------+--------+
-  | 2a02:6b8:1::/48 | 13238 | RU     |
-  +-----------------+-------+--------+
-  | 2001:db8::/32   | 65536 | ZZ     |
-  +-----------------+-------+--------+
+<div class="codehilite"><pre><span></span><span class="err">  +-----------------+-------+--------+</span>
+<span class="err">  | prefix          | asn   | cca2   |</span>
+<span class="err">  +=================+=======+========+</span>
+<span class="err">  | 202.79.32.0/20  | 17501 | NP     |</span>
+<span class="err">  +-----------------+-------+--------+</span>
+<span class="err">  | 2620:0:870::/48 | 3856  | US     |</span>
+<span class="err">  +-----------------+-------+--------+</span>
+<span class="err">  | 2a02:6b8:1::/48 | 13238 | RU     |</span>
+<span class="err">  +-----------------+-------+--------+</span>
+<span class="err">  | 2001:db8::/32   | 65536 | ZZ     |</span>
+<span class="err">  +-----------------+-------+--------+</span>
 </pre></div>
 
 
@@ -3657,12 +3657,12 @@
 
 <p>Этот ключ должен иметь только один атрибут типа <code>String</code>, содержащий допустимый префикс IP. Другие типы еще не поддерживаются.</p>
 <p>Для запросов необходимо использовать те же функции (<code>dictGetT</code> с кортежем), что и для словарей с составными ключами:</p>
-<div class="codehilite"><pre><span></span>dictGetT(&#39;dict_name&#39;, &#39;attr_name&#39;, tuple(ip))
+<div class="codehilite"><pre><span></span><span class="err">dictGetT(&#39;dict_name&#39;, &#39;attr_name&#39;, tuple(ip))</span>
 </pre></div>
 
 
 <p>Функция принимает либо <code>UInt32</code> для IPv4, либо <code>FixedString(16)</code> для IPv6:</p>
-<div class="codehilite"><pre><span></span>dictGetString(&#39;prefix&#39;, &#39;asn&#39;, tuple(IPv6StringToNum(&#39;2001:db8::1&#39;)))
+<div class="codehilite"><pre><span></span><span class="err">dictGetString(&#39;prefix&#39;, &#39;asn&#39;, tuple(IPv6StringToNum(&#39;2001:db8::1&#39;)))</span>
 </pre></div>
 
 
@@ -3768,7 +3768,9 @@
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

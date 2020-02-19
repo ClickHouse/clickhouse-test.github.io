@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137851">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139948">
     
     
   </head>
@@ -3615,27 +3615,27 @@
 <p>Consider the situation where you need to save continually changing data for some object. It sounds logical to have one row for an object and update it at any change, but update operation is expensive and slow for DBMS because it requires rewriting of the data in the storage. If you need to write data quickly, update not acceptable, but you can write the changes of an object sequentially as follows.</p>
 <p>Use the particular column <code>Sign</code>. If <code>Sign = 1</code> it means that the row is a state of an object, let's call it "state" row. If <code>Sign = -1</code> it means the cancellation of the state of an object with the same attributes, let's call it "cancel" row.</p>
 <p>For example, we want to calculate how much pages users checked at some site and how long they were there. At some moment of time we write the following row with the state of user activity:</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
 <p>At some moment later we register the change of user activity and write it with the following two rows.</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │   -1 │
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
 <p>The first row cancels the previous state of the object (user). It should copy the sorting key fields of the canceled state excepting <code>Sign</code>.</p>
 <p>The second row contains the current state.</p>
 <p>As we need only the last state of user activity, the rows</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │    1 │
-│ 4324182021466249494 │         5 │      146 │   -1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -3667,11 +3667,11 @@ Changes gradually collapsed so that in the end only the last state of almost eve
 <p>If you need to extract data without aggregation (for example, to check whether rows are present whose newest values match certain conditions), you can use the <code>FINAL</code> modifier for the <code>FROM</code> clause. This approach is significantly less efficient.</p>
 <h2 id="example-of-use">Example of use<a class="headerlink" href="#example-of-use" title="Permanent link">&para;</a></h2>
 <p>Example data:</p>
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │    1 │
-│ 4324182021466249494 │         5 │      146 │   -1 │
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -3699,17 +3699,17 @@ Changes gradually collapsed so that in the end only the last state of almost eve
 
 <p>We use two <code>INSERT</code> queries to create two different data parts. If we insert the data with one query ClickHouse creates one data part and will not perform any merge ever.</p>
 <p>Getting the data:</p>
-<div class="codehilite"><pre><span></span>SELECT * FROM UAct
+<div class="codehilite"><pre><span></span><span class="err">SELECT * FROM UAct</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │   -1 │
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
-┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         5 │      146 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         5 │      146 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -3726,9 +3726,9 @@ Changes gradually collapsed so that in the end only the last state of almost eve
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┐
-│ 4324182021466249494 │         6 │      185 │
-└─────────────────────┴───────────┴──────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┐</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┘</span>
 </pre></div>
 
 
@@ -3737,9 +3737,9 @@ Changes gradually collapsed so that in the end only the last state of almost eve
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
-│ 4324182021466249494 │         6 │      185 │    1 │
-└─────────────────────┴───────────┴──────────┴──────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
+<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
+<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
 </pre></div>
 
 
@@ -3844,7 +3844,9 @@ Changes gradually collapsed so that in the end only the last state of almost eve
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

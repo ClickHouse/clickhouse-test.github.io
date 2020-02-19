@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582137594">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?28528db?1582139669">
     
     
   </head>
@@ -3844,7 +3844,7 @@
 <p>Функции хэширования могут использоваться для детерминированного псевдослучайного разбрасывания элементов.</p>
 <h2 id="hash_functions-halfmd5">halfMD5<a class="headerlink" href="#hash_functions-halfmd5" title="Permanent link">&para;</a></h2>
 <p><a href="../type_conversion_functions/#type_conversion_functions-reinterpretAsString">Интерпретирует</a> все входные параметры как строки и вычисляет хэш <a href="https://ru.wikipedia.org/wiki/MD5" rel="external nofollow">MD5</a> для каждой из них. Затем объединяет хэши, берет первые 8 байт хэша результирующей строки и интерпретирует их как значение типа <code>UInt64</code> с big-endian порядком байтов.</p>
-<div class="codehilite"><pre><span></span>halfMD5(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">halfMD5(par1, ...)</span>
 </pre></div>
 
 
@@ -3871,7 +3871,7 @@
 Если вы хотите получить такой же результат, как выдаёт утилита md5sum, напишите lower(hex(MD5(s))).</p>
 <h2 id="hash_functions-siphash64">sipHash64<a class="headerlink" href="#hash_functions-siphash64" title="Permanent link">&para;</a></h2>
 <p>Генерирует 64-х битное значение <a href="https://131002.net/siphash/" rel="external nofollow">SipHash</a>.</p>
-<div class="codehilite"><pre><span></span>sipHash64(par1,...)
+<div class="codehilite"><pre><span></span><span class="err">sipHash64(par1,...)</span>
 </pre></div>
 
 
@@ -3892,9 +3892,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span>┌──────────────SipHash─┬─type───┐
-│ 13726873534472839665 │ UInt64 │
-└──────────────────────┴────────┘
+<div class="codehilite"><pre><span></span><span class="err">┌──────────────SipHash─┬─type───┐</span>
+<span class="err">│ 13726873534472839665 │ UInt64 │</span>
+<span class="err">└──────────────────────┴────────┘</span>
 </pre></div>
 
 
@@ -3904,7 +3904,7 @@
 Отличается от sipHash64 тем, что финальный xor-folding состояния делается только до 128 бит.</p>
 <h2 id="cityhash64">cityHash64<a class="headerlink" href="#cityhash64" title="Permanent link">&para;</a></h2>
 <p>Генерирует 64-х битное значение <a href="https://github.com/google/cityhash" rel="external nofollow">CityHash</a>.</p>
-<div class="codehilite"><pre><span></span>cityHash64(par1,...)
+<div class="codehilite"><pre><span></span><span class="err">cityHash64(par1,...)</span>
 </pre></div>
 
 
@@ -3950,7 +3950,7 @@
 Уровни аналогичные URLHierarchy. Функция специфична для Яндекс.Метрики.</p>
 <h2 id="farmhash64">farmHash64<a class="headerlink" href="#farmhash64" title="Permanent link">&para;</a></h2>
 <p>Генерирует 64-х битное значение <a href="https://github.com/google/farmhash" rel="external nofollow">FarmHash</a>.</p>
-<div class="codehilite"><pre><span></span>farmHash64(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">farmHash64(par1, ...)</span>
 </pre></div>
 
 
@@ -3979,7 +3979,7 @@
 HiveHash — это результат <a href="#hash_functions-javahash">JavaHash</a> с обнулённым битом знака числа.  Функция используется в <a href="https://en.wikipedia.org/wiki/Apache_Hive" rel="external nofollow">Apache Hive</a> вплоть до версии  3.0.</p>
 <h2 id="metrohash64">metroHash64<a class="headerlink" href="#metrohash64" title="Permanent link">&para;</a></h2>
 <p>Генерирует 64-х битное  значение <a href="http://www.jandrewrogers.com/2015/05/27/metrohash/" rel="external nofollow">MetroHash</a>.</p>
-<div class="codehilite"><pre><span></span>metroHash64(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">metroHash64(par1, ...)</span>
 </pre></div>
 
 
@@ -4004,8 +4004,8 @@ HiveHash — это результат <a href="#hash_functions-javahash">JavaHa
 Дополнительные сведения смотрите по ссылке: <a href="https://arxiv.org/pdf/1406.2294.pdf" rel="external nofollow">JumpConsistentHash</a></p>
 <h2 id="murmurhash2-32-murmurhash2-64">murmurHash2_32, murmurHash2_64<a class="headerlink" href="#murmurhash2-32-murmurhash2-64" title="Permanent link">&para;</a></h2>
 <p>Генерирует значение <a href="https://github.com/aappleby/smhasher" rel="external nofollow">MurmurHash2</a>.</p>
-<div class="codehilite"><pre><span></span>murmurHash2_32(par1, ...)
-murmurHash2_64(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">murmurHash2_32(par1, ...)</span>
+<span class="err">murmurHash2_64(par1, ...)</span>
 </pre></div>
 
 
@@ -4029,8 +4029,8 @@ murmurHash2_64(par1, ...)
 
 <h2 id="murmurhash3-32-murmurhash3-64">murmurHash3_32, murmurHash3_64<a class="headerlink" href="#murmurhash3-32-murmurhash3-64" title="Permanent link">&para;</a></h2>
 <p>Генерирует значение <a href="https://github.com/aappleby/smhasher" rel="external nofollow">MurmurHash3</a>.</p>
-<div class="codehilite"><pre><span></span>murmurHash3_32(par1, ...)
-murmurHash3_64(par1, ...)
+<div class="codehilite"><pre><span></span><span class="err">murmurHash3_32(par1, ...)</span>
+<span class="err">murmurHash3_64(par1, ...)</span>
 </pre></div>
 
 
@@ -4054,7 +4054,7 @@ murmurHash3_64(par1, ...)
 
 <h2 id="murmurhash3-128">murmurHash3_128<a class="headerlink" href="#murmurhash3-128" title="Permanent link">&para;</a></h2>
 <p>Генерирует значение <a href="https://github.com/aappleby/smhasher" rel="external nofollow">MurmurHash3</a>.</p>
-<div class="codehilite"><pre><span></span>murmurHash3_128( expr )
+<div class="codehilite"><pre><span></span><span class="err">murmurHash3_128( expr )</span>
 </pre></div>
 
 
@@ -4179,7 +4179,9 @@ murmurHash3_64(par1, ...)
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>

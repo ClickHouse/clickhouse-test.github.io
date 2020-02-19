@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582137687">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?28528db?1582139767">
     
     
   </head>
@@ -3688,12 +3688,12 @@
 <h3 id="server-is-not-running">Server Is Not Running<a class="headerlink" href="#server-is-not-running" title="Permanent link">&para;</a></h3>
 <p><strong>Check if server is runnnig</strong></p>
 <p>Command:</p>
-<div class="codehilite"><pre><span></span>sudo service clickhouse-server status
+<div class="codehilite"><pre><span></span><span class="err">sudo service clickhouse-server status</span>
 </pre></div>
 
 
 <p>If the server is not running, start it with the command:</p>
-<div class="codehilite"><pre><span></span>sudo service clickhouse-server start
+<div class="codehilite"><pre><span></span><span class="err">sudo service clickhouse-server start</span>
 </pre></div>
 
 
@@ -3705,38 +3705,38 @@
 <li><code>&lt;Information&gt; Application: Ready for connections.</code> — Server is running and ready for connections.</li>
 </ul>
 <p>If <code>clickhouse-server</code> start failed with a configuration error, you should see the <code>&lt;Error&gt;</code> string with an error description. For example:</p>
-<div class="codehilite"><pre><span></span>2019.01.11 15:23:25.549505 [ 45 ] {} &lt;Error&gt; ExternalDictionaries: Failed reloading &#39;event2id&#39; external dictionary: Poco::Exception. Code: 1000, e.code() = 111, e.displayText() = Connection refused, e.what() = Connection refused
+<div class="codehilite"><pre><span></span><span class="err">2019.01.11 15:23:25.549505 [ 45 ] {} &lt;Error&gt; ExternalDictionaries: Failed reloading &#39;event2id&#39; external dictionary: Poco::Exception. Code: 1000, e.code() = 111, e.displayText() = Connection refused, e.what() = Connection refused</span>
 </pre></div>
 
 
 <p>If you don't see an error at the end of the file, look through the entire file starting from the string:</p>
-<div class="codehilite"><pre><span></span>&lt;Information&gt; Application: starting up.
+<div class="codehilite"><pre><span></span><span class="err">&lt;Information&gt; Application: starting up.</span>
 </pre></div>
 
 
 <p>If you try to start a second instance of <code>clickhouse-server</code> on the server, you see the following log:</p>
-<div class="codehilite"><pre><span></span>2019.01.11 15:25:11.151730 [ 1 ] {} &lt;Information&gt; : Starting ClickHouse 19.1.0 with revision 54413
-2019.01.11 15:25:11.154578 [ 1 ] {} &lt;Information&gt; Application: starting up
-2019.01.11 15:25:11.156361 [ 1 ] {} &lt;Information&gt; StatusFile: Status file ./status already exists - unclean restart. Contents:
-PID: 8510
-Started at: 2019-01-11 15:24:23
-Revision: 54413
+<div class="codehilite"><pre><span></span><span class="mi">2019</span><span class="p">.</span><span class="mi">01</span><span class="p">.</span><span class="mi">11</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">11</span><span class="p">.</span><span class="mi">151730</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="err">{}</span> <span class="o">&lt;</span><span class="n">Information</span><span class="o">&gt;</span> <span class="p">:</span> <span class="n">Starting</span> <span class="n">ClickHouse</span> <span class="mi">19</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">0</span> <span class="k">with</span> <span class="n">revision</span> <span class="mi">54413</span>
+<span class="mi">2019</span><span class="p">.</span><span class="mi">01</span><span class="p">.</span><span class="mi">11</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">11</span><span class="p">.</span><span class="mi">154578</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="err">{}</span> <span class="o">&lt;</span><span class="n">Information</span><span class="o">&gt;</span> <span class="n">Application</span><span class="p">:</span> <span class="n">starting</span> <span class="n">up</span>
+<span class="mi">2019</span><span class="p">.</span><span class="mi">01</span><span class="p">.</span><span class="mi">11</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">11</span><span class="p">.</span><span class="mi">156361</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="err">{}</span> <span class="o">&lt;</span><span class="n">Information</span><span class="o">&gt;</span> <span class="n">StatusFile</span><span class="p">:</span> <span class="n">Status</span> <span class="n">file</span> <span class="p">.</span><span class="o">/</span><span class="n">status</span> <span class="n">already</span> <span class="k">exists</span> <span class="o">-</span> <span class="n">unclean</span> <span class="k">restart</span><span class="p">.</span> <span class="n">Contents</span><span class="p">:</span>
+<span class="n">PID</span><span class="p">:</span> <span class="mi">8510</span>
+<span class="n">Started</span> <span class="k">at</span><span class="p">:</span> <span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">11</span> <span class="mi">15</span><span class="p">:</span><span class="mi">24</span><span class="p">:</span><span class="mi">23</span>
+<span class="n">Revision</span><span class="p">:</span> <span class="mi">54413</span>
 
-2019.01.11 15:25:11.156673 [ 1 ] {} &lt;Error&gt; Application: DB::Exception: Cannot lock file ./status. Another server instance in same directory is already running.
-2019.01.11 15:25:11.156682 [ 1 ] {} &lt;Information&gt; Application: shutting down
-2019.01.11 15:25:11.156686 [ 1 ] {} &lt;Debug&gt; Application: Uninitializing subsystem: Logging Subsystem
-2019.01.11 15:25:11.156716 [ 2 ] {} &lt;Information&gt; BaseDaemon: Stop SignalListener thread
+<span class="mi">2019</span><span class="p">.</span><span class="mi">01</span><span class="p">.</span><span class="mi">11</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">11</span><span class="p">.</span><span class="mi">156673</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="err">{}</span> <span class="o">&lt;</span><span class="n">Error</span><span class="o">&gt;</span> <span class="n">Application</span><span class="p">:</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="n">Cannot</span> <span class="k">lock</span> <span class="n">file</span> <span class="p">.</span><span class="o">/</span><span class="n">status</span><span class="p">.</span> <span class="n">Another</span> <span class="n">server</span> <span class="n">instance</span> <span class="k">in</span> <span class="n">same</span> <span class="n">directory</span> <span class="k">is</span> <span class="n">already</span> <span class="n">running</span><span class="p">.</span>
+<span class="mi">2019</span><span class="p">.</span><span class="mi">01</span><span class="p">.</span><span class="mi">11</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">11</span><span class="p">.</span><span class="mi">156682</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="err">{}</span> <span class="o">&lt;</span><span class="n">Information</span><span class="o">&gt;</span> <span class="n">Application</span><span class="p">:</span> <span class="n">shutting</span> <span class="n">down</span>
+<span class="mi">2019</span><span class="p">.</span><span class="mi">01</span><span class="p">.</span><span class="mi">11</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">11</span><span class="p">.</span><span class="mi">156686</span> <span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="err">{}</span> <span class="o">&lt;</span><span class="n">Debug</span><span class="o">&gt;</span> <span class="n">Application</span><span class="p">:</span> <span class="n">Uninitializing</span> <span class="n">subsystem</span><span class="p">:</span> <span class="n">Logging</span> <span class="n">Subsystem</span>
+<span class="mi">2019</span><span class="p">.</span><span class="mi">01</span><span class="p">.</span><span class="mi">11</span> <span class="mi">15</span><span class="p">:</span><span class="mi">25</span><span class="p">:</span><span class="mi">11</span><span class="p">.</span><span class="mi">156716</span> <span class="p">[</span> <span class="mi">2</span> <span class="p">]</span> <span class="err">{}</span> <span class="o">&lt;</span><span class="n">Information</span><span class="o">&gt;</span> <span class="n">BaseDaemon</span><span class="p">:</span> <span class="n">Stop</span> <span class="n">SignalListener</span> <span class="n">thread</span>
 </pre></div>
 
 
 <p><strong>See system.d logs</strong></p>
 <p>If you don't find any useful information in <code>clickhouse-server</code> logs or there aren't any logs, you can view <code>system.d</code> logs using the command:</p>
-<div class="codehilite"><pre><span></span>sudo journalctl -u clickhouse-server
+<div class="codehilite"><pre><span></span><span class="err">sudo journalctl -u clickhouse-server</span>
 </pre></div>
 
 
 <p><strong>Start clickhouse-server in interactive mode</strong></p>
-<div class="codehilite"><pre><span></span>sudo -u clickhouse /usr/bin/clickhouse-server --config-file /etc/clickhouse-server/config.xml
+<div class="codehilite"><pre><span></span><span class="err">sudo -u clickhouse /usr/bin/clickhouse-server --config-file /etc/clickhouse-server/config.xml</span>
 </pre></div>
 
 
@@ -3883,7 +3883,9 @@ Code: <span class="m">47</span>, e.displayText<span class="o">()</span> <span cl
         
       </div>
       
-        
+        <div class="md-footer-social">
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/28528db85ba9cd2fe2e3cdf30bb319f0564d6491" rel="external nofollow">28528db</a></span>
+</div>
       
     </div>
   </div>
