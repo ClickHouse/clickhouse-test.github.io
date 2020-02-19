@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?4b46a05?1582056083">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582133801">
     
     
   </head>
@@ -3321,20 +3321,20 @@
 <li>处理流数据。</li>
 </ul>
 <p>老版格式：</p>
-<div class="codehilite"><pre><span></span><span class="err">Kafka(kafka_broker_list, kafka_topic_list, kafka_group_name, kafka_format</span>
-<span class="err">      [, kafka_row_delimiter, kafka_schema, kafka_num_consumers])</span>
+<div class="codehilite"><pre><span></span>Kafka(kafka_broker_list, kafka_topic_list, kafka_group_name, kafka_format
+      [, kafka_row_delimiter, kafka_schema, kafka_num_consumers])
 </pre></div>
 
 
 <p>新版格式：</p>
-<div class="codehilite"><pre><span></span><span class="err">Kafka SETTINGS</span>
-<span class="err">  kafka_broker_list = &#39;localhost:9092&#39;,</span>
-<span class="err">  kafka_topic_list = &#39;topic1,topic2&#39;,</span>
-<span class="err">  kafka_group_name = &#39;group1&#39;,</span>
-<span class="err">  kafka_format = &#39;JSONEachRow&#39;,</span>
-<span class="err">  kafka_row_delimiter = &#39;\n&#39;,</span>
-<span class="err">  kafka_schema = &#39;&#39;,</span>
-<span class="err">  kafka_num_consumers = 2</span>
+<div class="codehilite"><pre><span></span>Kafka SETTINGS
+  kafka_broker_list = &#39;localhost:9092&#39;,
+  kafka_topic_list = &#39;topic1,topic2&#39;,
+  kafka_group_name = &#39;group1&#39;,
+  kafka_format = &#39;JSONEachRow&#39;,
+  kafka_row_delimiter = &#39;\n&#39;,
+  kafka_schema = &#39;&#39;,
+  kafka_num_consumers = 2
 </pre></div>
 
 
@@ -3412,8 +3412,8 @@
 
 <p>为了提高性能，接受的消息被分组为 <a href="../../settings/settings/#settings-max_insert_block_size">max_insert_block_size</a> 大小的块。如果未在 <a href="../../settings/settings/">stream_flush_interval_ms</a> 毫秒内形成块，则不关心块的完整性，都会将数据刷新到表中。</p>
 <p>停止接收主题数据或更改转换逻辑，请 detach 物化视图：</p>
-<div class="codehilite"><pre><span></span><span class="err">  DETACH TABLE consumer;</span>
-<span class="err">  ATTACH MATERIALIZED VIEW consumer;</span>
+<div class="codehilite"><pre><span></span>  DETACH TABLE consumer;
+  ATTACH MATERIALIZED VIEW consumer;
 </pre></div>
 
 
@@ -3535,9 +3535,7 @@
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

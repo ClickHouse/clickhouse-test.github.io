@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?4b46a05?1582055047">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582132864">
     
     
   </head>
@@ -3849,25 +3849,25 @@
 <p>同时以上的所有类型都支持<a href="../../data_types/nullable/">Nullable</a>。</p>
 <h2 id="shi-yong-shi-li">使用示例<a class="headerlink" href="#shi-yong-shi-li" title="Permanent link">&para;</a></h2>
 <p>在MySQL中创建表:</p>
-<div class="codehilite"><pre><span></span><span class="n">mysql</span><span class="o">&gt;</span> <span class="k">USE</span> <span class="n">test</span><span class="p">;</span>
-<span class="k">Database</span> <span class="n">changed</span>
+<div class="codehilite"><pre><span></span>mysql&gt; USE test;
+Database changed
 
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="ss">`mysql_table`</span> <span class="p">(</span>
-    <span class="o">-&gt;</span>   <span class="ss">`int_id`</span> <span class="kt">INT</span> <span class="k">NOT</span> <span class="no">NULL</span> <span class="kp">AUTO_INCREMENT</span><span class="p">,</span>
-    <span class="o">-&gt;</span>   <span class="ss">`float`</span> <span class="kt">FLOAT</span> <span class="k">NOT</span> <span class="no">NULL</span><span class="p">,</span>
-    <span class="o">-&gt;</span>   <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="ss">`int_id`</span><span class="p">));</span>
-<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">0</span> <span class="n">rows</span> <span class="nf">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">09</span> <span class="n">sec</span><span class="p">)</span>
+mysql&gt; CREATE TABLE `mysql_table` (
+    -&gt;   `int_id` INT NOT NULL AUTO_INCREMENT,
+    -&gt;   `float` FLOAT NOT NULL,
+    -&gt;   PRIMARY KEY (`int_id`));
+Query OK, 0 rows affected (0,09 sec)
 
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">insert</span> <span class="k">into</span> <span class="nf">mysql_table</span> <span class="p">(</span><span class="ss">`int_id`</span><span class="p">,</span> <span class="ss">`float`</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
-<span class="n">Query</span> <span class="n">OK</span><span class="p">,</span> <span class="mi">1</span> <span class="n">row</span> <span class="nf">affected</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+mysql&gt; insert into mysql_table (`int_id`, `float`) VALUES (1,2);
+Query OK, 1 row affected (0,00 sec)
 
-<span class="n">mysql</span><span class="o">&gt;</span> <span class="k">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">mysql_table</span><span class="p">;</span>
-<span class="o">+--------+-------+</span>
-<span class="o">|</span> <span class="n">int_id</span> <span class="o">|</span> <span class="n">value</span> <span class="o">|</span>
-<span class="o">+--------+-------+</span>
-<span class="o">|</span>      <span class="mi">1</span> <span class="o">|</span>     <span class="mi">2</span> <span class="o">|</span>
-<span class="o">+--------+-------+</span>
-<span class="mi">1</span> <span class="n">row</span> <span class="k">in</span> <span class="kt">set</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">00</span> <span class="n">sec</span><span class="p">)</span>
+mysql&gt; select * from mysql_table;
++--------+-------+
+| int_id | value |
++--------+-------+
+|      1 |     2 |
++--------+-------+
+1 row in set (0,00 sec)
 </pre></div>
 
 
@@ -4021,9 +4021,7 @@
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

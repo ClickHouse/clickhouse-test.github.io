@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?4b46a05?1582056083">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582133800">
     
     
   </head>
@@ -3899,7 +3899,7 @@ To get a determinate result, you can use the 'min' or 'max' function instead of 
 <p>When a <code>SELECT</code> query has the <code>GROUP BY</code> clause or at least one aggregate function, ClickHouse (in contrast to MySQL) requires that all expressions in the <code>SELECT</code>, <code>HAVING</code>, and <code>ORDER BY</code> clauses be calculated from keys or from aggregate functions. In other words, each column selected from the table must be used either in keys or inside aggregate functions. To get behavior like in MySQL, you can put the other columns in the <code>any</code> aggregate function.</p>
 <h2 id="anyheavy-x">anyHeavy(x)<a class="headerlink" href="#anyheavy-x" title="Permanent link">&para;</a></h2>
 <p>Selects a frequently occurring value using the <a href="http://www.cs.umd.edu/~samir/498/karp.pdf" rel="external nofollow">heavy hitters</a> algorithm. If there is a value that occurs more than in half the cases in each of the query's execution threads, this value is returned. Normally, the result is nondeterministic.</p>
-<div class="codehilite"><pre><span></span><span class="err">anyHeavy(column)</span>
+<div class="codehilite"><pre><span></span>anyHeavy(column)
 </pre></div>
 
 
@@ -3914,9 +3914,9 @@ To get a determinate result, you can use the 'min' or 'max' function instead of 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌───res─┐</span>
-<span class="err">│ 19690 │</span>
-<span class="err">└───────┘</span>
+<div class="codehilite"><pre><span></span>┌───res─┐
+│ 19690 │
+└───────┘
 </pre></div>
 
 
@@ -3925,7 +3925,7 @@ To get a determinate result, you can use the 'min' or 'max' function instead of 
 The result is just as indeterminate as for the <code>any</code> function.</p>
 <h2 id="groupbitand">groupBitAnd<a class="headerlink" href="#groupbitand" title="Permanent link">&para;</a></h2>
 <p>Applies bitwise <code>AND</code> for series of numbers.</p>
-<div class="codehilite"><pre><span></span><span class="err">groupBitAnd(expr)</span>
+<div class="codehilite"><pre><span></span>groupBitAnd(expr)
 </pre></div>
 
 
@@ -3935,29 +3935,29 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <p>Value of the <code>UInt*</code> type.</p>
 <p><strong>Example</strong></p>
 <p>Test data:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">00101100 = 44</span>
-<span class="err">00011100 = 28</span>
-<span class="err">00001101 = 13</span>
-<span class="err">01010101 = 85</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+00101100 = 44
+00011100 = 28
+00001101 = 13
+01010101 = 85
 </pre></div>
 
 
 <p>Query:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitAnd(num) FROM t</span>
+<div class="codehilite"><pre><span></span>SELECT groupBitAnd(num) FROM t
 </pre></div>
 
 
 <p>Where <code>num</code> is the column with the test data.</p>
 <p>Result:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">00000100 = 4</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+00000100 = 4
 </pre></div>
 
 
 <h2 id="groupbitor">groupBitOr<a class="headerlink" href="#groupbitor" title="Permanent link">&para;</a></h2>
 <p>Applies bitwise <code>OR</code> for series of numbers.</p>
-<div class="codehilite"><pre><span></span><span class="err">groupBitOr(expr)</span>
+<div class="codehilite"><pre><span></span>groupBitOr(expr)
 </pre></div>
 
 
@@ -3967,29 +3967,29 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <p>Value of the <code>UInt*</code> type.</p>
 <p><strong>Example</strong></p>
 <p>Test data:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">00101100 = 44</span>
-<span class="err">00011100 = 28</span>
-<span class="err">00001101 = 13</span>
-<span class="err">01010101 = 85</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+00101100 = 44
+00011100 = 28
+00001101 = 13
+01010101 = 85
 </pre></div>
 
 
 <p>Query:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitOr(num) FROM t</span>
+<div class="codehilite"><pre><span></span>SELECT groupBitOr(num) FROM t
 </pre></div>
 
 
 <p>Where <code>num</code> is the column with the test data.</p>
 <p>Result:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">01111101 = 125</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+01111101 = 125
 </pre></div>
 
 
 <h2 id="groupbitxor">groupBitXor<a class="headerlink" href="#groupbitxor" title="Permanent link">&para;</a></h2>
 <p>Applies bitwise <code>XOR</code> for series of numbers.</p>
-<div class="codehilite"><pre><span></span><span class="err">groupBitXor(expr)</span>
+<div class="codehilite"><pre><span></span>groupBitXor(expr)
 </pre></div>
 
 
@@ -3999,29 +3999,29 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <p>Value of the <code>UInt*</code> type.</p>
 <p><strong>Example</strong></p>
 <p>Test data:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">00101100 = 44</span>
-<span class="err">00011100 = 28</span>
-<span class="err">00001101 = 13</span>
-<span class="err">01010101 = 85</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+00101100 = 44
+00011100 = 28
+00001101 = 13
+01010101 = 85
 </pre></div>
 
 
 <p>Query:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitXor(num) FROM t</span>
+<div class="codehilite"><pre><span></span>SELECT groupBitXor(num) FROM t
 </pre></div>
 
 
 <p>Where <code>num</code> is the column with the test data.</p>
 <p>Result:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">01101000 = 104</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+01101000 = 104
 </pre></div>
 
 
 <h2 id="groupbitmap">groupBitmap<a class="headerlink" href="#groupbitmap" title="Permanent link">&para;</a></h2>
 <p>Bitmap or Aggregate calculations from a unsigned integer column, return cardinality of type UInt64, if add suffix -State, then return <a href="../../functions/bitmap_functions/">bitmap object</a>.</p>
-<div class="codehilite"><pre><span></span><span class="err">groupBitmap(expr)</span>
+<div class="codehilite"><pre><span></span>groupBitmap(expr)
 </pre></div>
 
 
@@ -4031,22 +4031,22 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <p>Value of the <code>UInt64</code> type.</p>
 <p><strong>Example</strong></p>
 <p>Test data:</p>
-<div class="codehilite"><pre><span></span><span class="err">userid</span>
-<span class="err">1</span>
-<span class="err">1</span>
-<span class="err">2</span>
-<span class="err">3</span>
+<div class="codehilite"><pre><span></span>userid
+1
+1
+2
+3
 </pre></div>
 
 
 <p>Query:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitmap(userid) as num FROM t</span>
+<div class="codehilite"><pre><span></span>SELECT groupBitmap(userid) as num FROM t
 </pre></div>
 
 
 <p>Result:</p>
-<div class="codehilite"><pre><span></span><span class="err">num</span>
-<span class="err">3</span>
+<div class="codehilite"><pre><span></span>num
+3
 </pre></div>
 
 
@@ -4057,17 +4057,17 @@ The result is just as indeterminate as for the <code>any</code> function.</p>
 <h2 id="agg_function-argMin">argMin(arg, val)<a class="headerlink" href="#agg_function-argMin" title="Permanent link">&para;</a></h2>
 <p>Calculates the 'arg' value for a minimal 'val' value. If there are several different values of 'arg' for minimal values of 'val', the first of these values encountered is output.</p>
 <p><strong>Example:</strong></p>
-<div class="codehilite"><pre><span></span><span class="err">┌─</span><span class="k">user</span><span class="err">─────┬─</span><span class="n">salary</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">director</span> <span class="err">│</span>   <span class="mi">5000</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">manager</span>  <span class="err">│</span>   <span class="mi">3000</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">worker</span>   <span class="err">│</span>   <span class="mi">1000</span> <span class="err">│</span>
-<span class="err">└──────────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌─user─────┬─salary─┐
+│ director │   5000 │
+│ manager  │   3000 │
+│ worker   │   1000 │
+└──────────┴────────┘
 
-<span class="k">SELECT</span> <span class="n">argMin</span><span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">salary</span>
+SELECT argMin(user, salary) FROM salary
 
-<span class="err">┌─</span><span class="n">argMin</span><span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">worker</span>               <span class="err">│</span>
-<span class="err">└──────────────────────┘</span>
+┌─argMin(user, salary)─┐
+│ worker               │
+└──────────────────────┘
 </pre></div>
 
 
@@ -4105,10 +4105,10 @@ Returns a tuple of two arrays: keys in sorted order, and values ​​summed for
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌────────────timeslot─┬─sumMap(statusMap.status, statusMap.requests)─┐</span>
-<span class="err">│ 2000-01-01 00:00:00 │ ([1,2,3,4,5],[10,10,20,10,10])               │</span>
-<span class="err">│ 2000-01-01 00:01:00 │ ([4,5,6,7,8],[10,10,20,10,10])               │</span>
-<span class="err">└─────────────────────┴──────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌────────────timeslot─┬─sumMap(statusMap.status, statusMap.requests)─┐
+│ 2000-01-01 00:00:00 │ ([1,2,3,4,5],[10,10,20,10,10])               │
+│ 2000-01-01 00:01:00 │ ([4,5,6,7,8],[10,10,20,10,10])               │
+└─────────────────────┴──────────────────────────────────────────────┘
 </pre></div>
 
 
@@ -4216,7 +4216,7 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
 <h2 id="topk-n-column">topK(N)(column)<a class="headerlink" href="#topk-n-column" title="Permanent link">&para;</a></h2>
 <p>Returns an array of the most frequent values in the specified column. The resulting array is sorted in descending order of frequency of values (not by the values themselves).</p>
 <p>Implements the <a href="http://www.l2f.inesc-id.pt/~fmmb/wiki/uploads/Work/misnis.ref0a.pdf" rel="external nofollow"> Filtered Space-Saving</a> algorithm for analyzing TopK, based on the reduce-and-combine algorithm from <a href="https://arxiv.org/pdf/1401.0702.pdf" rel="external nofollow">Parallel Space Saving</a>.</p>
-<div class="codehilite"><pre><span></span><span class="err">topK(N)(column)</span>
+<div class="codehilite"><pre><span></span>topK(N)(column)
 </pre></div>
 
 
@@ -4234,9 +4234,9 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────────────────┐</span>
-<span class="err">│ [19393,19790,19805] │</span>
-<span class="err">└─────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────────────────┐
+│ [19393,19790,19805] │
+└─────────────────────┘
 </pre></div>
 
 
@@ -4249,7 +4249,7 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
 <p>Calculates the Pearson correlation coefficient: <code>Σ((x - x̅)(y - y̅)) / sqrt(Σ((x - x̅)^2) * Σ((y - y̅)^2))</code>.</p>
 <h2 id="simplelinearregression">simpleLinearRegression<a class="headerlink" href="#simplelinearregression" title="Permanent link">&para;</a></h2>
 <p>Performs simple (unidimensional) linear regression.</p>
-<div class="codehilite"><pre><span></span><span class="err">simpleLinearRegression(x, y)</span>
+<div class="codehilite"><pre><span></span>simpleLinearRegression(x, y)
 </pre></div>
 
 
@@ -4379,9 +4379,7 @@ The result is calculated as if the <code>x</code> value were passed <code>weight
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

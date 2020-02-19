@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?4b46a05?1582055827">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582133575">
     
     
   </head>
@@ -3487,38 +3487,38 @@
     使用 <code>Nullable</code> 几乎总是对性能产生负面影响，在设计数据库时请记住这一点</p>
 <p>掩码文件中的条目允许ClickHouse区分每个表行的对应数据类型的"NULL"和默认值由于有额外的文件，"Nullable"列比普通列消耗更多的存储空间</p>
 <h2 id="yong-fa-shi-li">用法示例<a class="headerlink" href="#yong-fa-shi-li" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">t_null</span><span class="p">(</span><span class="n">x</span> <span class="nb">Int8</span><span class="p">,</span> <span class="n">y</span> <span class="k">Nullable</span><span class="p">(</span><span class="nb">Int8</span><span class="p">))</span> <span class="n">ENGINE</span> <span class="n">TinyLog</span>
+<div class="codehilite"><pre><span></span>:) CREATE TABLE t_null(x Int8, y Nullable(Int8)) ENGINE TinyLog
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">t_null</span>
-<span class="p">(</span>
-    <span class="n">x</span> <span class="nb">Int8</span><span class="p">,</span>
-    <span class="n">y</span> <span class="k">Nullable</span><span class="p">(</span><span class="nb">Int8</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">ENGINE</span> <span class="o">=</span> <span class="n">TinyLog</span>
+CREATE TABLE t_null
+(
+    x Int8,
+    y Nullable(Int8)
+)
+ENGINE = TinyLog
 
-<span class="n">Ok</span><span class="p">.</span>
+Ok.
 
-<span class="mi">0</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">012</span> <span class="n">sec</span><span class="p">.</span>
+0 rows in set. Elapsed: 0.012 sec.
 
-<span class="p">:)</span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">t_null</span> <span class="k">VALUES</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span>
+:) INSERT INTO t_null VALUES (1, NULL)
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">t_null</span> <span class="k">VALUES</span>
+INSERT INTO t_null VALUES
 
-<span class="n">Ok</span><span class="p">.</span>
+Ok.
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">007</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.007 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="k">FROM</span> <span class="n">t_null</span>
+:) SELECT x + y FROM t_null
 
-<span class="k">SELECT</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
-<span class="k">FROM</span> <span class="n">t_null</span>
+SELECT x + y
+FROM t_null
 
-<span class="err">┌─</span><span class="n">plus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span>       <span class="err">ᴺᵁᴸᴸ</span> <span class="err">│</span>
-<span class="err">│</span>          <span class="mi">5</span> <span class="err">│</span>
-<span class="err">└────────────┘</span>
+┌─plus(x, y)─┐
+│       ᴺᵁᴸᴸ │
+│          5 │
+└────────────┘
 
-<span class="mi">2</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">144</span> <span class="n">sec</span><span class="p">.</span>
+2 rows in set. Elapsed: 0.144 sec.
 </pre></div>
                 
                 </div>
@@ -3622,9 +3622,7 @@
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

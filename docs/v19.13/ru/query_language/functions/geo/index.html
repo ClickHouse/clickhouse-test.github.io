@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?4b46a05?1582055638">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582133414">
     
     
   </head>
@@ -3647,7 +3647,7 @@
                   <h1 id="funktsii-dlia-raboty-s-geograficheskimi-koordinatami">Функции для работы с географическими координатами<a class="headerlink" href="#funktsii-dlia-raboty-s-geograficheskimi-koordinatami" title="Permanent link">&para;</a></h1>
 <h2 id="greatcircledistance">greatCircleDistance<a class="headerlink" href="#greatcircledistance" title="Permanent link">&para;</a></h2>
 <p>Вычисляет расстояние между двумя точками на поверхности Земли по <a href="https://en.wikipedia.org/wiki/Great-circle_distance" rel="external nofollow">формуле большого круга</a>.</p>
-<div class="codehilite"><pre><span></span><span class="err">greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)</span>
+<div class="codehilite"><pre><span></span>greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)
 </pre></div>
 
 
@@ -3667,15 +3667,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─greatCircleDistance(55.755831, 37.617673, -55.755831, -37.617673)─┐</span>
-<span class="err">│                                                14132374.194975413 │</span>
-<span class="err">└───────────────────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─greatCircleDistance(55.755831, 37.617673, -55.755831, -37.617673)─┐
+│                                                14132374.194975413 │
+└───────────────────────────────────────────────────────────────────┘
 </pre></div>
 
 
 <h2 id="pointinellipses">pointInEllipses<a class="headerlink" href="#pointinellipses" title="Permanent link">&para;</a></h2>
 <p>Проверяет, принадлежит ли точка хотя бы одному из эллипсов.</p>
-<div class="codehilite"><pre><span></span><span class="err">pointInEllipses(x, y, x₀, y₀, a₀, b₀,...,xₙ, yₙ, aₙ, bₙ)</span>
+<div class="codehilite"><pre><span></span>pointInEllipses(x, y, x₀, y₀, a₀, b₀,...,xₙ, yₙ, aₙ, bₙ)
 </pre></div>
 
 
@@ -3693,15 +3693,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─pointInEllipses(55.755831, 37.617673, 55.755831, 37.617673, 1., 2.)─┐</span>
-<span class="err">│                                                                   1 │</span>
-<span class="err">└─────────────────────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─pointInEllipses(55.755831, 37.617673, 55.755831, 37.617673, 1., 2.)─┐
+│                                                                   1 │
+└─────────────────────────────────────────────────────────────────────┘
 </pre></div>
 
 
 <h2 id="pointinpolygon">pointInPolygon<a class="headerlink" href="#pointinpolygon" title="Permanent link">&para;</a></h2>
 <p>Проверяет, принадлежит ли точка многоугольнику на плоскости.</p>
-<div class="codehilite"><pre><span></span><span class="err">pointInPolygon((x, y), [(a, b), (c, d) ...], ...)</span>
+<div class="codehilite"><pre><span></span>pointInPolygon((x, y), [(a, b), (c, d) ...], ...)
 </pre></div>
 
 
@@ -3719,15 +3719,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   1 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   1 │
+└─────┘
 </pre></div>
 
 
 <h2 id="geohashencode">geohashEncode<a class="headerlink" href="#geohashencode" title="Permanent link">&para;</a></h2>
 <p>Кодирует широту и долготу в строку geohash, смотрите <a href="http://geohash.org/" rel="external nofollow">http://geohash.org/</a>, <a href="https://en.wikipedia.org/wiki/Geohash" rel="external nofollow">https://en.wikipedia.org/wiki/Geohash</a>.</p>
-<div class="codehilite"><pre><span></span><span class="n">geohashEncode</span><span class="p">(</span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">precision</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
+<div class="codehilite"><pre><span></span>geohashEncode(longitude, latitude, [precision])
 </pre></div>
 
 
@@ -3746,15 +3746,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res──────────┐</span>
-<span class="err">│ ezs42d000000 │</span>
-<span class="err">└──────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res──────────┐
+│ ezs42d000000 │
+└──────────────┘
 </pre></div>
 
 
 <h2 id="geohashdecode">geohashDecode<a class="headerlink" href="#geohashdecode" title="Permanent link">&para;</a></h2>
 <p>Декодирует любую строку, закодированную в geohash, на долготу и широту.</p>
-<div class="codehilite"><pre><span></span><span class="err">geohashDecode(geohash_string)</span>
+<div class="codehilite"><pre><span></span>geohashDecode(geohash_string)
 </pre></div>
 
 
@@ -3771,15 +3771,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────────────────────────────┐</span>
-<span class="err">│ (-5.60302734375,42.60498046875) │</span>
-<span class="err">└─────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────────────────────────────┐
+│ (-5.60302734375,42.60498046875) │
+└─────────────────────────────────┘
 </pre></div>
 
 
 <h2 id="geotoh3">geoToH3<a class="headerlink" href="#geotoh3" title="Permanent link">&para;</a></h2>
 <p>Получает H3 индекс точки <code>(lon, lat)</code> с заданным разрешением</p>
-<div class="codehilite"><pre><span></span><span class="err">geoToH3(lon, lat, resolution)</span>
+<div class="codehilite"><pre><span></span>geoToH3(lon, lat, resolution)
 </pre></div>
 
 
@@ -3800,9 +3800,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌────────────h3Index─┐</span>
-<span class="err">│ 644325524701193974 │</span>
-<span class="err">└────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌────────────h3Index─┐
+│ 644325524701193974 │
+└────────────────────┘
 </pre></div>
                 
                 </div>
@@ -3904,9 +3904,7 @@
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

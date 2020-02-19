@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?4b46a05?1582054880">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582132703">
     
     
   </head>
@@ -3775,28 +3775,28 @@
 <p>\2. Click on the first green check mark or red cross with green "ClickHouse Build Check" and click on the "Details" link near "ClickHouse Build Check".</p>
 <p>\3. Copy the link to "clickhouse" binary for amd64 or aarch64.</p>
 <p>\4. ssh to the server and download it with wget:</p>
-<div class="codehilite"><pre><span></span><span class="err"># For amd64:</span>
-<span class="err">wget https://clickhouse-builds.s3.yandex.net/0/00ba767f5d2a929394ea3be193b1f79074a1c4bc/1578163263_binary/clickhouse</span>
-<span class="err"># For aarch64:</span>
-<span class="err">wget https://clickhouse-builds.s3.yandex.net/0/00ba767f5d2a929394ea3be193b1f79074a1c4bc/1578161264_binary/clickhouse</span>
-<span class="err"># Then do:</span>
-<span class="err">chmod a+x clickhouse</span>
+<div class="codehilite"><pre><span></span># For amd64:
+wget https://clickhouse-builds.s3.yandex.net/0/00ba767f5d2a929394ea3be193b1f79074a1c4bc/1578163263_binary/clickhouse
+# For aarch64:
+wget https://clickhouse-builds.s3.yandex.net/0/00ba767f5d2a929394ea3be193b1f79074a1c4bc/1578161264_binary/clickhouse
+# Then do:
+chmod a+x clickhouse
 </pre></div>
 
 
 <p>\5. Download configs:</p>
-<div class="codehilite"><pre><span></span><span class="err">wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/programs/server/config.xml</span>
-<span class="err">wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/programs/server/users.xml</span>
-<span class="err">mkdir config.d</span>
-<span class="err">wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/programs/server/config.d/path.xml -O config.d/path.xml</span>
-<span class="err">wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/programs/server/config.d/log_to_console.xml -O config.d/log_to_console.xml</span>
+<div class="codehilite"><pre><span></span>wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/programs/server/config.xml
+wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/programs/server/users.xml
+mkdir config.d
+wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/programs/server/config.d/path.xml -O config.d/path.xml
+wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/programs/server/config.d/log_to_console.xml -O config.d/log_to_console.xml
 </pre></div>
 
 
 <p>\6. Download benchmark files:</p>
-<div class="codehilite"><pre><span></span><span class="err">wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/benchmark/clickhouse/benchmark-new.sh</span>
-<span class="err">chmod a+x benchmark-new.sh</span>
-<span class="err">wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/benchmark/clickhouse/queries.sql</span>
+<div class="codehilite"><pre><span></span>wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/benchmark/clickhouse/benchmark-new.sh
+chmod a+x benchmark-new.sh
+wget https://raw.githubusercontent.com/ClickHouse/ClickHouse/master/dbms/benchmark/clickhouse/queries.sql
 </pre></div>
 
 
@@ -3804,31 +3804,31 @@
 <p>According to the instruction:</p>
 <p><a href="https://clickhouse.yandex/docs/en/getting_started/example_datasets/metrica/">https://clickhouse.tech/docs/en/getting_started/example_datasets/metrica/</a></p>
 <p>("hits" table containing 100 million rows)</p>
-<div class="codehilite"><pre><span></span><span class="err">wget https://clickhouse-datasets.s3.yandex.net/hits/partitions/hits_100m_obfuscated_v1.tar.xz</span>
-<span class="err">tar xvf hits_100m_obfuscated_v1.tar.xz -C .</span>
-<span class="err">mv hits_100m_obfuscated_v1/* .</span>
+<div class="codehilite"><pre><span></span>wget https://clickhouse-datasets.s3.yandex.net/hits/partitions/hits_100m_obfuscated_v1.tar.xz
+tar xvf hits_100m_obfuscated_v1.tar.xz -C .
+mv hits_100m_obfuscated_v1/* .
 </pre></div>
 
 
 <p>\8. Run the server:</p>
-<div class="codehilite"><pre><span></span><span class="err">./clickhouse server</span>
+<div class="codehilite"><pre><span></span>./clickhouse server
 </pre></div>
 
 
 <p>\9. Check the data:</p>
 <p>ssh to the server in another terminal</p>
-<div class="codehilite"><pre><span></span><span class="err">./clickhouse client --query &quot;SELECT count() FROM hits_100m_obfuscated&quot;</span>
-<span class="err">100000000</span>
+<div class="codehilite"><pre><span></span>./clickhouse client --query &quot;SELECT count() FROM hits_100m_obfuscated&quot;
+100000000
 </pre></div>
 
 
 <p>\10. Edit the benchmark-new.sh, change "clickhouse-client" to "./clickhouse client" and add "--max_memory_usage 100000000000" parameter.</p>
-<div class="codehilite"><pre><span></span><span class="err">mcedit benchmark-new.sh</span>
+<div class="codehilite"><pre><span></span>mcedit benchmark-new.sh
 </pre></div>
 
 
 <p>\11. Run the benchmark:</p>
-<div class="codehilite"><pre><span></span><span class="err">./benchmark-new.sh hits_100m_obfuscated</span>
+<div class="codehilite"><pre><span></span>./benchmark-new.sh hits_100m_obfuscated
 </pre></div>
 
 
@@ -3934,9 +3934,7 @@
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

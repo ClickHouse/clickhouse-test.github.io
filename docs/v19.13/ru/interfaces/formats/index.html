@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?4b46a05?1582055638">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582133414">
     
     
   </head>
@@ -4198,18 +4198,18 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span>      <span class="mi">1406958</span>
-<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span>      <span class="mi">1383658</span>
-<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span>      <span class="mi">1405797</span>
-<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span>      <span class="mi">1353623</span>
-<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span>      <span class="mi">1245779</span>
-<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span>      <span class="mi">1031592</span>
-<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span>      <span class="mi">1046491</span>
+<div class="codehilite"><pre><span></span>2014-03-17      1406958
+2014-03-18      1383658
+2014-03-19      1405797
+2014-03-20      1353623
+2014-03-21      1245779
+2014-03-22      1031592
+2014-03-23      1046491
 
-<span class="mi">0000</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span>      <span class="mi">8873898</span>
+0000-00-00      8873898
 
-<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span>      <span class="mi">1031592</span>
-<span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span>      <span class="mi">1406958</span>
+2014-03-17      1031592
+2014-03-23      1406958
 </pre></div>
 
 
@@ -4224,10 +4224,10 @@
 При парсинге, некорректные даты и даты-с-временем могут парситься с естественным переполнением или как нулевые даты/даты-с-временем без сообщения об ошибке.</p>
 <p>В качестве исключения, поддерживается также парсинг даты-с-временем в формате unix timestamp, если он состоит ровно из 10 десятичных цифр. Результат не зависит от часового пояса. Различение форматов YYYY-MM-DD hh:mm:ss и NNNNNNNNNN делается автоматически.</p>
 <p>Строки выводятся с экранированием спецсимволов с помощью обратного слеша. При выводе, используются следующие escape-последовательности: <code>\b</code>, <code>\f</code>, <code>\r</code>, <code>\n</code>, <code>\t</code>, <code>\0</code>, <code>\'</code>, <code>\\</code>. Парсер также поддерживает последовательности <code>\a</code>, <code>\v</code>, и <code>\xHH</code> (последовательности hex escape) и любые последовательности вида <code>\c</code>, где <code>c</code> — любой символ (такие последовательности преобразуются в <code>c</code>). Таким образом, при чтении поддерживаются форматы, где перевод строки может быть записан как <code>\n</code> и как <code>\</code> и перевод строки. Например, строка <code>Hello world</code>, где между словами вместо пробела стоит перевод строки, может быть считана в любом из следующих вариантов:</p>
-<div class="codehilite"><pre><span></span><span class="n">Hello</span><span class="err">\</span><span class="n">nworld</span>
+<div class="codehilite"><pre><span></span>Hello\nworld
 
-<span class="n">Hello</span><span class="err">\</span>
-<span class="n">world</span>
+Hello\
+world
 </pre></div>
 
 
@@ -4251,16 +4251,16 @@
 <p>Этот формат также доступен под именем <code>TSVWithNamesAndTypes</code>.</p>
 <h2 id="tskv">TSKV<a class="headerlink" href="#tskv" title="Permanent link">&para;</a></h2>
 <p>Похож на TabSeparated, но выводит значения в формате name=value. Имена экранируются так же, как строки в формате TabSeparated и, дополнительно, экранируется также символ =.</p>
-<div class="codehilite"><pre><span></span><span class="err">SearchPhrase=   count()=8267016</span>
-<span class="err">SearchPhrase=интерьер ванной комнаты    count()=2166</span>
-<span class="err">SearchPhrase=яндекс     count()=1655</span>
-<span class="err">SearchPhrase=весна 2014 мода    count()=1549</span>
-<span class="err">SearchPhrase=фриформ фото       count()=1480</span>
-<span class="err">SearchPhrase=анджелина джоли    count()=1245</span>
-<span class="err">SearchPhrase=омск       count()=1112</span>
-<span class="err">SearchPhrase=фото собак разных пород    count()=1091</span>
-<span class="err">SearchPhrase=дизайн штор        count()=1064</span>
-<span class="err">SearchPhrase=баку       count()=1000</span>
+<div class="codehilite"><pre><span></span>SearchPhrase=   count()=8267016
+SearchPhrase=интерьер ванной комнаты    count()=2166
+SearchPhrase=яндекс     count()=1655
+SearchPhrase=весна 2014 мода    count()=1549
+SearchPhrase=фриформ фото       count()=1480
+SearchPhrase=анджелина джоли    count()=1245
+SearchPhrase=омск       count()=1112
+SearchPhrase=фото собак разных пород    count()=1091
+SearchPhrase=дизайн штор        count()=1064
+SearchPhrase=баку       count()=1000
 </pre></div>
 
 
@@ -4269,7 +4269,7 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">x=1 y=\N</span>
+<div class="codehilite"><pre><span></span>x=1 y=\N
 </pre></div>
 
 
@@ -4279,7 +4279,7 @@
 <h2 id="csv">CSV<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h2>
 <p>Формат Comma Separated Values (<a href="https://tools.ietf.org/html/rfc4180" rel="external nofollow">RFC</a>).</p>
 <p>При форматировании, строки выводятся в двойных кавычках. Двойная кавычка внутри строки выводится как две двойные кавычки подряд. Других правил экранирования нет. Даты и даты-с-временем выводятся в двойных кавычках. Числа выводятся без кавычек. Значения разделяются символом-разделителем, по умолчанию  — <code>,</code>. Символ-разделитель определяется настройкой <a href="../../operations/settings/settings/#settings-format_csv_delimiter">format_csv_delimiter</a>. Строки разделяются unix переводом строки (LF). Массивы сериализуются в CSV следующим образом: сначала массив сериализуется в строку, как в формате TabSeparated, а затем полученная строка выводится в CSV в двойных кавычках. Кортежи в формате CSV сериализуются, как отдельные столбцы (то есть, теряется их вложенность в кортеж).</p>
-<div class="codehilite"><pre><span></span><span class="err">clickhouse-client --format_csv_delimiter=&quot;|&quot; --query=&quot;INSERT INTO test.csv FORMAT CSV&quot; &lt; data.csv</span>
+<div class="codehilite"><pre><span></span>clickhouse-client --format_csv_delimiter=&quot;|&quot; --query=&quot;INSERT INTO test.csv FORMAT CSV&quot; &lt; data.csv
 </pre></div>
 
 
@@ -4435,11 +4435,11 @@
 <p>ClickHouse заменяет опущенные значения значениями по умолчанию для соответствующих <a href="../../data_types/">data types</a>.</p>
 <p>Если указано <code>DEFAULT expr</code>, то ClickHouse использует различные правила подстановки в зависимости от настройки <a href="../../operations/settings/settings/#session_settings-input_format_defaults_for_omitted_fields">input_format_defaults_for_omitted_fields</a>.</p>
 <p>Рассмотрим следующую таблицу:</p>
-<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE IF NOT EXISTS example_table</span>
-<span class="err">(</span>
-<span class="err">    x UInt32,</span>
-<span class="err">    a DEFAULT x * 2</span>
-<span class="err">) ENGINE = Memory;</span>
+<div class="codehilite"><pre><span></span>CREATE TABLE IF NOT EXISTS example_table
+(
+    x UInt32,
+    a DEFAULT x * 2
+) ENGINE = Memory;
 </pre></div>
 
 
@@ -4453,10 +4453,10 @@
 </div>
 <h3 id="vyborka-dannykh">Выборка данных<a class="headerlink" href="#vyborka-dannykh" title="Permanent link">&para;</a></h3>
 <p>Рассмотрим в качестве примера таблицу <code>UserActivity</code>:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐</span>
-<span class="err">│ 4324182021466249494 │         5 │      146 │   -1 │</span>
-<span class="err">│ 4324182021466249494 │         6 │      185 │    1 │</span>
-<span class="err">└─────────────────────┴───────────┴──────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌──────────────UserID─┬─PageViews─┬─Duration─┬─Sign─┐
+│ 4324182021466249494 │         5 │      146 │   -1 │
+│ 4324182021466249494 │         6 │      185 │    1 │
+└─────────────────────┴───────────┴──────────┴──────┘
 </pre></div>
 
 
@@ -4484,9 +4484,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │ ᴺᵁᴸᴸ │
+└───┴──────┘
 </pre></div>
 
 
@@ -4495,9 +4495,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─Escaping_test────────────────────────┐</span>
-<span class="err">│ String with &#39;quotes&#39; and   character │</span>
-<span class="err">└──────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─Escaping_test────────────────────────┐
+│ String with &#39;quotes&#39; and   character │
+└──────────────────────────────────────┘
 </pre></div>
 
 
@@ -4508,26 +4508,26 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span> <span class="err">│</span> <span class="mi">1406958</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">18</span> <span class="err">│</span> <span class="mi">1383658</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">19</span> <span class="err">│</span> <span class="mi">1405797</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span> <span class="err">│</span> <span class="mi">1353623</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">21</span> <span class="err">│</span> <span class="mi">1245779</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">22</span> <span class="err">│</span> <span class="mi">1031592</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="err">│</span> <span class="mi">1046491</span> <span class="err">│</span>
-<span class="err">└────────────┴─────────┘</span>
+<div class="codehilite"><pre><span></span>┌──EventDate─┬───────c─┐
+│ 2014-03-17 │ 1406958 │
+│ 2014-03-18 │ 1383658 │
+│ 2014-03-19 │ 1405797 │
+│ 2014-03-20 │ 1353623 │
+│ 2014-03-21 │ 1245779 │
+│ 2014-03-22 │ 1031592 │
+│ 2014-03-23 │ 1046491 │
+└────────────┴─────────┘
 
-<span class="n">Totals</span><span class="p">:</span>
-<span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="mi">0000</span><span class="o">-</span><span class="mi">00</span><span class="o">-</span><span class="mi">00</span> <span class="err">│</span> <span class="mi">8873898</span> <span class="err">│</span>
-<span class="err">└────────────┴─────────┘</span>
+Totals:
+┌──EventDate─┬───────c─┐
+│ 0000-00-00 │ 8873898 │
+└────────────┴─────────┘
 
-<span class="n">Extremes</span><span class="p">:</span>
-<span class="err">┌──</span><span class="n">EventDate</span><span class="err">─┬───────</span><span class="k">c</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">17</span> <span class="err">│</span> <span class="mi">1031592</span> <span class="err">│</span>
-<span class="err">│</span> <span class="mi">2014</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">23</span> <span class="err">│</span> <span class="mi">1406958</span> <span class="err">│</span>
-<span class="err">└────────────┴─────────┘</span>
+Extremes:
+┌──EventDate─┬───────c─┐
+│ 2014-03-17 │ 1031592 │
+│ 2014-03-23 │ 1406958 │
+└────────────┴─────────┘
 </pre></div>
 
 
@@ -4572,10 +4572,10 @@ FixedString представлены просто как последовате�
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">Row 1:</span>
-<span class="err">──────</span>
-<span class="c">x: 1</span>
-<span class="c">y: ᴺᵁᴸᴸ</span>
+<div class="codehilite"><pre><span></span>Row 1:
+──────
+x: 1
+y: ᴺᵁᴸᴸ
 </pre></div>
 
 
@@ -4584,10 +4584,10 @@ FixedString представлены просто как последовате�
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">Row 1:</span>
-<span class="err">──────</span>
-<span class="c">test: string with &#39;quotes&#39; and   with some special</span>
-<span class="c"> characters</span>
+<div class="codehilite"><pre><span></span>Row 1:
+──────
+test: string with &#39;quotes&#39; and   with some special
+ characters
 </pre></div>
 
 
@@ -4693,14 +4693,14 @@ ClickHouse поддерживает как синтаксис <code>proto2</code
 
 
 <p>Где файл <code>schemafile.proto</code> может выглядеть так:</p>
-<div class="codehilite"><pre><span></span><span class="n">syntax</span> <span class="o">=</span> <span class="ss">&quot;proto3&quot;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span>syntax = &quot;proto3&quot;;
 
-<span class="n">message</span> <span class="n">MessageType</span> <span class="err">{</span>
-  <span class="n">string</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-  <span class="n">string</span> <span class="n">surname</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="n">uint32</span> <span class="n">birthDate</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-  <span class="n">repeated</span> <span class="n">string</span> <span class="n">phoneNumbers</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="err">}</span><span class="p">;</span>
+message MessageType {
+  string name = 1;
+  string surname = 2;
+  uint32 birthDate = 3;
+  repeated string phoneNumbers = 4;
+};
 </pre></div>
 
 
@@ -4708,26 +4708,26 @@ ClickHouse поддерживает как синтаксис <code>proto2</code
 при этом игнорируется регистр букв и символы <code>_</code> (подчеркивание) и <code>.</code> (точка) считаются одинаковыми.
 Если типы столбцов не соответствуют точно типам полей сообщения <code>Protocol Buffers</code>, производится необходимая конвертация.</p>
 <p>Вложенные сообщения поддерживаются, например, для поля <code>z</code> в таком сообщении</p>
-<div class="codehilite"><pre><span></span><span class="err">message MessageType {</span>
-<span class="err">  message XType {</span>
-<span class="err">    message YType {</span>
-<span class="err">      int32 z;</span>
-<span class="err">    };</span>
-<span class="err">    repeated YType y;</span>
-<span class="err">  };</span>
-<span class="err">  XType x;</span>
-<span class="err">};</span>
+<div class="codehilite"><pre><span></span>message MessageType {
+  message XType {
+    message YType {
+      int32 z;
+    };
+    repeated YType y;
+  };
+  XType x;
+};
 </pre></div>
 
 
 <p>ClickHouse попытается найти столбец с именем <code>x.y.z</code> (или <code>x_y_z</code>, или <code>X.y_Z</code> и т.п.).
 Вложенные сообщения удобно использовать в качестве соответствия для <a href="../../data_types/nested_data_structures/nested/">вложенной структуры данных</a>.</p>
 <p>Значения по умолчанию, определённые в схеме <code>proto2</code>, например,</p>
-<div class="codehilite"><pre><span></span><span class="n">syntax</span> <span class="o">=</span> <span class="ss">&quot;proto2&quot;</span><span class="p">;</span>
+<div class="codehilite"><pre><span></span>syntax = &quot;proto2&quot;;
 
-<span class="n">message</span> <span class="n">MessageType</span> <span class="err">{</span>
-  <span class="n">optional</span> <span class="n">int32</span> <span class="n">result_per_page</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">[</span><span class="k">default</span> <span class="o">=</span> <span class="mi">10</span><span class="p">];</span>
-<span class="err">}</span>
+message MessageType {
+  optional int32 result_per_page = 3 [default = 10];
+}
 </pre></div>
 
 
@@ -4829,12 +4829,12 @@ ClickHouse поддерживает как синтаксис <code>proto2</code
 <p>Типы данных столбцов в ClickHouse могут отличаться от типов данных соответствущих полей файла в формате Parquet. При вставке данных, ClickHouse интерпретирует типы данных в соответствии с таблицей выше, а затем <a href="../query_language/functions/type_conversion_functions/#type_conversion_function-cast">приводит</a> данные к тому типу, который установлен для столбца таблицы.</p>
 <h3 id="inserting-and-selecting-data">Inserting and Selecting Data<a class="headerlink" href="#inserting-and-selecting-data" title="Permanent link">&para;</a></h3>
 <p>Чтобы вставить в ClickHouse данные из файла в формате Parquet, выполните команду следующего вида:</p>
-<div class="codehilite"><pre><span></span><span class="err">cat {filename} | clickhouse-client --query=&quot;INSERT INTO {some_table} FORMAT Parquet&quot;</span>
+<div class="codehilite"><pre><span></span>cat {filename} | clickhouse-client --query=&quot;INSERT INTO {some_table} FORMAT Parquet&quot;
 </pre></div>
 
 
 <p>Чтобы получить данные из таблицы ClickHouse и сохранить их в файл формата Parquet, используйте команду следующего вида:</p>
-<div class="codehilite"><pre><span></span><span class="err">clickhouse-client --query=&quot;SELECT * FROM {some_table} FORMAT Parquet&quot; &gt; {some_file.pq}</span>
+<div class="codehilite"><pre><span></span>clickhouse-client --query=&quot;SELECT * FROM {some_table} FORMAT Parquet&quot; &gt; {some_file.pq}
 </pre></div>
 
 
@@ -4948,9 +4948,7 @@ ClickHouse поддерживает как синтаксис <code>proto2</code
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

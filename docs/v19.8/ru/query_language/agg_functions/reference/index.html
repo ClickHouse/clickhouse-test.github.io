@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?4b46a05?1582056002">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582133728">
     
     
   </head>
@@ -3995,7 +3995,7 @@
 <p>При наличии в запросе <code>SELECT</code> секции <code>GROUP BY</code> или хотя бы одной агрегатной функции, ClickHouse (в отличие от, например, MySQL) требует, чтобы все выражения в секциях <code>SELECT</code>, <code>HAVING</code>, <code>ORDER BY</code> вычислялись из ключей или из агрегатных функций. То есть, каждый выбираемый из таблицы столбец, должен использоваться либо в ключах, либо внутри агрегатных функций. Чтобы получить поведение, как в MySQL, вы можете поместить остальные столбцы в агрегатную функцию <code>any</code>.</p>
 <h2 id="agg_function-anyHeavy">anyHeavy(x)<a class="headerlink" href="#agg_function-anyHeavy" title="Permanent link">&para;</a></h2>
 <p>Выбирает часто встречающееся значение с помощью алгоритма "<a href="http://www.cs.umd.edu/~samir/498/karp.pdf" rel="external nofollow">heavy hitters</a>". Если существует значение, которое встречается чаще, чем в половине случаев, в каждом потоке выполнения запроса, то возвращается данное значение. В общем случае, результат недетерминирован.</p>
-<div class="codehilite"><pre><span></span><span class="err">anyHeavy(column)</span>
+<div class="codehilite"><pre><span></span>anyHeavy(column)
 </pre></div>
 
 
@@ -4010,9 +4010,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌───res─┐</span>
-<span class="err">│ 19690 │</span>
-<span class="err">└───────┘</span>
+<div class="codehilite"><pre><span></span>┌───res─┐
+│ 19690 │
+└───────┘
 </pre></div>
 
 
@@ -4021,7 +4021,7 @@
 Результат так же недетерминирован, как и для функции <code>any</code>.</p>
 <h2 id="groupbitand">groupBitAnd<a class="headerlink" href="#groupbitand" title="Permanent link">&para;</a></h2>
 <p>Применяет побитовое <code>И</code> для последовательности чисел.</p>
-<div class="codehilite"><pre><span></span><span class="err">groupBitAnd(expr)</span>
+<div class="codehilite"><pre><span></span>groupBitAnd(expr)
 </pre></div>
 
 
@@ -4031,29 +4031,29 @@
 <p>Значение типа <code>UInt*</code>.</p>
 <p><strong>Пример</strong></p>
 <p>Тестовые данные:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">00101100 = 44</span>
-<span class="err">00011100 = 28</span>
-<span class="err">00001101 = 13</span>
-<span class="err">01010101 = 85</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+00101100 = 44
+00011100 = 28
+00001101 = 13
+01010101 = 85
 </pre></div>
 
 
 <p>Запрос:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitAnd(num) FROM t</span>
+<div class="codehilite"><pre><span></span>SELECT groupBitAnd(num) FROM t
 </pre></div>
 
 
 <p>Где <code>num</code> – столбец с тестовыми данными.</p>
 <p>Результат:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">00000100 = 4</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+00000100 = 4
 </pre></div>
 
 
 <h2 id="groupbitor">groupBitOr<a class="headerlink" href="#groupbitor" title="Permanent link">&para;</a></h2>
 <p>Применяет побитовое <code>ИЛИ</code> для последовательности чисел.</p>
-<div class="codehilite"><pre><span></span><span class="err">groupBitOr (expr)</span>
+<div class="codehilite"><pre><span></span>groupBitOr (expr)
 </pre></div>
 
 
@@ -4063,29 +4063,29 @@
 <p>Значение типа <code>UInt*</code>.</p>
 <p><strong>Пример</strong></p>
 <p>Тестовые данные:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">00101100 = 44</span>
-<span class="err">00011100 = 28</span>
-<span class="err">00001101 = 13</span>
-<span class="err">01010101 = 85</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+00101100 = 44
+00011100 = 28
+00001101 = 13
+01010101 = 85
 </pre></div>
 
 
 <p>Запрос:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitOr(num) FROM t</span>
+<div class="codehilite"><pre><span></span>SELECT groupBitOr(num) FROM t
 </pre></div>
 
 
 <p>Где <code>num</code> – столбец с тестовыми данными.</p>
 <p>Результат:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">01111101 = 125</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+01111101 = 125
 </pre></div>
 
 
 <h2 id="groupbitxor">groupBitXor<a class="headerlink" href="#groupbitxor" title="Permanent link">&para;</a></h2>
 <p>Применяет побитовое <code>ИСКЛЮЧАЮЩЕЕ ИЛИ</code> для последовательности чисел.</p>
-<div class="codehilite"><pre><span></span><span class="err">groupBitXor(expr)</span>
+<div class="codehilite"><pre><span></span>groupBitXor(expr)
 </pre></div>
 
 
@@ -4095,23 +4095,23 @@
 <p>Значение типа <code>UInt*</code>.</p>
 <p><strong>Пример</strong></p>
 <p>Тестовые данные:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">00101100 = 44</span>
-<span class="err">00011100 = 28</span>
-<span class="err">00001101 = 13</span>
-<span class="err">01010101 = 85</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+00101100 = 44
+00011100 = 28
+00001101 = 13
+01010101 = 85
 </pre></div>
 
 
 <p>Запрос:</p>
-<div class="codehilite"><pre><span></span><span class="err">SELECT groupBitXor(num) FROM t</span>
+<div class="codehilite"><pre><span></span>SELECT groupBitXor(num) FROM t
 </pre></div>
 
 
 <p>Где <code>num</code> – столбец с тестовыми данными.</p>
 <p>Результат:</p>
-<div class="codehilite"><pre><span></span><span class="err">binary     decimal</span>
-<span class="err">01101000 = 104</span>
+<div class="codehilite"><pre><span></span>binary     decimal
+01101000 = 104
 </pre></div>
 
 
@@ -4122,17 +4122,17 @@
 <h2 id="argmin-arg-val">argMin(arg, val)<a class="headerlink" href="#argmin-arg-val" title="Permanent link">&para;</a></h2>
 <p>Вычисляет значение arg при минимальном значении val. Если есть несколько разных значений arg для минимальных значений val, то выдаётся первое попавшееся из таких значений.</p>
 <p><strong>Пример:</strong></p>
-<div class="codehilite"><pre><span></span><span class="err">┌─</span><span class="k">user</span><span class="err">─────┬─</span><span class="n">salary</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">director</span> <span class="err">│</span>   <span class="mi">5000</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">manager</span>  <span class="err">│</span>   <span class="mi">3000</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">worker</span>   <span class="err">│</span>   <span class="mi">1000</span> <span class="err">│</span>
-<span class="err">└──────────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌─user─────┬─salary─┐
+│ director │   5000 │
+│ manager  │   3000 │
+│ worker   │   1000 │
+└──────────┴────────┘
 
-<span class="k">SELECT</span> <span class="n">argMin</span><span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">salary</span>
+SELECT argMin(user, salary) FROM salary
 
-<span class="err">┌─</span><span class="n">argMin</span><span class="p">(</span><span class="k">user</span><span class="p">,</span> <span class="n">salary</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">worker</span>               <span class="err">│</span>
-<span class="err">└──────────────────────┘</span>
+┌─argMin(user, salary)─┐
+│ worker               │
+└──────────────────────┘
 </pre></div>
 
 
@@ -4170,10 +4170,10 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌────────────timeslot─┬─sumMap(statusMap.status, statusMap.requests)─┐</span>
-<span class="err">│ 2000-01-01 00:00:00 │ ([1,2,3,4,5],[10,10,20,10,10])               │</span>
-<span class="err">│ 2000-01-01 00:01:00 │ ([4,5,6,7,8],[10,10,20,10,10])               │</span>
-<span class="err">└─────────────────────┴──────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌────────────timeslot─┬─sumMap(statusMap.status, statusMap.requests)─┐
+│ 2000-01-01 00:00:00 │ ([1,2,3,4,5],[10,10,20,10,10])               │
+│ 2000-01-01 00:01:00 │ ([4,5,6,7,8],[10,10,20,10,10])               │
+└─────────────────────┴──────────────────────────────────────────────┘
 </pre></div>
 
 
@@ -4279,7 +4279,7 @@
 <h2 id="topk-n-column">topK(N)(column)<a class="headerlink" href="#topk-n-column" title="Permanent link">&para;</a></h2>
 <p>Возвращает массив наиболее часто встречающихся значений в указанном столбце. Результирующий массив упорядочен по убыванию частоты значения (не по самим значениям).</p>
 <p>Реализует <a href="http://www.l2f.inesc-id.pt/~fmmb/wiki/uploads/Work/misnis.ref0a.pdf" rel="external nofollow">Filtered Space-Saving</a> алгоритм для анализа TopK, на основе reduce-and-combine алгоритма из методики <a href="https://arxiv.org/pdf/1401.0702.pdf" rel="external nofollow">Parallel Space Saving</a>.</p>
-<div class="codehilite"><pre><span></span><span class="err">topK(N)(column)</span>
+<div class="codehilite"><pre><span></span>topK(N)(column)
 </pre></div>
 
 
@@ -4297,9 +4297,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────────────────┐</span>
-<span class="err">│ [19393,19790,19805] │</span>
-<span class="err">└─────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────────────────┐
+│ [19393,19790,19805] │
+└─────────────────────┘
 </pre></div>
 
 
@@ -4410,9 +4410,7 @@
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

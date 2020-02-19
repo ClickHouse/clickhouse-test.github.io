@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?4b46a05?1582054880">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582132703">
     
     
   </head>
@@ -3229,13 +3229,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#system_tables-metric_log" title="system.metric_log" class="md-nav__link">
-    system.metric_log
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#system-numbers" title="system.numbers" class="md-nav__link">
     system.numbers
   </a>
@@ -4184,13 +4177,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#system_tables-metric_log" title="system.metric_log" class="md-nav__link">
-    system.metric_log
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#system-numbers" title="system.numbers" class="md-nav__link">
     system.numbers
   </a>
@@ -4376,7 +4362,6 @@ They are located in the 'system' database.</p>
 <li><a href="../monitoring/">Monitoring</a> — Base concepts of ClickHouse monitoring.</li>
 <li><a href="#system_tables-metrics">system.metrics</a> — Contains instantly calculated metrics.</li>
 <li><a href="#system_tables-events">system.events</a> — Contains a number of events that have occurred.</li>
-<li><a href="#system_tables-metric_log">system.metric_log</a> — Contains a history of metrics values from tables <code>system.metrics</code> и <code>system.events</code>.</li>
 </ul>
 <h2 id="system-clusters">system.clusters<a class="headerlink" href="#system-clusters" title="Permanent link">&para;</a></h2>
 <p>Contains information about clusters available in the config file and the servers in them.</p>
@@ -4509,7 +4494,6 @@ This system table is used for implementing the <code>SHOW DATABASES</code> query
 <ul>
 <li><a href="#system_tables-asynchronous_metrics">system.asynchronous_metrics</a> — Contains periodically calculated metrics.</li>
 <li><a href="#system_tables-metrics">system.metrics</a> — Contains instantly calculated metrics.</li>
-<li><a href="#system_tables-metric_log">system.metric_log</a> — Contains a history of metrics values from tables <code>system.metrics</code> и <code>system.events</code>.</li>
 <li><a href="../monitoring/">Monitoring</a> — Base concepts of ClickHouse monitoring.</li>
 </ul>
 <h2 id="system-functions">system.functions<a class="headerlink" href="#system-functions" title="Permanent link">&para;</a></h2>
@@ -4584,60 +4568,6 @@ This system table is used for implementing the <code>SHOW DATABASES</code> query
 <ul>
 <li><a href="#system_tables-asynchronous_metrics">system.asynchronous_metrics</a> — Contains periodically calculated metrics.</li>
 <li><a href="#system_tables-events">system.events</a> — Contains a number of events that occurred.</li>
-<li><a href="#system_tables-metric_log">system.metric_log</a> — Contains a history of metrics values from tables <code>system.metrics</code> и <code>system.events</code>.</li>
-<li><a href="../monitoring/">Monitoring</a> — Base concepts of ClickHouse monitoring.</li>
-</ul>
-<h2 id="system_tables-metric_log">system.metric_log<a class="headerlink" href="#system_tables-metric_log" title="Permanent link">&para;</a></h2>
-<p>Contains history of metrics values from tables <code>system.metrics</code> and <code>system.events</code>, periodically flushed to disk.
-To turn on metrics history collection on <code>system.metric_log</code>, create <code>/etc/clickhouse-server/config.d/metric_log.xml</code> with following content:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;yandex&gt;</span>
-    <span class="nt">&lt;metric_log&gt;</span>
-        <span class="nt">&lt;database&gt;</span>system<span class="nt">&lt;/database&gt;</span>
-        <span class="nt">&lt;table&gt;</span>metric_log<span class="nt">&lt;/table&gt;</span>
-        <span class="nt">&lt;flush_interval_milliseconds&gt;</span>7500<span class="nt">&lt;/flush_interval_milliseconds&gt;</span>
-        <span class="nt">&lt;collect_interval_milliseconds&gt;</span>1000<span class="nt">&lt;/collect_interval_milliseconds&gt;</span>
-    <span class="nt">&lt;/metric_log&gt;</span>
-<span class="nt">&lt;/yandex&gt;</span>
-</pre></div>
-
-
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="k">system</span><span class="p">.</span><span class="n">metric_log</span> <span class="k">LIMIT</span> <span class="mi">1</span> <span class="n">FORMAT</span> <span class="n">Vertical</span><span class="p">;</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span>Row 1:
-──────
-event_date:                                                 2020-02-18
-event_time:                                                 2020-02-18 07:15:33
-milliseconds:                                               554
-ProfileEvent_Query:                                         0
-ProfileEvent_SelectQuery:                                   0
-ProfileEvent_InsertQuery:                                   0
-ProfileEvent_FileOpen:                                      0
-ProfileEvent_Seek:                                          0
-ProfileEvent_ReadBufferFromFileDescriptorRead:              1
-ProfileEvent_ReadBufferFromFileDescriptorReadFailed:        0
-ProfileEvent_ReadBufferFromFileDescriptorReadBytes:         0
-ProfileEvent_WriteBufferFromFileDescriptorWrite:            1
-ProfileEvent_WriteBufferFromFileDescriptorWriteFailed:      0
-ProfileEvent_WriteBufferFromFileDescriptorWriteBytes:       56
-...
-CurrentMetric_Query:                                        0
-CurrentMetric_Merge:                                        0
-CurrentMetric_PartMutation:                                 0
-CurrentMetric_ReplicatedFetch:                              0
-CurrentMetric_ReplicatedSend:                               0
-CurrentMetric_ReplicatedChecks:                             0
-...    
-</pre></div>
-
-
-<p><strong>See also</strong></p>
-<ul>
-<li><a href="#system_tables-asynchronous_metrics">system.asynchronous_metrics</a> — Contains periodically calculated metrics.</li>
-<li><a href="#system_tables-events">system.events</a> — Contains a number of events that occurred.</li>
-<li><a href="#system_tables-metrics">system.metrics</a> — Contains instantly calculated metrics.</li>
 <li><a href="../monitoring/">Monitoring</a> — Base concepts of ClickHouse monitoring.</li>
 </ul>
 <h2 id="system-numbers">system.numbers<a class="headerlink" href="#system-numbers" title="Permanent link">&para;</a></h2>
@@ -5367,9 +5297,7 @@ path:           /clickhouse/tables/01-08/visits/replicas
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

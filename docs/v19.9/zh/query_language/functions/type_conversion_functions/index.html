@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?4b46a05?1582055916">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582133652">
     
     
   </head>
@@ -3758,8 +3758,8 @@
 <p>当将Date转换为数字或反之，Date对应Unix时间戳的天数。
 将DataTime转换为数字或反之，DateTime对应Unix时间戳的秒数。</p>
 <p>toDate/toDateTime函数的日期和日期时间格式定义如下：</p>
-<div class="codehilite"><pre><span></span><span class="err">YYYY-MM-DD</span>
-<span class="err">YYYY-MM-DD hh:mm:ss</span>
+<div class="codehilite"><pre><span></span>YYYY-MM-DD
+YYYY-MM-DD hh:mm:ss
 </pre></div>
 
 
@@ -3773,9 +3773,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌───────────now_local─┬─now_yekat───────────┐</span>
-<span class="err">│ 2016-06-15 00:11:21 │ 2016-06-15 02:11:21 │</span>
-<span class="err">└─────────────────────┴─────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌───────────now_local─┬─now_yekat───────────┐
+│ 2016-06-15 00:11:21 │ 2016-06-15 02:11:21 │
+└─────────────────────┴─────────────────────┘
 </pre></div>
 
 
@@ -3792,9 +3792,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s─────────────┬─s_cut─┐</span>
-<span class="err">│ foo\0\0\0\0\0 │ foo   │</span>
-<span class="err">└───────────────┴───────┘</span>
+<div class="codehilite"><pre><span></span>┌─s─────────────┬─s_cut─┐
+│ foo\0\0\0\0\0 │ foo   │
+└───────────────┴───────┘
 </pre></div>
 
 
@@ -3802,9 +3802,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─s──────────┬─s_cut─┐</span>
-<span class="err">│ foo\0bar\0 │ foo   │</span>
-<span class="err">└────────────┴───────┘</span>
+<div class="codehilite"><pre><span></span>┌─s──────────┬─s_cut─┐
+│ foo\0bar\0 │ foo   │
+└────────────┴───────┘
 </pre></div>
 
 
@@ -3829,27 +3829,27 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─timestamp───────────┬────────────datetime─┬───────date─┬─string──────────────┬─fixed_string──────────────┐</span>
-<span class="err">│ 2016-06-15 23:00:00 │ 2016-06-15 23:00:00 │ 2016-06-15 │ 2016-06-15 23:00:00 │ 2016-06-15 23:00:00\0\0\0 │</span>
-<span class="err">└─────────────────────┴─────────────────────┴────────────┴─────────────────────┴───────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─timestamp───────────┬────────────datetime─┬───────date─┬─string──────────────┬─fixed_string──────────────┐
+│ 2016-06-15 23:00:00 │ 2016-06-15 23:00:00 │ 2016-06-15 │ 2016-06-15 23:00:00 │ 2016-06-15 23:00:00\0\0\0 │
+└─────────────────────┴─────────────────────┴────────────┴─────────────────────┴───────────────────────────┘
 </pre></div>
 
 
 <p>将参数转换为FixedString(N)，仅适用于String或FixedString(N)类型的参数。</p>
 <p>支持将数据转换为<a href="../../../data_types/nullable/">Nullable</a>。例如：</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">t_null</span>
+<div class="codehilite"><pre><span></span>SELECT toTypeName(x) FROM t_null
 
-<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="nb">Int8</span>          <span class="err">│</span>
-<span class="err">│</span> <span class="nb">Int8</span>          <span class="err">│</span>
-<span class="err">└───────────────┘</span>
+┌─toTypeName(x)─┐
+│ Int8          │
+│ Int8          │
+└───────────────┘
 
-<span class="k">SELECT</span> <span class="n">toTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Nullable(UInt16)&#39;</span><span class="p">))</span> <span class="k">FROM</span> <span class="n">t_null</span>
+SELECT toTypeName(CAST(x, &#39;Nullable(UInt16)&#39;)) FROM t_null
 
-<span class="err">┌─</span><span class="n">toTypeName</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;Nullable(UInt16)&#39;</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="k">Nullable</span><span class="p">(</span><span class="n">UInt16</span><span class="p">)</span>                        <span class="err">│</span>
-<span class="err">│</span> <span class="k">Nullable</span><span class="p">(</span><span class="n">UInt16</span><span class="p">)</span>                        <span class="err">│</span>
-<span class="err">└─────────────────────────────────────────┘</span>
+┌─toTypeName(CAST(x, &#39;Nullable(UInt16)&#39;))─┐
+│ Nullable(UInt16)                        │
+│ Nullable(UInt16)                        │
+└─────────────────────────────────────────┘
 </pre></div>
 
 
@@ -3866,9 +3866,9 @@ Interval类型实际上是非常有用的，您可以使用此类型的数据直
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─plus(date, interval_week)─┬─plus(date, interval_to_week)─┐</span>
-<span class="err">│                2019-01-08 │                   2019-01-08 │</span>
-<span class="err">└───────────────────────────┴──────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─plus(date, interval_week)─┬─plus(date, interval_to_week)─┐
+│                2019-01-08 │                   2019-01-08 │
+└───────────────────────────┴──────────────────────────────┘
 </pre></div>
 
 
@@ -3980,9 +3980,7 @@ Interval类型实际上是非常有用的，您可以使用此类型的数据直
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

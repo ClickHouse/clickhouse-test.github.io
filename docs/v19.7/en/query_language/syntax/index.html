@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?4b46a05?1582056083">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582133800">
     
     
   </head>
@@ -3628,7 +3628,7 @@ For example, the expression <code>1 + 2 * 3 + 4</code> is transformed to <code>p
 <p>Data types and table engines in the <code>CREATE</code> query are written the same way as identifiers or functions. In other words, they may or may not contain an arguments list in brackets. For more information, see the sections "Data types," "Table engines," and "CREATE".</p>
 <h2 id="syntax-expression_aliases">Expression Aliases<a class="headerlink" href="#syntax-expression_aliases" title="Permanent link">&para;</a></h2>
 <p>An alias is a user-defined name for an expression in a query.</p>
-<div class="codehilite"><pre><span></span><span class="err">expr AS alias</span>
+<div class="codehilite"><pre><span></span>expr AS alias
 </pre></div>
 
 
@@ -3652,22 +3652,22 @@ For example, the expression <code>1 + 2 * 3 + 4</code> is transformed to <code>p
 <p>Aliases are not visible in subqueries and between subqueries. For example, while executing the query <code>SELECT (SELECT sum(b.a) + num FROM b) - a.a AS num FROM a</code> ClickHouse generates the exception <code>Unknown identifier: num</code>.</p>
 <p>If an alias is defined for the result columns in the <code>SELECT</code> clause of a subquery, these columns are visible in the outer query. For example, <code>SELECT n + m FROM (SELECT 1 AS n, 2 AS m)</code>.</p>
 <p>Be careful with aliases that are the same as column or table names. Let's consider the following example:</p>
-<div class="codehilite"><pre><span></span><span class="err">CREATE TABLE t</span>
-<span class="err">(</span>
-<span class="err">    a Int,</span>
-<span class="err">    b Int</span>
-<span class="err">)</span>
-<span class="err">ENGINE = TinyLog()</span>
+<div class="codehilite"><pre><span></span>CREATE TABLE t
+(
+    a Int,
+    b Int
+)
+ENGINE = TinyLog()
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span>
-    <span class="n">argMax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span>
-    <span class="k">sum</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">AS</span> <span class="n">b</span>
-<span class="k">FROM</span> <span class="n">t</span>
+<div class="codehilite"><pre><span></span>SELECT
+    argMax(a, b),
+    sum(b) AS b
+FROM t
 
-<span class="n">Received</span> <span class="k">exception</span> <span class="k">from</span> <span class="n">server</span> <span class="p">(</span><span class="k">version</span> <span class="mi">18</span><span class="p">.</span><span class="mi">14</span><span class="p">.</span><span class="mi">17</span><span class="p">):</span>
-<span class="n">Code</span><span class="p">:</span> <span class="mi">184</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="n">Received</span> <span class="k">from</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">9000</span><span class="p">,</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="k">Aggregate</span> <span class="k">function</span> <span class="k">sum</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="k">is</span> <span class="k">found</span> <span class="n">inside</span> <span class="n">another</span> <span class="k">aggregate</span> <span class="k">function</span> <span class="k">in</span> <span class="n">query</span><span class="p">.</span>
+Received exception from server (version 18.14.17):
+Code: 184. DB::Exception: Received from localhost:9000, 127.0.0.1. DB::Exception: Aggregate function sum(b) is found inside another aggregate function in query.
 </pre></div>
 
 
@@ -3778,9 +3778,7 @@ Functions and operators, in turn, can have expressions as arguments.</p>
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

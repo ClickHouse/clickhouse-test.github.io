@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?4b46a05?1582055638">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582133414">
     
     
   </head>
@@ -3577,39 +3577,39 @@
 <p><code>T</code> can be anything, including an array.</p>
 <h2 id="creating-an-array">Creating an array<a class="headerlink" href="#creating-an-array" title="Permanent link">&para;</a></h2>
 <p>You can use a function to create an array:</p>
-<div class="codehilite"><pre><span></span><span class="err">array(T)</span>
+<div class="codehilite"><pre><span></span>array(T)
 </pre></div>
 
 
 <p>You can also use square brackets.</p>
-<div class="codehilite"><pre><span></span><span class="err">[]</span>
+<div class="codehilite"><pre><span></span>[]
 </pre></div>
 
 
 <p>Example of creating an array:</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT array(1, 2) AS x, toTypeName(x)
 
-<span class="k">SELECT</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
-    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+SELECT
+    [1, 2] AS x,
+    toTypeName(x)
 
-<span class="err">┌─</span><span class="n">x</span><span class="err">─────┬─</span><span class="n">toTypeName</span><span class="p">(</span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="err">│</span> <span class="nb">Array</span><span class="p">(</span><span class="n">UInt8</span><span class="p">)</span>            <span class="err">│</span>
-<span class="err">└───────┴─────────────────────────┘</span>
+┌─x─────┬─toTypeName(array(1, 2))─┐
+│ [1,2] │ Array(UInt8)            │
+└───────┴─────────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+:) SELECT [1, 2] AS x, toTypeName(x)
 
-<span class="k">SELECT</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
-    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+SELECT
+    [1, 2] AS x,
+    toTypeName(x)
 
-<span class="err">┌─</span><span class="n">x</span><span class="err">─────┬─</span><span class="n">toTypeName</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="err">│</span> <span class="nb">Array</span><span class="p">(</span><span class="n">UInt8</span><span class="p">)</span>       <span class="err">│</span>
-<span class="err">└───────┴────────────────────┘</span>
+┌─x─────┬─toTypeName([1, 2])─┐
+│ [1,2] │ Array(UInt8)       │
+└───────┴────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 </pre></div>
 
 
@@ -3617,29 +3617,29 @@
 <p>When creating an array on the fly, ClickHouse automatically defines the argument type as the narrowest data type that can store all the listed arguments. If there are any <a href="../../query_language/syntax/#null-literal">NULL</a> or <a href="../nullable/#data_type-nullable">Nullable</a> type arguments, the type of array elements is <a href="../nullable/">Nullable</a>.</p>
 <p>If ClickHouse couldn't determine the data type, it will generate an exception. For instance, this will happen when trying to create an array with strings and numbers simultaneously (<code>SELECT array(1, 'a')</code>).</p>
 <p>Examples of automatic data type detection:</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span> <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT array(1, 2, NULL) AS x, toTypeName(x)
 
-<span class="k">SELECT</span>
-    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">]</span> <span class="k">AS</span> <span class="n">x</span><span class="p">,</span>
-    <span class="n">toTypeName</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+SELECT
+    [1, 2, NULL] AS x,
+    toTypeName(x)
 
-<span class="err">┌─</span><span class="n">x</span><span class="err">──────────┬─</span><span class="n">toTypeName</span><span class="p">(</span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="k">NULL</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="k">NULL</span><span class="p">]</span> <span class="err">│</span> <span class="nb">Array</span><span class="p">(</span><span class="k">Nullable</span><span class="p">(</span><span class="n">UInt8</span><span class="p">))</span>        <span class="err">│</span>
-<span class="err">└────────────┴───────────────────────────────┘</span>
+┌─x──────────┬─toTypeName(array(1, 2, NULL))─┐
+│ [1,2,NULL] │ Array(Nullable(UInt8))        │
+└────────────┴───────────────────────────────┘
 
-<span class="mi">1</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+1 rows in set. Elapsed: 0.002 sec.
 </pre></div>
 
 
 <p>If you try to create an array of incompatible data types, ClickHouse throws an exception:</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span>:) SELECT array(1, &#39;a&#39;)
 
-<span class="k">SELECT</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">]</span>
+SELECT [1, &#39;a&#39;]
 
-<span class="n">Received</span> <span class="k">exception</span> <span class="k">from</span> <span class="n">server</span> <span class="p">(</span><span class="k">version</span> <span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span><span class="mi">54388</span><span class="p">):</span>
-<span class="n">Code</span><span class="p">:</span> <span class="mi">386</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="n">Received</span> <span class="k">from</span> <span class="n">localhost</span><span class="p">:</span><span class="mi">9000</span><span class="p">,</span> <span class="mi">127</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="p">.</span> <span class="n">DB</span><span class="p">::</span><span class="k">Exception</span><span class="p">:</span> <span class="n">There</span> <span class="k">is</span> <span class="k">no</span> <span class="n">supertype</span> <span class="k">for</span> <span class="n">types</span> <span class="n">UInt8</span><span class="p">,</span> <span class="n">String</span> <span class="n">because</span> <span class="k">some</span> <span class="k">of</span> <span class="n">them</span> <span class="k">are</span> <span class="n">String</span><span class="o">/</span><span class="n">FixedString</span> <span class="k">and</span> <span class="k">some</span> <span class="k">of</span> <span class="n">them</span> <span class="k">are</span> <span class="k">not</span><span class="p">.</span>
+Received exception from server (version 1.1.54388):
+Code: 386. DB::Exception: Received from localhost:9000, 127.0.0.1. DB::Exception: There is no supertype for types UInt8, String because some of them are String/FixedString and some of them are not.
 
-<span class="mi">0</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">246</span> <span class="n">sec</span><span class="p">.</span>
+0 rows in set. Elapsed: 0.246 sec.
 </pre></div>
                 
                 </div>
@@ -3741,9 +3741,7 @@
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?4b46a05?1582056002">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582133728">
     
     
   </head>
@@ -3481,7 +3481,7 @@
                   <h1 id="funktsii-dlia-raboty-s-geograficheskimi-koordinatami">Функции для работы с географическими координатами<a class="headerlink" href="#funktsii-dlia-raboty-s-geograficheskimi-koordinatami" title="Permanent link">&para;</a></h1>
 <h2 id="greatcircledistance">greatCircleDistance<a class="headerlink" href="#greatcircledistance" title="Permanent link">&para;</a></h2>
 <p>Вычисляет расстояние между двумя точками на поверхности Земли по <a href="https://en.wikipedia.org/wiki/Great-circle_distance" rel="external nofollow">формуле большого круга</a>.</p>
-<div class="codehilite"><pre><span></span><span class="err">greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)</span>
+<div class="codehilite"><pre><span></span>greatCircleDistance(lon1Deg, lat1Deg, lon2Deg, lat2Deg)
 </pre></div>
 
 
@@ -3501,15 +3501,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─greatCircleDistance(55.755831, 37.617673, -55.755831, -37.617673)─┐</span>
-<span class="err">│                                                14132374.194975413 │</span>
-<span class="err">└───────────────────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─greatCircleDistance(55.755831, 37.617673, -55.755831, -37.617673)─┐
+│                                                14132374.194975413 │
+└───────────────────────────────────────────────────────────────────┘
 </pre></div>
 
 
 <h2 id="pointinellipses">pointInEllipses<a class="headerlink" href="#pointinellipses" title="Permanent link">&para;</a></h2>
 <p>Проверяет, принадлежит ли точка хотя бы одному из эллипсов.</p>
-<div class="codehilite"><pre><span></span><span class="err">pointInEllipses(x, y, x₀, y₀, a₀, b₀,...,xₙ, yₙ, aₙ, bₙ)</span>
+<div class="codehilite"><pre><span></span>pointInEllipses(x, y, x₀, y₀, a₀, b₀,...,xₙ, yₙ, aₙ, bₙ)
 </pre></div>
 
 
@@ -3527,15 +3527,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─pointInEllipses(55.755831, 37.617673, 55.755831, 37.617673, 1., 2.)─┐</span>
-<span class="err">│                                                                   1 │</span>
-<span class="err">└─────────────────────────────────────────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─pointInEllipses(55.755831, 37.617673, 55.755831, 37.617673, 1., 2.)─┐
+│                                                                   1 │
+└─────────────────────────────────────────────────────────────────────┘
 </pre></div>
 
 
 <h2 id="pointinpolygon">pointInPolygon<a class="headerlink" href="#pointinpolygon" title="Permanent link">&para;</a></h2>
 <p>Проверяет, принадлежит ли точка многоугольнику на плоскости.</p>
-<div class="codehilite"><pre><span></span><span class="err">pointInPolygon((x, y), [(a, b), (c, d) ...], ...)</span>
+<div class="codehilite"><pre><span></span>pointInPolygon((x, y), [(a, b), (c, d) ...], ...)
 </pre></div>
 
 
@@ -3553,9 +3553,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   1 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   1 │
+└─────┘
 </pre></div>
                 
                 </div>
@@ -3657,9 +3657,7 @@
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

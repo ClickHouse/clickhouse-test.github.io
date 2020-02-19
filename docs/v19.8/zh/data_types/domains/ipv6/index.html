@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?4b46a05?1582056002">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582133728">
     
     
   </head>
@@ -3467,10 +3467,10 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─name─┬─type───┬─default_type─┬─default_expression─┬─comment─┬─codec_expression─┐</span>
-<span class="err">│ url  │ String │              │                    │         │                  │</span>
-<span class="err">│ from │ IPv6   │              │                    │         │                  │</span>
-<span class="err">└──────┴────────┴──────────────┴────────────────────┴─────────┴──────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─name─┬─type───┬─default_type─┬─default_expression─┬─comment─┬─codec_expression─┐
+│ url  │ String │              │                    │         │                  │
+│ from │ IPv6   │              │                    │         │                  │
+└──────┴────────┴──────────────┴────────────────────┴─────────┴──────────────────┘
 </pre></div>
 
 
@@ -3486,11 +3486,11 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─url────────────────────────────────┬─from──────────────────────────┐</span>
-<span class="err">│ https://clickhouse.yandex          │ 2001:44c8:129:2632:33:0:252:2 │</span>
-<span class="err">│ https://clickhouse.yandex/docs/en/ │ 2a02:e980:1e::1               │</span>
-<span class="err">│ https://wikipedia.org              │ 2a02:aa08:e000:3100::2        │</span>
-<span class="err">└────────────────────────────────────┴───────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─url────────────────────────────────┬─from──────────────────────────┐
+│ https://clickhouse.yandex          │ 2001:44c8:129:2632:33:0:252:2 │
+│ https://clickhouse.yandex/docs/en/ │ 2a02:e980:1e::1               │
+│ https://wikipedia.org              │ 2a02:aa08:e000:3100::2        │
+└────────────────────────────────────┴───────────────────────────────┘
 </pre></div>
 
 
@@ -3499,9 +3499,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(from)─┬─hex(from)────────────────────────┐</span>
-<span class="err">│ IPv6             │ 200144C8012926320033000002520002 │</span>
-<span class="err">└──────────────────┴──────────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─toTypeName(from)─┬─hex(from)────────────────────────┐
+│ IPv6             │ 200144C8012926320033000002520002 │
+└──────────────────┴──────────────────────────────────┘
 </pre></div>
 
 
@@ -3511,9 +3511,9 @@ If you want to convert <code>IPv6</code> value to a string, you have to do that 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(IPv6NumToString(from))─┬─s─────────────────────────────┐</span>
-<span class="err">│ String                            │ 2001:44c8:129:2632:33:0:252:2 │</span>
-<span class="err">└───────────────────────────────────┴───────────────────────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─toTypeName(IPv6NumToString(from))─┬─s─────────────────────────────┐
+│ String                            │ 2001:44c8:129:2632:33:0:252:2 │
+└───────────────────────────────────┴───────────────────────────────┘
 </pre></div>
 
 
@@ -3522,9 +3522,9 @@ If you want to convert <code>IPv6</code> value to a string, you have to do that 
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─toTypeName(CAST(from, &#39;FixedString(16)&#39;))─┬─i───────┐</span>
-<span class="err">│ FixedString(16)                           │  ��� │</span>
-<span class="err">└───────────────────────────────────────────┴─────────┘</span>
+<div class="codehilite"><pre><span></span>┌─toTypeName(CAST(from, &#39;FixedString(16)&#39;))─┬─i───────┐
+│ FixedString(16)                           │  ��� │
+└───────────────────────────────────────────┴─────────┘
 </pre></div>
                 
                 </div>
@@ -3626,9 +3626,7 @@ If you want to convert <code>IPv6</code> value to a string, you have to do that 
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

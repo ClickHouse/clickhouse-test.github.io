@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?4b46a05?1582055827">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?1582133575">
     
     
   </head>
@@ -3899,238 +3899,238 @@
 <h3 id="select-array-join-clause">ARRAY JOIN 子句<a class="headerlink" href="#select-array-join-clause" title="Permanent link">&para;</a></h3>
 <p>ARRAY JOIN子句可以帮助查询进行与数组和nested数据类型的连接。它有点类似arrayJoin函数，但它的功能更广泛。</p>
 <p><code>ARRAY JOIN</code> 本质上等同于<code>INNERT JOIN</code>数组。 例如：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">arrays_test</span> <span class="p">(</span><span class="n">s</span> <span class="n">String</span><span class="p">,</span> <span class="n">arr</span> <span class="nb">Array</span><span class="p">(</span><span class="n">UInt8</span><span class="p">))</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">Memory</span>
+<div class="codehilite"><pre><span></span>:) CREATE TABLE arrays_test (s String, arr Array(UInt8)) ENGINE = Memory
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">arrays_test</span>
-<span class="p">(</span>
-    <span class="n">s</span> <span class="n">String</span><span class="p">,</span>
-    <span class="n">arr</span> <span class="nb">Array</span><span class="p">(</span><span class="n">UInt8</span><span class="p">)</span>
-<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">Memory</span>
+CREATE TABLE arrays_test
+(
+    s String,
+    arr Array(UInt8)
+) ENGINE = Memory
 
-<span class="n">Ok</span><span class="p">.</span>
+Ok.
 
-<span class="mi">0</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+0 rows in set. Elapsed: 0.001 sec.
 
-<span class="p">:)</span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">arrays_test</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;Goodbye&#39;</span><span class="p">,</span> <span class="p">[])</span>
+:) INSERT INTO arrays_test VALUES (&#39;Hello&#39;, [1,2]), (&#39;World&#39;, [3,4,5]), (&#39;Goodbye&#39;, [])
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">arrays_test</span> <span class="k">VALUES</span>
+INSERT INTO arrays_test VALUES
 
-<span class="n">Ok</span><span class="p">.</span>
+Ok.
 
-<span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+3 rows in set. Elapsed: 0.001 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">arrays_test</span>
+:) SELECT * FROM arrays_test
 
-<span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span> <span class="n">arrays_test</span>
+SELECT *
+FROM arrays_test
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">───────┬─</span><span class="n">arr</span><span class="err">─────┐</span>
-<span class="err">│</span> <span class="n">Hello</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">Goodbye</span> <span class="err">│</span> <span class="p">[]</span>      <span class="err">│</span>
-<span class="err">└─────────┴─────────┘</span>
+┌─s───────┬─arr─────┐
+│ Hello   │ [1,2]   │
+│ World   │ [3,4,5] │
+│ Goodbye │ []      │
+└─────────┴─────────┘
 
-<span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+3 rows in set. Elapsed: 0.001 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">arr</span> <span class="k">FROM</span> <span class="n">arrays_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">arr</span>
+:) SELECT s, arr FROM arrays_test ARRAY JOIN arr
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">arr</span>
-<span class="k">FROM</span> <span class="n">arrays_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">arr</span>
+SELECT s, arr
+FROM arrays_test
+ARRAY JOIN arr
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">arr</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">3</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">4</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">5</span> <span class="err">│</span>
-<span class="err">└───────┴─────┘</span>
+┌─s─────┬─arr─┐
+│ Hello │   1 │
+│ Hello │   2 │
+│ World │   3 │
+│ World │   4 │
+│ World │   5 │
+└───────┴─────┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.001 sec.
 </pre></div>
 
 
 <p>你还可以为ARRAY JOIN子句指定一个别名，这时你可以通过这个别名来访问数组中的数据，但是数据本身仍然可以通过原来的名称进行访问。例如：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">a</span> <span class="k">FROM</span> <span class="n">arrays_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">arr</span> <span class="k">AS</span> <span class="n">a</span>
+<div class="codehilite"><pre><span></span>:) SELECT s, arr, a FROM arrays_test ARRAY JOIN arr AS a
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">a</span>
-<span class="k">FROM</span> <span class="n">arrays_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">arr</span> <span class="k">AS</span> <span class="n">a</span>
+SELECT s, arr, a
+FROM arrays_test
+ARRAY JOIN arr AS a
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">arr</span><span class="err">─────┬─</span><span class="n">a</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="mi">1</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="mi">2</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">3</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">4</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">5</span> <span class="err">│</span>
-<span class="err">└───────┴─────────┴───┘</span>
+┌─s─────┬─arr─────┬─a─┐
+│ Hello │ [1,2]   │ 1 │
+│ Hello │ [1,2]   │ 2 │
+│ World │ [3,4,5] │ 3 │
+│ World │ [3,4,5] │ 4 │
+│ World │ [3,4,5] │ 5 │
+└───────┴─────────┴───┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.001 sec.
 </pre></div>
 
 
 <p>当多个具有相同大小的数组使用逗号分割出现在ARRAY JOIN子句中时，ARRAY JOIN会将它们同时执行（直接合并，而不是它们的笛卡尔积）。例如：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">mapped</span> <span class="k">FROM</span> <span class="n">arrays_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">arr</span> <span class="k">AS</span> <span class="n">a</span><span class="p">,</span> <span class="n">arrayEnumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num</span><span class="p">,</span> <span class="n">arrayMap</span><span class="p">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">arr</span><span class="p">)</span> <span class="k">AS</span> <span class="n">mapped</span>
+<div class="codehilite"><pre><span></span>:) SELECT s, arr, a, num, mapped FROM arrays_test ARRAY JOIN arr AS a, arrayEnumerate(arr) AS num, arrayMap(x -&gt; x + 1, arr) AS mapped
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">mapped</span>
-<span class="k">FROM</span> <span class="n">arrays_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">arr</span> <span class="k">AS</span> <span class="n">a</span><span class="p">,</span> <span class="n">arrayEnumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num</span><span class="p">,</span> <span class="n">arrayMap</span><span class="p">(</span><span class="n">lambda</span><span class="p">(</span><span class="n">tuple</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">plus</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">arr</span><span class="p">)</span> <span class="k">AS</span> <span class="n">mapped</span>
+SELECT s, arr, a, num, mapped
+FROM arrays_test
+ARRAY JOIN arr AS a, arrayEnumerate(arr) AS num, arrayMap(lambda(tuple(x), plus(x, 1)), arr) AS mapped
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">arr</span><span class="err">─────┬─</span><span class="n">a</span><span class="err">─┬─</span><span class="n">num</span><span class="err">─┬─</span><span class="n">mapped</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="mi">1</span> <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span>      <span class="mi">2</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="mi">2</span> <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span>      <span class="mi">3</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">3</span> <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span>      <span class="mi">4</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">4</span> <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span>      <span class="mi">5</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">5</span> <span class="err">│</span>   <span class="mi">3</span> <span class="err">│</span>      <span class="mi">6</span> <span class="err">│</span>
-<span class="err">└───────┴─────────┴───┴─────┴────────┘</span>
+┌─s─────┬─arr─────┬─a─┬─num─┬─mapped─┐
+│ Hello │ [1,2]   │ 1 │   1 │      2 │
+│ Hello │ [1,2]   │ 2 │   2 │      3 │
+│ World │ [3,4,5] │ 3 │   1 │      4 │
+│ World │ [3,4,5] │ 4 │   2 │      5 │
+│ World │ [3,4,5] │ 5 │   3 │      6 │
+└───────┴─────────┴───┴─────┴────────┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.002 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">arrayEnumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">arrays_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">arr</span> <span class="k">AS</span> <span class="n">a</span><span class="p">,</span> <span class="n">arrayEnumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num</span>
+:) SELECT s, arr, a, num, arrayEnumerate(arr) FROM arrays_test ARRAY JOIN arr AS a, arrayEnumerate(arr) AS num
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">arrayEnumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="n">arrays_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">arr</span> <span class="k">AS</span> <span class="n">a</span><span class="p">,</span> <span class="n">arrayEnumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num</span>
+SELECT s, arr, a, num, arrayEnumerate(arr)
+FROM arrays_test
+ARRAY JOIN arr AS a, arrayEnumerate(arr) AS num
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">arr</span><span class="err">─────┬─</span><span class="n">a</span><span class="err">─┬─</span><span class="n">num</span><span class="err">─┬─</span><span class="n">arrayEnumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="mi">1</span> <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>               <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="mi">2</span> <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>               <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">3</span> <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>             <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">4</span> <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>             <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="mi">5</span> <span class="err">│</span>   <span class="mi">3</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>             <span class="err">│</span>
-<span class="err">└───────┴─────────┴───┴─────┴─────────────────────┘</span>
+┌─s─────┬─arr─────┬─a─┬─num─┬─arrayEnumerate(arr)─┐
+│ Hello │ [1,2]   │ 1 │   1 │ [1,2]               │
+│ Hello │ [1,2]   │ 2 │   2 │ [1,2]               │
+│ World │ [3,4,5] │ 3 │   1 │ [1,2,3]             │
+│ World │ [3,4,5] │ 4 │   2 │ [1,2,3]             │
+│ World │ [3,4,5] │ 5 │   3 │ [1,2,3]             │
+└───────┴─────────┴───┴─────┴─────────────────────┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.002 sec.
 </pre></div>
 
 
 <p>另外ARRAY JOIN也可以工作在nested数据结构上。例如：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">nested_test</span> <span class="p">(</span><span class="n">s</span> <span class="n">String</span><span class="p">,</span> <span class="n">nest</span> <span class="n">Nested</span><span class="p">(</span><span class="n">x</span> <span class="n">UInt8</span><span class="p">,</span> <span class="n">y</span> <span class="n">UInt32</span><span class="p">))</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">Memory</span>
+<div class="codehilite"><pre><span></span>:) CREATE TABLE nested_test (s String, nest Nested(x UInt8, y UInt32)) ENGINE = Memory
 
-<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">nested_test</span>
-<span class="p">(</span>
-    <span class="n">s</span> <span class="n">String</span><span class="p">,</span>
-    <span class="n">nest</span> <span class="n">Nested</span><span class="p">(</span>
-    <span class="n">x</span> <span class="n">UInt8</span><span class="p">,</span>
-    <span class="n">y</span> <span class="n">UInt32</span><span class="p">)</span>
-<span class="p">)</span> <span class="n">ENGINE</span> <span class="o">=</span> <span class="n">Memory</span>
+CREATE TABLE nested_test
+(
+    s String,
+    nest Nested(
+    x UInt8,
+    y UInt32)
+) ENGINE = Memory
 
-<span class="n">Ok</span><span class="p">.</span>
+Ok.
 
-<span class="mi">0</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">006</span> <span class="n">sec</span><span class="p">.</span>
+0 rows in set. Elapsed: 0.006 sec.
 
-<span class="p">:)</span> <span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">nested_test</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;Goodbye&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="p">[])</span>
+:) INSERT INTO nested_test VALUES (&#39;Hello&#39;, [1,2], [10,20]), (&#39;World&#39;, [3,4,5], [30,40,50]), (&#39;Goodbye&#39;, [], [])
 
-<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">nested_test</span> <span class="k">VALUES</span>
+INSERT INTO nested_test VALUES
 
-<span class="n">Ok</span><span class="p">.</span>
+Ok.
 
-<span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+3 rows in set. Elapsed: 0.001 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">nested_test</span>
+:) SELECT * FROM nested_test
 
-<span class="k">SELECT</span> <span class="o">*</span>
-<span class="k">FROM</span> <span class="n">nested_test</span>
+SELECT *
+FROM nested_test
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">───────┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="err">──┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="err">─────┐</span>
-<span class="err">│</span> <span class="n">Hello</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>    <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">Goodbye</span> <span class="err">│</span> <span class="p">[]</span>      <span class="err">│</span> <span class="p">[]</span>         <span class="err">│</span>
-<span class="err">└─────────┴─────────┴────────────┘</span>
+┌─s───────┬─nest.x──┬─nest.y─────┐
+│ Hello   │ [1,2]   │ [10,20]    │
+│ World   │ [3,4,5] │ [30,40,50] │
+│ Goodbye │ []      │ []         │
+└─────────┴─────────┴────────────┘
 
-<span class="mi">3</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+3 rows in set. Elapsed: 0.001 sec.
 
-<span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">y</span> <span class="k">FROM</span> <span class="n">nested_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">nest</span>
+:) SELECT s, nest.x, nest.y FROM nested_test ARRAY JOIN nest
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="o">`</span>
-<span class="k">FROM</span> <span class="n">nested_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">nest</span>
+SELECT s, `nest.x`, `nest.y`
+FROM nested_test
+ARRAY JOIN nest
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="err">─┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>      <span class="mi">1</span> <span class="err">│</span>     <span class="mi">10</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>      <span class="mi">2</span> <span class="err">│</span>     <span class="mi">20</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">3</span> <span class="err">│</span>     <span class="mi">30</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">4</span> <span class="err">│</span>     <span class="mi">40</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">5</span> <span class="err">│</span>     <span class="mi">50</span> <span class="err">│</span>
-<span class="err">└───────┴────────┴────────┘</span>
+┌─s─────┬─nest.x─┬─nest.y─┐
+│ Hello │      1 │     10 │
+│ Hello │      2 │     20 │
+│ World │      3 │     30 │
+│ World │      4 │     40 │
+│ World │      5 │     50 │
+└───────┴────────┴────────┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.001 sec.
 </pre></div>
 
 
 <p>当你在ARRAY JOIN指定nested数据类型的名称时，其作用与与包含所有数组元素的ARRAY JOIN相同，例如：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">y</span> <span class="k">FROM</span> <span class="n">nested_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">y</span>
+<div class="codehilite"><pre><span></span>:) SELECT s, nest.x, nest.y FROM nested_test ARRAY JOIN nest.x, nest.y
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="o">`</span>
-<span class="k">FROM</span> <span class="n">nested_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="o">`</span>
+SELECT s, `nest.x`, `nest.y`
+FROM nested_test
+ARRAY JOIN `nest.x`, `nest.y`
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="err">─┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>      <span class="mi">1</span> <span class="err">│</span>     <span class="mi">10</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>      <span class="mi">2</span> <span class="err">│</span>     <span class="mi">20</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">3</span> <span class="err">│</span>     <span class="mi">30</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">4</span> <span class="err">│</span>     <span class="mi">40</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">5</span> <span class="err">│</span>     <span class="mi">50</span> <span class="err">│</span>
-<span class="err">└───────┴────────┴────────┘</span>
+┌─s─────┬─nest.x─┬─nest.y─┐
+│ Hello │      1 │     10 │
+│ Hello │      2 │     20 │
+│ World │      3 │     30 │
+│ World │      4 │     40 │
+│ World │      5 │     50 │
+└───────┴────────┴────────┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.001 sec.
 </pre></div>
 
 
 <p>这种方式也是可以运行的：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">y</span> <span class="k">FROM</span> <span class="n">nested_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">nest</span><span class="p">.</span><span class="n">x</span>
+<div class="codehilite"><pre><span></span>:) SELECT s, nest.x, nest.y FROM nested_test ARRAY JOIN nest.x
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="o">`</span>
-<span class="k">FROM</span> <span class="n">nested_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="o">`</span>
+SELECT s, `nest.x`, `nest.y`
+FROM nested_test
+ARRAY JOIN `nest.x`
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="err">─┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="err">─────┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>      <span class="mi">1</span> <span class="err">│</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>    <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>      <span class="mi">2</span> <span class="err">│</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>    <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">3</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">4</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>      <span class="mi">5</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">└───────┴────────┴────────────┘</span>
+┌─s─────┬─nest.x─┬─nest.y─────┐
+│ Hello │      1 │ [10,20]    │
+│ Hello │      2 │ [10,20]    │
+│ World │      3 │ [30,40,50] │
+│ World │      4 │ [30,40,50] │
+│ World │      5 │ [30,40,50] │
+└───────┴────────┴────────────┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.001 sec.
 </pre></div>
 
 
 <p>为了方便使用原来的nested类型的数组，你可以为nested类型定义一个别名。例如：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">y</span> <span class="k">FROM</span> <span class="n">nested_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">nest</span> <span class="k">AS</span> <span class="n">n</span>
+<div class="codehilite"><pre><span></span>:) SELECT s, n.x, n.y, nest.x, nest.y FROM nested_test ARRAY JOIN nest AS n
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="o">`</span><span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="o">`</span>
-<span class="k">FROM</span> <span class="n">nested_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">nest</span> <span class="k">AS</span> <span class="n">n</span>
+SELECT s, `n.x`, `n.y`, `nest.x`, `nest.y`
+FROM nested_test
+ARRAY JOIN nest AS n
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="err">─┬─</span><span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="err">─┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="err">──┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="err">─────┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span>  <span class="mi">10</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>    <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span>  <span class="mi">20</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>    <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">3</span> <span class="err">│</span>  <span class="mi">30</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">4</span> <span class="err">│</span>  <span class="mi">40</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">5</span> <span class="err">│</span>  <span class="mi">50</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>
-<span class="err">└───────┴─────┴─────┴─────────┴────────────┘</span>
+┌─s─────┬─n.x─┬─n.y─┬─nest.x──┬─nest.y─────┐
+│ Hello │   1 │  10 │ [1,2]   │ [10,20]    │
+│ Hello │   2 │  20 │ [1,2]   │ [10,20]    │
+│ World │   3 │  30 │ [3,4,5] │ [30,40,50] │
+│ World │   4 │  40 │ [3,4,5] │ [30,40,50] │
+│ World │   5 │  50 │ [3,4,5] │ [30,40,50] │
+└───────┴─────┴─────┴─────────┴────────────┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">001</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.001 sec.
 </pre></div>
 
 
 <p>使用arrayEnumerate函数的示例：</p>
-<div class="codehilite"><pre><span></span><span class="p">:)</span> <span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">num</span> <span class="k">FROM</span> <span class="n">nested_test</span> <span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">nest</span> <span class="k">AS</span> <span class="n">n</span><span class="p">,</span> <span class="n">arrayEnumerate</span><span class="p">(</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num</span>
+<div class="codehilite"><pre><span></span>:) SELECT s, n.x, n.y, nest.x, nest.y, num FROM nested_test ARRAY JOIN nest AS n, arrayEnumerate(nest.x) AS num
 
-<span class="k">SELECT</span> <span class="n">s</span><span class="p">,</span> <span class="o">`</span><span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">,</span> <span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="o">`</span><span class="p">,</span> <span class="n">num</span>
-<span class="k">FROM</span> <span class="n">nested_test</span>
-<span class="nb">ARRAY</span> <span class="k">JOIN</span> <span class="n">nest</span> <span class="k">AS</span> <span class="n">n</span><span class="p">,</span> <span class="n">arrayEnumerate</span><span class="p">(</span><span class="o">`</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="o">`</span><span class="p">)</span> <span class="k">AS</span> <span class="n">num</span>
+SELECT s, `n.x`, `n.y`, `nest.x`, `nest.y`, num
+FROM nested_test
+ARRAY JOIN nest AS n, arrayEnumerate(`nest.x`) AS num
 
-<span class="err">┌─</span><span class="n">s</span><span class="err">─────┬─</span><span class="n">n</span><span class="p">.</span><span class="n">x</span><span class="err">─┬─</span><span class="n">n</span><span class="p">.</span><span class="n">y</span><span class="err">─┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">x</span><span class="err">──┬─</span><span class="n">nest</span><span class="p">.</span><span class="n">y</span><span class="err">─────┬─</span><span class="n">num</span><span class="err">─┐</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span>  <span class="mi">10</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>    <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">Hello</span> <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span>  <span class="mi">20</span> <span class="err">│</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>   <span class="err">│</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>    <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">3</span> <span class="err">│</span>  <span class="mi">30</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>   <span class="mi">1</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">4</span> <span class="err">│</span>  <span class="mi">40</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>   <span class="mi">2</span> <span class="err">│</span>
-<span class="err">│</span> <span class="n">World</span> <span class="err">│</span>   <span class="mi">5</span> <span class="err">│</span>  <span class="mi">50</span> <span class="err">│</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span> <span class="err">│</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">]</span> <span class="err">│</span>   <span class="mi">3</span> <span class="err">│</span>
-<span class="err">└───────┴─────┴─────┴─────────┴────────────┴─────┘</span>
+┌─s─────┬─n.x─┬─n.y─┬─nest.x──┬─nest.y─────┬─num─┐
+│ Hello │   1 │  10 │ [1,2]   │ [10,20]    │   1 │
+│ Hello │   2 │  20 │ [1,2]   │ [10,20]    │   2 │
+│ World │   3 │  30 │ [3,4,5] │ [30,40,50] │   1 │
+│ World │   4 │  40 │ [3,4,5] │ [30,40,50] │   2 │
+│ World │   5 │  50 │ [3,4,5] │ [30,40,50] │   3 │
+└───────┴─────┴─────┴─────────┴────────────┴─────┘
 
-<span class="mi">5</span> <span class="k">rows</span> <span class="k">in</span> <span class="k">set</span><span class="p">.</span> <span class="n">Elapsed</span><span class="p">:</span> <span class="mi">0</span><span class="p">.</span><span class="mi">002</span> <span class="n">sec</span><span class="p">.</span>
+5 rows in set. Elapsed: 0.002 sec.
 </pre></div>
 
 
@@ -4195,18 +4195,18 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─CounterID─┬───hits─┬─visits─┐</span>
-<span class="err">│   1143050 │ 523264 │  13665 │</span>
-<span class="err">│    731962 │ 475698 │ 102716 │</span>
-<span class="err">│    722545 │ 337212 │ 108187 │</span>
-<span class="err">│    722889 │ 252197 │  10547 │</span>
-<span class="err">│   2237260 │ 196036 │   9522 │</span>
-<span class="err">│  23057320 │ 147211 │   7689 │</span>
-<span class="err">│    722818 │  90109 │  17847 │</span>
-<span class="err">│     48221 │  85379 │   4652 │</span>
-<span class="err">│  19762435 │  77807 │   7026 │</span>
-<span class="err">│    722884 │  77492 │  11056 │</span>
-<span class="err">└───────────┴────────┴────────┘</span>
+<div class="codehilite"><pre><span></span>┌─CounterID─┬───hits─┬─visits─┐
+│   1143050 │ 523264 │  13665 │
+│    731962 │ 475698 │ 102716 │
+│    722545 │ 337212 │ 108187 │
+│    722889 │ 252197 │  10547 │
+│   2237260 │ 196036 │   9522 │
+│  23057320 │ 147211 │   7689 │
+│    722818 │  90109 │  17847 │
+│     48221 │  85379 │   4652 │
+│  19762435 │  77807 │   7026 │
+│    722884 │  77492 │  11056 │
+└───────────┴────────┴────────┘
 </pre></div>
 
 
@@ -4267,22 +4267,22 @@ SELECT，HAVING，ORDER BY子句中的表达式列表必须来自于这些“key
 <p>对于GROUP BY子句，ClickHouse将 <a href="../syntax/">NULL</a> 解释为一个值，并且支持<code>NULL=NULL</code>。</p>
 <p>下面这个例子将说明这将意味着什么。</p>
 <p>假设你有这样一张表：</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │    2 │</span>
-<span class="err">│ 2 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 3 │    2 │</span>
-<span class="err">│ 3 │    3 │</span>
-<span class="err">│ 3 │ ᴺᵁᴸᴸ │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │    2 │
+│ 2 │ ᴺᵁᴸᴸ │
+│ 3 │    2 │
+│ 3 │    3 │
+│ 3 │ ᴺᵁᴸᴸ │
+└───┴──────┘
 </pre></div>
 
 
 <p>运行<code>SELECT sum(x), y FROM t_null_big GROUP BY y</code>你将得到如下结果：</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─sum(x)─┬────y─┐</span>
-<span class="err">│      4 │    2 │</span>
-<span class="err">│      3 │    3 │</span>
-<span class="err">│      5 │ ᴺᵁᴸᴸ │</span>
-<span class="err">└────────┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─sum(x)─┬────y─┐
+│      4 │    2 │
+│      3 │    3 │
+│      5 │ ᴺᵁᴸᴸ │
+└────────┴──────┘
 </pre></div>
 
 
@@ -4346,34 +4346,34 @@ WHERE于HAVING不同之处在于WHERE在聚合前(GROUP BY)执行，HAVING在聚
 </ul>
 <p>示例:</p>
 <p>假设存在如下一张表</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 2 │    2 │</span>
-<span class="err">│ 1 │  nan │</span>
-<span class="err">│ 2 │    2 │</span>
-<span class="err">│ 3 │    4 │</span>
-<span class="err">│ 5 │    6 │</span>
-<span class="err">│ 6 │  nan │</span>
-<span class="err">│ 7 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 6 │    7 │</span>
-<span class="err">│ 8 │    9 │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │ ᴺᵁᴸᴸ │
+│ 2 │    2 │
+│ 1 │  nan │
+│ 2 │    2 │
+│ 3 │    4 │
+│ 5 │    6 │
+│ 6 │  nan │
+│ 7 │ ᴺᵁᴸᴸ │
+│ 6 │    7 │
+│ 8 │    9 │
+└───┴──────┘
 </pre></div>
 
 
 <p>运行查询 <code>SELECT * FROM t_null_nan ORDER BY y NULLS FIRST</code> 将获得如下结果:</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 7 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 1 │  nan │</span>
-<span class="err">│ 6 │  nan │</span>
-<span class="err">│ 2 │    2 │</span>
-<span class="err">│ 2 │    2 │</span>
-<span class="err">│ 3 │    4 │</span>
-<span class="err">│ 5 │    6 │</span>
-<span class="err">│ 6 │    7 │</span>
-<span class="err">│ 8 │    9 │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │ ᴺᵁᴸᴸ │
+│ 7 │ ᴺᵁᴸᴸ │
+│ 1 │  nan │
+│ 6 │  nan │
+│ 2 │    2 │
+│ 2 │    2 │
+│ 3 │    4 │
+│ 5 │    6 │
+│ 6 │    7 │
+│ 8 │    9 │
+└───┴──────┘
 </pre></div>
 
 
@@ -4470,15 +4470,15 @@ Don't list too many values explicitly (i.e. millions). If a data set is large, p
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌──EventDate─┬────ratio─┐</span>
-<span class="err">│ 2014-03-17 │        1 │</span>
-<span class="err">│ 2014-03-18 │ 0.807696 │</span>
-<span class="err">│ 2014-03-19 │ 0.755406 │</span>
-<span class="err">│ 2014-03-20 │ 0.723218 │</span>
-<span class="err">│ 2014-03-21 │ 0.697021 │</span>
-<span class="err">│ 2014-03-22 │ 0.647851 │</span>
-<span class="err">│ 2014-03-23 │ 0.648416 │</span>
-<span class="err">└────────────┴──────────┘</span>
+<div class="codehilite"><pre><span></span>┌──EventDate─┬────ratio─┐
+│ 2014-03-17 │        1 │
+│ 2014-03-18 │ 0.807696 │
+│ 2014-03-19 │ 0.755406 │
+│ 2014-03-20 │ 0.723218 │
+│ 2014-03-21 │ 0.697021 │
+│ 2014-03-22 │ 0.647851 │
+│ 2014-03-23 │ 0.648416 │
+└────────────┴──────────┘
 </pre></div>
 
 
@@ -4487,28 +4487,28 @@ IN子句中的子查询仅在单个服务器上运行一次。不能够是相关
 <h4 id="null-chu-li_1">NULL 处理<a class="headerlink" href="#null-chu-li_1" title="Permanent link">&para;</a></h4>
 <p>在处理中，IN操作符总是假定 <a href="../syntax/">NULL</a> 值的操作结果总是等于<code>0</code>，而不管<code>NULL</code>位于左侧还是右侧。<code>NULL</code>值不应该包含在任何数据集中，它们彼此不能够对应，并且不能够比较。</p>
 <p>下面的示例中有一个<code>t_null</code>表：</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┬────y─┐</span>
-<span class="err">│ 1 │ ᴺᵁᴸᴸ │</span>
-<span class="err">│ 2 │    3 │</span>
-<span class="err">└───┴──────┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┬────y─┐
+│ 1 │ ᴺᵁᴸᴸ │
+│ 2 │    3 │
+└───┴──────┘
 </pre></div>
 
 
 <p>运行查询<code>SELECT x FROM t_null WHERE y IN (NULL,3)</code>将得到如下结果：</p>
-<div class="codehilite"><pre><span></span><span class="err">┌─x─┐</span>
-<span class="err">│ 2 │</span>
-<span class="err">└───┘</span>
+<div class="codehilite"><pre><span></span>┌─x─┐
+│ 2 │
+└───┘
 </pre></div>
 
 
 <p>你可以看到在查询结果中不存在<code>y = NULL</code>的结果。这是因为ClickHouse无法确定<code>NULL</code>是否包含在<code>(NULL,3)</code>数据集中，对于这次比较操作返回了<code>0</code>，并且在<code>SELECT</code>的最终输出中排除了这行。</p>
-<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">y</span> <span class="k">IN</span> <span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="k">FROM</span> <span class="n">t_null</span>
+<div class="codehilite"><pre><span></span>SELECT y IN (NULL, 3)
+FROM t_null
 
-<span class="err">┌─</span><span class="k">in</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">tuple</span><span class="p">(</span><span class="k">NULL</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="err">─┐</span>
-<span class="err">│</span>                     <span class="mi">0</span> <span class="err">│</span>
-<span class="err">│</span>                     <span class="mi">1</span> <span class="err">│</span>
-<span class="err">└───────────────────────┘</span>
+┌─in(y, tuple(NULL, 3))─┐
+│                     0 │
+│                     1 │
+└───────────────────────┘
 </pre></div>
 
 
@@ -4710,9 +4710,7 @@ IN子句中的子查询仅在单个服务器上运行一次。不能够是相关
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>

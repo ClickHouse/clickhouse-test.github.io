@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?4b46a05?1582055916">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?1582133652">
     
     
   </head>
@@ -3653,7 +3653,7 @@
 <p>For more information on RoaringBitmap, see: <a href="https://github.com/RoaringBitmap/CRoaring" rel="external nofollow">CRoaring</a>.</p>
 <h2 id="bitmapbuild">bitmapBuild<a class="headerlink" href="#bitmapbuild" title="Permanent link">&para;</a></h2>
 <p>Build a bitmap from unsigned integer array.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapBuild(array)</span>
+<div class="codehilite"><pre><span></span>bitmapBuild(array)
 </pre></div>
 
 
@@ -3674,7 +3674,7 @@
 
 <h2 id="bitmaptoarray">bitmapToArray<a class="headerlink" href="#bitmaptoarray" title="Permanent link">&para;</a></h2>
 <p>Convert bitmap to integer array.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapToArray(bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapToArray(bitmap)
 </pre></div>
 
 
@@ -3687,15 +3687,15 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────────┐</span>
-<span class="err">│ [1,2,3,4,5] │</span>
-<span class="err">└─────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────────┐
+│ [1,2,3,4,5] │
+└─────────────┘
 </pre></div>
 
 
 <h2 id="bitmaphasany">bitmapHasAny<a class="headerlink" href="#bitmaphasany" title="Permanent link">&para;</a></h2>
 <p>Checks whether two bitmaps have intersection by some elements.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapHasAny(bitmap1, bitmap2)</span>
+<div class="codehilite"><pre><span></span>bitmapHasAny(bitmap1, bitmap2)
 </pre></div>
 
 
@@ -3713,16 +3713,16 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│  1  │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│  1  │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmaphasall">bitmapHasAll<a class="headerlink" href="#bitmaphasall" title="Permanent link">&para;</a></h2>
 <p>Analogous to <code>hasAll(array, array)</code> returns 1 if the first bitmap contains all the elements of the second one, 0 otherwise.
 If the second argument is an empty bitmap then returns 1.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapHasAll(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapHasAll(bitmap,bitmap)
 </pre></div>
 
 
@@ -3735,15 +3735,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│  0  │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│  0  │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapand">bitmapAnd<a class="headerlink" href="#bitmapand" title="Permanent link">&para;</a></h2>
 <p>Two bitmap and calculation, the result is a new bitmap.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapAnd(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapAnd(bitmap,bitmap)
 </pre></div>
 
 
@@ -3756,15 +3756,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│ [3] │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│ [3] │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapor">bitmapOr<a class="headerlink" href="#bitmapor" title="Permanent link">&para;</a></h2>
 <p>Two bitmap or calculation, the result is a new bitmap.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapOr(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapOr(bitmap,bitmap)
 </pre></div>
 
 
@@ -3777,15 +3777,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─────────┐</span>
-<span class="err">│ [1,2,3,4,5] │</span>
-<span class="err">└─────────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─────────┐
+│ [1,2,3,4,5] │
+└─────────────┘
 </pre></div>
 
 
 <h2 id="bitmapxor">bitmapXor<a class="headerlink" href="#bitmapxor" title="Permanent link">&para;</a></h2>
 <p>Two bitmap xor calculation, the result is a new bitmap.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapXor(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapXor(bitmap,bitmap)
 </pre></div>
 
 
@@ -3798,15 +3798,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───────┐</span>
-<span class="err">│ [1,2,4,5] │</span>
-<span class="err">└───────────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───────┐
+│ [1,2,4,5] │
+└───────────┘
 </pre></div>
 
 
 <h2 id="bitmapandnot">bitmapAndnot<a class="headerlink" href="#bitmapandnot" title="Permanent link">&para;</a></h2>
 <p>Two bitmap andnot calculation, the result is a new bitmap.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapAndnot(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapAndnot(bitmap,bitmap)
 </pre></div>
 
 
@@ -3819,15 +3819,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res───┐</span>
-<span class="err">│ [1,2] │</span>
-<span class="err">└───────┘</span>
+<div class="codehilite"><pre><span></span>┌─res───┐
+│ [1,2] │
+└───────┘
 </pre></div>
 
 
 <h2 id="bitmapcardinality">bitmapCardinality<a class="headerlink" href="#bitmapcardinality" title="Permanent link">&para;</a></h2>
 <p>Retrun bitmap cardinality of type UInt64.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapCardinality(bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapCardinality(bitmap)
 </pre></div>
 
 
@@ -3840,15 +3840,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   5 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   5 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapandcardinality">bitmapAndCardinality<a class="headerlink" href="#bitmapandcardinality" title="Permanent link">&para;</a></h2>
 <p>Two bitmap and calculation, return cardinality of type UInt64.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapAndCardinality(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapAndCardinality(bitmap,bitmap)
 </pre></div>
 
 
@@ -3861,15 +3861,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   1 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   1 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmaporcardinality">bitmapOrCardinality<a class="headerlink" href="#bitmaporcardinality" title="Permanent link">&para;</a></h2>
 <p>Two bitmap or calculation, return cardinality of type UInt64.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapOrCardinality(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapOrCardinality(bitmap,bitmap)
 </pre></div>
 
 
@@ -3882,15 +3882,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   5 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   5 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapxorcardinality">bitmapXorCardinality<a class="headerlink" href="#bitmapxorcardinality" title="Permanent link">&para;</a></h2>
 <p>Two bitmap xor calculation, return cardinality of type UInt64.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapXorCardinality(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapXorCardinality(bitmap,bitmap)
 </pre></div>
 
 
@@ -3903,15 +3903,15 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   4 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   4 │
+└─────┘
 </pre></div>
 
 
 <h2 id="bitmapandnotcardinality">bitmapAndnotCardinality<a class="headerlink" href="#bitmapandnotcardinality" title="Permanent link">&para;</a></h2>
 <p>Two bitmap andnot calculation, return cardinality of type UInt64.</p>
-<div class="codehilite"><pre><span></span><span class="err">bitmapAndnotCardinality(bitmap,bitmap)</span>
+<div class="codehilite"><pre><span></span>bitmapAndnotCardinality(bitmap,bitmap)
 </pre></div>
 
 
@@ -3924,9 +3924,9 @@ If the second argument is an empty bitmap then returns 1.</p>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">┌─res─┐</span>
-<span class="err">│   2 │</span>
-<span class="err">└─────┘</span>
+<div class="codehilite"><pre><span></span>┌─res─┐
+│   2 │
+└─────┘
 </pre></div>
                 
                 </div>
@@ -4028,9 +4028,7 @@ If the second argument is an empty bitmap then returns 1.</p>
         
       </div>
       
-        <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/4b46a05418942e3d1551e80f943f0fc3acfd65fe" rel="external nofollow">4b46a05</a></span>
-</div>
+        
       
     </div>
   </div>
