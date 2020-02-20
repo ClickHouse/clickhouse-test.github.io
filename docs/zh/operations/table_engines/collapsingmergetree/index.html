@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?0c686ba?1582208194">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?96b39be?1582216684">
     
     
   </head>
@@ -3969,9 +3969,9 @@
 <p>当 ClickHouse 合并数据片段时，每组具有相同主键的连续行被减少到不超过两行，一行 <code>Sign = 1</code>（“状态”行），另一行 <code>Sign = -1</code> （“取消”行），换句话说，数据项被折叠了。</p>
 <p>对每个结果的数据部分 ClickHouse 保存：</p>
 <ol>
-<li>第一个“取消”和最后一个“状态”行，如果“状态”和“取消”行的数量匹配</li>
-<li>最后一个“状态”行，如果“状态”行比“取消”行多一个。</li>
-<li>第一个“取消”行，如果“取消”行比“状态”行多一个。</li>
+<li>第一个“取消”和最后一个“状态”行，如果“状态”和“取消”行的数量匹配和最后一个行是“状态”行</li>
+<li>最后一个“状态”行，如果“状态”行比“取消”行多一个或一个以上。</li>
+<li>第一个“取消”行，如果“取消”行比“状态”行多一个或一个以上。</li>
 <li>
 <p>没有行，在其他所有情况下。</p>
 <p>合并会继续，但是 ClickHouse 会把此情况视为逻辑错误并将其记录在服务日志中。这个错误会在相同的数据被插入超过一次时出现。</p>
@@ -4163,7 +4163,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/0c686baf4f810f9aba2d3da9dd0c1e068ec4a93f" rel="external nofollow">0c686ba</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/96b39be564971666bce90de0b25b2540ab03cb18" rel="external nofollow">96b39be</a></span>
 </div>
       
     </div>
