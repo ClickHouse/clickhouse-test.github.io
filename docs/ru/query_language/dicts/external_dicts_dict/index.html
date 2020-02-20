@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7329059?1582146016">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7ef480e?1582180962">
     
     
   </head>
@@ -3882,9 +3882,13 @@
                 <div id="content">
                 
                   <h1 id="dicts-external_dicts_dict">Настройка внешнего словаря<a class="headerlink" href="#dicts-external_dicts_dict" title="Permanent link">&para;</a></h1>
-<p>Конфигурация словаря имеет следующую структуру:</p>
+<p>XML-конфигурация словаря имеет следующую структуру:</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;dictionary&gt;</span>
     <span class="nt">&lt;name&gt;</span>dict_name<span class="nt">&lt;/name&gt;</span>
+
+    <span class="nt">&lt;structure&gt;</span>
+      <span class="c">&lt;!-- Complex key configuration --&gt;</span>
+    <span class="nt">&lt;/structure&gt;</span>
 
     <span class="nt">&lt;source&gt;</span>
       <span class="c">&lt;!-- Source configuration --&gt;</span>
@@ -3894,10 +3898,6 @@
       <span class="c">&lt;!-- Memory layout configuration --&gt;</span>
     <span class="nt">&lt;/layout&gt;</span>
 
-    <span class="nt">&lt;structure&gt;</span>
-      <span class="c">&lt;!-- Complex key configuration --&gt;</span>
-    <span class="nt">&lt;/structure&gt;</span>
-
     <span class="nt">&lt;lifetime&gt;</span>
       <span class="c">&lt;!-- Lifetime of dictionary in memory --&gt;</span>
     <span class="nt">&lt;/lifetime&gt;</span>
@@ -3905,12 +3905,24 @@
 </pre></div>
 
 
+<p>Соответствующий <a href="../../create/#create-dictionary-query">DDL-запрос</a> имеет следующий вид:</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="n">dict_name</span>
+<span class="p">(</span>
+    <span class="p">...</span> <span class="c1">-- attributes</span>
+<span class="p">)</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">...</span> <span class="c1">-- complex or single key configuration</span>
+<span class="k">SOURCE</span><span class="p">(...)</span> <span class="c1">-- Source configuration</span>
+<span class="n">LAYOUT</span><span class="p">(...)</span> <span class="c1">-- Memory layout configuration</span>
+<span class="n">LIFETIME</span><span class="p">(...)</span> <span class="c1">-- Lifetime of dictionary in memory</span>
+</pre></div>
+
+
 <ul>
-<li>name - Идентификатор, под которым словарь будет доступен для использования. Используйте символы <code>[a-zA-Z0-9_\-]</code>.</li>
-<li><a href="../external_dicts_dict_sources/">source</a> - Источник словаря.</li>
-<li><a href="../external_dicts_dict_layout/">layout</a> - Размещение словаря в памяти.</li>
-<li><a href="../external_dicts_dict_structure/">structure</a> - Структура словаря. Ключ и атрибуты, которые можно получить по ключу.</li>
-<li><a href="../external_dicts_dict_lifetime/">lifetime</a> - Периодичность обновления словарей.</li>
+<li><code>name</code> — Идентификатор, под которым словарь будет доступен для использования. Используйте символы <code>[a-zA-Z0-9_\-]</code>.</li>
+<li><a href="../external_dicts_dict_sources/">source</a> — Источник словаря.</li>
+<li><a href="../external_dicts_dict_layout/">layout</a> — Размещение словаря в памяти.</li>
+<li><a href="../external_dicts_dict_structure/">structure</a> — Структура словаря. Ключ и атрибуты, которые можно получить по ключу.</li>
+<li><a href="../external_dicts_dict_lifetime/">lifetime</a> — Периодичность обновления словарей.</li>
 </ul>
                 
                 </div>
@@ -4013,7 +4025,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/732905940a921b57ccf9d1c93730bb20fc28a7af" rel="external nofollow">7329059</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/7ef480e4dee2e1c38f02e645b5653f1f6450bf38" rel="external nofollow">7ef480e</a></span>
 </div>
       
     </div>

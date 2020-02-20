@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7329059?1582146016">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7ef480e?1582180962">
     
     
   </head>
@@ -2421,6 +2421,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dicts-external_dicts_dict_layout-sparse_hashed" title="sparse_hashed" class="md-nav__link">
+    sparse_hashed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#complex-key-hashed" title="complex_key_hashed" class="md-nav__link">
     complex_key_hashed
   </a>
@@ -3971,6 +3978,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dicts-external_dicts_dict_layout-sparse_hashed" title="sparse_hashed" class="md-nav__link">
+    sparse_hashed
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#complex-key-hashed" title="complex_key_hashed" class="md-nav__link">
     complex_key_hashed
   </a>
@@ -4062,10 +4076,19 @@
 </pre></div>
 
 
+<p>Соответствущий <a href="../../create/#create-dictionary-query">DDL-запрос</a>:</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="p">(...)</span>
+<span class="p">...</span>
+<span class="n">LAYOUT</span><span class="p">(</span><span class="n">LAYOUT_TYPE</span><span class="p">(</span><span class="n">param</span> <span class="n">value</span><span class="p">))</span> <span class="c1">-- layout settings</span>
+<span class="p">...</span>
+</pre></div>
+
+
 <h2 id="sposoby-razmeshcheniia-slovarei-v-pamiati">Способы размещения словарей в памяти<a class="headerlink" href="#sposoby-razmeshcheniia-slovarei-v-pamiati" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="#flat">flat</a></li>
 <li><a href="#hashed">hashed</a></li>
+<li><a href="#dicts-external_dicts_dict_layout-sparse_hashed">sparse_hashed</a></li>
 <li><a href="#cache">cache</a></li>
 <li><a href="#range-hashed">range_hashed</a></li>
 <li><a href="#complex-key-hashed">complex_key_hashed</a></li>
@@ -4084,6 +4107,11 @@
 </pre></div>
 
 
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="n">LAYOUT</span><span class="p">(</span><span class="n">FLAT</span><span class="p">())</span>
+</pre></div>
+
+
 <h3 id="hashed">hashed<a class="headerlink" href="#hashed" title="Permanent link">&para;</a></h3>
 <p>Словарь полностью хранится в оперативной памяти в виде хэш-таблиц. Словарь может содержать произвольное количество элементов с произвольными идентификаторами. На практике, количество ключей может достигать десятков миллионов элементов.</p>
 <p>Поддерживаются все виды источников. При обновлении, данные (из файла, из таблицы) читаются целиком.</p>
@@ -4094,12 +4122,36 @@
 </pre></div>
 
 
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="n">LAYOUT</span><span class="p">(</span><span class="n">HASHED</span><span class="p">())</span>
+</pre></div>
+
+
+<h3 id="dicts-external_dicts_dict_layout-sparse_hashed">sparse_hashed<a class="headerlink" href="#dicts-external_dicts_dict_layout-sparse_hashed" title="Permanent link">&para;</a></h3>
+<p>Аналогичен <code>hashed</code>, но при этом занимает меньше места в памяти и генерирует более высокую загрузку CPU.</p>
+<p>Пример конфигурации:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;layout&gt;</span>
+  <span class="nt">&lt;sparse_hashed</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/layout&gt;</span>
+</pre></div>
+
+
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="n">LAYOUT</span><span class="p">(</span><span class="n">SPARSE_HASHED</span><span class="p">())</span>
+</pre></div>
+
+
 <h3 id="complex-key-hashed">complex_key_hashed<a class="headerlink" href="#complex-key-hashed" title="Permanent link">&para;</a></h3>
 <p>Тип размещения предназначен для использования с составными <a href="../external_dicts_dict_structure/">ключами</a>. Аналогичен <code>hashed</code>.</p>
 <p>Пример конфигурации:</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;layout&gt;</span>
   <span class="nt">&lt;complex_key_hashed</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/layout&gt;</span>
+</pre></div>
+
+
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="n">LAYOUT</span><span class="p">(</span><span class="n">COMPLEX_KEY_HASHED</span><span class="p">())</span>
 </pre></div>
 
 
@@ -4134,6 +4186,18 @@
         <span class="nt">&lt;type&gt;</span>Date<span class="nt">&lt;/type&gt;</span>        
     <span class="nt">&lt;/range_max&gt;</span>
     ...
+</pre></div>
+
+
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="n">somedict</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="n">UInt64</span><span class="p">,</span>
+    <span class="k">first</span> <span class="nb">Date</span><span class="p">,</span>
+    <span class="k">last</span> <span class="nb">Date</span>
+<span class="p">)</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">id</span>
+<span class="n">LAYOUT</span><span class="p">(</span><span class="n">RANGE_HASHED</span><span class="p">())</span>
+<span class="n">RANGE</span><span class="p">(</span><span class="k">MIN</span> <span class="k">first</span> <span class="k">MAX</span> <span class="k">last</span><span class="p">)</span>
 </pre></div>
 
 
@@ -4183,6 +4247,18 @@
 </pre></div>
 
 
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="n">somedict</span><span class="p">(</span>
+    <span class="n">Abcdef</span> <span class="n">UInt64</span><span class="p">,</span>
+    <span class="n">StartTimeStamp</span> <span class="n">UInt64</span><span class="p">,</span>
+    <span class="n">EndTimeStamp</span> <span class="n">UInt64</span><span class="p">,</span>
+    <span class="n">XXXType</span> <span class="n">String</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span>
+<span class="p">)</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">Abcdef</span>
+<span class="n">RANGE</span><span class="p">(</span><span class="k">MIN</span> <span class="n">StartTimeStamp</span> <span class="k">MAX</span> <span class="n">EndTimeStamp</span><span class="p">)</span>
+</pre></div>
+
+
 <h3 id="cache">cache<a class="headerlink" href="#cache" title="Permanent link">&para;</a></h3>
 <p>Словарь хранится в кэше, состоящем из фиксированного количества ячеек. Ячейки содержат часто используемые элементы.</p>
 <p>При поиске в словаре сначала просматривается кэш. На каждый блок данных, все не найденные в кэше или устаревшие ключи запрашиваются у источника с помощью <code>SELECT attrs... FROM db.table WHERE id IN (k1, k2, ...)</code>. Затем, полученные данные записываются в кэш.</p>
@@ -4197,6 +4273,11 @@
         <span class="nt">&lt;size_in_cells&gt;</span>1000000000<span class="nt">&lt;/size_in_cells&gt;</span>
     <span class="nt">&lt;/cache&gt;</span>
 <span class="nt">&lt;/layout&gt;</span>
+</pre></div>
+
+
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="n">LAYOUT</span><span class="p">(</span><span class="k">CACHE</span><span class="p">(</span><span class="n">SIZE_IN_CELLS</span> <span class="mi">1000000000</span><span class="p">))</span>
 </pre></div>
 
 
@@ -4250,6 +4331,16 @@
             <span class="nt">&lt;null_value&gt;</span>??<span class="nt">&lt;/null_value&gt;</span>
     <span class="nt">&lt;/attribute&gt;</span>
     ...
+</pre></div>
+
+
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="n">somedict</span> <span class="p">(</span>
+    <span class="k">prefix</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">asn</span> <span class="n">UInt32</span><span class="p">,</span>
+    <span class="n">cca2</span> <span class="n">String</span> <span class="k">DEFAULT</span> <span class="s1">&#39;??&#39;</span>
+<span class="p">)</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="k">prefix</span>
 </pre></div>
 
 
@@ -4367,7 +4458,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/732905940a921b57ccf9d1c93730bb20fc28a7af" rel="external nofollow">7329059</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/7ef480e4dee2e1c38f02e645b5653f1f6450bf38" rel="external nofollow">7ef480e</a></span>
 </div>
       
     </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7329059?1582146016">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7ef480e?1582180962">
     
     
   </head>
@@ -3925,10 +3925,14 @@
 <h2 id="ext_dict_structure-key">Key<a class="headerlink" href="#ext_dict_structure-key" title="Permanent link">&para;</a></h2>
 <p>ClickHouse supports the following types of keys:</p>
 <ul>
-<li>Numeric key. UInt64. Defined in the <code>&lt;id&gt;</code> tag or using <code>PRIMARY KEY</code> keyword.</li>
+<li>Numeric key. <code>UInt64</code>. Defined in the <code>&lt;id&gt;</code> tag or using <code>PRIMARY KEY</code> keyword.</li>
 <li>Composite key. Set of values of different types. Defined in the tag <code>&lt;key&gt;</code> or <code>PRIMARY KEY</code> keyword.</li>
 </ul>
-<p>A xml structure can contain either <code>&lt;id&gt;</code> or <code>&lt;key&gt;</code>. DDL-query must contain single <code>PRIMARY KEY</code>.</p>
+<p>An xml structure can contain either <code>&lt;id&gt;</code> or <code>&lt;key&gt;</code>. DDL-query must contain single <code>PRIMARY KEY</code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You must not describe key as an attribute.</p>
+</div>
 <h3 id="ext_dict-numeric-key">Numeric Key<a class="headerlink" href="#ext_dict-numeric-key" title="Permanent link">&para;</a></h3>
 <p>Type: <code>UInt64</code>.</p>
 <p>Configuration example:</p>
@@ -4166,7 +4170,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/732905940a921b57ccf9d1c93730bb20fc28a7af" rel="external nofollow">7329059</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/7ef480e4dee2e1c38f02e645b5653f1f6450bf38" rel="external nofollow">7ef480e</a></span>
 </div>
       
     </div>

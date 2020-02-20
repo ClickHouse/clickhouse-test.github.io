@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7329059?1582146016">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7ef480e?1582180962">
     
     
   </head>
@@ -3893,6 +3893,14 @@
 </pre></div>
 
 
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="p">(...)</span>
+<span class="p">...</span>
+<span class="n">LIFETIME</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span>
+<span class="p">...</span>
+</pre></div>
+
+
 <p>Настройка <code>&lt;lifetime&gt;0&lt;/lifetime&gt;</code> запрещает обновление словарей.</p>
 <p>Можно задать интервал, внутри которого ClickHouse равномерно-случайно выберет время для обновления. Это необходимо для распределения нагрузки на источник словаря при обновлении на большом количестве серверов.</p>
 <p>Пример настройки:</p>
@@ -3904,6 +3912,11 @@
     <span class="nt">&lt;/lifetime&gt;</span>
     ...
 <span class="nt">&lt;/dictionary&gt;</span>
+</pre></div>
+
+
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="n">LIFETIME</span><span class="p">(</span><span class="k">MIN</span> <span class="mi">300</span> <span class="k">MAX</span> <span class="mi">360</span><span class="p">)</span>
 </pre></div>
 
 
@@ -3931,6 +3944,13 @@
     <span class="nt">&lt;/odbc&gt;</span>
     ...
 <span class="nt">&lt;/dictionary&gt;</span>
+</pre></div>
+
+
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="p">...</span>
+<span class="k">SOURCE</span><span class="p">(</span><span class="n">ODBC</span><span class="p">(...</span> <span class="n">invalidate_query</span> <span class="s1">&#39;SELECT update_time FROM dictionary_source where id = 1&#39;</span><span class="p">))</span>
+<span class="p">...</span>
 </pre></div>
                 
                 </div>
@@ -4033,7 +4053,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/732905940a921b57ccf9d1c93730bb20fc28a7af" rel="external nofollow">7329059</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/7ef480e4dee2e1c38f02e645b5653f1f6450bf38" rel="external nofollow">7ef480e</a></span>
 </div>
       
     </div>

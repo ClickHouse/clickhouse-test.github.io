@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7329059?1582146016">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7ef480e?1582180962">
     
     
   </head>
@@ -2352,9 +2352,36 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Общее описание
+      </label>
+    
     <a href="../../../query_language/dicts/external_dicts/" title="Общее описание" class="md-nav__link md-nav__link--active">
       <strong>Общее описание</strong>
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ext-dicts-see-also" title="Смотрите также" class="md-nav__link">
+    Смотрите также
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -3863,6 +3890,20 @@
     
   
   
+    <label class="md-nav__title" for="toc">Содержание</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ext-dicts-see-also" title="Смотрите также" class="md-nav__link">
+    Смотрите также
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                     
                   </div>
@@ -3883,8 +3924,11 @@
                 
                   <h1 id="dicts-external_dicts">Внешние словари<a class="headerlink" href="#dicts-external_dicts" title="Permanent link">&para;</a></h1>
 <p>Существует возможность подключать собственные словари из различных источников данных. Источником данных для словаря может быть локальный текстовый/исполняемый файл, HTTP(s) ресурс или другая СУБД. Подробнее смотрите в разделе "<a href="../external_dicts_dict_sources/">Источники внешних словарей</a>".</p>
-<p>ClickHouse полностью или частично хранит словари в оперативной памяти. Словари можно подгружать динамически, ClickHouse периодически обновляет их и динамически подгружает отсутствующие значения.</p>
-<p>Конфигурация внешних словарей находится в одном или нескольких файлах. Путь к конфигурации указывается в параметре <a href="../../../operations/server_settings/settings/">dictionaries_config</a>.</p>
+<p>ClickHouse:
+- Полностью или частично хранит словари в оперативной памяти.
+- Периодически обновляет их и динамически подгружает отсутствующие значения.
+- Позволяет создавать внешние словари с помощью xml-файлов или <a href="../../create/#create-dictionary-query">DDL-запросов</a>.</p>
+<p>Конфигурация внешних словарей может находится в одном или нескольких xml-файлах. Путь к конфигурации указывается в параметре <a href="../../../operations/server_settings/settings/">dictionaries_config</a>.</p>
 <p>Словари могут загружаться при старте сервера или при первом использовании, в зависимости от настройки <a href="../../../operations/server_settings/settings/">dictionaries_lazy_load</a>.</p>
 <p>Конфигурационный файл словарей имеет вид:</p>
 <div class="codehilite"><pre><span></span><span class="nt">&lt;yandex&gt;</span>
@@ -3907,11 +3951,13 @@
 </pre></div>
 
 
-<p>В одном файле можно <a href="../external_dicts_dict/">сконфигурировать</a> произвольное количество словарей. Формат файла сохраняется даже если словарь один (т.е. <code>&lt;yandex&gt;&lt;dictionary&gt; &lt;!--configuration--&gt; &lt;/dictionary&gt;&lt;/yandex&gt;</code>).</p>
-<blockquote>
-<p>можете преобразовывать значения по небольшому словарю, описав его в запросе <code>SELECT</code> (см. функцию <a href="../../functions/other_functions/">transform</a>). Эта функциональность не связана с внешними словарями.</p>
-</blockquote>
-<p>Смотрите также:</p>
+<p>В одном файле можно <a href="../external_dicts_dict/">сконфигурировать</a> произвольное количество словарей.</p>
+<p>Если вы создаёте внешние словари <a href="../../create/#create-dictionary-query">DDL-запросами</a>, то не задавайте конфигурацию словаря в конфигурации сервера.</p>
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p>Можно преобразовывать значения по небольшому словарю, описав его в запросе <code>SELECT</code> (см. функцию <a href="../../functions/other_functions/">transform</a>). Эта функциональность не связана с внешними словарями.</p>
+</div>
+<h2 id="ext-dicts-see-also">Смотрите также<a class="headerlink" href="#ext-dicts-see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../external_dicts_dict/">Настройка внешнего словаря</a></li>
 <li><a href="../external_dicts_dict_layout/">Хранение словарей в памяти</a></li>
@@ -4021,7 +4067,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/732905940a921b57ccf9d1c93730bb20fc28a7af" rel="external nofollow">7329059</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/7ef480e4dee2e1c38f02e645b5653f1f6450bf38" rel="external nofollow">7ef480e</a></span>
 </div>
       
     </div>

@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7329059?1582146016">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7ef480e?1582180962">
     
     
   </head>
@@ -2718,9 +2718,36 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        介绍
+      </label>
+    
     <a href="../../../query_language/dicts/external_dicts/" title="介绍" class="md-nav__link md-nav__link--active">
       <strong>介绍</strong>
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ext-dicts-see-also" title="See also" class="md-nav__link">
+    See also
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -3755,6 +3782,20 @@
     
   
   
+    <label class="md-nav__title" for="toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ext-dicts-see-also" title="See also" class="md-nav__link">
+    See also
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                     
                   </div>
@@ -3779,7 +3820,7 @@
 <ul>
 <li>Fully or partially stores dictionaries in RAM.</li>
 <li>Periodically updates dictionaries and dynamically loads missing values. In other words, dictionaries can be loaded dynamically.</li>
-<li>Allows to create external dictionaries with xml-files or <a href="../../create/#create-dictionary-query">DDL queries</a>.</li>
+<li>Allows to create external dictionaries with xml files or <a href="../../create/#create-dictionary-query">DDL queries</a>.</li>
 </ul>
 <p>The configuration of external dictionaries can be located in one or more xml-files. The path to the configuration is specified in the <a href="../../../operations/server_settings/settings/#server_settings-dictionaries_config">dictionaries_config</a> parameter.</p>
 <p>Dictionaries can be loaded at server startup or at first use, depending on the <a href="../../../operations/server_settings/settings/#server_settings-dictionaries_lazy_load">dictionaries_lazy_load</a> setting.</p>
@@ -3806,8 +3847,13 @@
 <p class="admonition-title">Attention</p>
 <p>You can convert values for a small dictionary by describing it in a <code>SELECT</code> query (see the <a href="../../functions/other_functions/">transform</a> function). This functionality is not related to external dictionaries.</p>
 </div>
-<p><strong>See also</strong></p>
+<h2 id="ext-dicts-see-also">See also<a class="headerlink" href="#ext-dicts-see-also" title="Permanent link">&para;</a></h2>
 <ul>
+<li><a href="../external_dicts_dict/">Configuring an External Dictionary</a></li>
+<li><a href="../external_dicts_dict_layout/">Storing Dictionaries in Memory</a></li>
+<li><a href="../external_dicts_dict_lifetime/">Dictionary Updates</a></li>
+<li><a href="../external_dicts_dict_sources/">Sources of External Dictionaries</a></li>
+<li><a href="../external_dicts_dict_structure/">Dictionary Key and Fields</a></li>
 <li><a href="../../functions/ext_dict_functions/">Functions for Working with External Dictionaries</a></li>
 </ul>
                 
@@ -3911,7 +3957,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/732905940a921b57ccf9d1c93730bb20fc28a7af" rel="external nofollow">7329059</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/7ef480e4dee2e1c38f02e645b5653f1f6450bf38" rel="external nofollow">7ef480e</a></span>
 </div>
       
     </div>

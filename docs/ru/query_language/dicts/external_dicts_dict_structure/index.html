@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7329059?1582146016">
+      <link rel="stylesheet" href="../../../assets/stylesheets/custom.css?7ef480e?1582180962">
     
     
   </head>
@@ -4013,9 +4013,9 @@
 <p>Атрибуты описываются элементами:</p>
 <ul>
 <li><code>&lt;id&gt;</code> — <a href="./#ext_dict_structure-key">столбец с ключом</a>.</li>
-<li><code>&lt;attribute&gt;</code> — <a href="./#ext_dict_structure-attributes">столбец данных</a>. Можно задать несколько столбцов.</li>
+<li><code>&lt;attribute&gt;</code> — <a href="./#ext_dict_structure-attributes">столбец данных</a>. Можно задать несколько атрибутов.</li>
 </ul>
-<p>Запрос создания словаря:</p>
+<p>Создание словаря запросом:</p>
 <div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="n">dict_name</span> <span class="p">(</span>
     <span class="n">Id</span> <span class="n">UInt64</span><span class="p">,</span>
     <span class="c1">-- attributes</span>
@@ -4033,10 +4033,10 @@
 <h2 id="ext_dict_structure-key">Ключ<a class="headerlink" href="#ext_dict_structure-key" title="Permanent link">&para;</a></h2>
 <p>ClickHouse поддерживает следующие виды ключей:</p>
 <ul>
-<li>Числовой ключ. <code>UInt64</code>. Описывается в теге <code>&lt;id&gt;</code>.</li>
-<li>Составной ключ. Набор значений разного типа. Описывается в теге <code>&lt;key&gt;</code>.</li>
+<li>Числовой ключ. <code>UInt64</code>. Описывается в теге <code>&lt;id&gt;</code> или ключевым словом <code>PRIMARY KEY</code>.</li>
+<li>Составной ключ. Набор значений разного типа. Описывается в теге <code>&lt;key&gt;</code> или ключевым словом <code>PRIMARY KEY</code>.</li>
 </ul>
-<p>Структура может содержать либо <code>&lt;id&gt;</code> либо <code>&lt;key&gt;</code>.</p>
+<p>Структура может содержать либо <code>&lt;id&gt;</code> либо <code>&lt;key&gt;</code>. DDL-запрос может содержать только <code>PRIMARY KEY</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Обратите внимание</p>
 <p>Ключ не надо дополнительно описывать в атрибутах.</p>
@@ -4053,6 +4053,19 @@
 <p>Поля конфигурации:</p>
 <ul>
 <li><code>name</code> — имя столбца с ключами.</li>
+</ul>
+<p>Для DDL-запроса:</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="p">(</span>
+    <span class="n">Id</span> <span class="n">UInt64</span><span class="p">,</span>
+    <span class="p">...</span>
+<span class="p">)</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">Id</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<ul>
+<li><code>PRIMARY KEY</code> – имя столбца с ключами.</li>
 </ul>
 <h3 id="sostavnoi-kliuch">Составной ключ<a class="headerlink" href="#sostavnoi-kliuch" title="Permanent link">&para;</a></h3>
 <p>Ключом может быть кортеж (<code>tuple</code>) из полей произвольных типов. В этом случае <a href="../external_dicts_dict_layout/">layout</a> должен быть <code>complex_key_hashed</code> или <code>complex_key_cache</code>.</p>
@@ -4077,6 +4090,17 @@
 </pre></div>
 
 
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="p">(</span>
+    <span class="n">field1</span> <span class="n">String</span><span class="p">,</span>
+    <span class="n">field2</span> <span class="n">String</span>
+    <span class="p">...</span>
+<span class="p">)</span>
+<span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="n">field1</span><span class="p">,</span> <span class="n">field2</span>
+<span class="p">...</span>
+</pre></div>
+
+
 <p>При запросе в функции <code>dictGet*</code> в качестве ключа передаётся кортеж. Пример: <code>dictGetString('dict_name', 'attr_name', tuple('string for field1', num_for_field2))</code>.</p>
 <h2 id="ext_dict_structure-attributes">Атрибуты<a class="headerlink" href="#ext_dict_structure-attributes" title="Permanent link">&para;</a></h2>
 <p>Пример конфигурации:</p>
@@ -4092,6 +4116,13 @@
         <span class="nt">&lt;is_object_id&gt;</span>true<span class="nt">&lt;/is_object_id&gt;</span>
     <span class="nt">&lt;/attribute&gt;</span>
 <span class="nt">&lt;/structure&gt;</span>
+</pre></div>
+
+
+<p>или</p>
+<div class="codehilite"><pre><span></span><span class="k">CREATE</span> <span class="k">DICTIONARY</span> <span class="n">somename</span> <span class="p">(</span>
+    <span class="n">Name</span> <span class="n">ClickHouseDataType</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span> <span class="n">EXPRESSION</span> <span class="n">rand64</span><span class="p">()</span> <span class="n">HIERARCHICAL</span> <span class="n">INJECTIVE</span> <span class="n">IS_OBJECT_ID</span>
+<span class="p">)</span>
 </pre></div>
 
 
@@ -4242,7 +4273,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/732905940a921b57ccf9d1c93730bb20fc28a7af" rel="external nofollow">7329059</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/7ef480e4dee2e1c38f02e645b5653f1f6450bf38" rel="external nofollow">7ef480e</a></span>
 </div>
       
     </div>

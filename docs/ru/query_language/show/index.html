@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?7329059?1582146016">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?7ef480e?1582180962">
     
     
   </head>
@@ -1554,6 +1554,13 @@
         <li class="md-nav__item">
   <a href="#show-tables" title="SHOW TABLES" class="md-nav__link">
     SHOW TABLES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#show-dictionaries" title="SHOW DICTIONARIES" class="md-nav__link">
+    SHOW DICTIONARIES
   </a>
   
 </li>
@@ -3940,6 +3947,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#show-dictionaries" title="SHOW DICTIONARIES" class="md-nav__link">
+    SHOW DICTIONARIES
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -3964,11 +3978,11 @@
                 
                   <h1 id="show-queries">SHOW Queries<a class="headerlink" href="#show-queries" title="Permanent link">&para;</a></h1>
 <h2 id="show-create-table">SHOW CREATE TABLE<a class="headerlink" href="#show-create-table" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="k">CREATE</span> <span class="p">[</span><span class="k">TEMPORARY</span><span class="p">]</span> <span class="k">TABLE</span> <span class="p">[</span><span class="n">db</span><span class="p">.]</span><span class="k">table</span> <span class="p">[</span><span class="k">INTO</span> <span class="n">OUTFILE</span> <span class="n">filename</span><span class="p">]</span> <span class="p">[</span><span class="n">FORMAT</span> <span class="n">format</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="k">CREATE</span> <span class="p">[</span><span class="k">TEMPORARY</span><span class="p">]</span> <span class="p">[</span><span class="k">TABLE</span><span class="o">|</span><span class="k">DICTIONARY</span><span class="p">]</span> <span class="p">[</span><span class="n">db</span><span class="p">.]</span><span class="k">table</span> <span class="p">[</span><span class="k">INTO</span> <span class="n">OUTFILE</span> <span class="n">filename</span><span class="p">]</span> <span class="p">[</span><span class="n">FORMAT</span> <span class="n">format</span><span class="p">]</span>
 </pre></div>
 
 
-<p>Возвращает один столбец типа <code>String</code> с именем statement, содержащий одно значение — запрос <code>CREATE TABLE</code>, с помощью которого была создана указанная таблица.</p>
+<p>Возвращает один столбец типа <code>String</code> с именем statement, содержащий одно значение — запрос <code>CREATE TABLE</code>, с помощью которого был создан указанный объект.</p>
 <h2 id="show-databases">SHOW DATABASES<a class="headerlink" href="#show-databases" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="n">DATABASES</span> <span class="p">[</span><span class="k">INTO</span> <span class="n">OUTFILE</span> <span class="n">filename</span><span class="p">]</span> <span class="p">[</span><span class="n">FORMAT</span> <span class="n">format</span><span class="p">]</span>
 </pre></div>
@@ -4010,6 +4024,31 @@
 │ aggregate_function_combinators │
 │ collations                     │
 └────────────────────────────────┘
+</pre></div>
+
+
+<h2 id="show-dictionaries">SHOW DICTIONARIES<a class="headerlink" href="#show-dictionaries" title="Permanent link">&para;</a></h2>
+<p>Выводит список <a href="../dicts/external_dicts/">внешних словарей</a>.</p>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="n">DICTIONARIES</span> <span class="p">[</span><span class="k">FROM</span> <span class="o">&lt;</span><span class="n">db</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="k">LIKE</span> <span class="s1">&#39;&lt;pattern&gt;&#39;</span><span class="p">]</span> <span class="p">[</span><span class="k">LIMIT</span> <span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="k">INTO</span> <span class="n">OUTFILE</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="n">FORMAT</span> <span class="o">&lt;</span><span class="n">format</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Если секция <code>FROM</code> не указана, запрос возвращает список словарей из текущей базы данных.</p>
+<p>Аналогичный результат можно получить следующим запросом:</p>
+<div class="codehilite"><pre><span></span><span class="k">SELECT</span> <span class="n">name</span> <span class="k">FROM</span> <span class="k">system</span><span class="p">.</span><span class="n">dictionaries</span> <span class="k">WHERE</span> <span class="k">database</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">db</span><span class="o">&gt;</span> <span class="p">[</span><span class="k">AND</span> <span class="n">name</span> <span class="k">LIKE</span> <span class="o">&lt;</span><span class="n">pattern</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="k">LIMIT</span> <span class="o">&lt;</span><span class="n">N</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="k">INTO</span> <span class="n">OUTFILE</span> <span class="o">&lt;</span><span class="n">filename</span><span class="o">&gt;</span><span class="p">]</span> <span class="p">[</span><span class="n">FORMAT</span> <span class="o">&lt;</span><span class="n">format</span><span class="o">&gt;</span><span class="p">]</span>
+</pre></div>
+
+
+<p><strong>Example</strong></p>
+<p>Запрос выводит первые две стоки из списка таблиц в базе данных <code>system</code>, имена которых содержат <code>reg</code>.</p>
+<div class="codehilite"><pre><span></span><span class="k">SHOW</span> <span class="n">DICTIONARIES</span> <span class="k">FROM</span> <span class="n">db</span> <span class="k">LIKE</span> <span class="s1">&#39;%reg%&#39;</span> <span class="k">LIMIT</span> <span class="mi">2</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>┌─name─────────┐
+│ regions      │
+│ region_names │
+└──────────────┘
 </pre></div>
                 
                 </div>
@@ -4112,7 +4151,7 @@
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/732905940a921b57ccf9d1c93730bb20fc28a7af" rel="external nofollow">7329059</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/7ef480e4dee2e1c38f02e645b5653f1f6450bf38" rel="external nofollow">7ef480e</a></span>
 </div>
       
     </div>
