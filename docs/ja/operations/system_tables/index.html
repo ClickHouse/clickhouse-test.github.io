@@ -52,7 +52,7 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?96b39be?1582216684">
+      <link rel="stylesheet" href="../../assets/stylesheets/custom.css?71b26c8?1582270111">
     
     
   </head>
@@ -4981,77 +4981,75 @@ This table can be used for monitoring. The table contains a row for every Replic
 
 <div class="codehilite"><pre><span></span>Row 1:
 ──────
-database:           merge
-table:              visits
-engine:             ReplicatedCollapsingMergeTree
-is_leader:          1
-is_readonly:        0
-is_session_expired: 0
-future_parts:       1
-parts_to_check:     0
-zookeeper_path:     /clickhouse/tables/01-06/visits
-replica_name:       example01-06-1.yandex.ru
-replica_path:       /clickhouse/tables/01-06/visits/replicas/example01-06-1.yandex.ru
-columns_version:    9
-queue_size:         1
-inserts_in_queue:   0
-merges_in_queue:    1
-log_max_index:      596273
-log_pointer:        596274
-total_replicas:     2
-active_replicas:    2
+database:                   merge
+table:                      visits
+engine:                     ReplicatedCollapsingMergeTree
+is_leader:                  1
+can_become_leader:          1
+is_readonly:                0
+is_session_expired:         0
+future_parts:               1
+parts_to_check:             0
+zookeeper_path:             /clickhouse/tables/01-06/visits
+replica_name:               example01-06-1.yandex.ru
+replica_path:               /clickhouse/tables/01-06/visits/replicas/example01-06-1.yandex.ru
+columns_version:            9
+queue_size:                 1
+inserts_in_queue:           0
+merges_in_queue:            1
+part_mutations_in_queue:    0
+queue_oldest_time:          2020-02-20 08:34:30
+inserts_oldest_time:        0000-00-00 00:00:00
+merges_oldest_time:         2020-02-20 08:34:30
+part_mutations_oldest_time: 0000-00-00 00:00:00
+oldest_part_to_get:
+oldest_part_to_merge_to:    20200220_20284_20840_7
+oldest_part_to_mutate_to:
+log_max_index:              596273
+log_pointer:                596274
+last_queue_update:          2020-02-20 08:34:32
+absolute_delay:             0
+total_replicas:             2
+active_replicas:            2
 </pre></div>
 
 
 <p>Columns:</p>
-<div class="codehilite"><pre><span></span>database:          Database name
-table:              Table name
-engine:            Table engine name
-
-is_leader:          Whether the replica is the leader.
-
-Only one replica at a time can be the leader. The leader is responsible for selecting background merges to perform.
-Note that writes can be performed to any replica that is available and has a session in ZK, regardless of whether it is a leader.
-
-is_readonly:        Whether the replica is in read-only mode.
-This mode is turned on if the config doesn&#39;t have sections with ZooKeeper, if an unknown error occurred when reinitializing sessions in ZooKeeper, and during session reinitialization in ZooKeeper.
-
-is_session_expired: Whether the session with ZooKeeper has expired.
-Basically the same as &#39;is_readonly&#39;.
-
-future_parts:       The number of data parts that will appear as the result of INSERTs or merges that haven&#39;t been done yet.
-
-parts_to_check:    The number of data parts in the queue for verification.
-A part is put in the verification queue if there is suspicion that it might be damaged.
-
-zookeeper_path:     Path to table data in ZooKeeper.
-replica_name:       Replica name in ZooKeeper. Different replicas of the same table have different names.
-replica_path:      Path to replica data in ZooKeeper. The same as concatenating &#39;zookeeper_path/replicas/replica_path&#39;.
-
-columns_version:    Version number of the table structure.
-Indicates how many times ALTER was performed. If replicas have different versions, it means some replicas haven&#39;t made all of the ALTERs yet.
-
-queue_size:         Size of the queue for operations waiting to be performed.
-Operations include inserting blocks of data, merges, and certain other actions.
-It usually coincides with &#39;future_parts&#39;.
-
-inserts_in_queue:   Number of inserts of blocks of data that need to be made.
-Insertions are usually replicated fairly quickly. If this number is large, it means something is wrong.
-
-merges_in_queue:    The number of merges waiting to be made.
-Sometimes merges are lengthy, so this value may be greater than zero for a long time.
-
-The next 4 columns have a non-zero value only where there is an active session with ZK.
-
-log_max_index:      Maximum entry number in the log of general activity.
-log_pointer:        Maximum entry number in the log of general activity that the replica copied to its execution queue, plus one.
-If log_pointer is much smaller than log_max_index, something is wrong.
-
-total_replicas:     The total number of known replicas of this table.
-active_replicas:    The number of replicas of this table that have a session in ZooKeeper (i.e., the number of functioning replicas).
-</pre></div>
-
-
+<ul>
+<li><code>database</code> (<code>String</code>) - Database name</li>
+<li><code>table</code> (<code>String</code>) - Table name</li>
+<li><code>engine</code> (<code>String</code>) - Table engine name</li>
+<li><code>is_leader</code> (<code>UInt8</code>) - Whether the replica is the leader.<br />
+Only one replica at a time can be the leader. The leader is responsible for selecting background merges to perform.<br />
+Note that writes can be performed to any replica that is available and has a session in ZK, regardless of whether it is a leader.</li>
+<li><code>can_become_leader</code> (<code>UInt8</code>) - Whether the replica can be elected as a leader.</li>
+<li><code>is_readonly</code> (<code>UInt8</code>) - Whether the replica is in read-only mode.<br />
+This mode is turned on if the config doesn't have sections with ZooKeeper, if an unknown error occurred when reinitializing sessions in ZooKeeper, and during session reinitialization in ZooKeeper.</li>
+<li><code>is_session_expired</code> (<code>UInt8</code>) - the session with ZooKeeper has expired. Basically the same as <code>is_readonly</code>.</li>
+<li><code>future_parts</code> (<code>UInt32</code>) - The number of data parts that will appear as the result of INSERTs or merges that haven't been done yet.</li>
+<li><code>parts_to_check</code> (<code>UInt32</code>) - The number of data parts in the queue for verification. A part is put in the verification queue if there is suspicion that it might be damaged.</li>
+<li><code>zookeeper_path</code> (<code>String</code>) - Path to table data in ZooKeeper.</li>
+<li><code>replica_name</code> (<code>String</code>) - Replica name in ZooKeeper. Different replicas of the same table have different names.</li>
+<li><code>replica_path</code> (<code>String</code>) - Path to replica data in ZooKeeper. The same as concatenating 'zookeeper_path/replicas/replica_path'.</li>
+<li><code>columns_version</code> (<code>Int32</code>) - Version number of the table structure. Indicates how many times ALTER was performed. If replicas have different versions, it means some replicas haven't made all of the ALTERs yet.</li>
+<li><code>queue_size</code> (<code>UInt32</code>) - Size of the queue for operations waiting to be performed. Operations include inserting blocks of data, merges, and certain other actions. It usually coincides with <code>future_parts</code>.</li>
+<li><code>inserts_in_queue</code> (<code>UInt32</code>) - Number of inserts of blocks of data that need to be made. Insertions are usually replicated fairly quickly. If this number is large, it means something is wrong.</li>
+<li><code>merges_in_queue</code> (<code>UInt32</code>) - The number of merges waiting to be made. Sometimes merges are lengthy, so this value may be greater than zero for a long time.</li>
+<li><code>part_mutations_in_queue</code> (<code>UInt32</code>) - The number of mutations waiting to be made.</li>
+<li><code>queue_oldest_time</code> (<code>DateTime</code>) - If <code>queue_size</code> greater than 0, shows when the oldest operation was added to the queue.</li>
+<li><code>inserts_oldest_time</code> (<code>DateTime</code>) - See <code>queue_oldest_time</code></li>
+<li><code>merges_oldest_time</code> (<code>DateTime</code>) - See <code>queue_oldest_time</code></li>
+<li><code>part_mutations_oldest_time</code> (<code>DateTime</code>) - See <code>queue_oldest_time</code></li>
+</ul>
+<p>The next 4 columns have a non-zero value only where there is an active session with ZK.</p>
+<ul>
+<li><code>log_max_index</code> (<code>UInt64</code>) - Maximum entry number in the log of general activity.</li>
+<li><code>log_pointer</code> (<code>UInt64</code>) - Maximum entry number in the log of general activity that the replica copied to its execution queue, plus one. If <code>log_pointer</code> is much smaller than <code>log_max_index</code>, something is wrong.</li>
+<li><code>last_queue_update</code> (<code>DateTime</code>) - When the queue was updated last time.</li>
+<li><code>absolute_delay</code> (<code>UInt64</code>) - How big lag in seconds the current replica has.</li>
+<li><code>total_replicas</code> (<code>UInt8</code>) - The total number of known replicas of this table.</li>
+<li><code>active_replicas</code> (<code>UInt8</code>) - The number of replicas of this table that have a session in ZooKeeper (i.e., the number of functioning replicas).</li>
+</ul>
 <p>If you request all the columns, the table may work a bit slowly, since several reads from ZooKeeper are made for each row.
 If you don't request the last 4 columns (log_max_index, log_pointer, total_replicas, active_replicas), the table works quickly.</p>
 <p>For example, you can check that everything is working correctly like this:</p>
@@ -5368,7 +5366,7 @@ path:           /clickhouse/tables/01-08/visits/replicas
       </div>
       
         <div class="md-footer-social">
-  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/96b39be564971666bce90de0b25b2540ab03cb18" rel="external nofollow">96b39be</a></span>
+  <span class="md-footer-copyright__highlight">Built from <a href="https://github.com/ClickHouse/ClickHouse/commit/71b26c8f9b91b99ff3656474d1bd09b5b7f55437" rel="external nofollow">71b26c8</a></span>
 </div>
       
     </div>

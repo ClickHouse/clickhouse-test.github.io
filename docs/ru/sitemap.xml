@@ -2,992 +2,992 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://clickhouse.yandex/docs/ru/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/introduction/distinctive_features/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/introduction/features_considered_disadvantages/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/introduction/performance/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/introduction/history/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/introduction/info/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/introduction/adopters/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/install/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/tutorial/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/example_datasets/ontime/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/example_datasets/nyc_taxi/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/example_datasets/amplab_benchmark/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/example_datasets/wikistat/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/example_datasets/criteo/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/example_datasets/star_schema/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/getting_started/example_datasets/metrica/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/cli/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/tcp/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/http/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/mysql/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/formats/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/jdbc/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/odbc/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/cpp/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/third-party/client_libraries/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/third-party/integrations/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/third-party/gui/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/interfaces/third-party/proxy/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/database_engines/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/database_engines/mysql/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/mergetree/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/replication/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/custom_partitioning_key/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/replacingmergetree/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/summingmergetree/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/aggregatingmergetree/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/collapsingmergetree/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/versionedcollapsingmergetree/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/graphitemergetree/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/log_family/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/stripelog/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/log/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/tinylog/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/kafka/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/mysql/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/jdbc/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/odbc/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/hdfs/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/distributed/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/external_data/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/dictionary/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/merge/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/file/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/null/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/set/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/join/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/url/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/view/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/materializedview/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/memory/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/table_engines/buffer/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/syntax/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/select/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/insert_into/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/create/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/alter/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/system/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/show/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/misc/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/arithmetic_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/comparison_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/logical_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/type_conversion_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/date_time_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/string_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/string_search_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/string_replace_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/conditional_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/math_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/rounding_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/array_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/splitting_merging_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/bit_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/bitmap_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/hash_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/random_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/uuid_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/encoding_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/url_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/ip_address_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/json_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/higher_order_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/ext_dict_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/ym_dict_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/in_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/array_join/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/geo/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/functions_for_nulls/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/machine_learning_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/introspection/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/functions/other_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/agg_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/agg_functions/reference/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/agg_functions/combinators/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/agg_functions/parametric_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/file/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/merge/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/numbers/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/remote/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/url/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/mysql/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/jdbc/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/odbc/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/hdfs/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/table_functions/input/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_layout/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_lifetime/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_sources/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_structure/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/external_dicts_dict_hierarchical/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/dicts/internal_dicts/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/query_language/operators/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/int_uint/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/float/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/decimal/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/boolean/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/string/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/fixedstring/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/uuid/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/date/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/datetime/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/enum/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/array/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/nested_data_structures/aggregatefunction/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/tuple/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/nullable/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/nested_data_structures/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/nested_data_structures/nested/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/special_data_types/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/special_data_types/expression/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/special_data_types/set/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/special_data_types/nothing/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/special_data_types/interval/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/domains/overview/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/domains/ipv4/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/data_types/domains/ipv6/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/guides/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/guides/apply_catboost_model/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/requirements/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/monitoring/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/troubleshooting/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/tips/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/update/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/access_rights/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/backup/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/configuration_files/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/quotas/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/system_tables/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/performance/sampling_query_profiler/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/performance_test/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/server_settings/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/server_settings/settings/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/settings/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/settings/permissions_for_queries/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/settings/query_complexity/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/settings/settings/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/settings/constraints_on_settings/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/settings/settings_profiles/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/settings/settings_users/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/utils/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-copier/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/operations/utils/clickhouse-local/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/developer_instruction/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/architecture/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/browse_code/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/build/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/build_osx/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/build_cross_osx/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/style/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/tests/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/development/contrib/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/changelog/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/security_changelog/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/roadmap/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/extended_roadmap/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://clickhouse.yandex/docs/ru/faq/general/</loc>
-     <lastmod>2020-02-20</lastmod>
+     <lastmod>2020-02-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
